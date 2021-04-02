@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/vanue/add', [App\Http\Controllers\HomeController::class, 'add_vanue'])->name('vanue.add');
+
+Route::get('/vanue/create', [App\Http\Controllers\HomeController::class, 'add_vanue'])->name('vanue.create');
+
+
