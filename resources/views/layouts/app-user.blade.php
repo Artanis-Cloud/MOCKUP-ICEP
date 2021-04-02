@@ -56,35 +56,13 @@
                 <!-- Menu item -->
                 <div id="accordion">
                     <ul class="p-0 m-0 mt-3 side-menu">
-                        @if(Auth::user()->role == 0 || Auth::user()->role == 1 || Auth::user()->role == 2 || Auth::user()->role == 3)
                         <li class="px-3 side-menu-item"><a href="{{ route('home') }}" class="py-3 pl-4 w-100">Dashboard</a></li>
-                        <!-- Sub menu parent -->
-                        <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100">Permohonan Baru</a></li>
-                        @endif
-                        @if(Auth::user()->role == 0)
-                        <!-- Sub menu parent -->
-                        <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100" >Senarai Permhonan</a></li>
-                        <!-- Sub menu parent -->
-                        <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100" >Senarai Surat</a></li>
-                        @endif
-                        @if(Auth::user()->role == 4)
-                        <!-- Sub menu parent -->
-                        <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100" >Senarai Pengguna Sistem</a></li>
 
-                        <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100" >Audit Trail</a></li>
+                        <li class="px-3 side-menu-item"><a href="{{ route('vanue.add') }}" class="py-3 pl-4 w-100">Add New Vanue</a></li>
 
-                        <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100" >Audit Trail Keluar Masuk Pengguna</a></li>
 
-                        @endif
-                        @if(Auth::user()->role == 5)
-                        <!-- Sub menu parent -->
-                        <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100" >Halaman Utama</a></li>
-
-                        <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100" >Permohonan Baru</a></li>
-
-                        <!-- <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100" >Senarai Permohonan </a></li> -->
-
-                        <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100 sub-menu-parent" data-toggle="collapse" data-target="#table-sub-menu3" aria-expanded="false" aria-controls="table-sub-menu">Senarai Permohonan </a></li>
+                       
+                        {{-- <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100 sub-menu-parent" data-toggle="collapse" data-target="#table-sub-menu3" aria-expanded="false" aria-controls="table-sub-menu">Senarai Permohonan </a></li>
                         <div id="table-sub-menu3" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                             <ul class="p-0 side-sub-menu">
                                 <li class="px-3 side-sub-menu-item"><a href="#" class="pl-4 w-100">Permohonan Sedang Diproses </a></li>
@@ -93,17 +71,17 @@
                                 <li class="px-3 side-sub-menu-item"><a href="#" class="pl-4 w-100">Permohonan Tidak Berkaitan </a></li>
                                 <li class="px-3 side-sub-menu-item"><a href="#" class="pl-4 w-100">Permohonan Batal </a></li>
                             </ul>
-                        </div>
+                        </div> --}}
 
                         <!-- <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100" >Manual Pengguna</a></li> -->
 
 
-                        @endif
+                        \
 
                     </ul>
                 </div>
             </div>
-                        @endif
+            @endif
 
         </div>
 
