@@ -29,6 +29,8 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('Regna/assets/css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('Regna/assets/css/search.css') }}" rel="stylesheet">
+
 
   <!-- =======================================================
   * Template Name: Regna - v4.1.0
@@ -92,6 +94,56 @@
   -webkit-animation: NAME-YOUR-ANIMATION 1.5s forwards;
   -webkit-animation-timing-function: linear;
 }
+
+.btnlogin{
+  display: block;
+  width: 100px;
+  line-height: 40px;
+  background:#e89a3d;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.btnlogin:before,
+.btnlogin:after{
+  position: absolute;
+  content: "";
+  transition: all .25s;
+}
+
+.btnlogin:before{
+  border-bottom: 2px solid yellow;
+  border-left: 2px solid yellow;
+  width: 10%;
+  height: 33%;
+  left: -10px;
+  bottom: -10px;
+}
+
+.btnlogin:after{
+  border-top: 2px solid yellow;
+  border-right: 2px solid yellow;
+  width: 10%;
+  height: 33%;
+  top: -10px;
+  right: -10px;
+}
+
+.btnlogin:hover:before{
+  width: 112%;
+  height: 140%;
+}
+
+.btnlogin:hover:after{
+  width: 112%;
+  height: 140%;
+}
   </style>
 </head>
 
@@ -139,7 +191,10 @@
         </form>
     @endauth
     @guest
-        <a href="{{ route('login') }}" class="btn-get-started"> LOG IN </a>
+
+        <a class="btnlogin" href="{{ route('login') }}"> Log In</a>
+
+        {{-- <a href="{{ route('login') }}" class="btn-get-started"> LOG IN </a> --}}
     @endguest
   </header><!-- End Header -->
 
@@ -148,7 +203,75 @@
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="10">
       <h2>Welcome to</h2>
       <h1>Venue Management System (VMS)</h1>
-      <a href="#about" class="btn-get-started">More Details</a>
+
+      <div class="container">
+		<div class="card-view">
+				<div class="search-form-box top-search">
+						<div class="input-group">
+							<input type="text" class="form-control click-me h100" placeholder="Search Venue, Hotel....">
+							<div class="input-group-append">
+									<select class="custom-select">
+											<option  selected>Kuala Lumpur</option>
+											<option>Pulau Pinang</option>
+											<option>Johor</option>														</h2></option>
+											<option>Sabah</option>
+										</select>
+							<button type="button" class="btn btn-primary search-btn">
+							<img src="https://md-aqil.github.io/images/Search.png" alt="">
+							</button>
+
+						</div>
+						<ul class="drop-menu text-left suggestion-search-menu add-scroll">
+							<li>
+								<a href="#" class="suggestion-anchor">
+									<div class="sleft">
+										<div class="media">
+
+											<div class="media-body">
+												<h5>Kuala Lumpur</h5>
+												<p>Kuala Lumpur</p>
+											</div>
+											</div>
+									</div>
+
+								</a>
+							</li>
+							<li>
+								<a href="#" class="suggestion-anchor">
+									<div class="sleft">
+										<div class="media">
+
+											<div class="media-body">
+												<h5>Kuala Lumpur</h5>
+												<p>Kuala Lumpur</p>
+											</div>
+											</div>
+									</div>
+
+								</a>
+							</li>
+							<li>
+								<a href="#" class="suggestion-anchor">
+									<div class="sleft">
+										<div class="media">
+
+											<div class="media-body">
+												<h5>Kuala Lumpur</h5>
+												<p>Kuala Lumpur</p>
+											</div>
+											</div>
+									</div>
+
+								</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+		</div>
+
+	</div>
+
     </div>
   </section><!-- End Hero Section -->
 
@@ -256,4 +379,70 @@
 });
 </script>
 
+{{-- search function --}}
+<script>
+    $('.drop').click(function () {
+	$(this).toggleClass('open').siblings().removeClass('open');
+})
+
+$('.drop-menu li').each(function() {
+var delay = $(this).index() * 100 + 'ms';
+
+$(this).css({
+	'-webkit-transition-delay': delay,
+	'-moz-transition-delay': delay,
+	'-o-transition-delay': delay,
+	'transition-delay': delay
+});
+});
+
+
+
+(function() {
+	$('select').each(function() {
+		$(this).hide();
+		makeElement($(this));
+	});
+
+	function makeElement(select) {
+		var
+		$div = $('<div />', {class:'ui-select'}).insertAfter(select),
+		$nav = $('<span />').click(function() {
+			$(this).parent().toggleClass('open');
+		}).appendTo($div),
+		$el = $('<ul />').appendTo($div);
+		select.find('option').map(function(i) {
+
+			var li = $('<li />').append($(this).text());
+				li.click(onSelect.bind($div, li, $(this).val(), select, $nav));
+			if($(this).attr('selected')) {
+				li.addClass('selected');
+			}
+			var delay = i * 100 + 'ms';
+			li.css({
+				'-webkit-transition-delay': delay,
+		        '-moz-transition-delay': delay,
+		        '-o-transition-delay': delay,
+		        'transition-delay': delay
+			});
+			$el.append(li);
+		});
+		var selected = $el.find('li.selected');
+			selected = selected.length ? selected.html() : $el.find('li:first-child').addClass('selected').html();
+		$nav.html(selected);
+		// addAnimateDelay($el);
+	}
+
+	function onSelect(li, value, select, $nav) {
+		this.removeClass('open');
+		li.addClass('selected').siblings().removeClass('selected');
+		select.val(value).trigger('change');
+		$nav.html(li.html());
+	}
+})();
+$('.click-me').click(function () {
+	$('.drop-menu').toggleClass('open');
+})
+
+</script>
 </html>

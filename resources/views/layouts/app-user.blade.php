@@ -35,8 +35,8 @@
         <div class="side-bar side-bar-lg-active" data-theme="purple">
             <!-- Brand details -->
             <div class="mt-3 side-menu-brand d-flex flex-column justify-content-center align-items-center clear">
-                <img src="{{ asset('https://www.atvadventurepark.com/images/hutan.png') }}" alt="bran_name" class="brand-img">
-                <a href="{{ route('home') }}" class="mt-2 ml-2 brand-name font-weight-bold" style="text-align: center; font-size: 20px !important;">Permohonan Data Geospatial</a>
+                <img src="{{ asset('https://icep.com.my/wp-content/uploads/2017/08/logo-new.png') }}" alt="bran_name" class="brand-img">
+                <a href="{{ route('home') }}" class="mt-2 ml-2 brand-name font-weight-bold" style="text-align: center; font-size: 20px !important;padding-top: 10%;">iCEP - International Conference and Exhibition Professionals</a>
             </div>
             @if(Auth::user())
             <!-- Side bar menu -->
@@ -228,7 +228,7 @@
 
     <!-- Footer section -->
     <footer class="flex-row p-4 footer-full-body d-flex justify-content-between text-secondary" style="background: linear-gradient(to bottom, #cccccc 0%, #ffffff 110%) !important;">
-        <p>&copy; Hakcipta Terpelihara 2020. <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">Jabatan Perhutanan Semenanjung Malaysia</font></a></p>
+        <p>&copy; Hakcipta Terpelihara 2021. <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
         <p>Versi 1.0</p>
     </footer>
   </div>
