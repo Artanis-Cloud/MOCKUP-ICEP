@@ -565,7 +565,7 @@ label {
 .btn-outline-primary,
 .btn-outline-primary:focus {
   background: unset !important;
-  color: #003e61 !important;
+  color: #000000 !important;
 }
 
 .btn-primary:active,

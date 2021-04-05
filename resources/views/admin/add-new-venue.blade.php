@@ -3,9 +3,7 @@
 @section('content')
 <div class="p-4 page-body text-dark">
 
-  <div class="flex-row page-heading border-bottom d-flex">
 
-  </div>
 
   <!-- Small card component -->
 
