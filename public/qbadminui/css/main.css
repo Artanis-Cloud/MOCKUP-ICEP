@@ -550,8 +550,8 @@ label {
 .btn-primary,
 .btn-outline-primary {
   color: #ffffff !important;
-  background: #003e61 !important;
-  border-color: #003e61 !important;
+  background: #e89a3d  !important;
+  border-color: #e89a3d  !important;
 }
 
 .primary-btn-hover-focus,
@@ -1048,7 +1048,7 @@ button.close {
 .badge-primary,
 .badge-rounded-primary,
 .badge-square-primary {
-  background-color: #003e61 !important;
+  background-color: #e89a3d !important;
 }
 
 .badge-secondary,
@@ -1285,7 +1285,7 @@ button.close {
   align-items: center;
   width: 3rem;
   height: 3rem;
-  background: #003e61;
+  background: #e89a3d;
   position: absolute;
   left: -3rem;
   top: 0;
@@ -1312,7 +1312,7 @@ button.close {
 
 .side-bar {
   /* background: linear-gradient(-154deg, #639, #33214b) !important; */
-  background: linear-gradient(-154deg, #003E61, #003473) !important;
+  background: #E89A3D!important;
   height: 100vh !important;
   width: 17rem !important;
   visibility: hidden;
@@ -1331,7 +1331,7 @@ button.close {
 }
 
 .side-bar .side-menu-brand .brand-name {
-  color: #ffffff !important;
+  color: #2F4858 !important;
   font-size: 1.5rem;
 }
 
@@ -1345,7 +1345,7 @@ button.close {
 }
 
 .side-bar .the_menu .side-menu-heading {
-  color: #ffffff !important;
+  color: #2F4858 !important;
   border-bottom: 1px solid #ffffff !important;
 }
 
@@ -1361,7 +1361,7 @@ button.close {
 .side-bar .side-sub-menu-item a {
   font-size: 0.9rem !important;
   display: block;
-  color: #ffffff !important;
+  color:  #2F4858 !important;
   transition: all ease 0.3s;
   position: relative !important;
 }
@@ -1473,7 +1473,7 @@ button.close {
 
 .navbar-brand span {
   height: 1px;
-  background: #6c757d !important;
+  background: #fff !important;
   width: 30px;
   display: block;
   margin-bottom: 6px;

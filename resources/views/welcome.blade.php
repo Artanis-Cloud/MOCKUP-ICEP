@@ -171,7 +171,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           {{-- <li><a class="nav-link scrollto active" href="#hero">Laman Utama</a></li> --}}
-          <li><a class="nav-link scrollto active" href="#about">ABOUT</a></li>
+          <li><a class="nav-link scrollto active" href="#about">HOME</a></li>
           <li class="dropdown"><a href="#"><span>VENUE</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{ route('hotel') }}">HOTEL</a></li>
@@ -185,7 +185,7 @@
       </nav><!-- .navbar -->
     </div>
     @auth
-        <a href="#" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> LOG KELUAR </a>
+        <a class="btnlogin" href="#" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> LOG KELUAR </a>
         <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
             {{ csrf_field() }}
         </form>
@@ -309,7 +309,8 @@
           <div class="row counters">
             <div class="col-lg-6 col-6 text-center">
                 {{-- <span data-purecounter-start="0" data-purecounter-end="534" data-purecounter-duration="1" class="purecounter"></span> --}}
-                <p style="text-align:justify;color: #fff;">BERJAYA HALL, KUALA LUMPUR, MALAYSIA</p>
+                <p style="text-align:justify;color: #fff;font-size: 20px;">BERJAYA HALL, KUALA LUMPUR, MALAYSIA</p>
+                <p style="text-align:justify;color: #fff;">An iconic building with traditional architecture steep in custom and history. Variety of halls, meeting rooms in modern settings and open spaces. The flexibility that allows for tailor-made event concepts – for traditional and new formats. Located in the heart of the nation’s capital and 45 minutes from Kuala Lumpur International Airport (KLIA). Accessible via public transport and walking distant from malls, restaurants, entertainment centres and 3 to 5 star hotels. Dedicated and specialised team working with you hand-in-hand to ensure your event runs swimmingly. This is why we are the preferred venue for local and international conventions, concerts, weddings and other prestigious events in Malaysia.</p>
 
               </div>
             <div class="col-lg-6 col-6 text-center">
@@ -328,11 +329,7 @@
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
 
-      </div>
-    </div>
 
     <div class="container">
       <div class="copyright">

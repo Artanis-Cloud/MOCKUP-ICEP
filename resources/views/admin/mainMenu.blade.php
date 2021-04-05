@@ -51,8 +51,8 @@ a:active {
   </div>
 
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  <div  style="font-size: 180%;" >
-    <i class="fa fa-home" aria-hidden="true"></i>
+  <div  style="font-size: 180%;color: #fff;" >
+    <i class="fa fa-home" aria-hidden="true" style="color: #fff;"></i>
     Halaman Utama
   </div>
   <hr style="background-color: black !important;">

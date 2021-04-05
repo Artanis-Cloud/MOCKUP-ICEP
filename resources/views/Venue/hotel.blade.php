@@ -395,7 +395,7 @@ ul {
       <nav id="navbar" class="navbar">
         <ul>
           {{-- <li><a class="nav-link scrollto active" href="#hero">Laman Utama</a></li> --}}
-          <li><a class="nav-link scrollto " href="{{ route('welcome') }}">ABOUT</a></li>
+          <li><a class="nav-link scrollto " href="{{ route('welcome') }}">HOME</a></li>
           <li class="dropdown"><a href="#"><span>VENUE</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{ route('hotel') }}">HOTEL</a></li>
@@ -552,10 +552,10 @@ ul {
             </div>
           </div>
       </section>
-      <br>
-      <section id="fact" style="padding-bottom: 4%;">
+
+      <section id="fact" style="padding-bottom: 3%;background-color: #E89A3D;">
         <div class="container" data-aos="fade-up">
-          <div class="section-header">
+          <div class="section-header" style="padding-top: 2%;">
             <h3 class="section-title">Most Popular Venue</h3><br>
             {{-- <p class="section-description">Y.B. Dato’ Teng Chang Khim</p> --}}
           </div>
@@ -581,24 +581,11 @@ ul {
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
 
-      </div>
-    </div>
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright.
-      </div>
-      <div class="credits">
-        <!--
-        All the links in the footer should remain intact.
-        You can delete the links only if you purchased the pro version.
-        Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
-      -->
-        {{-- Designed by <a href="https://bootstrapmade.com/">Arghhdann</a> --}}
+        <p>&copy; Copyright © 2021 <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
       </div>
     </div>
   </footer><!-- End Footer -->

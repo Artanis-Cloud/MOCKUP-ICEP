@@ -202,7 +202,7 @@
             </div>
               <div class="col-md-6">
 
-                <button type="submit" onclick="return confirm('Confirm Submit?')" class="m-auto btn btn-primary btn-outline-primary badge-pill btn-block w-75">Add Vanue</button>
+                <button type="submit" onclick="return confirm('Confirm Submit?')" class="m-auto btn btn-primary btn-outline-primary badge-pill btn-block w-75">Add Venue</button>
               </div>
           </div>
         </form>
