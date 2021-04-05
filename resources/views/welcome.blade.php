@@ -99,7 +99,7 @@
   display: block;
   width: 100px;
   line-height: 40px;
-  background:#e89a3d;
+  background:#E89A3D;
   text-align: center;
   position: relative;
   text-decoration: none;
@@ -299,24 +299,24 @@
 
         </div>
       </section>
-      <br>
-      <section id="fact" style="padding-bottom: 4%;">
+
+      <section id="fact" style="padding-bottom: 3%;background-color: #E89A3D;">
         <div class="container" data-aos="fade-up">
-          <div class="section-header">
+          <div class="section-header" style="padding-top: 2%;">
             <h3 class="section-title">Most Popular Venue</h3><br>
             {{-- <p class="section-description">Y.B. Dato’ Teng Chang Khim</p> --}}
           </div>
           <div class="row counters">
+            <div class="col-lg-6 col-6 text-center">
+                {{-- <span data-purecounter-start="0" data-purecounter-end="534" data-purecounter-duration="1" class="purecounter"></span> --}}
+                <p style="text-align:justify;color: #fff;">BERJAYA HALL, KUALA LUMPUR, MALAYSIA</p>
 
+              </div>
             <div class="col-lg-6 col-6 text-center">
                 <img src="http:\/\/ezran.my\/ACES\/wp-content\/uploads\/2021\/02\/dewan1.jpg" style="height: 359px;" alt="Kerajaan Selangor">
             </div>
 
-            <div class="col-lg-6 col-6 text-center">
-              {{-- <span data-purecounter-start="0" data-purecounter-end="534" data-purecounter-duration="1" class="purecounter"></span> --}}
-              <p style="text-align:justify;">BERJAYA HALL, KUALA LUMPUR, MALAYSIA</p>
 
-            </div>
 
           </div>
 
@@ -336,16 +336,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright.
-      </div>
-      <div class="credits">
-        <!--
-        All the links in the footer should remain intact.
-        You can delete the links only if you purchased the pro version.
-        Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
-      -->
-        {{-- Designed by <a href="https://bootstrapmade.com/">Arghhdann</a> --}}
+        <p>&copy; Copyright © 2021 <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
       </div>
     </div>
   </footer><!-- End Footer -->
