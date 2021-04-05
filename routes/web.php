@@ -23,6 +23,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/vanue/add', [App\Http\Controllers\HomeController::class, 'add_vanue'])->name('vanue.add');
 
-Route::get('/vanue/create', [App\Http\Controllers\HomeController::class, 'add_vanue'])->name('vanue.create');
+Route::post('/vanue/create', [App\Http\Controllers\HomeController::class, 'add_vanue'])->name('vanue.create');
 
 
