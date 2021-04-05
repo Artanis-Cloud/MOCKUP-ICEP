@@ -119,7 +119,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           {{-- <li><a class="nav-link scrollto active" href="#hero">Laman Utama</a></li> --}}
-          <li><a class="nav-link scrollto active" href="#about">ABOUT</a></li>
+          <li><a class="nav-link scrollto " href="#">ABOUT</a></li>
           <li class="dropdown"><a href="#"><span>VENUE</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{ route('hotel') }}">HOTEL</a></li>
@@ -132,22 +132,14 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
     </div>
-    @auth
-        <a href="#" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> LOG KELUAR </a>
-        <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
-            {{ csrf_field() }}
-        </form>
-    @endauth
-    @guest
-        <a href="{{ route('login') }}" class="btn-get-started"> LOG IN </a>
-    @endguest
+
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero">
+  <section id="hero2">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="10">
-      <h2>Welcome to</h2>
-      <h1>Venue Management System (VMS)</h1>
+      {{-- <h2>Welcome to</h2> --}}
+      <h1>iCEP Hall Venue</h1>
       <a href="#about" class="btn-get-started">More Details</a>
     </div>
   </section><!-- End Hero Section -->
@@ -157,7 +149,7 @@
     <section id="about">
         <div class="container" data-aos="fade-up">
           <div class="section-header">
-            <h3 class="section-title">About iCEP</h3><br>
+            <h3 class="section-title">iCEP Hall Venue</h3><br>
             {{-- <p class="section-description">Y.B. Dato’ Teng Chang Khim</p> --}}
           </div>
           <div class="row counters">

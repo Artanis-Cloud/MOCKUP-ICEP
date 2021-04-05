@@ -133,7 +133,8 @@ section {
   color: #fff;
   letter-spacing: 2px;
   margin-bottom: 30px;
-  padding-left: 40%;
+  text-align: center;
+  /* padding-left: 40%; */
 }
 .form .inputBx {
   position: relative;
@@ -244,7 +245,12 @@ section {
 
              <div class="container">
               <div class="form">
-                <h2 style="font-size: 30px">LOGIN</h2>
+                  <div style="text-align:center;">
+                    <img src="http://ezran.my/ACES/wp-content/uploads/2021/02/logo-new.png" style="height: 100%; width:30%;" alt="Kerajaan Selangor">
+                  </div>
+                  <br>
+
+                <h2 style="font-size: 30px">ADMIN LOGIN</h2>
                 <form action="">
                   <div class="inputBx">
                     <input type="text" required="required">
