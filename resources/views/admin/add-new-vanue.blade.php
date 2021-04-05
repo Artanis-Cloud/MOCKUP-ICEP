@@ -23,7 +23,7 @@
           </div>
         </div>
 
-        <form action="{{ route('vanue.create') }}" method="post">
+        <form action="{{ route('vanue.create') }}" method="post" enctype="multipart/form-data">
           @csrf
 
         <div class="row">
@@ -42,13 +42,17 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label>Type of Hall</label>
-              <input type="text"  class="form-control bg-light @error('type') is-invalid @enderror" name="type" placeholder="Name" required>
-              @error('type')
-              <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
+              <label for="kategori" state>Type of hall</label>
+              <select id="type" class="custom-select  bg-light @error('type') is-invalid @enderror" name="type" value="{{ old('type') }}" required>
+                    <option value="" selected disabled hidden>Choose Hall Type</option>
+                    <option value="type_a" {{ old('type') == "type_a" ? 'selected' : '' }}>Type A</option>
+                    <option value="type_b" {{ old('type') == "type_b" ? 'selected' : '' }}>Type B</option>
+                </select>
+                @error('kategori')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
           </div>
           <div class="col-md-2">
@@ -61,8 +65,8 @@
           <div class="col-md-4">
             <div class="form-group">
               <label>Number of Pax</label>
-              <input type="text"  class="form-control bg-light @error('name') is-invalid @enderror" name="name" placeholder="Name" required>
-              @error('name')
+              <input type="text"  class="form-control bg-light @error('number_of_pax') is-invalid @enderror" name="number_of_pax" placeholder="Number of pax" required>
+              @error('number_of_pax')
               <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                   </span>
@@ -71,9 +75,9 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label>Price</label>
-              <input type="text"  class="form-control bg-light @error('name') is-invalid @enderror" name="name" placeholder="Name" required>
-              @error('name')
+              <label>Price <strong>(RM)</strong></label>
+              <input type="text"  class="form-control bg-light @error('price') is-invalid @enderror" name="Price" placeholder="Price" required>
+              @error('price')
               <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                   </span>
@@ -90,8 +94,8 @@
           <div class="col-md">
             <div class="form-group">
               <label>Description</label>
-              <input type="text"  class="form-control bg-light @error('name') is-invalid @enderror" name="name" placeholder="Name" required>
-              @error('name')
+              <textarea id="description" name="description" rows="2" cols="50" placeholder="Venue description" class="form-control bg-light @error('description') is-invalid @enderror" oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">{{ old('description') }}</textarea>
+              @error('description')
               <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                   </span>
@@ -108,8 +112,8 @@
           <div class="col-md">
             <div class="form-group">
               <label>Address</label>
-              <input type="text"  class="form-control bg-light @error('name') is-invalid @enderror" name="name" placeholder="Name" required>
-              @error('name')
+              <textarea id="address" name="address" rows="2" cols="50" placeholder="Address" class="form-control bg-light @error('address') is-invalid @enderror" oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">{{ old('address') }}</textarea>
+              @error('address')
               <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                   </span>
@@ -127,7 +131,7 @@
           <div class="col-md-4">
             <div class="form-group">
               <label>Postcode</label>
-              <input type="text"  class="form-control bg-light @error('name') is-invalid @enderror" name="name" placeholder="Name" required>
+              <input type="text"  class="form-control bg-light @error('postcode') is-invalid @enderror" maxlength="5" minlength="5" name="postcode" placeholder="Postcode" required>
               @error('name')
               <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -137,9 +141,27 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label>State</label>
-              <input type="text"  class="form-control bg-light @error('name') is-invalid @enderror" name="name" placeholder="Name" required>
-              @error('name')
+              <label for="state" state>State</label>
+              <select id="state" class="custom-select  bg-light @error('state') is-invalid @enderror" name="state" value="{{ old('state') }}"  required>
+                    <option value="" selected disabled hidden>Choose State</option>
+                    <option value="Johor" {{ old('state') == "Johor" ? 'selected' : '' }}>Johor</option>
+                    <option value="Kedah" {{ old('state') == "Kedah" ? 'selected' : '' }}>Kedah</option>
+                    <option value="Kelantan" {{ old('state') == "Kelantan" ? 'selected' : '' }}>Kelantan</option>
+                    <option value="Melaka" {{ old('state') == "Melaka" ? 'selected' : '' }}>Melaka</option>
+                    <option value="Negeri Sembilan" {{ old('state') == "Negeri Sembilan" ? 'selected' : '' }}>Negeri Sembilan</option>
+                    <option value="Pahang" {{ old('state') == "Pahang" ? 'selected' : '' }}>Pahang</option>
+                    <option value="Pulau Pinang" {{ old('state') == "Pulau Pinang" ? 'selected' : '' }}>Pulau Pinang</option>
+                    <option value="Perak" {{ old('state') == "Perak" ? 'selected' : '' }}>Perak</option>
+                    <option value="Perlis" {{ old('state') == "Perlis" ? 'selected' : '' }}>Perlis</option>
+                    <option value="Sabah" {{ old('state') == "Sabah" ? 'selected' : '' }}>Sabah</option>
+                    <option value="Sarawak" {{ old('state') == "Sarawak" ? 'selected' : '' }}>Sarawak</option>
+                    <option value="Selangor" {{ old('state') == "Selangor" ? 'selected' : '' }}>Selangor</option>
+                    <option value="Terengganu" {{ old('state') == "Terengganu" ? 'selected' : '' }}>Terengganu</option>
+                    <option value="WP Kuala Lumpur" {{ old('state') == "WP Kuala Lumpur" ? 'selected' : '' }}>WP Kuala Lumpur</option>
+                    <option value="WP Putrajaya" {{ old('state') == "WP Putrajaya" ? 'selected' : '' }}>WP Putrajaya</option>
+                    <option value="WP Labuan" {{ old('state') == "WP Labuan" ? 'selected' : '' }}>WP Labuan</option>
+                </select>
+              @error('state')
               <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                   </span>
@@ -155,13 +177,17 @@
 
           <div class="col-md">
             <div class="form-group">
-              <label>Upload</label>
-              <input type="text"  class="form-control bg-light @error('name') is-invalid @enderror" name="name" placeholder="Name" required>
-              @error('name')
-              <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
+                <label  class="required">Upload Venue Image</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" required id="image" onchange="return translateUpload('image');" name="image" required>
+                    <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
+                </div>
+                <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB</small>
+                @error('image')
+                <div class="alert alert-danger">
+                  <strong>{{ $message }}</strong>
+                </div>
+                @enderror
             </div>
           </div>
 
@@ -183,5 +209,32 @@
   </div>
 </div>
 </main>
+<script type="text/javascript">
 
+  $('#image').on('change',function(){
+      //get the file name
+      var fileName = $(this).val();
+      //replace the "Choose a file" label
+      $(this).next('.custom-file-label').html(fileName);
+  })
+
+  function translateUpload(x){
+    console.log("translate upload fungsi");
+    fileValidation(x);
+    document.getElementById("image").setCustomValidity('');
+  }
+
+  function fileValidation(name){
+    console.log(name);
+
+    var fileInput = document.getElementById(name);
+    var filePath = fileInput.value;
+    var allowedExtensions = /(\.jpeg|\.jpg|\.png)$/i;
+    if(!allowedExtensions.exec(filePath)){
+        alert('Please upload in format .jpeg , .jpg and .png only!');
+        fileInput.value = '';
+        return false;
+    }
+  }
+</script>
 @endsection
