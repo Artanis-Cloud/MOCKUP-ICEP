@@ -498,197 +498,55 @@ ul {
     <section id="about">
         <div class="wrapper">
             <div class="cards">
+
+              @foreach($hall as $data)
               <div class="card">
                 <div class="card__img">
                     <picture>
-                      <source media="(max-width: 320px)"
-                              srcset="https://images.unsplash.com/photo-1530629013299-6cb10d168419?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
 
-                      <source media="(min-width: 538px)"
-                              srcset="https://images.unsplash.com/photo-1530629013299-6cb10d168419?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=1500">
 
-                      <img src="https://images.unsplash.com/photo-1530629013299-6cb10d168419?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=1500">
+                      <img src="{{ asset( $image_path = str_replace('public', 'storage',  $data->image)) }}" width="100%" height="200">
                     </picture>
                 </div>
                 <div class="card__details">
-                  <h3 for="cozyroom">Cozying Room</h3>
-                  <div class="address">St.lorem ipsum des</div>
+                  <h3 for="cozyroom">{{ $data->name }}</h3>
+                  <div class="address">{{ $data->address }}</div>
                   <div class="price">
-                    <div class="star">
+                    {{-- <div class="star">
                       <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
                       <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
                       <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
                       <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                    </div>
+                    </div> --}}
                     <div class="price__l">
-                      <span class="price__label">IDR 1500K /</span>
-                      <span class="measure__label">night</span>
+                      <span class="price__label">RM {{ $data->price }}</span>
+                      <span class="measure__label">/ days</span>
                     </div>
                   </div>
-                  <button>Detail</button>
+                  <button data-toggle="modal" data-target="#exampleModal2{{ $data->id }}">Detail</button>
                 </div>
-              </div>
-
-              <div class="card">
-                <div class="card__img">
-                    <picture>
-                      <source media="(max-width: 400px)"
-                              srcset="https://images.unsplash.com/photo-1507038772120-7fff76f79d79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                      <source media="(min-width: 481px)"
-                              srcset="https://images.unsplash.com/photo-1507038772120-7fff76f79d79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=80">
-
-
-                      <img src="https://images.unsplash.com/photo-1507038772120-7fff76f79d79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-                    </picture>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal2{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Venue Details</h5>
+                            </div>
+                            <div class="modal-body">
+                                <p>Venue: {{ $data->name }}</p>
+                                <p>Address: {{ $data->address }}</p>
+                                <p>Number of Pax: {{ $data->number_of_pax }}</p>
+                                <p>Price: {{ $data->price }}</p>
+                                <p>Description: {{ $data->description }}</p>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card__details">
-                  <h3 for="tomato">House sweet</h3>
-                  <div class="address">Gandaria</div>
-                  <div class="price">
-                    <div class="star">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                    </div>
-                    <div class="price__l">
-                      <span class="price__label">IDR 950K /</span>
-                      <span class="measure__label">night</span>
-                    </div>
-                  </div>
-                  <button>Detail</button>
-                </div>
-              </div>
-
-              <div class="card">
-                  <div class="card__img">
-                      <picture>
-                        <source media="(max-width: 400px)"
-                                srcset="https://images.unsplash.com/photo-1541123356219-284ebe98ae3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                        <source media="(min-width: 481px)"
-                                srcset="https://images.unsplash.com/photo-1541123356219-284ebe98ae3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=100">
-
-                        <img src="https://images.unsplash.com/photo-1541123356219-284ebe98ae3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-                      </picture>
-                  </div>
-                  <div class="card__details">
-                    <h3 for="cozyroom">Makau Homestay</h3>
-                    <div class="address">Cipete</div>
-
-                    <div class="price">
-                      <div class="star">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      </div>
-                      <div class="price__l">
-                        <span class="price__label">IDR 2500K /</span>
-                        <span class="measure__label">night</span>
-                      </div>
-                    </div>
-                    <button>Detail</button>
-                  </div>
-              </div>
-
-              <div class="card">
-                  <div class="card__img">
-                      <picture>
-                        <source media="(max-width: 320px)"
-                                srcset="https://images.unsplash.com/photo-1545022388-9e6d95c77174?ixlib=rb-1.2.1&auto=format&fit=crop&w=335&h=200&q=80">
-
-                        <source media="(max-width: 500px)"
-                                srcset="https://images.unsplash.com/photo-1545022388-9e6d95c77174?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=200&q=100">
-
-                        <img src="https://images.unsplash.com/photo-1545022388-9e6d95c77174?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=200&q=80">
-                      </picture>
-                  </div>
-                  <div class="card__details">
-                    <h3 for="cozyroom">Bogor Cozy Homestay</h3>
-                    <div class="address">Bogor</div>
-
-                    <div class="price">
-                      <div class="star">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      </div>
-                      <div class="price__l">
-                        <span class="price__label">IDR 2500K /</span>
-                        <span class="measure__label">night</span>
-                      </div>
-                    </div>
-                    <button>Detail</button>
-                  </div>
-              </div>
-
-              <div class="card">
-                  <div class="card__img">
-                      <picture>
-                        <source media="(max-width: 320px)"
-                                srcset="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                        <source media="(max-width: 500px)"
-                                srcset="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=100">
-
-                        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=200&q=80">
-                      </picture>
-                  </div>
-                  <div class="card__details">
-                    <h3 for="cozyroom">Tribeca BedMy</h3>
-                    <div class="address">Jakarta</div>
-
-                    <div class="price">
-                      <div class="star">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      </div>
-                      <div class="price__l">
-                        <span class="price__label">IDR 750K /</span>
-                        <span class="measure__label">night</span>
-                      </div>
-                    </div>
-                    <button>Detail</button>
-                  </div>
-              </div>
-
-              <div class="card">
-                  <div class="card__img">
-                      <picture>
-                        <source media="(max-width: 320px)"
-                                srcset="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                        <source media="(max-width: 500px)"
-                                srcset="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=100">
-
-                        <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=80">
-                      </picture>
-                  </div>
-                  <div class="card__details">
-                    <h3 for="cozyroom">Les't Carrot</h3>
-                    <div class="address">Bandung</div>
-
-                    <div class="price">
-                      <div class="star">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      </div>
-                      <div class="price__l">
-                        <span class="price__label">IDR 1750K /</span>
-                        <span class="measure__label">night</span>
-                      </div>
-                    </div>
-                    <button>Detail</button>
-                  </div>
-              </div>
-
+              @endforeach
 
             </div>
           </div>

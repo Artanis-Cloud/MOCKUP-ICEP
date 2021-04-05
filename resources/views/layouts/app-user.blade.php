@@ -58,7 +58,7 @@
                     <ul class="p-0 m-0 mt-3 side-menu">
                         <li class="px-3 side-menu-item"><a href="{{ route('home') }}" class="py-3 pl-4 w-100">Dashboard</a></li>
 
-                        <li class="px-3 side-menu-item"><a href="{{ route('vanue.add') }}" class="py-3 pl-4 w-100">Add New Venue</a></li>
+                        <li class="px-3 side-menu-item"><a href="{{ route('venue.add') }}" class="py-3 pl-4 w-100">Add New Venue</a></li>
 
 
 

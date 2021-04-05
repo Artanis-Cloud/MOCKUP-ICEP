@@ -29,9 +29,9 @@ Route::get('/gallery', [App\Http\Controllers\VenueController::class, 'gallery'])
 
 Route::get('/contact', [App\Http\Controllers\VenueController::class, 'contact'])->name('contact');
 
-Route::get('/vanue/add', [App\Http\Controllers\HomeController::class, 'add_vanue'])->name('vanue.add');
+Route::get('/venue/add', [App\Http\Controllers\HomeController::class, 'add_venue'])->name('venue.add');
 
-Route::post('/vanue/create', [App\Http\Controllers\HomeController::class, 'add_vanue'])->name('vanue.create');
+Route::post('/venue/create', [App\Http\Controllers\VenueController::class, 'submit'])->name('venue.submit');
 
 
 
