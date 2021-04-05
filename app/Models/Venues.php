@@ -20,6 +20,5 @@ class Venues extends Model
         'price',
         'image',
         'status',
-        'user_id',
     ];
 }

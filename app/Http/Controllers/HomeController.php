@@ -27,13 +27,10 @@ class HomeController extends Controller
     }
 
 
-    public function add_vanue()
+    public function add_venue()
     {
-        return view('admin.add-new-vanue');
+        return view('admin.add-new-venue');
     }
 
-    public function create_vanue(Request $request)
-    {
-        dd($request->all());
-    }
+
 }

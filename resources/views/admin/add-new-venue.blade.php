@@ -10,7 +10,7 @@
   <!-- Small card component -->
 
   <div class="rounded-lg card" style="border-color: #003473 !important;">
-    <div class="card-header" style="text-align:center; border-color: #003473 !important; font-size: 130%; font-weight: bold;">Add New Vanue</div>
+    <div class="card-header" style="text-align:center; border-color: #003473 !important; font-size: 130%; font-weight: bold;">Add New Venue</div>
 
     <div class="card-body">
 
@@ -23,7 +23,7 @@
           </div>
         </div>
 
-        <form action="{{ route('vanue.create') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('venue.submit') }}" method="post" enctype="multipart/form-data">
           @csrf
 
         <div class="row">
@@ -42,11 +42,11 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="kategori" state>Type of hall</label>
+              <label for="kategori" state>Type of venue</label>
               <select id="type" class="custom-select  bg-light @error('type') is-invalid @enderror" name="type" value="{{ old('type') }}" required>
-                    <option value="" selected disabled hidden>Choose Hall Type</option>
-                    <option value="type_a" {{ old('type') == "type_a" ? 'selected' : '' }}>Type A</option>
-                    <option value="type_b" {{ old('type') == "type_b" ? 'selected' : '' }}>Type B</option>
+                    <option value="" selected disabled hidden>Choose Venue Type</option>
+                    <option value="hall" {{ old('type') == "hall" ? 'selected' : '' }}>Hall</option>
+                    <option value="hotel" {{ old('type') == "hotel" ? 'selected' : '' }}>Hotel</option>
                 </select>
                 @error('kategori')
                 <span class="invalid-feedback" role="alert">
@@ -76,7 +76,7 @@
           <div class="col-md-4">
             <div class="form-group">
               <label>Price <strong>(RM)</strong></label>
-              <input type="text"  class="form-control bg-light @error('price') is-invalid @enderror" name="Price" placeholder="Price" required>
+              <input type="text"  class="form-control bg-light @error('price') is-invalid @enderror" name="price" placeholder="Price" required>
               @error('price')
               <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -194,14 +194,14 @@
           <div class="col-md-2"></div>
         </div>
 
-        
+
 
           <div class="row">
             <div class="col-md-3">
 
             </div>
               <div class="col-md-6">
-                <button type="submit" onclick="return confirm('Anda pasti untuk tukar kata laluan?')" class="m-auto btn btn-primary btn-outline-primary badge-pill btn-block w-75">Add Vanue</button>
+                <button type="submit" onclick="return confirm('Confirm Submit?')" class="m-auto btn btn-primary btn-outline-primary badge-pill btn-block w-75">Add Vanue</button>
               </div>
           </div>
         </form>

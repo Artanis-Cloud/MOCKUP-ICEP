@@ -58,10 +58,10 @@
                     <ul class="p-0 m-0 mt-3 side-menu">
                         <li class="px-3 side-menu-item"><a href="{{ route('home') }}" class="py-3 pl-4 w-100">Dashboard</a></li>
 
-                        <li class="px-3 side-menu-item"><a href="{{ route('vanue.add') }}" class="py-3 pl-4 w-100">Add New Vanue</a></li>
+                        <li class="px-3 side-menu-item"><a href="{{ route('venue.add') }}" class="py-3 pl-4 w-100">Add New Venue</a></li>
 
 
-                       
+
                         {{-- <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100 sub-menu-parent" data-toggle="collapse" data-target="#table-sub-menu3" aria-expanded="false" aria-controls="table-sub-menu">Senarai Permohonan </a></li>
                         <div id="table-sub-menu3" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                             <ul class="p-0 side-sub-menu">
