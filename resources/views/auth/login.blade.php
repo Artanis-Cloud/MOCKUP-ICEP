@@ -251,10 +251,11 @@ section {
                   <br>
 
                 <h2 style="font-size: 30px">ADMIN LOGIN</h2>
-                <form action="">
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
                   <div class="inputBx">
-                    <input type="text" required="required">
-                    <span>Login</span>
+                    <input type="email" required="required" name="email">
+                    <span>Email</span>
                     <img src="https://www.flaticon.com/svg/static/icons/svg/709/709699.svg" alt="user">
                   </div>
                   <div class="inputBx password">
@@ -266,11 +267,11 @@ section {
                   <label class="remember"><input type="checkbox">
                     Remember</label>
                   <div class="inputBx">
-                    <input type="submit" value="Log in">
+                    <input type="submit" value="Log in" {{ __('Login') }}>
                   </div>
                 </form>
                 <p>Forgot password? <a href="#">Click Here</a></p>
-                {{-- <p>Don't have an account <a href="{{route('register')}}">Sign up</a></p> --}}
+                <p>Don't have an account <a href="{{route('register')}}">Sign up</a></p>
               </div>
             </div>
 
