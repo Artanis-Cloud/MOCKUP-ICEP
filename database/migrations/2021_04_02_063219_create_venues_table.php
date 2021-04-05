@@ -13,7 +13,7 @@ class CreateVanuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('vanues', function (Blueprint $table) {
+        Schema::create('venues', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
             $table->string('description')->nullable();
@@ -38,6 +38,6 @@ class CreateVanuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vanues');
+        Schema::dropIfExists('venues');
     }
 }
