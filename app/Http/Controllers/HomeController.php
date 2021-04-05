@@ -23,6 +23,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.mainMenu');
+        return view('admin.mainMenu');
+    }
+
+    public function add_vanue()
+    {
+        return view('admin.add-new-vanue');
+    }
+
+    public function create_vanue(Request $request)
+    {
+        dd($request->all());
     }
 }
