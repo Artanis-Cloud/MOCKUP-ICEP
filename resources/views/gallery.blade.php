@@ -366,6 +366,114 @@ ul {
 }
 
 }
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: teal;
+  font-size: 2rem;
+  background: #07252e;
+}
+
+.container {
+  padding: 1rem;
+}
+.container .img-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 1rem;
+}
+.container .img-grid .img-box {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  border: 0.1rem solid teal;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.container .img-grid .img-box .img-timg {
+  width: 100%;
+  height: calc(100% + 1rem);
+  object-fit: cover;
+}
+.container .img-grid .img-box .img-timg:hover {
+  cursor: pointer;
+}
+.container .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  padding-top: 3rem;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.9);
+}
+.container .modal .close, .container .modal .previous, .container .modal .next {
+  position: absolute;
+  color: gray;
+  opacity: 0.7;
+  user-select: none;
+}
+.container .modal .close:hover, .container .modal .previous:hover, .container .modal .next:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: 200ms ease-in;
+}
+.container .modal .close {
+  font-size: 3rem;
+  font-weight: bold;
+  top: 1rem;
+  left: 2rem;
+}
+.container .modal .previous {
+  font-size: 4rem;
+  top: 37%;
+  left: 2rem;
+}
+.container .modal .next {
+  font-size: 4rem;
+  top: 37%;
+  right: 2rem;
+}
+.container .modal .modal-content {
+  margin: auto;
+  margin-top: 6%;
+  display: block;
+  width: auto;
+  height: 80%;
+  border: 0.1rem solid teal;
+  border-radius: 0.5rem;
+}
+.container .modal .caption {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+  text-align: center;
+  color: gray;
+  margin-top: 1rem;
+}
+
+@media (max-width: 1100px) {
+  .container .modal .previous, .container .modal .next {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    padding: 0;
+  }
+  .container .modal .modal-content {
+    width: 96%;
+    height: auto;
+    margin-top: 2rem;
+  }
+}
   </style>
 </head>
 
@@ -400,7 +508,7 @@ ul {
               <li><a href="{{ route('hall') }}">HALL</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="{{ route('gallery') }}">GALLERY</a></li>
+          <li><a class="nav-link scrollto" href="#">GALLERY</a></li>
           <li><a class="nav-link scrollto" href="{{ route('contact') }}">CONTACT US</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -410,242 +518,94 @@ ul {
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero2">
+  <section id="hero">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="10">
       {{-- <h2>Welcome to</h2> --}}
-      <h1>iCEP Hall Venue</h1>
-      <script src="https://kit.fontawesome.com/d97b87339f.js" crossorigin="anonymous"></script>
+      <h1>iCEP image gallery</h1>
+      {{-- <script src="https://kit.fontawesome.com/d97b87339f.js" crossorigin="anonymous"></script>
 
         <div class="search-box">
         <input class="search-input" type="text" placeholder="Search something..">
         <button class="search-btn"><i class="fas fa-search"></i></button>
-        </div>
+        </div> --}}
     </div>
   </section><!-- End Hero Section -->
 
   <main id="main">
     <!-- ======= About Section ======= -->
     <section id="about">
-        <div class="wrapper">
-            <div class="cards">
-              <div class="card">
-                <div class="card__img">
-                    <picture>
-                      <source media="(max-width: 320px)"
-                              srcset="https://images.unsplash.com/photo-1530629013299-6cb10d168419?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                      <source media="(min-width: 538px)"
-                              srcset="https://images.unsplash.com/photo-1530629013299-6cb10d168419?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=1500">
-
-                      <img src="https://images.unsplash.com/photo-1530629013299-6cb10d168419?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=1500">
-                    </picture>
-                </div>
-                <div class="card__details">
-                  <h3 for="cozyroom">Cozying Room</h3>
-                  <div class="address">St.lorem ipsum des</div>
-                  <div class="price">
-                    <div class="star">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                    </div>
-                    <div class="price__l">
-                      <span class="price__label">IDR 1500K /</span>
-                      <span class="measure__label">night</span>
-                    </div>
-                  </div>
-                  <button>Detail</button>
-                </div>
+        <div class="container">
+            <div class="img-grid">
+              <div class="img-box">
+                <img
+                  class="img-timg"
+                  src="http://ezran.my/ACES/wp-content/uploads/2021/02/5.jpg"
+                >
               </div>
-
-              <div class="card">
-                <div class="card__img">
-                    <picture>
-                      <source media="(max-width: 400px)"
-                              srcset="https://images.unsplash.com/photo-1507038772120-7fff76f79d79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                      <source media="(min-width: 481px)"
-                              srcset="https://images.unsplash.com/photo-1507038772120-7fff76f79d79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=80">
-
-
-                      <img src="https://images.unsplash.com/photo-1507038772120-7fff76f79d79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-                    </picture>
-                </div>
-                <div class="card__details">
-                  <h3 for="tomato">House sweet</h3>
-                  <div class="address">Gandaria</div>
-                  <div class="price">
-                    <div class="star">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                    </div>
-                    <div class="price__l">
-                      <span class="price__label">IDR 950K /</span>
-                      <span class="measure__label">night</span>
-                    </div>
-                  </div>
-                  <button>Detail</button>
-                </div>
+              <div class="img-box">
+                <img
+                  class="img-timg"
+                  src="http://ezran.my/ACES/wp-content/uploads/2021/02/6.jpg"
+                >
               </div>
-
-              <div class="card">
-                  <div class="card__img">
-                      <picture>
-                        <source media="(max-width: 400px)"
-                                srcset="https://images.unsplash.com/photo-1541123356219-284ebe98ae3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                        <source media="(min-width: 481px)"
-                                srcset="https://images.unsplash.com/photo-1541123356219-284ebe98ae3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=100">
-
-                        <img src="https://images.unsplash.com/photo-1541123356219-284ebe98ae3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-                      </picture>
-                  </div>
-                  <div class="card__details">
-                    <h3 for="cozyroom">Makau Homestay</h3>
-                    <div class="address">Cipete</div>
-
-                    <div class="price">
-                      <div class="star">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      </div>
-                      <div class="price__l">
-                        <span class="price__label">IDR 2500K /</span>
-                        <span class="measure__label">night</span>
-                      </div>
-                    </div>
-                    <button>Detail</button>
-                  </div>
+              <div class="img-box">
+                <img
+                  class="img-timg"
+                  src="http://ezran.my/ACES/wp-content/uploads/2021/02/7.jpg"
+                >
               </div>
-
-              <div class="card">
-                  <div class="card__img">
-                      <picture>
-                        <source media="(max-width: 320px)"
-                                srcset="https://images.unsplash.com/photo-1545022388-9e6d95c77174?ixlib=rb-1.2.1&auto=format&fit=crop&w=335&h=200&q=80">
-
-                        <source media="(max-width: 500px)"
-                                srcset="https://images.unsplash.com/photo-1545022388-9e6d95c77174?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=200&q=100">
-
-                        <img src="https://images.unsplash.com/photo-1545022388-9e6d95c77174?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=200&q=80">
-                      </picture>
-                  </div>
-                  <div class="card__details">
-                    <h3 for="cozyroom">Bogor Cozy Homestay</h3>
-                    <div class="address">Bogor</div>
-
-                    <div class="price">
-                      <div class="star">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      </div>
-                      <div class="price__l">
-                        <span class="price__label">IDR 2500K /</span>
-                        <span class="measure__label">night</span>
-                      </div>
-                    </div>
-                    <button>Detail</button>
-                  </div>
+              <div class="img-box">
+                <img
+                  class="img-timg"
+                  src="http://ezran.my/ACES/wp-content/uploads/2021/02/8.jpg"
+                >
               </div>
-
-              <div class="card">
-                  <div class="card__img">
-                      <picture>
-                        <source media="(max-width: 320px)"
-                                srcset="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                        <source media="(max-width: 500px)"
-                                srcset="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=100">
-
-                        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=200&q=80">
-                      </picture>
-                  </div>
-                  <div class="card__details">
-                    <h3 for="cozyroom">Tribeca BedMy</h3>
-                    <div class="address">Jakarta</div>
-
-                    <div class="price">
-                      <div class="star">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      </div>
-                      <div class="price__l">
-                        <span class="price__label">IDR 750K /</span>
-                        <span class="measure__label">night</span>
-                      </div>
-                    </div>
-                    <button>Detail</button>
-                  </div>
+              <div class="img-box">
+                <img
+                  class="img-timg"
+                  src="http://ezran.my/ACES/wp-content/uploads/2021/02/9.jpg"
+                >
               </div>
-
-              <div class="card">
-                  <div class="card__img">
-                      <picture>
-                        <source media="(max-width: 320px)"
-                                srcset="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                        <source media="(max-width: 500px)"
-                                srcset="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=100">
-
-                        <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=80">
-                      </picture>
-                  </div>
-                  <div class="card__details">
-                    <h3 for="cozyroom">Les't Carrot</h3>
-                    <div class="address">Bandung</div>
-
-                    <div class="price">
-                      <div class="star">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      </div>
-                      <div class="price__l">
-                        <span class="price__label">IDR 1750K /</span>
-                        <span class="measure__label">night</span>
-                      </div>
-                    </div>
-                    <button>Detail</button>
-                  </div>
+              <div class="img-box">
+                <img
+                  class="img-timg"
+                  src="http://ezran.my/ACES/wp-content/uploads/2021/02/4.jpg"
+                >
               </div>
+              <div class="img-box">
+                <img
+                  class="img-timg"
+                  src="http://ezran.my/ACES/wp-content/uploads/2021/02/3.jpg"
+                >
+              </div>
+              <div class="img-box">
+                <img
+                  class="img-timg"
+                  src="http://ezran.my/ACES/wp-content/uploads/2021/02/2.jpg"
+                >
+              </div>
+              <div class="img-box">
+                <img
+                  class="img-timg"
+                  src="http://ezran.my/ACES/wp-content/uploads/2021/02/1.jpg"
+                >
+              </div>
+            </div>
 
-
+            <div class="modal">
+              <span class="close">&times;</span>
+              <span class="previous">&#8249;</span>
+              <span class="next">&#8250;</span>
+              <img
+                class="modal-content"
+                src=""
+                alt=""
+              >
+              <div class="caption"></div>
             </div>
           </div>
       </section>
-      <br>
-      <section id="fact" style="padding-bottom: 4%;">
-        <div class="container" data-aos="fade-up">
-          <div class="section-header">
-            <h3 class="section-title">Most Popular Venue</h3><br>
-            {{-- <p class="section-description">Y.B. Dato’ Teng Chang Khim</p> --}}
-          </div>
-          <div class="row counters">
 
-            <div class="col-lg-6 col-6 text-center">
-                <img src="http:\/\/ezran.my\/ACES\/wp-content\/uploads\/2021\/02\/dewan1.jpg" style="height: 359px;" alt="Kerajaan Selangor">
-            </div>
-
-            <div class="col-lg-6 col-6 text-center">
-              {{-- <span data-purecounter-start="0" data-purecounter-end="534" data-purecounter-duration="1" class="purecounter"></span> --}}
-              <p style="text-align:justify;">BERJAYA HALL, KUALA LUMPUR, MALAYSIA</p>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
       <!-- End About Section -->
 
   </main><!-- End #main -->
@@ -701,6 +661,78 @@ ul {
         }
     });
 });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+const images = document.querySelectorAll('.img-timg'),
+      modal = document.querySelector('.modal'),
+      content = document.querySelector('.modal-content'),
+      closeBtn = document.querySelector('.close'),
+      prevBtn = document.querySelector('.previous'),
+      nextBtn = document.querySelector('.next'),
+      caption = document.querySelector('.caption');
+
+let imgIndex;
+
+const openModal = () => {
+  modal.style.display = 'block';
+}
+
+const closeModal = () => {
+  modal.style.display = 'none';
+}
+
+const displayImg = () => {
+  if (imgIndex > images.length - 1) { imgIndex = 0 };
+  if (imgIndex < 0) { imgIndex = images.length - 1 };
+  content.src = images[imgIndex].src;
+  content.alt = images[imgIndex].alt;
+  caption.textContent = images[imgIndex].alt;
+}
+
+for (let i = 0; i < images.length; i++) {
+  images[i].addEventListener('click', () => {
+    imgIndex = i;
+    openModal();
+    displayImg();
+  });
+}
+
+closeBtn.addEventListener('click', () => closeModal());
+
+prevBtn.addEventListener('click', () => {
+  imgIndex--;
+  displayImg();
+});
+
+nextBtn.addEventListener('click', () => {
+  imgIndex++;
+  displayImg();
+});
+
+document.addEventListener('keyup', (e) => {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
+
+document.addEventListener('keyup', (e) => {
+  if (e.key === 'ArrowLeft') {
+    imgIndex--;
+    displayImg();
+  }
+});
+
+document.addEventListener('keyup', (e) => {
+  if (e.key === 'ArrowRight') {
+    imgIndex++;
+    displayImg();
+  }
+});
+
+});
+
 </script>
 
 </html>

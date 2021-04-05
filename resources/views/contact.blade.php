@@ -127,27 +127,17 @@
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="{{ route('gallery') }}">GALLERY</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('contact') }}">CONTACT US</a></li>
+          <li><a class="nav-link scrollto" href="#">CONTACT US</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
     </div>
-    @auth
-        <a href="#" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> LOG KELUAR </a>
-        <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
-            {{ csrf_field() }}
-        </form>
-    @endauth
-    @guest
-        <a href="{{ route('login') }}" class="btn-get-started"> LOG IN </a>
-    @endguest
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="10">
-      <h2>Welcome to</h2>
-      <h1>Venue Management System (VMS)</h1>
+      <h1>CONTACT US</h1>
       <a href="#about" class="btn-get-started">More Details</a>
     </div>
   </section><!-- End Hero Section -->
@@ -157,18 +147,27 @@
     <section id="about">
         <div class="container" data-aos="fade-up">
           <div class="section-header">
-            <h3 class="section-title">About iCEP</h3><br>
+            <h3 class="section-title">CONTACT INFORMATION</h3><br>
             {{-- <p class="section-description">Y.B. Dato’ Teng Chang Khim</p> --}}
           </div>
           <div class="row counters">
 
             <div class="col-lg-6 col-6 text-center">
-                <iframe width="100%" height="300px" src="https://www.youtube.com/embed/3EjkWa3Oekc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d995.9435942676603!2d101.71056462029314!3d3.154104652784245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d45d0a6ac5%3A0xbe69787fd5158e34!2sEtiqa%20Twins!5e0!3m2!1sms!2smy!4v1617597703280!5m2!1sms!2smy" width="550" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
             <div class="col-lg-6 col-6 text-center">
               {{-- <span data-purecounter-start="0" data-purecounter-end="534" data-purecounter-duration="1" class="purecounter"></span> --}}
-              <p style="text-align:justify;">Formerly known as WGC 2012 Organising Committee, iCEP aspires to be the professional conference, exhibition and event organiser of choice. We add value to our stakeholders by delivering content relevant conferences and impactful events through creativity and continuous innovation. By continuously nurturing talents, we set the trend and benchmark while continuously enhancing event experiences. Staging insightful and memorable events is our passion, working with stakeholders and partners to ensure we achieve mutual goals. With our total event organising services, we organise every element of conference & exhibition, from concept up to the execution stage.</p>
+              <p style="text-align:justify;"><B>International Conference & Exhibition Professionals (iCEP)</B></p>
+
+              <p style="text-align:justify;">Etiqa Twins, Level 27, Tower 1,</p>
+              <p style="text-align:justify;">11, Jalan Pinang, 50450,</p>
+              <p style="text-align:justify;">Kuala Lumpur, Malaysia</p>
+
+              <p style="text-align:justify;">Tel: +603 2171 3500</p>
+              <p style="text-align:justify;">Fax: +603 2171 3535</p>
+
+              <p style="text-align:justify;"> Email: editorial@icep.com.my</p>
 
             </div>
 
@@ -176,29 +175,7 @@
 
         </div>
       </section>
-      <br>
-      <section id="fact" style="padding-bottom: 4%;">
-        <div class="container" data-aos="fade-up">
-          <div class="section-header">
-            <h3 class="section-title">Most Popular Venue</h3><br>
-            {{-- <p class="section-description">Y.B. Dato’ Teng Chang Khim</p> --}}
-          </div>
-          <div class="row counters">
 
-            <div class="col-lg-6 col-6 text-center">
-                <img src="http:\/\/ezran.my\/ACES\/wp-content\/uploads\/2021\/02\/dewan1.jpg" style="height: 359px;" alt="Kerajaan Selangor">
-            </div>
-
-            <div class="col-lg-6 col-6 text-center">
-              {{-- <span data-purecounter-start="0" data-purecounter-end="534" data-purecounter-duration="1" class="purecounter"></span> --}}
-              <p style="text-align:justify;">BERJAYA HALL, KUALA LUMPUR, MALAYSIA</p>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
       <!-- End About Section -->
 
   </main><!-- End #main -->
