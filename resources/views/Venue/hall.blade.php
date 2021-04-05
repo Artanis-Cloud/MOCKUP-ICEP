@@ -29,6 +29,8 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('Regna/assets/css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('Regna/assets/css/search.css') }}" rel="stylesheet">
+
 
   <!-- =======================================================
   * Template Name: Regna - v4.1.0
@@ -416,9 +418,77 @@ ul {
       <h1>iCEP Hall Venue</h1>
       <script src="https://kit.fontawesome.com/d97b87339f.js" crossorigin="anonymous"></script>
 
-        <div class="search-box">
+        {{-- <div class="search-box">
         <input class="search-input" type="text" placeholder="Search something..">
         <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div> --}}
+
+        <div class="container">
+            <div class="card-view">
+                    <div class="search-form-box top-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control click-me h100" placeholder="Search Venue, Hotel....">
+                                <div class="input-group-append">
+                                        <select class="custom-select">
+                                                <option  selected>Kuala Lumpur</option>
+                                                <option>Pulau Pinang</option>
+                                                <option>Johor</option>														</h2></option>
+                                                <option>Sabah</option>
+                                            </select>
+                                <button type="button" class="btn btn-primary search-btn">
+                                <img src="https://md-aqil.github.io/images/Search.png" alt="">
+                                </button>
+
+                            </div>
+                            <ul class="drop-menu text-left suggestion-search-menu add-scroll">
+                                <li>
+                                    <a href="#" class="suggestion-anchor">
+                                        <div class="sleft">
+                                            <div class="media">
+
+                                                <div class="media-body">
+                                                    <h5>Kuala Lumpur</h5>
+                                                    <p>Kuala Lumpur</p>
+                                                </div>
+                                                </div>
+                                        </div>
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="suggestion-anchor">
+                                        <div class="sleft">
+                                            <div class="media">
+
+                                                <div class="media-body">
+                                                    <h5>Kuala Lumpur</h5>
+                                                    <p>Kuala Lumpur</p>
+                                                </div>
+                                                </div>
+                                        </div>
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="suggestion-anchor">
+                                        <div class="sleft">
+                                            <div class="media">
+
+                                                <div class="media-body">
+                                                    <h5>Kuala Lumpur</h5>
+                                                    <p>Kuala Lumpur</p>
+                                                </div>
+                                                </div>
+                                        </div>
+
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+            </div>
+
         </div>
     </div>
   </section><!-- End Hero Section -->
@@ -627,22 +697,42 @@ ul {
       <section id="fact" style="padding-bottom: 4%;">
         <div class="container" data-aos="fade-up">
           <div class="section-header">
-            <h3 class="section-title">Most Popular Venue</h3><br>
+            <h3 class="section-title">Comparison Venue</h3><br>
             {{-- <p class="section-description">Y.B. Dato’ Teng Chang Khim</p> --}}
           </div>
-          <div class="row counters">
 
-            <div class="col-lg-6 col-6 text-center">
-                <img src="http:\/\/ezran.my\/ACES\/wp-content\/uploads\/2021\/02\/dewan1.jpg" style="height: 359px;" alt="Kerajaan Selangor">
+          <div class="row">
+              <div class="col-md-6" style="text-align: center;">
+            <div class="dropdown">
+                <button class="btn btn-primary btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
+                    Venue
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 32px, 0px);width: 100%;">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
             </div>
-
-            <div class="col-lg-6 col-6 text-center">
-              {{-- <span data-purecounter-start="0" data-purecounter-end="534" data-purecounter-duration="1" class="purecounter"></span> --}}
-              <p style="text-align:justify;">BERJAYA HALL, KUALA LUMPUR, MALAYSIA</p>
-
-            </div>
-
+              </div>
+              <div class="col-md-6" style="text-align: center;">
+                <div class="dropdown">
+                    <button class="btn btn-primary btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
+                        Venue
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 32px, 0px);width: 100%;">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+                  </div>
           </div>
+
+
+
+
+
+
 
         </div>
       </section>
@@ -701,6 +791,74 @@ ul {
         }
     });
 });
+</script>
+
+
+{{-- search function --}}
+<script>
+    $('.drop').click(function () {
+	$(this).toggleClass('open').siblings().removeClass('open');
+})
+
+$('.drop-menu li').each(function() {
+var delay = $(this).index() * 100 + 'ms';
+
+$(this).css({
+	'-webkit-transition-delay': delay,
+	'-moz-transition-delay': delay,
+	'-o-transition-delay': delay,
+	'transition-delay': delay
+});
+});
+
+
+
+(function() {
+	$('select').each(function() {
+		$(this).hide();
+		makeElement($(this));
+	});
+
+	function makeElement(select) {
+		var
+		$div = $('<div />', {class:'ui-select'}).insertAfter(select),
+		$nav = $('<span />').click(function() {
+			$(this).parent().toggleClass('open');
+		}).appendTo($div),
+		$el = $('<ul />').appendTo($div);
+		select.find('option').map(function(i) {
+
+			var li = $('<li />').append($(this).text());
+				li.click(onSelect.bind($div, li, $(this).val(), select, $nav));
+			if($(this).attr('selected')) {
+				li.addClass('selected');
+			}
+			var delay = i * 100 + 'ms';
+			li.css({
+				'-webkit-transition-delay': delay,
+		        '-moz-transition-delay': delay,
+		        '-o-transition-delay': delay,
+		        'transition-delay': delay
+			});
+			$el.append(li);
+		});
+		var selected = $el.find('li.selected');
+			selected = selected.length ? selected.html() : $el.find('li:first-child').addClass('selected').html();
+		$nav.html(selected);
+		// addAnimateDelay($el);
+	}
+
+	function onSelect(li, value, select, $nav) {
+		this.removeClass('open');
+		li.addClass('selected').siblings().removeClass('selected');
+		select.val(value).trigger('change');
+		$nav.html(li.html());
+	}
+})();
+$('.click-me').click(function () {
+	$('.drop-menu').toggleClass('open');
+})
+
 </script>
 
 </html>

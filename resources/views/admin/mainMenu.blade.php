@@ -257,10 +257,8 @@ a:active {
 
 
       <div class="row">
-        <div class="col-md-2">
 
-        </div>
-         <div class="col-md-8">
+         <div class="col-md-12">
 
             <!--  Custom content card -->
             <div class="rounded-lg card" style="border-color: #003473 !important;">
@@ -338,7 +336,7 @@ a:active {
                             </tr>
                         </thead>
                         <tbody>
-                         
+
                         </tbody>
                       </table>
                   </div>

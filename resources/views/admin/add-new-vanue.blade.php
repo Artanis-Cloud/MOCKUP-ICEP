@@ -10,7 +10,7 @@
   <!-- Small card component -->
 
   <div class="rounded-lg card" style="border-color: #003473 !important;">
-    <div class="card-header" style="text-align:center; border-color: #003473 !important; font-size: 130%; font-weight: bold;">Add New Vanue</div>
+    <div class="card-header" style="text-align:center; border-color: #003473 !important; font-size: 130%; font-weight: bold;">Add New Venue</div>
 
     <div class="card-body">
 
@@ -194,14 +194,14 @@
           <div class="col-md-2"></div>
         </div>
 
-        
+
 
           <div class="row">
             <div class="col-md-3">
 
             </div>
               <div class="col-md-6">
-                <button type="submit" onclick="return confirm('Anda pasti untuk tukar kata laluan?')" class="m-auto btn btn-primary btn-outline-primary badge-pill btn-block w-75">Add Vanue</button>
+                <button type="submit" onclick="return confirm('Anda pasti untuk tukar kata laluan?')" class="m-auto btn btn-primary btn-outline-primary badge-pill btn-block w-75">Add Venue</button>
               </div>
           </div>
         </form>
