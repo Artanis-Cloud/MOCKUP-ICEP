@@ -26,6 +26,7 @@ class HomeController extends Controller
         return view('admin.mainMenu');
     }
 
+
     public function add_vanue()
     {
         return view('admin.add-new-vanue');

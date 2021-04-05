@@ -15,4 +15,14 @@ class VenueController extends Controller
     {
         return view('Venue.hall');
     }
+
+    public function gallery()
+    {
+        return view('gallery');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }

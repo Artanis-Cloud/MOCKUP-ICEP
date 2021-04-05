@@ -19,14 +19,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 Route::get('/hall', [App\Http\Controllers\VenueController::class, 'hall'])->name('hall');
 
 Route::get('/hotel', [App\Http\Controllers\VenueController::class, 'hotel'])->name('hotel');
+
+Route::get('/gallery', [App\Http\Controllers\VenueController::class, 'gallery'])->name('gallery');
+
+Route::get('/contact', [App\Http\Controllers\VenueController::class, 'contact'])->name('contact');
 
 Route::get('/vanue/add', [App\Http\Controllers\HomeController::class, 'add_vanue'])->name('vanue.add');
 

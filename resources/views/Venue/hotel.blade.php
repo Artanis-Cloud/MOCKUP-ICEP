@@ -400,8 +400,8 @@ ul {
               <li><a href="{{ route('hall') }}">HALL</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#">GALLERY</a></li>
-          <li><a class="nav-link scrollto" href="#">CONTACT US</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('gallery') }}">GALLERY</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('contact') }}">CONTACT US</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
