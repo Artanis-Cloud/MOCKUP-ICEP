@@ -552,76 +552,36 @@ ul {
           </div>
       </section>
       <br>
-      <section id="fact" style="padding-bottom: 4%;">
+      <section id="fact" style="padding-bottom: 30%;">
         <div class="container" data-aos="fade-up">
           <div class="section-header">
             <h3 class="section-title">Comparison Venue</h3><br>
             {{-- <p class="section-description">Y.B. Dato’ Teng Chang Khim</p> --}}
           </div>
+          <form action="{{ route('compare') }}" method="post">
+            @csrf
+            <div class="row">
+                <div class="col-md-5" style="text-align: center;">
+                    <select name="venue1" id="" class="">
+                        @foreach($hall as $data)
+                        <option value="{{ $data->name }}" class="">{{ $data->name }}</option>
+                        @endforeach
+                    </select>
 
-          <div class="row">
-              <div class="col-md-6" style="text-align: center;">
-            <div class="dropdown">
-                <button class="btn btn-primary btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
-                    Venue
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 32px, 0px);width: 100%;">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
                 </div>
+                <div class="col-md-5" style="text-align: center;">
+                    <select name="venue2">
+                        @foreach($hall as $data)
+                        <option value="{{ $data->name }}" class="">{{ $data->name }}</option>
+                        @endforeach
 
-                <div class="card" style="margin-top: 5%;">
-                    <img class="card-img-top" src="https://images.unsplash.com/photo-1530629013299-6cb10d168419?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=1500" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">Cras justo odio</li>
-                      <li class="list-group-item">Dapibus ac facilisis in</li>
-                      <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                    <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
-                    </div>
-                  </div>
-
-
+                    </select>
+                </div>
+                <div class="col-md-2" style="text-align: center;">
+                    <button class="btn btn-primary" type="submit"> Compare</button>
+                </div>
             </div>
-
-              </div>
-              <div class="col-md-6" style="text-align: center;">
-                <div class="dropdown">
-                    <button class="btn btn-primary btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
-                        Venue
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 32px, 0px);width: 100%;">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-
-                    <div class="card" style="margin-top: 5%;">
-                        <img class="card-img-top" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=200&q=80" alt="Card image cap">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Cras justo odio</li>
-                          <li class="list-group-item">Dapibus ac facilisis in</li>
-                          <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
-                        <div class="card-body">
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
-                        </div>
-                      </div>
-                </div>
-                  </div>
-          </div>
+         </form>
 
         </div>
       </section>

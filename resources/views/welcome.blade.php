@@ -4,8 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-{{--
-  {{-- <title>Rumah Ibadat</title> --}}
+
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -281,7 +280,7 @@
         <div class="container" data-aos="fade-up">
           <div class="section-header">
             <h3 class="section-title">About iCEP</h3><br>
-            {{-- <p class="section-description">Y.B. Dato’ Teng Chang Khim</p> --}}
+
           </div>
           <div class="row counters">
 
@@ -290,7 +289,7 @@
             </div>
 
             <div class="col-lg-6 col-6 text-center">
-              {{-- <span data-purecounter-start="0" data-purecounter-end="534" data-purecounter-duration="1" class="purecounter"></span> --}}
+
               <p style="text-align:justify;">Formerly known as WGC 2012 Organising Committee, iCEP aspires to be the professional conference, exhibition and event organiser of choice. We add value to our stakeholders by delivering content relevant conferences and impactful events through creativity and continuous innovation. By continuously nurturing talents, we set the trend and benchmark while continuously enhancing event experiences. Staging insightful and memorable events is our passion, working with stakeholders and partners to ensure we achieve mutual goals. With our total event organising services, we organise every element of conference & exhibition, from concept up to the execution stage.</p>
 
             </div>
@@ -317,7 +316,6 @@
             </div>
 
 
-
           </div>
 
         </div>
@@ -336,7 +334,8 @@
 
     <div class="container">
       <div class="copyright">
-        <p>&copy; Copyright © 2021 <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
+        <p>&copy; Copyright © 2021 <a href="#" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
+
       </div>
     </div>
   </footer><!-- End Footer -->

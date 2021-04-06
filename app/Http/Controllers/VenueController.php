@@ -53,4 +53,28 @@ class VenueController extends Controller
           ]);
         }
 
+    public function compare(Request $request){
+        // dd($request->all());
+        $hall = Venues::where('type','hall')->get();
+        $hall1 = Venues::where('name',$request->venue1)->get();
+        $hall2 = Venues::where('name',$request->venue2)->get();
+        // dd($hall2);
+
+        return view('Venue.hallcompare',compact('hall','hall1','hall2'));
+
+    }
+
+    public function comparehotel(Request $request){
+        // dd($request->all());
+        $hotel = Venues::where('type','hotel')->get();
+        $hotel1 = Venues::where('name',$request->venue1)->get();
+        $hotel2 = Venues::where('name',$request->venue2)->get();
+        // dd($hall2);
+
+        return view('Venue.hotelcompare',compact('hotel','hotel1','hotel2'));
+
+    }
+
+
+
 }

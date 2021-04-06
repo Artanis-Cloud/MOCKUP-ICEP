@@ -33,5 +33,10 @@ Route::get('/venue/add', [App\Http\Controllers\HomeController::class, 'add_venue
 
 Route::post('/venue/create', [App\Http\Controllers\VenueController::class, 'submit'])->name('venue.submit');
 
+Route::post('/compare', [App\Http\Controllers\VenueController::class, 'compare'])->name('compare');
+
+Route::post('/comparehotel', [App\Http\Controllers\VenueController::class, 'comparehotel'])->name('comparehotel');
+
+
 
 

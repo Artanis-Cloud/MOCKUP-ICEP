@@ -553,7 +553,7 @@ ul {
           </div>
       </section>
       <br>
-      <section id="fact" style="padding-bottom: 30%;">
+      <section id="fact" style="padding-bottom: 5%;">
         <div class="container" data-aos="fade-up">
           <div class="section-header">
             <h3 class="section-title">Comparison Venue</h3><br>
@@ -564,10 +564,22 @@ ul {
             <div class="row">
                 <div class="col-md-5" style="text-align: center;">
                     <select name="venue1" id="" class="">
-                        @foreach($hotel as $data)
-                        <option value="{{ $data->name }}" class="">{{ $data->name }}</option>
+                        @foreach($hotel as $info)
+                        <option value="{{ $info->name}}" class="">{{ $info->name }}</option>
                         @endforeach
                     </select>
+                    <br>
+                    @foreach($hotel1 as $info)
+                    <div class="card" style="width: 100%;">
+                        <img src="{{ asset( $image_path = str_replace('public', 'storage',  $info->image)) }}" width="100%" height="200">
+                        <div class="card-body">
+                            <p class="">Venue Name: {{ $info->name }}</p>
+                            <p class="">Description: {{ $info->description }}</p>
+                            <p class="">Address: {{ $info->address }}</p>
+                            <p class="">Price: {{ $info->price }}</p>
+                        </div>
+                    </div>
+                    @endforeach
 
                 </div>
                 <div class="col-md-5" style="text-align: center;">
@@ -575,8 +587,19 @@ ul {
                         @foreach($hotel as $data)
                         <option value="{{ $data->name }}" class="">{{ $data->name }}</option>
                         @endforeach
-
                     </select>
+                    <br>
+                    @foreach($hotel2 as $info)
+                    <div class="card" style="width: 100%;">
+                        <img src="{{ asset( $image_path = str_replace('public', 'storage',  $info->image)) }}" width="100%" height="200">
+                        <div class="card-body">
+                            <p class="">Venue Name: {{ $info->name }}</p>
+                            <p class="">Description: {{ $info->description }}</p>
+                            <p class="">Address: {{ $info->address }}</p>
+                            <p class="">Price: {{ $info->price }}</p>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
                 <div class="col-md-2" style="text-align: center;">
                     <button class="btn btn-primary" type="submit"> Compare</button>
