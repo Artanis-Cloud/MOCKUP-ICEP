@@ -395,7 +395,7 @@ ul {
       <nav id="navbar" class="navbar">
         <ul>
           {{-- <li><a class="nav-link scrollto active" href="#hero">Laman Utama</a></li> --}}
-          <li><a class="nav-link scrollto " href="{{ route('welcome') }}">ABOUT</a></li>
+          <li><a class="nav-link scrollto " href="{{ route('welcome') }}">HOME</a></li>
           <li class="dropdown"><a href="#"><span>VENUE</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{ route('hotel') }}">HOTEL</a></li>
@@ -591,24 +591,11 @@ ul {
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
 
-      </div>
-    </div>
 
     <div class="container">
       <div class="copyright">
-        <p>&copy; Hakcipta Terpelihara 2021. <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
-      </div>
-      <div class="credits">
-        <!--
-        All the links in the footer should remain intact.
-        You can delete the links only if you purchased the pro version.
-        Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
-      -->
-        {{-- Designed by <a href="https://bootstrapmade.com/">Arghhdann</a> --}}
+        <p>&copy; Copyright © 2021 <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
       </div>
     </div>
   </footer><!-- End Footer -->

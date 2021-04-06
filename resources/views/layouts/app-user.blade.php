@@ -86,7 +86,7 @@
         </div>
 
         <!-- Main section -->
-        <main class="bg-light main-full-body" style="background-color: #ccc!important;">
+        <main class="bg-light main-full-body" style="background-color: #2F4858!important;">
 
             <!-- Theme changer -->
             <!-- <div class="p-4 theme-option">
@@ -123,7 +123,7 @@
             </div>
             @endif
             <!-- The navbar -->
-            <nav class="py-3 navbar navbar-expand navbar-light bg-light" style="background-color: #ccc!important;">
+            <nav class="py-3 navbar navbar-expand navbar-light bg-light" style="background-color: #2F4858!important;">
                 <p class="pb-0 mb-0 navbar-brand">
                     <span></span>
                     <span></span>
@@ -134,7 +134,7 @@
 
 
 
-                <a href="{{ url()->previous() }}" class="m-2 btn btn-outline-primary" style="font-size:150%"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Kembali</a>
+                <a href="{{ url()->previous() }}" class="m-2 btn btn-outline-primary" style="font-size:150%;color:#fff;"><i class="fa fa-chevron-circle-left" aria-hidden="true" style="color: #fff;"></i> Kembali</a>
 
 
 
@@ -163,7 +163,7 @@
                         <!-- icon -->
                         <a href="#" class="w-100 dropdown-toggle text-muted position-relative" data-toggle="dropdown">
                             <!-- Notification -->
-                            <i class="far fa-bell fa-2x" data-toggle="tooltip" data-placement="left" title="Notifikasi"></i>
+                            <i class="far fa-bell fa-2x" data-toggle="tooltip" data-placement="left" title="Notifikasi" style="color: #fff;"></i>
                             <span class="badge badge-primary position-absolute notification-badge">31231</span>
                         </a>
                         {{-- @if($count_notification != 0)
@@ -227,7 +227,7 @@
     @yield('content')
 
     <!-- Footer section -->
-    <footer class="flex-row p-4 footer-full-body d-flex justify-content-between text-secondary" style="background: linear-gradient(to bottom, #cccccc 0%, #ffffff 110%) !important;">
+    <footer class="flex-row p-4 footer-full-body d-flex justify-content-between text-secondary" style="background: #2F4858 !important;">
         <p>&copy; Hakcipta Terpelihara 2021. <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
         <p>Versi 1.0</p>
     </footer>
