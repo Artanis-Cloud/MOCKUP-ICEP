@@ -39,7 +39,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <style>
-    .charts_orb {
+.charts_orb {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -379,7 +379,7 @@ ul {
 
       <div id="logo">
         {{-- <a href="#"><img src="https://upload.wikimedia.org/wikipedia/ms/archive/9/93/20090423144020%21Coat_of_arms_of_Malaysia.png" style="height: 50px;" alt="Kerajaan Selangor"></a> --}}
-        <a href="{{ route('welcome') }}"><img src="http://ezran.my/ACES/wp-content/uploads/2021/02/logo-new.png" style="height: 60px;" alt="Kerajaan Selangor"></a>
+        <a href="#"><img src="http://ezran.my/ACES/wp-content/uploads/2021/02/logo-new.png" style="height: 60px;" alt="Kerajaan Selangor"></a>
       </div>
         <div style="padding-left: 5%;">
             <h3 style="color: #fff;">iCEP - International Conference and Exhibition Professionals</h3>
@@ -395,7 +395,7 @@ ul {
       <nav id="navbar" class="navbar">
         <ul>
           {{-- <li><a class="nav-link scrollto active" href="#hero">Laman Utama</a></li> --}}
-          <li><a class="nav-link scrollto " href="{{ route('welcome') }}">HOME</a></li>
+          <li><a class="nav-link scrollto " href="{{ route('welcome') }}">ABOUT</a></li>
           <li class="dropdown"><a href="#"><span>VENUE</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{ route('hotel') }}">HOTEL</a></li>
@@ -412,17 +412,17 @@ ul {
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero1">
+  <section id="hero2">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="10">
       {{-- <h2>Welcome to</h2> --}}
-      <h1>iCEP Hotel Venue</h1>
-      <!-- You just need to get this field. Start -->
-        <script src="https://kit.fontawesome.com/d97b87339f.js" crossorigin="anonymous"></script>
+      <h1>iCEP Hall Venue</h1>
+      <script src="https://kit.fontawesome.com/d97b87339f.js" crossorigin="anonymous"></script>
 
         {{-- <div class="search-box">
         <input class="search-input" type="text" placeholder="Search something..">
         <button class="search-btn"><i class="fas fa-search"></i></button>
         </div> --}}
+
         <div class="container">
             <div class="card-view">
                     <div class="search-form-box top-search">
@@ -490,8 +490,6 @@ ul {
             </div>
 
         </div>
-<!-- You just need to get this field. End -->
-
     </div>
   </section><!-- End Hero Section -->
 
@@ -500,83 +498,107 @@ ul {
     <section id="about">
         <div class="wrapper">
             <div class="cards">
-                @foreach($hotel as $data)
-                <div class="card">
-                  <div class="card__img">
-                      <picture>
+
+              @foreach($hall as $data)
+              <div class="card">
+                <div class="card__img">
+                    <picture>
 
 
-                        <img src="{{ asset( $image_path = str_replace('public', 'storage',  $data->image)) }}" width="100%" height="200">
-                      </picture>
-                  </div>
-                  <div class="card__details">
-                    <h3 for="cozyroom">{{ $data->name }}</h3>
-                    <div class="address">{{ $data->address }}</div>
-                    <div class="price">
-                      {{-- <div class="star">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      </div> --}}
-                      <div class="price__l">
-                        <span class="price__label">RM {{ $data->price }}</span>
-                        <span class="measure__label">/ days</span>
-                      </div>
+                      <img src="{{ asset( $image_path = str_replace('public', 'storage',  $data->image)) }}" width="100%" height="200">
+                    </picture>
+                </div>
+                <div class="card__details">
+                  <h3 for="cozyroom">{{ $data->name }}</h3>
+                  <div class="address">{{ $data->address }}</div>
+                  <div class="price">
+                    {{-- <div class="star">
+                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
+                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
+                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
+                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
+                    </div> --}}
+                    <div class="price__l">
+                      <span class="price__label">RM {{ $data->price }}</span>
+                      <span class="measure__label">/ days</span>
                     </div>
-                    <button data-toggle="modal" data-target="#exampleModal2{{ $data->id }}">Detail</button>
                   </div>
-                  <div class="modal fade" id="exampleModal2{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Venue Details</h5>
+                  <button data-toggle="modal" data-target="#exampleModal2{{ $data->id }}">Detail</button>
+                </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal2{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Venue Details</h5>
+                            </div>
+                            <div class="modal-body">
+                                <p>Venue: {{ $data->name }}</p>
+                                <p>Address: {{ $data->address }}</p>
+                                <p>Number of Pax: {{ $data->number_of_pax }}</p>
+                                <p>Price: {{ $data->price }}</p>
+                                <p>Description: {{ $data->description }}</p>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <p>Venue: {{ $data->name }}</p>
-                            <p>Address: {{ $data->address }}</p>
-                            <p>Number of Pax: {{ $data->number_of_pax }}</p>
-                            <p>Price: {{ $data->price }}</p>
-                            <p>Description: {{ $data->description }}</p>
                         </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
                     </div>
                 </div>
-                </div>
-                @endforeach
-
+              @endforeach
 
             </div>
           </div>
       </section>
       <br>
-      <section id="fact" style="padding-bottom: 30%;">
+      <section id="fact" style="padding-bottom: 5%;">
         <div class="container" data-aos="fade-up">
           <div class="section-header">
             <h3 class="section-title">Comparison Venue</h3><br>
             {{-- <p class="section-description">Y.B. Dato’ Teng Chang Khim</p> --}}
           </div>
-          <form action="{{ route('comparehotel') }}" method="post">
+          <form action="{{ route('compare') }}" method="post">
             @csrf
             <div class="row">
                 <div class="col-md-5" style="text-align: center;">
                     <select name="venue1" id="" class="">
-                        @foreach($hotel as $data)
-                        <option value="{{ $data->name }}" class="">{{ $data->name }}</option>
+                        @foreach($hall as $info)
+                        <option value="{{ $info->name}}" class="">{{ $info->name }}</option>
                         @endforeach
                     </select>
+                    <br>
+                    @foreach($hall1 as $info)
+                    <div class="card" style="width: 100%;">
+                        <img src="{{ asset( $image_path = str_replace('public', 'storage',  $info->image)) }}" width="100%" height="200">
+                        <div class="card-body">
+                            <p class="">Venue Name: {{ $info->name }}</p>
+                            <p class="">Description: {{ $info->description }}</p>
+                            <p class="">Address: {{ $info->address }}</p>
+                            <p class="">Price: {{ $info->price }}</p>
+                        </div>
+                    </div>
+                    @endforeach
 
                 </div>
                 <div class="col-md-5" style="text-align: center;">
                     <select name="venue2">
-                        @foreach($hotel as $data)
+                        @foreach($hall as $data)
                         <option value="{{ $data->name }}" class="">{{ $data->name }}</option>
                         @endforeach
-
                     </select>
+                    <br>
+                    @foreach($hall2 as $info)
+                    <div class="card" style="width: 100%;">
+                        <img src="{{ asset( $image_path = str_replace('public', 'storage',  $info->image)) }}" width="100%" height="200">
+                        <div class="card-body">
+                            <p class="">Venue Name: {{ $info->name }}</p>
+                            <p class="">Description: {{ $info->description }}</p>
+                            <p class="">Address: {{ $info->address }}</p>
+                            <p class="">Price: {{ $info->price }}</p>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
                 <div class="col-md-2" style="text-align: center;">
                     <button class="btn btn-primary" type="submit"> Compare</button>
@@ -592,11 +614,24 @@ ul {
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
 
+      </div>
+    </div>
 
     <div class="container">
       <div class="copyright">
-        <p>&copy; Copyright © 2021 <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
+        <p>&copy; Hakcipta Terpelihara 2021. <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
+      </div>
+      <div class="credits">
+        <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
+      -->
+        {{-- Designed by <a href="https://bootstrapmade.com/">Arghhdann</a> --}}
       </div>
     </div>
   </footer><!-- End Footer -->

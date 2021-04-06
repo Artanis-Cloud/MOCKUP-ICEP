@@ -395,7 +395,7 @@ ul {
       <nav id="navbar" class="navbar">
         <ul>
           {{-- <li><a class="nav-link scrollto active" href="#hero">Laman Utama</a></li> --}}
-          <li><a class="nav-link scrollto " href="{{ route('welcome') }}">HOME</a></li>
+          <li><a class="nav-link scrollto " href="{{ route('welcome') }}">ABOUT</a></li>
           <li class="dropdown"><a href="#"><span>VENUE</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{ route('hotel') }}">HOTEL</a></li>
@@ -553,7 +553,7 @@ ul {
           </div>
       </section>
       <br>
-      <section id="fact" style="padding-bottom: 30%;">
+      <section id="fact" style="padding-bottom: 5%;">
         <div class="container" data-aos="fade-up">
           <div class="section-header">
             <h3 class="section-title">Comparison Venue</h3><br>
@@ -564,10 +564,22 @@ ul {
             <div class="row">
                 <div class="col-md-5" style="text-align: center;">
                     <select name="venue1" id="" class="">
-                        @foreach($hotel as $data)
-                        <option value="{{ $data->name }}" class="">{{ $data->name }}</option>
+                        @foreach($hotel as $info)
+                        <option value="{{ $info->name}}" class="">{{ $info->name }}</option>
                         @endforeach
                     </select>
+                    <br>
+                    @foreach($hotel1 as $info)
+                    <div class="card" style="width: 100%;">
+                        <img src="{{ asset( $image_path = str_replace('public', 'storage',  $info->image)) }}" width="100%" height="200">
+                        <div class="card-body">
+                            <p class="">Venue Name: {{ $info->name }}</p>
+                            <p class="">Description: {{ $info->description }}</p>
+                            <p class="">Address: {{ $info->address }}</p>
+                            <p class="">Price: {{ $info->price }}</p>
+                        </div>
+                    </div>
+                    @endforeach
 
                 </div>
                 <div class="col-md-5" style="text-align: center;">
@@ -575,8 +587,19 @@ ul {
                         @foreach($hotel as $data)
                         <option value="{{ $data->name }}" class="">{{ $data->name }}</option>
                         @endforeach
-
                     </select>
+                    <br>
+                    @foreach($hotel2 as $info)
+                    <div class="card" style="width: 100%;">
+                        <img src="{{ asset( $image_path = str_replace('public', 'storage',  $info->image)) }}" width="100%" height="200">
+                        <div class="card-body">
+                            <p class="">Venue Name: {{ $info->name }}</p>
+                            <p class="">Description: {{ $info->description }}</p>
+                            <p class="">Address: {{ $info->address }}</p>
+                            <p class="">Price: {{ $info->price }}</p>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
                 <div class="col-md-2" style="text-align: center;">
                     <button class="btn btn-primary" type="submit"> Compare</button>
@@ -592,11 +615,24 @@ ul {
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
 
+      </div>
+    </div>
 
     <div class="container">
       <div class="copyright">
-        <p>&copy; Copyright © 2021 <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
+        &copy; Copyright.
+      </div>
+      <div class="credits">
+        <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
+      -->
+        {{-- Designed by <a href="https://bootstrapmade.com/">Arghhdann</a> --}}
       </div>
     </div>
   </footer><!-- End Footer -->
