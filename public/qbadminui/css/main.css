@@ -1473,7 +1473,7 @@ button.close {
 
 .navbar-brand span {
   height: 1px;
-  background: #fff !important;
+  background: #000 !important;
   width: 30px;
   display: block;
   margin-bottom: 6px;

@@ -28,8 +28,8 @@ a:active {
 </style>
 
 <div class="p-4 page-body text-dark">
-  <!-- Theme changer -->
-  <div class="p-3 theme-option border-1" style="border: 1px solid;border-color: #003e61 !important;" >
+
+  {{-- <div class="p-3 theme-option border-1" style="border: 1px solid;border-color: #003e61 !important;" >
       <div class="theme-pck" data-toggle="tooltip" data-placement="left" title="Bahasa | Language">
           <i class="fa fa-globe" aria-hidden="true" style="font-size: 180% !important;" ></i>
       </div>
@@ -38,22 +38,18 @@ a:active {
         <div class="col-md">
           <div class="btn-group">
               <button class="btn btn-primary">Bahasa Melayu</button>
-              <!-- <a href="{{ route('login') }}" class="btn btn-outline-primary">Bahasa Melayu</a> -->
-              <!-- <button class="btn btn-primary">English</button> -->
+
               <a href="#" class="btn btn-outline-primary">English</a>
           </div>
         </div>
       </div>
-      <!-- <div class="flex-row side-nav-themes d-flex">
-          <p class="p-3 rounded side-nav-theme-primary side-nav-theme" theme-color="purple"></p>
-          <p class="p-3 ml-2 rounded side-nav-theme-light side-nav-theme" theme-color="light"></p>
-      </div> -->
-  </div>
+
+  </div> --}}
 
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <div  style="font-size: 180%;color: #fff;" >
     <i class="fa fa-home" aria-hidden="true" style="color: #fff;"></i>
-    Halaman Utama
+    Dashboard
   </div>
   <hr style="background-color: black !important;">
   <div style="padding:5px;"></div>
@@ -78,7 +74,7 @@ a:active {
                           </div>
                           <!-- Text -->
                           <div class="text-center small-card-text w-100">
-                              <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #003473 !important;">Permohonan <br> Sedang Diproses</p>
+                              <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #003473 !important;">Venues <br> Availabe</p>
                               <h4 class="m-0 font-weight-normal text-primary" style="color: #003473 !important;">1221</h4>
                           </div>
 
@@ -88,7 +84,7 @@ a:active {
 
                       <p class="m-0 font-weight-normal text-primary" style="text-align: right; color: #003473 !important;">
                         <a href="#"  >
-                        Lihat Seterusnya <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        Next <i class="fa fa-caret-right" aria-hidden="true"></i>
                       </a>
 
                       </p>
@@ -112,7 +108,7 @@ a:active {
                             </div>
                             <!-- Text -->
                             <div class="text-center small-card-text w-100">
-                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #28a745 !important;">Permohonan <br> Lulus</p>
+                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #28a745 !important;">Venues <br> Book</p>
                                 <h4 class="m-0 font-weight-normal text-primary" style="color: #28a745 !important;">432423</h4>
                             </div>
                         </div>
@@ -121,7 +117,7 @@ a:active {
                         <p class="m-0 font-weight-normal text-primary" style="text-align: right ; color: #28a745 !important;">
                           <a href="#" >
 
-                          Lihat Seterusnya <i class="fa fa-caret-right" aria-hidden="true"></i>
+                          Next <i class="fa fa-caret-right" aria-hidden="true"></i>
                         </a>
 
                         </p>
@@ -145,7 +141,7 @@ a:active {
                             </div>
                             <!-- Text -->
                             <div class="text-center small-card-text w-100">
-                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #D25F00 !important;">Permohonan<br> Gagal</p>
+                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #D25F00 !important;">Total<br> Venues</p>
                                 <h4 class="m-0 font-weight-normal text-primary" style="color: #D25F00 !important;">342323324</h4>
                             </div>
                         </div>
@@ -154,7 +150,7 @@ a:active {
                         <p class="m-0 font-weight-normal text-primary" style="text-align: right; color: #D25F00 !important;">
                           <a href="#"  >
 
-                          Lihat Seterusnya <i class="fa fa-caret-right" aria-hidden="true"></i>
+                          Next <i class="fa fa-caret-right" aria-hidden="true"></i>
                         </a>
 
                         </p>
@@ -190,7 +186,7 @@ a:active {
                             </div>
                             <!-- Text -->
                             <div class="text-center small-card-text w-100">
-                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #003473 !important;">Permohonan <br> Tidak Berkaitan</p>
+                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #003473 !important;">Total  <br> Events</p>
                                 <h4 class="m-0 font-weight-normal text-primary" style="color: #003473 !important;">321312312</h4>
                             </div>
                         </div>
@@ -199,7 +195,7 @@ a:active {
                         <p class="m-0 font-weight-normal text-primary" style="text-align: right; color: #003473 !important;">
                           <a href="#"  >
 
-                          Lihat Seterusnya <i class="fa fa-caret-right" aria-hidden="true"></i>
+                          Next <i class="fa fa-caret-right" aria-hidden="true"></i>
                         </a>
 
                         </p>
@@ -223,7 +219,7 @@ a:active {
                             </div>
                             <!-- Text -->
                             <div class="text-center small-card-text w-100">
-                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #28a745 !important;">Permohonan <br> Batal</p>
+                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #28a745 !important;">Total <br> Halls</p>
                                 <h4 class="m-0 font-weight-normal text-primary" style="color: #28a745 !important;">43242343232</h4>
                             </div>
                         </div>
@@ -232,7 +228,7 @@ a:active {
                         <p class="m-0 font-weight-normal text-primary" style="text-align: right; color: #28a745 !important;">
                           <a href="#"  >
 
-                          Lihat Seterusnya <i class="fa fa-caret-right" aria-hidden="true"></i>
+                          Next <i class="fa fa-caret-right" aria-hidden="true"></i>
                         </a>
 
                         </p>
@@ -262,7 +258,7 @@ a:active {
 
             <!--  Custom content card -->
             <div class="rounded-lg card" style="border-color: #003473 !important;">
-              <div class="card-header" style="text-align:center; border-color: #003473 !important; font-size: 130%; font-weight: bold;">Makluman</div>
+              <div class="card-header" style="text-align:center; border-color: #003473 !important; font-size: 130%; font-weight: bold;">Announcement</div>
 
                 <div class="card-body">
                     <!-- List -->
@@ -271,24 +267,24 @@ a:active {
                     <div class="list-group" style="overflow:auto;height:500px;width:100%;border:1px solid #ccc">
                       <div class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
-                        <h6 class="mb-1" style="font-size: 20px; font-weight: bold;">Title</h6>
+                        <h6 class="mb-1" style="font-size: 20px; font-weight: bold;">Events</h6>
                         <small class="text-muted" style="font-size: 110%;">18-11-2020</small>
                         </div>
-                        <p class="my-1" style="font-size: 15px; text-align:justify;">Content bla bla</p>
+                        <p class="my-1" style="font-size: 15px; text-align:justify;">IPMC 1-2 DEC 2021</p>
                       </div>
                       <div class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
-                        <h6 class="mb-1" style="font-size: 20px; font-weight: bold;">Title</h6>
+                        <h6 class="mb-1" style="font-size: 20px; font-weight: bold;">Events</h6>
                         <small class="text-muted" style="font-size: 110%;">18-11-2020</small>
                         </div>
-                        <p class="my-1" style="font-size: 15px; text-align:justify;">Content bla bla</p>
+                        <p class="my-1" style="font-size: 15px; text-align:justify;">APGCE 2019 29-30 OCT 2019</p>
                       </div>
                       <div class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
-                        <h6 class="mb-1" style="font-size: 20px; font-weight: bold;">Title</h6>
+                        <h6 class="mb-1" style="font-size: 20px; font-weight: bold;">Events</h6>
                         <small class="text-muted" style="font-size: 110%;">18-11-2020</small>
                         </div>
-                        <p class="my-1" style="font-size: 15px; text-align:justify;">Content bla bla</p>
+                        <p class="my-1" style="font-size: 15px; text-align:justify;">ORCHID RUN & RIDE 2019 - 6-6 OCT 2019</p>
                       </div>
                     </div>
                 </div>
