@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Venues;
 
 class HomeController extends Controller
 {
@@ -30,6 +31,12 @@ class HomeController extends Controller
     public function add_venue()
     {
         return view('admin.add-new-venue');
+    }
+
+    public function list_venue()
+    {
+        $venue = Venues::get();
+        return view('admin.list_venue',compact('venue'));
     }
 
 

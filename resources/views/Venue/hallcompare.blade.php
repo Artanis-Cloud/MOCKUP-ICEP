@@ -501,7 +501,7 @@ ul {
             <h2 class="" style="text-align: center;">Halls in Malaysia</h2>
             </div>
             <div class="row" id="search">
-                <form id="search-form" action="" method="POST" enctype="multipart/form-data">
+                <form id="search-form">
                     <div class="form-group col-xs-9">
                         <input class="form-control" type="text" placeholder="Search" />
                     </div>
@@ -511,7 +511,7 @@ ul {
                 </form>
             </div>
             <div class="row" id="filter">
-                <form>
+
                     <div class="form-group col-sm-3 col-xs-6">
                         <span class="">Start Date</span>
                        <input type="date" class="form-control">

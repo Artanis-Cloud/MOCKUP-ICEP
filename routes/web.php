@@ -31,12 +31,11 @@ Route::get('/contact', [App\Http\Controllers\VenueController::class, 'contact'])
 
 Route::get('/venue/add', [App\Http\Controllers\HomeController::class, 'add_venue'])->name('venue.add');
 
+Route::get('/venue/lists', [App\Http\Controllers\HomeController::class, 'list_venue'])->name('venue');
+
 Route::post('/venue/create', [App\Http\Controllers\VenueController::class, 'submit'])->name('venue.submit');
 
 Route::post('/compare', [App\Http\Controllers\VenueController::class, 'compare'])->name('compare');
 
 Route::post('/comparehotel', [App\Http\Controllers\VenueController::class, 'comparehotel'])->name('comparehotel');
-
-
-
 
