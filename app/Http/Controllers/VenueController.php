@@ -75,6 +75,15 @@ class VenueController extends Controller
 
     }
 
+    public function delete($id){
+
+        $delete = Venues::findorfail($id);
+        $delete -> delete();
+
+        return view('admin.list_venue');
+
+    }
+
 
 
 }
