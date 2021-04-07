@@ -86,7 +86,7 @@
         </div>
 
         <!-- Main section -->
-        <main class="bg-light main-full-body" style="background-color: #2F4858!important;">
+        <main class="bg-light main-full-body" style="background-color: #fff!important;">
 
             <!-- Theme changer -->
             <!-- <div class="p-4 theme-option">
@@ -123,7 +123,7 @@
             </div>
             @endif
             <!-- The navbar -->
-            <nav class="py-3 navbar navbar-expand navbar-light bg-light" style="background-color: #2F4858!important;">
+            <nav class="py-3 navbar navbar-expand navbar-light bg-light" style="background-color: #fff!important;">
                 <p class="pb-0 mb-0 navbar-brand">
                     <span></span>
                     <span></span>
@@ -134,7 +134,7 @@
 
 
 
-                <a href="{{ url()->previous() }}" class="m-2 btn btn-outline-primary" style="font-size:150%;color:#fff;"><i class="fa fa-chevron-circle-left" aria-hidden="true" style="color: #fff;"></i> Kembali</a>
+                <a href="{{ url()->previous() }}" class="m-2 btn btn-outline-primary" style="font-size:150%;color:#fff;"><i class="fa fa-chevron-circle-left" aria-hidden="true" style="color: #000;"></i> Back</a>
 
 
 
@@ -161,11 +161,11 @@
                     <!-- Notification dropdown -->
                     <div class="pt-1 mx-2 text-center dropdown dropdown-arow-none d-contents">
                         <!-- icon -->
-                        <a href="#" class="w-100 dropdown-toggle text-muted position-relative" data-toggle="dropdown">
-                            <!-- Notification -->
+                        {{-- <a href="#" class="w-100 dropdown-toggle text-muted position-relative" data-toggle="dropdown">
+
                             <i class="far fa-bell fa-2x" data-toggle="tooltip" data-placement="left" title="Notifikasi" style="color: #fff;"></i>
                             <span class="badge badge-primary position-absolute notification-badge">31231</span>
-                        </a>
+                        </a> --}}
                         {{-- @if($count_notification != 0)
                         <!-- Dropdown menu -->
                         <div class="p-0 dropdown-menu dropdown-menu-right dropdown-menu-max-height">
@@ -227,7 +227,7 @@
     @yield('content')
 
     <!-- Footer section -->
-    <footer class="flex-row p-4 footer-full-body d-flex justify-content-between text-secondary" style="background: #2F4858 !important;">
+    <footer class="flex-row p-4 footer-full-body d-flex justify-content-between text-secondary" style="background: #fff !important;">
         <p>&copy; Hakcipta Terpelihara 2021. <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
         <p>Versi 1.0</p>
     </footer>
