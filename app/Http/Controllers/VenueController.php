@@ -34,7 +34,7 @@ class VenueController extends Controller
         $uploaded_gambar = $request->file('image')->store('public/uploads');
         event($venue = $this->add($request->all(),$uploaded_gambar));
 
-        return redirect()->route('venue.add');
+        return redirect()->route('venue');
     }
 
     public function add(array $data,$uploaded_gambar){

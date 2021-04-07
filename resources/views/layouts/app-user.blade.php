@@ -60,6 +60,8 @@
 
                         <li class="px-3 side-menu-item"><a href="{{ route('venue.add') }}" class="py-3 pl-4 w-100">Add New Venue</a></li>
 
+                        <li class="px-3 side-menu-item"><a href="{{ route('venue') }}" class="py-3 pl-4 w-100">List Venues</a></li>
+
 
 
                         {{-- <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100 sub-menu-parent" data-toggle="collapse" data-target="#table-sub-menu3" aria-expanded="false" aria-controls="table-sub-menu">Senarai Permohonan </a></li>
