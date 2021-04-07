@@ -61,7 +61,7 @@ a:active {
 
       <div class="row">
           <!-- Col sm 6, col md 6, col lg 3 -->
-          <div class="mt-3 col-sm-6 col-md-6 col-lg-4 mt-lg-0">
+          <div class="mt-3 col-sm-6 col-md-6 col-lg-3 mt-lg-0">
             <!-- Card -->
               <div class="rounded-lg card border-1" style="border-color: #003473 !important;">
                   <!-- Card body -->
@@ -70,7 +70,7 @@ a:active {
                       <div class="flex-row d-flex justify-content-center align-items-center">
                           <!-- Icon -->
                           <div class="small-card-icon">
-                              <i class="fa fa-retweet card-icon-bg-primary fa-4x" style="color: #003473 !important;"></i>
+                              <i class="fas fa-door-open card-icon-bg-primary fa-4x" style="color: #003473 !important;"></i>
                           </div>
                           <!-- Text -->
                           <div class="text-center small-card-text w-100">
@@ -95,7 +95,7 @@ a:active {
           </div>
 
           <!-- Col sm 6, col md 6, col lg 3 -->
-          <div class="mt-3 col-sm-6 col-md-6 col-lg-4 mt-lg-0">
+          <div class="mt-3 col-sm-6 col-md-6 col-lg-3 mt-lg-0">
               <!-- Card -->
               <div class="rounded-lg card border-1" style="border-color: #28a745 !important;">
                   <!-- Card body -->
@@ -104,7 +104,7 @@ a:active {
                         <div class="flex-row d-flex justify-content-center align-items-center">
                             <!-- Icon -->
                             <div class="small-card-icon">
-                                <i class="fa fa-check card-icon-bg-primary fa-4x" style="color: #28a745 !important;"></i>
+                                <i class="fas fa-suitcase-rolling card-icon-bg-primary fa-4x" style="color: #28a745 !important;"></i>
                             </div>
                             <!-- Text -->
                             <div class="text-center small-card-text w-100">
@@ -128,7 +128,7 @@ a:active {
           </div>
 
           <!-- Col sm 6, col md 6, col lg 3 -->
-          <div class="mt-3 col-sm-6 col-md-6 col-lg-4 mt-lg-0">
+          <div class="mt-3 col-sm-6 col-md-6 col-lg-3 mt-lg-0">
               <!-- Card -->
               <div class="rounded-lg card border-1" style="border-color: #D25F00 !important;">
                   <!-- Card body -->
@@ -137,7 +137,7 @@ a:active {
                         <div class="flex-row d-flex justify-content-center align-items-center">
                             <!-- Icon -->
                             <div class="small-card-icon">
-                                <i class="fa fa-times-circle card-icon-bg-primary fa-4x" style="color: #D25F00 !important;"></i>
+                                <i class="fas fa-hotel card-icon-bg-primary fa-4x" style="color: #D25F00 !important;"></i>
                             </div>
                             <!-- Text -->
                             <div class="text-center small-card-text w-100">
@@ -160,6 +160,38 @@ a:active {
               </div>
           </div>
 
+          <div class="mt-3 col-sm-6 col-md- col-lg-3 mt-lg-0">
+            <!-- Card -->
+              <div class="rounded-lg card border-1" style="border-color: #003473 !important;">
+                  <!-- Card body -->
+                  <div class="card-body" style="border-radius:.5rem;">
+
+                      <div class="flex-row d-flex justify-content-center align-items-center">
+                          <!-- Icon -->
+                          <div class="small-card-icon">
+                              <i class="fas fa-calendar-check card-icon-bg-primary fa-4x" style="color: #003473 !important;"></i>
+                          </div>
+                          <!-- Text -->
+                          <div class="text-center small-card-text w-100">
+                              <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #003473 !important;">Total  <br> Events</p>
+                              <h4 class="m-0 font-weight-normal text-primary" style="color: #003473 !important;">321312312</h4>
+                          </div>
+                      </div>
+
+                      <hr style="background-color: #003473 !important;">
+                      <p class="m-0 font-weight-normal text-primary" style="text-align: right; color: #003473 !important;">
+                        <a href="#"  >
+
+                        Next <i class="fa fa-caret-right" aria-hidden="true"></i>
+                      </a>
+
+                      </p>
+
+                  </div>
+              </div>
+
+        </div>
+
 
 
 
@@ -168,80 +200,6 @@ a:active {
       </div>
 
       <div class="" style="padding: 10px;"></div>
-
-
-      <div class="row">
-
-          <!-- Col sm 6, col md 6, col lg 3 -->
-          <div class="mt-3 col-sm-6 col-md- col-lg-4 mt-lg-0">
-              <!-- Card -->
-                <div class="rounded-lg card border-1" style="border-color: #003473 !important;">
-                    <!-- Card body -->
-                    <div class="card-body" style="border-radius:.5rem;">
-
-                        <div class="flex-row d-flex justify-content-center align-items-center">
-                            <!-- Icon -->
-                            <div class="small-card-icon">
-                                <i class="fa fa-question-circle card-icon-bg-primary fa-4x" style="color: #003473 !important;"></i>
-                            </div>
-                            <!-- Text -->
-                            <div class="text-center small-card-text w-100">
-                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #003473 !important;">Total  <br> Events</p>
-                                <h4 class="m-0 font-weight-normal text-primary" style="color: #003473 !important;">321312312</h4>
-                            </div>
-                        </div>
-
-                        <hr style="background-color: #003473 !important;">
-                        <p class="m-0 font-weight-normal text-primary" style="text-align: right; color: #003473 !important;">
-                          <a href="#"  >
-
-                          Next <i class="fa fa-caret-right" aria-hidden="true"></i>
-                        </a>
-
-                        </p>
-
-                    </div>
-                </div>
-
-          </div>
-
-          <!-- Col sm 6, col md 6, col lg 3 -->
-          <div class="mt-3 col-sm-6 col-md-6 col-lg-4 mt-lg-0">
-              <!-- Card -->
-              <div class="rounded-lg card border-1" style="border-color: #28a745 !important;">
-                  <!-- Card body -->
-                    <div class="card-body" style="border-radius:.5rem;">
-
-                        <div class="flex-row d-flex justify-content-center align-items-center">
-                            <!-- Icon -->
-                            <div class="small-card-icon">
-                                <i class="fa fa-trash card-icon-bg-primary fa-4x" style="color: #28a745 !important;"></i>
-                            </div>
-                            <!-- Text -->
-                            <div class="text-center small-card-text w-100">
-                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #28a745 !important;">Total <br> Halls</p>
-                                <h4 class="m-0 font-weight-normal text-primary" style="color: #28a745 !important;">43242343232</h4>
-                            </div>
-                        </div>
-
-                        <hr style="background-color: #28a745 !important;">
-                        <p class="m-0 font-weight-normal text-primary" style="text-align: right; color: #28a745 !important;">
-                          <a href="#"  >
-
-                          Next <i class="fa fa-caret-right" aria-hidden="true"></i>
-                        </a>
-
-                        </p>
-
-                    </div>
-
-              </div>
-          </div>
-
-
-
-
-      </div>
 
       <div style="padding: 10px;">
 
