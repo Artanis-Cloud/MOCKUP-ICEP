@@ -39,3 +39,6 @@ Route::post('/compare', [App\Http\Controllers\VenueController::class, 'compare']
 
 Route::post('/comparehotel', [App\Http\Controllers\VenueController::class, 'comparehotel'])->name('comparehotel');
 
+Route::post('/deletevenue/{id}', [App\Http\Controllers\VenueController::class, 'delete'])->name('delete');
+
+

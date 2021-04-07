@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody align="center">
-                    @foreach ($venue as $data )
+                    @forelse ($venue as $data )
                         <tr>
                             <td>{{$data->id}}</td>
                             <td>{{$data->name}}</td>
@@ -32,10 +32,17 @@
                             <td>{{$data->status}}</td>
                             <td>
                                 <a href="#" class="btn btn-success mr-1"><i class="fas fa-pencil-alt"></i></a>
-                                <a href="#" class="btn btn-danger mr-1"><i class="fas fa-trash"></i></a>
+                                <form action="{{ route('delete', $data->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger mr-1"><i class="fas fa-trash"></i></button>
+                                </form>
                             </td>
+
+
                         </tr>
-                    @endforeach
+                    @empty
+                    {{-- <td>Table is Empty</td> --}}
+                    @endforelse
                 </tbody>
             </table>
         </div>
