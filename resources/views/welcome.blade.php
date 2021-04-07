@@ -276,6 +276,8 @@
 
   <main id="main">
     <!-- ======= About Section ======= -->
+
+
     <section id="about">
         <div class="container" data-aos="fade-up">
           <div class="section-header">

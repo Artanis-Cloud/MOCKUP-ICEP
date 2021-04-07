@@ -498,6 +498,45 @@ ul {
   <main id="main">
     <!-- ======= About Section ======= -->
     <section id="about">
+        <div class="container">
+            <div class="row">
+            <h2 class="" style="text-align: center;">Hotel in Malaysia</h2>
+            </div>
+            <div class="row" id="search">
+                <form id="search-form" action="" method="POST" enctype="multipart/form-data">
+                    <div class="form-group col-xs-9">
+                        <input class="form-control" type="text" placeholder="Search" />
+                    </div>
+                    <div class="form-group col-xs-3">
+                        <button type="submit" class="btn btn-block btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="row" id="filter">
+                <form>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <span class="">Start Date</span>
+                       <input type="date" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <span class="">End Date</span>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <span class="">Hours</span>
+                        <input type="text" class="form-control" placeholder="Enter Hours">
+
+                    </input>
+                    </div>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <span class="">Price Range</span>
+                        <input type="range" min="1" max="2000" value="50" id="myRange" style="margin-top: 3%;">
+                        <p>Value: <span id="demo"></span></p>
+
+                    </input>
+                    </div>
+            </div>
+        </div>
         <div class="wrapper">
             <div class="cards">
                 @foreach($hotel as $data)
