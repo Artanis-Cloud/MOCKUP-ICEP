@@ -368,6 +368,38 @@ ul {
 }
 
 }
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #970a0a;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
   </style>
 </head>
 
@@ -497,7 +529,49 @@ ul {
 
   <main id="main">
     <!-- ======= About Section ======= -->
+
     <section id="about">
+
+        <div class="container">
+            <div class="row">
+            <h2 class="" style="text-align: center;">Hotel in Malaysia</h2>
+            </div>
+            <div class="row" id="search">
+                <form id="search-form" action="" method="POST" enctype="multipart/form-data">
+                    <div class="form-group col-xs-9">
+                        <input class="form-control" type="text" placeholder="Search" />
+                    </div>
+                    <div class="form-group col-xs-3">
+                        <button type="submit" class="btn btn-block btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="row" id="filter">
+                <form>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <span class="">Start Date</span>
+                       <input type="date" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <span class="">End Date</span>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <span class="">Hours</span>
+                        <input type="text" class="form-control" placeholder="Enter Hours">
+
+                    </input>
+                    </div>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <span class="">Price Range</span>
+                        <input type="range" min="1" max="2000" value="50" id="myRange" style="margin-top: 3%;">
+                        <p>Value: <span id="demo"></span></p>
+
+                    </input>
+                    </div>
+            </div>
+        </div>
+
         <div class="wrapper">
             <div class="cards">
                 @foreach($hotel as $data)
@@ -697,5 +771,15 @@ $('.click-me').click(function () {
 })
 
 </script>
+
+<script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+    </script>
 
 </html>
