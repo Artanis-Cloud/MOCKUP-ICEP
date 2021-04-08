@@ -4,6 +4,7 @@
     </IfModule>
 
     RewriteEngine On
+    RewriteBase "/ICEP/"
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
