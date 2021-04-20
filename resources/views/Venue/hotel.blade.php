@@ -128,6 +128,7 @@ input.search-submit {
   </style>
 </head>
 
+
 <body>
 
   <!-- ======= Header ======= -->
@@ -461,9 +462,22 @@ $(this).css({
 	}
 
 <div class="container-fluid">
-    <div class="row" style="">
-		<div class="col-md-4">
-
+    <div class="row">
+		<div class="col-md-4" style="padding-top: 5%;">
+    <div class="card rounded-lg">
+                            <div class="card-body">
+                                <div class="card-title">Filtering</div>
+                                <p class="text-muted">The most basic list group is an unordered list with list items and the proper classes.</p>
+                                <!-- List -->
+                                <ul class="list-group">
+                                    <li class="list-group-item">Cras justo odio</li>
+                                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                                    <li class="list-group-item">Morbi leo risus</li>
+                                    <li class="list-group-item">Porta ac consectetur ac</li>
+                                    <li class="list-group-item">Vestibulum at eros</li>
+                                </ul>
+                            </div>
+                        </div>
 		</div>
 		<div class="col-md-8">
 

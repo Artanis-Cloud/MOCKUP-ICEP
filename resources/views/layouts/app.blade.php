@@ -49,7 +49,7 @@
                             <a class="nav-link" href="{{ route('hall') }}">EVENTS SPACE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contact') }}">CONTATC US</a>
+                            <a class="nav-link" href="{{ route('contact') }}">CONTACT US</a>
                         </li>
                     </ul>
 
