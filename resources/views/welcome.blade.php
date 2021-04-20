@@ -184,14 +184,14 @@
       </nav><!-- .navbar -->
     </div>
     @auth
-        <a class="btnlogin" href="#" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> LOG KELUAR </a>
+        <a class="btnlogin" href="#" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> LOG OUT </a>
         <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
             {{ csrf_field() }}
         </form>
     @endauth
     @guest
 
-        <a class="btnlogin" href="{{ route('login') }}"> Log In</a>
+        <a class="btnlogin" href="{{ route('login') }}"> LOG IN</a>
 
         {{-- <a href="{{ route('login') }}" class="btn-get-started"> LOG IN </a> --}}
     @endguest

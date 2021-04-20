@@ -472,7 +472,7 @@ ul {
                                 </button>
 
                             </div>
-                            <ul class="drop-menu text-left suggestion-search-menu add-scroll">
+                            <ul class="text-left drop-menu suggestion-search-menu add-scroll">
                                 <li>
                                     <a href="#" class="suggestion-anchor">
                                         <div class="sleft">
@@ -531,7 +531,7 @@ ul {
     <!-- ======= About Section ======= -->
 
     <section id="about">
-
+      <div class="row">
         <div class="container">
             <div class="row">
             <h2 class="" style="text-align: center;">Hotel in Malaysia</h2>
@@ -546,40 +546,21 @@ ul {
                     </div>
                 </form>
             </div>
-            <div class="row" id="filter">
-
-                    <div class="form-group col-sm-3 col-xs-6">
-                        <span class="">Start Date</span>
-                       <input type="date" class="form-control">
-                    </div>
-                    <div class="form-group col-sm-3 col-xs-6">
-                        <span class="">End Date</span>
-                        <input type="date" class="form-control">
-                    </div>
-                    <div class="form-group col-sm-3 col-xs-6">
-                        <span class="">Hours</span>
-                        <input type="text" class="form-control" placeholder="Enter Hours">
-
-                    </input>
-                    </div>
-                    <div class="form-group col-sm-3 col-xs-6">
-                        <span class="">Price Range</span>
-                        <input type="range" min="1" max="2000" value="50" id="myRange" style="margin-top: 3%;">
-                        <p>Value: <span id="demo"></span></p>
-
-                    </input>
-                    </div>
-            </div>
         </div>
-
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+            {{-- <div class="form-group col-sm-1 col-xs-3">
+                <span class="">Price Range</span>
+                <input type="range" min="1" max="2000" value="50" id="myRange" style="margin-top: 3%;">
+                <p>Value: <span id="demo"></span></p>
+            </div> --}}
         <div class="wrapper">
             <div class="cards">
                 @foreach($hotel as $data)
                 <div class="card">
                   <div class="card__img">
                       <picture>
-
-
                         <img src="{{ asset( $image_path = str_replace('public', 'storage',  $data->image)) }}" width="100%" height="200">
                       </picture>
                   </div>
@@ -587,12 +568,6 @@ ul {
                     <h3 for="cozyroom">{{ $data->name }}</h3>
                     <div class="address">{{ $data->address }}</div>
                     <div class="price">
-                      {{-- <div class="star">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      </div> --}}
                       <div class="price__l">
                         <span class="price__label">RM {{ $data->price }}</span>
                         <span class="measure__label">/ days</span>
@@ -624,14 +599,15 @@ ul {
 
 
             </div>
-          </div>
+        </div>
+      </div>
+      </div>
       </section>
       <br>
-      <section id="fact" style="padding-bottom: 30%;">
+      {{-- <section id="fact" style="padding-bottom: 30%;">
         <div class="container" data-aos="fade-up">
           <div class="section-header">
             <h3 class="section-title">Comparison Venue</h3><br>
-            {{-- <p class="section-description">Y.B. Dato’ Teng Chang Khim</p> --}}
           </div>
           <form action="{{ route('comparehotel') }}" method="post">
             @csrf
@@ -659,7 +635,7 @@ ul {
          </form>
 
         </div>
-      </section>
+      </section> --}}
       <!-- End About Section -->
 
   </main><!-- End #main -->
