@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\AdminController::class, 'index'])->name('home');
 
 Route::get('/hall', [App\Http\Controllers\VenueController::class, 'hall'])->name('hall');
 
@@ -29,11 +29,17 @@ Route::get('/gallery', [App\Http\Controllers\VenueController::class, 'gallery'])
 
 Route::get('/contact', [App\Http\Controllers\VenueController::class, 'contact'])->name('contact');
 
-Route::get('/venue/add', [App\Http\Controllers\HomeController::class, 'add_venue'])->name('venue.add');
+Route::get('/hotel/add', [App\Http\Controllers\AdminController::class, 'add_hotel'])->name('hotel.add');
 
-Route::get('/venue/lists', [App\Http\Controllers\HomeController::class, 'list_venue'])->name('venue');
+Route::get('/eventspace/add', [App\Http\Controllers\AdminController::class, 'add_eventspace'])->name('eventspace.add');
 
-Route::post('/venue/create', [App\Http\Controllers\VenueController::class, 'submit'])->name('venue.submit');
+Route::get('/forms', [App\Http\Controllers\AdminController::class, 'forms'])->name('forms');
+
+Route::get('/venue/lists', [App\Http\Controllers\AdminController::class, 'list_venue'])->name('venue');
+
+Route::post('/hotel/create', [App\Http\Controllers\VenueController::class, 'submitHotel'])->name('hotel.submit');
+
+Route::post('/eventspace/create', [App\Http\Controllers\VenueController::class, 'submitEventSpace'])->name('eventspace.submit');
 
 Route::post('/compare', [App\Http\Controllers\VenueController::class, 'compare'])->name('compare');
 
