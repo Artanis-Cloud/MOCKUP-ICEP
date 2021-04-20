@@ -25,6 +25,8 @@ Route::get('/hall', [App\Http\Controllers\VenueController::class, 'hall'])->name
 
 Route::get('/hotel', [App\Http\Controllers\VenueController::class, 'hotel'])->name('hotel');
 
+Route::get('/venue/details', [App\Http\Controllers\VenueController::class, 'details'])->name('details');
+
 Route::get('/gallery', [App\Http\Controllers\VenueController::class, 'gallery'])->name('gallery');
 
 Route::get('/contact', [App\Http\Controllers\VenueController::class, 'contact'])->name('contact');
@@ -46,5 +48,3 @@ Route::post('/compare', [App\Http\Controllers\VenueController::class, 'compare']
 Route::post('/comparehotel', [App\Http\Controllers\VenueController::class, 'comparehotel'])->name('comparehotel');
 
 Route::post('/deletevenue/{id}', [App\Http\Controllers\VenueController::class, 'delete'])->name('delete');
-
-

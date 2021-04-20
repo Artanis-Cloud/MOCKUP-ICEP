@@ -108,6 +108,11 @@ class VenueController extends Controller
 
     }
 
+    public function details()
+    {
+        return view('venue.details');
+    }
+
 
 
 }

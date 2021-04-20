@@ -1,740 +1,369 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-{{--
-  {{-- <title>Rumah Ibadat</title> --}}
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+@section('content')
 
-  <!-- Favicons -->
-  <link href="{{ asset('Regna/assets/img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('Regna/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{{ asset('Regna/assets/vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ asset('Regna/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('Regna/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('Regna/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('Regna/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('Regna/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-  <!-- Template Main CSS File -->
-  <link href="{{ asset('Regna/assets/css/style.css') }}" rel="stylesheet">
-  <link href="{{ asset('Regna/assets/css/search.css') }}" rel="stylesheet">
-
-
-  <!-- =======================================================
-  * Template Name: Regna - v4.1.0
-  * Template URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-  <style>
-.charts_orb {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-  font-family: arial;
-  color: white;
+<style>
+a{
+  font-size: 100% !important;
 }
-.charts_orb .orb {
-  padding: 20px;
+/* unvisited link */
+a:link {
+  color: white !important;
 }
-.charts_orb .orb .orb_graphic {
-  position: relative;
+
+/* visited link */
+a:visited {
+  color: white !important;
 }
-.charts_orb .orb .orb_graphic .orb_value {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+/* mouse over link */
+a:hover {
+  color: #E89A3D !important;
+}
+
+/* selected link */
+a:active {
+  color: white !important;
+
+}
+
+.container-fluid{
+    width: 100%;
+    height: 100vh;
+
+}
+
+/* search */
+input[type=search] {
+  -webkit-appearance: none !important;
+  background-clip: padding-box;
+  background-color: white;
+  vertical-align: middle;
+  border-radius: 0.25rem;
+  border: 1px solid #e0e0e5;
+  font-size: 1rem;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5em;
-  font-weight: bold;
-}
-.charts_orb .orb .orb_label {
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 1em;
-}
-.charts_orb svg {
-  width: 110px;
-  height: 110px;
-}
-.charts_orb svg circle {
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-  stroke-dasharray: 314.16, 314.16;
-  stroke-width: 2;
-  fill: transparent;
-  r: 50;
-  cx: 55;
-  cy: 55;
-}
-.charts_orb svg circle.fill {
-  stroke: #D3D3D3;
-}
-.charts_orb svg circle.progress {
-  stroke: #ff0000;
-  transition: stroke-dashoffset 0.35s;
-  stroke-dashoffset: 214.16;
-  -webkit-animation: NAME-YOUR-ANIMATION 1.5s forwards;
-  -webkit-animation-timing-function: linear;
+  line-height: 2;
+  padding: 0.375rem 1.25rem;
+  transition: border-color 0.2s;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  height: 100%;
-}
-
-ul {
-  list-style: none;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.top__header {
-  position: relative;
-  height: 45px;
-  padding: 10px;
-  background: #51D6FB;
-  color: #FFFFFF;
-  font-size: 12px;
-  font-family: "Roboto", sans-serif;
-  text-align: center;
-  overflow: hidden;
-}
-.top__header .icon__menu .menu__mobile {
-  text-align: left;
-  margin-top: -5px;
-}
-.top__header .icon__menu .menu__desktop {
-  display: none;
-}
-.top__header h3 {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-}
-.top__header:before {
-  content: "";
-  width: 100%;
-  border-radius: 10px 10px 0 0;
-  background: #1fcafa;
-  height: 100%;
-  display: block;
-  position: absolute;
-  top: 32px;
-  left: 0;
-}
-
-.cards {
-  margin-top: 1rem;
-  padding: 10px;
-  display: grid;
-  grid-gap: 20px;
-  font-family: "Roboto", sans-serif;
-}
-.cards .card {
-  position: relative;
-  max-height: 340px;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(auto, 1fr));
-}
-.cards .card__img {
-  max-height: 200px;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.cards .card__details {
-  position: relative;
-  top: -36px;
-  width: 90%;
-  padding: 10px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(3, 6, 31, 0.15);
-  display: grid;
-  grid-gap: 5px;
-}
-.cards .card__details h3 {
-  font-size: 22px;
-  font-weight: 400;
-}
-.cards .card__details .address {
-  color: #777777;
-  font-size: 12px;
-}
-.cards .card__details .price {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.cards .card__details .price .price__l {
-  width: 100%;
-  text-align: right;
-}
-.cards .card__details .price .price__l .price__label {
-  font-weight: 600;
-  text-align: right;
-}
-.cards .card__details .price .star img {
-  width: 14px;
-}
-.cards .card__details button {
-  cursor: pointer;
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 5px;
-  background: #51D6FB;
-  color: #FFFFFF;
-}
-.cards .card__details button:focus {
+input[type=search]:focus {
+  transition: all 0.5s;
+  box-shadow: 0 0 40px #f9d442b9;
+  border-color: #f9d342;
   outline: none;
 }
-.cards .card .credit-img {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  padding: 10px;
-  font-size: 10px;
-  text-align: right;
-}
 
-@media (max-width: 347px) {
-  .cards .card__details .price {
-    align-items: baseline;
-  }
-  .cards .card__details .price .price__l {
-    font-size: 12px;
-  }
-}
-@media (min-width: 425px) {
-  .top__header .icon__menu .menu__mobile {
-    display: none;
-  }
-  .top__header .icon__menu .menu__desktop {
-    display: block;
-  }
-  .top__header .icon__menu .menu__desktop ul.desktop__menu li {
-    cursor: pointer;
-    margin: 0 1rem;
-    padding: 2px 10px;
-  }
-  .top__header .icon__menu .menu__desktop ul.desktop__menu li.promo {
-    background: #D7493A;
-    border-radius: 5px;
-  }
-  .top__header .icon__menu .menu__desktop ul.desktop__menu li.promo:hover {
-    background: #b93425;
-  }
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  .cards .card {
-    grid-template-columns: 1fr 1fr;
-  }
-  .cards .card__details {
-    top: 0;
-    align-items: flex-start;
-    align-content: center;
-    grid-gap: 10px;
-  }
-  .cards .card__details .price {
-    grid-template-columns: auto 1fr;
-    font-size: 15px;
-  }
-  .cards .card__details .address {
-    margin-top: -7px;
-  }
-  .cards .card .credit-img {
-    padding: 15px 25px;
-  }
-}
-@media (min-width: 481px) and (max-width: 767px) {
-  .cards .card {
-    grid-template-columns: 1fr 1fr;
-  }
-  .cards .card__details {
-    top: 0;
-    align-items: flex-start;
-    align-content: center;
-    grid-gap: 10px;
-  }
-  .cards .card__details .price {
-    grid-template-columns: auto 1fr;
-    font-size: 15px;
-  }
-  .cards .card__details .address {
-    margin-top: -7px;
-  }
-  .cards .card .credit-img {
-    padding: 15px 25px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-  .cards .credit-img {
-    font-size: 8px !important;
-  }
-}
-@media (min-width: 1025px) {
-  .wrapper {
-    width: 960px;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  }
-  .wrapper .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  .wrapper .cards .card__details h3 {
-    font-size: 18px;
-  }
-
-  .search-box {
-  width: 350px;
-  position: relative;
+form.search-form {
   display: flex;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  justify-content: center;
 }
 
-.search-input {
-  width: 100%;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  padding: 15px 45px 15px 15px;
-  background-color: #eaeaeb;
-  color: #6c6c6c;
-  border-radius: 6px;
-  border:none;
-  transition: all .4s;
+label {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: center;
+  margin-bottom: 0;
 }
 
-.search-input:focus {
-  border:none;
-  outline:none;
-  box-shadow: 0 1px 12px #b8c6db;
-  -moz-box-shadow: 0 1px 12px #b8c6db;
-  -webkit-box-shadow: 0 1px 12px #b8c6db;
+input.search-field {
+  margin-bottom: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: center;
+  height: 51px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
-.search-btn {
-  background-color: transparent;
-  font-size: 18px;
-  padding: 6px 9px;
-  margin-left:-45px;
-  border:none;
-  color: #6c6c6c;
-  transition: all .4s;
-  z-index: 10;
+input.search-submit {
+  height: 51px;
+  margin: 0;
+  padding: 1rem 1.3rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  font-family: "Font Awesome 5 Free";
+  font-size: 1rem;
 }
 
-.search-btn:hover {
-  transform: scale(1.2);
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.button {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.8rem;
+  line-height: 1.15;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  background: #f9d342;
+  color: #292826;
+  border: 1px solid transparent;
+  vertical-align: middle;
+  text-shadow: none;
+  transition: all 0.2s;
+}
+
+.button:hover,
+.button:active,
+.button:focus {
   cursor: pointer;
-  color: black;
+  background: #E89A3D;
+  color: #292826;
+  outline: 0;
 }
 
-.search-btn:focus {
-  outline:none;
-  color:black;
+/* slider */
+.slidecontainer {
+  width: 100%;
 }
 
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
 }
-  </style>
-</head>
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+</style>
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
-    <div class="container d-flex justify-content-between align-items-center">
+ <div class="container-fluid">
+   <div class="row">
+     <div class="col-md-4" style="padding: 5%">
+       <div class="card rounded-lg">
+                           <div class="card-body">
+                               <div class="card-title">Filtering</div>
+                               <!-- Create 2 row -->
+                               <div class="row">
+                                   <!-- 1st row -->
+                                   <div class="col-md-12">
+                                       <div class="form-group">
+                                           <label for="f-name-1">Size (s.q ft)</label>
+                                           <input id="f-name-1" class="form-control bg-light" type="text" name="fName" placeholder="Enter Size">
+                                       </div>
+                                   </div>
+                               </div>
+                               <!-- Create 2 row -->
+                               <div class="row">
+                                   <!-- 1st row -->
+                                   <div class="col-md-12">
+                                       <div class="form-group">
+                                           <label for="email-1">Type of Events Hall</label>
+                                             <div class="custom-control custom-checkbox">
+                                                 <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                 <label class="custom-control-label" for="customCheck1">Banquet</label>
+                                             </div>
+                                             <div class="custom-control custom-checkbox">
+                                                 <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                                 <label class="custom-control-label" for="customCheck1">Classroom</label>
+                                             </div>
+                                             <div class="custom-control custom-checkbox">
+                                                 <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                                 <label class="custom-control-label" for="customCheck1">Theater</label>
+                                             </div>
+                                             <div class="custom-control custom-checkbox">
+                                                 <input type="checkbox" class="custom-control-input" id="customCheck4">
+                                                 <label class="custom-control-label" for="customCheck1">Cocktail</label>
+                                             </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               <!-- Create 3 row -->
+                               <div class="row">
+                                   <!-- 1st row -->
+                                   <div class="col-md-12">
+                                       <div class="form-group">
+                                         <label for="f-name-1">Maximum Capacity</label>
+                                         <div class="slidecontainer">
+                                         <input type="range" min="1" max="10000" value="500" class="slider" id="myRange">
+                                         <p>Value: <span id="demo"></span></p>
+                                         </div>
+                                       </div>
+                                   </div>
+                               </div>
 
-      <div id="logo">
-        {{-- <a href="#"><img src="https://upload.wikimedia.org/wikipedia/ms/archive/9/93/20090423144020%21Coat_of_arms_of_Malaysia.png" style="height: 50px;" alt="Kerajaan Selangor"></a> --}}
-        <a href="#"><img src="http://ezran.my/ACES/wp-content/uploads/2021/02/logo-new.png" style="height: 60px;" alt="Kerajaan Selangor"></a>
-      </div>
-        <div style="padding-left: 5%;">
-            <h3 style="color: #fff;">iCEP - International Conference and Exhibition Professionals</h3>
-        </div>
+                               <!-- Create 4 row -->
+                               <div class="row">
+                                   <!-- 1st row -->
+                                   <div class="col-md-12">
+                                       <div class="form-group">
+                                         <label for="f-name-1">Radius from KLCC (car)</label>
+                                         <div class="slidecontainer">
+                                         <input type="range" min="1" max="300" value="50" class="slider" id="km">
+                                         <p>Km: <span id="demokm"></span></p>
+                                         </div>
+                                       </div>
+                                   </div>
+                               </div>
 
-    <br>
-      <div>
+                               <!-- Create 5 row -->
+                               <div class="row">
+                                   <!-- 1st row -->
+                                   <div class="col-md-12">
+                                       <div class="form-group">
+                                         <label for="f-name-1">Radius from KLCC (walk)</label>
+                                         <div class="slidecontainer">
+                                         <input type="range" min="1" max="300" value="100" class="slider" id="walk">
+                                         <p>Km: <span id="demowalk"></span></p>
+                                         </div>
+                                       </div>
+                                   </div>
+                               </div>
 
-      </div>
-
-
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          {{-- <li><a class="nav-link scrollto active" href="#hero">Laman Utama</a></li> --}}
-          <li><a class="nav-link scrollto " href="{{ route('welcome') }}">HOME</a></li>
-          <li class="dropdown"><a href="#"><span>VENUE</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="{{ route('hotel') }}">HOTEL</a></li>
-              <li><a href="{{ route('hall') }}">HALL</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="{{ route('gallery') }}">GALLERY</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('contact') }}">CONTACT US</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-    </div>
-
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero2">
-    <div class="hero-container" data-aos="zoom-in" data-aos-delay="10">
-      {{-- <h2>Welcome to</h2> --}}
-      <h1>iCEP Hall Venue</h1>
-      <script src="https://kit.fontawesome.com/d97b87339f.js" crossorigin="anonymous"></script>
-
-        {{-- <div class="search-box">
-        <input class="search-input" type="text" placeholder="Search something..">
-        <button class="search-btn"><i class="fas fa-search"></i></button>
-        </div> --}}
-
-        <div class="container">
-            <div class="card-view">
-                    <div class="search-form-box top-search">
-                            <div class="input-group">
-                                <input type="text" class="form-control click-me h100" placeholder="Search Venue, Hotel....">
-                                <div class="input-group-append">
-                                        <select class="custom-select">
-                                                <option  selected>Kuala Lumpur</option>
-                                                <option>Pulau Pinang</option>
-                                                <option>Johor</option>														</h2></option>
-                                                <option>Sabah</option>
-                                            </select>
-                                <button type="button" class="btn btn-primary search-btn">
-                                <img src="https://md-aqil.github.io/images/Search.png" alt="">
-                                </button>
-
-                            </div>
-                            <ul class="drop-menu text-left suggestion-search-menu add-scroll">
-                                <li>
-                                    <a href="#" class="suggestion-anchor">
-                                        <div class="sleft">
-                                            <div class="media">
-
-                                                <div class="media-body">
-                                                    <h5>Kuala Lumpur</h5>
-                                                    <p>Kuala Lumpur</p>
-                                                </div>
-                                                </div>
-                                        </div>
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="suggestion-anchor">
-                                        <div class="sleft">
-                                            <div class="media">
-
-                                                <div class="media-body">
-                                                    <h5>Kuala Lumpur</h5>
-                                                    <p>Kuala Lumpur</p>
-                                                </div>
-                                                </div>
-                                        </div>
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="suggestion-anchor">
-                                        <div class="sleft">
-                                            <div class="media">
-
-                                                <div class="media-body">
-                                                    <h5>Kuala Lumpur</h5>
-                                                    <p>Kuala Lumpur</p>
-                                                </div>
-                                                </div>
-                                        </div>
-
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-            </div>
-
-        </div>
-    </div>
-  </section><!-- End Hero Section -->
-
-  <main id="main">
-    <!-- ======= About Section ======= -->
-    <section id="about">
-        <div class="container">
-            <div class="row">
-            <h2 class="" style="text-align: center;">Halls in Malaysia</h2>
-            </div>
-            <div class="row" id="search">
-                <form id="search-form">
-                    <div class="form-group col-xs-9">
-                        <input class="form-control" type="text" placeholder="Search" />
-                    </div>
-                    <div class="form-group col-xs-3">
-                        <button type="submit" class="btn btn-block btn-primary">Search</button>
-                    </div>
-                </form>
-            </div>
-            <div class="row" id="filter">
-
-                    <div class="form-group col-sm-3 col-xs-6">
-                        <span class="">Start Date</span>
-                       <input type="date" class="form-control">
-                    </div>
-                    <div class="form-group col-sm-3 col-xs-6">
-                        <span class="">End Date</span>
-                        <input type="date" class="form-control">
-                    </div>
-                    <div class="form-group col-sm-3 col-xs-6">
-                        <span class="">Hours</span>
-                        <input type="text" class="form-control" placeholder="Enter Hours">
-
-                    </input>
-                    </div>
-                    <div class="form-group col-sm-3 col-xs-6">
-                        <span class="">Price Range</span>
-                        <input type="range" min="1" max="2000" value="50" id="myRange" style="margin-top: 3%;">
-                        <p>Value: <span id="demo"></span></p>
-
-                    </input>
-                    </div>
-            </div>
-        </div>
-
-        <div class="wrapper">
-            <div class="cards">
-
-              @foreach($hall as $data)
-              <div class="card">
-                <div class="card__img">
-                    <picture>
+                               <!-- Create 6 row -->
+                               <div class="row">
+                                   <!-- 1st row -->
+                                   <div class="col-md-12">
+                                       <div class="form-group">
+                                         <label for="f-name-1">Map Radius</label>
+                                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15935.17731018773!2d101.69481858588372!3d3.148893338671856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPETRONAS%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1618928630135!5m2!1sen!2smy" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                       </div>
+                                   </div>
+                               </div>
 
 
-                      <img src="{{ asset( $image_path = str_replace('public', 'storage',  $data->image)) }}" width="100%" height="200">
-                    </picture>
-                </div>
-                <div class="card__details">
-                  <h3 for="cozyroom">{{ $data->name }}</h3>
-                  <div class="address">{{ $data->address }}</div>
-                  <div class="price">
-                    {{-- <div class="star">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                      <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                    </div> --}}
-                    <div class="price__l">
-                      <span class="price__label">RM {{ $data->price }}</span>
-                      <span class="measure__label">/ days</span>
-                    </div>
-                  </div>
-                  <button data-toggle="modal" data-target="#exampleModal2{{ $data->id }}">Detail</button>
-                </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal2{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Venue Details</h5>
-                            </div>
-                            <div class="modal-body">
-                                <p>Venue: {{ $data->name }}</p>
-                                <p>Address: {{ $data->address }}</p>
-                                <p>Number of Pax: {{ $data->number_of_pax }}</p>
-                                <p>Price: {{ $data->price }}</p>
-                                <p>Description: {{ $data->description }}</p>
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-              @endforeach
+                               <!-- Submit button -->
+                               <button type="submit" class="btn btn-primary">Filter</button>
+                           </div>
+                       </div>
+     </div>
+     <div class="col-md-8" style="padding: 5%">
 
+       <div class="row">
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="https://cache.marriott.com/marriottassets/marriott/KULWH/kulwh-greatroom-3044-hor-feat.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
             </div>
           </div>
-      </section>
-      <br>
-      <section id="fact" style="padding-bottom: 30%;">
-        <div class="container" data-aos="fade-up">
-          <div class="section-header">
-            <h3 class="section-title">Comparison Venue</h3><br>
-            {{-- <p class="section-description">Y.B. Dato’ Teng Chang Khim</p> --}}
-          </div>
-          <form action="{{ route('compare') }}" method="post">
-            @csrf
-            <div class="row">
-                <div class="col-md-5" style="text-align: center;">
-                    <select name="venue1" id="" class="">
-                        @foreach($hall as $data)
-                        <option value="{{ $data->name }}" class="">{{ $data->name }}</option>
-                        @endforeach
-                    </select>
-
-                </div>
-                <div class="col-md-5" style="text-align: center;">
-                    <select name="venue2">
-                        @foreach($hall as $data)
-                        <option value="{{ $data->name }}" class="">{{ $data->name }}</option>
-                        @endforeach
-
-                    </select>
-                </div>
-                <div class="col-md-2" style="text-align: center;">
-                    <button class="btn btn-primary" type="submit"> Compare</button>
-                </div>
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="https://cache.marriott.com/marriottassets/marriott/KULWH/kulwh-greatroom-3044-hor-feat.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
             </div>
-         </form>
+          </div>
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="https://cache.marriott.com/marriottassets/marriott/KULWH/kulwh-greatroom-3044-hor-feat.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+       </div>
 
-        </div>
-      </section>
-      <!-- End About Section -->
+       <br>
 
-  </main><!-- End #main -->
+       <div class="row">
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="https://cache.marriott.com/marriottassets/marriott/KULWH/kulwh-greatroom-3044-hor-feat.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="https://cache.marriott.com/marriottassets/marriott/KULWH/kulwh-greatroom-3044-hor-feat.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="https://cache.marriott.com/marriottassets/marriott/KULWH/kulwh-greatroom-3044-hor-feat.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
+                <a href="#" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+       </div>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
+     </div>
+   </div>
+ </div>
 
 
-    <div class="container">
-      <div class="copyright">
-        <p>&copy; Copyright © 2021 <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+    <script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="{{ asset('Regna/assets/vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('Regna/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('Regna/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('Regna/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ asset('Regna/assets/vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ asset('Regna/assets/vendor/purecounter/purecounter.js') }}"></script>
-  <script src="{{ asset('Regna/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{{ asset('Regna/assets/js/main.js') }}"></script>
-
-</body>
-<script>
-  $('.count').each(function () {
-    $(this).prop('Counter',0).animate({
-        Counter: $(this).text()
-    }, {
-        duration: 1500,
-        easing: 'linear',
-        step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
-});
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
 </script>
 
-
-{{-- search function --}}
 <script>
-    $('.drop').click(function () {
-	$(this).toggleClass('open').siblings().removeClass('open');
-})
+var slider = document.getElementById("km");
+var output = document.getElementById("demokm");
+output.innerHTML = slider.value;
 
-$('.drop-menu li').each(function() {
-var delay = $(this).index() * 100 + 'ms';
-
-$(this).css({
-	'-webkit-transition-delay': delay,
-	'-moz-transition-delay': delay,
-	'-o-transition-delay': delay,
-	'transition-delay': delay
-});
-});
-
-
-
-(function() {
-	$('select').each(function() {
-		$(this).hide();
-		makeElement($(this));
-	});
-
-	function makeElement(select) {
-		var
-		$div = $('<div />', {class:'ui-select'}).insertAfter(select),
-		$nav = $('<span />').click(function() {
-			$(this).parent().toggleClass('open');
-		}).appendTo($div),
-		$el = $('<ul />').appendTo($div);
-		select.find('option').map(function(i) {
-
-			var li = $('<li />').append($(this).text());
-				li.click(onSelect.bind($div, li, $(this).val(), select, $nav));
-			if($(this).attr('selected')) {
-				li.addClass('selected');
-			}
-			var delay = i * 100 + 'ms';
-			li.css({
-				'-webkit-transition-delay': delay,
-		        '-moz-transition-delay': delay,
-		        '-o-transition-delay': delay,
-		        'transition-delay': delay
-			});
-			$el.append(li);
-		});
-		var selected = $el.find('li.selected');
-			selected = selected.length ? selected.html() : $el.find('li:first-child').addClass('selected').html();
-		$nav.html(selected);
-		// addAnimateDelay($el);
-	}
-
-	function onSelect(li, value, select, $nav) {
-		this.removeClass('open');
-		li.addClass('selected').siblings().removeClass('selected');
-		select.val(value).trigger('change');
-		$nav.html(li.html());
-	}
-})();
-$('.click-me').click(function () {
-	$('.drop-menu').toggleClass('open');
-})
-
+slider.oninput = function() {
+output.innerHTML = this.value;
+}
 </script>
 
-</html>
+<script>
+var slider = document.getElementById("walk");
+var output = document.getElementById("demowalk");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+output.innerHTML = this.value;
+}
+</script>
+@endsection
