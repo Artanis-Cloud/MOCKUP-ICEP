@@ -18,13 +18,19 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        .footer{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="shadow-sm navbar navbar-expand-md navbar-light" style="background-color: #2F4858;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <a href="#"><img src="http://ezran.my/ACES/wp-content/uploads/2021/02/logo-new.png" style="height: 60px;" alt="Kerajaan Selangor"></a>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -32,25 +38,37 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+                    <ul class="mr-auto navbar-nav" style="text-align: center;">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('hotel') }}">HOTEL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('hall') }}">EVENTS SPACE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact') }}">CONTATC US</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="ml-auto navbar-nav" style="text-align: center;">
                         <!-- Authentication Links -->
+
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
                                 </li>
                             @endif
-                            
-                            @if (Route::has('register'))
+
+                            {{-- @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -75,9 +93,13 @@
             </div>
         </nav>
 
-        <main class="py-4">
+            <div>
             @yield('content')
-        </main>
+            </div>
+
+            <div class="footer" style="background-color:#2F4858; padding: 1%; color: #fff;">
+                             Copyright © 2021 iCEP - International Conference and Exhibition Professionals. All rights reserved.
+            </div>
     </div>
 </body>
 </html>

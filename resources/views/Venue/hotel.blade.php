@@ -1,403 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-{{--
-  {{-- <title>Rumah Ibadat</title> --}}
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+@section('content')
 
-  <!-- Favicons -->
-  <link href="{{ asset('Regna/assets/img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('Regna/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{{ asset('Regna/assets/vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ asset('Regna/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('Regna/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('Regna/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('Regna/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('Regna/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-  <!-- Template Main CSS File -->
-  <link href="{{ asset('Regna/assets/css/style.css') }}" rel="stylesheet">
-  <link href="{{ asset('Regna/assets/css/search.css') }}" rel="stylesheet">
-
-
-  <!-- =======================================================
-  * Template Name: Regna - v4.1.0
-  * Template URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-  <style>
-    .charts_orb {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-  font-family: arial;
-  color: white;
+<style>
+a{
+  font-size: 100% !important;
 }
-.charts_orb .orb {
-  padding: 20px;
+/* unvisited link */
+a:link {
+  color: white !important;
 }
-.charts_orb .orb .orb_graphic {
-  position: relative;
+
+/* visited link */
+a:visited {
+  color: white !important;
 }
-.charts_orb .orb .orb_graphic .orb_value {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+/* mouse over link */
+a:hover {
+  color: #E89A3D !important;
+}
+
+/* selected link */
+a:active {
+  color: white !important;
+
+}
+
+.container-fluid{
+    width: 100%;
+    height: 100vh;
+}
+
+/* search */
+input[type=search] {
+  -webkit-appearance: none !important;
+  background-clip: padding-box;
+  background-color: white;
+  vertical-align: middle;
+  border-radius: 0.25rem;
+  border: 1px solid #e0e0e5;
+  font-size: 1rem;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5em;
-  font-weight: bold;
-}
-.charts_orb .orb .orb_label {
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 1em;
-}
-.charts_orb svg {
-  width: 110px;
-  height: 110px;
-}
-.charts_orb svg circle {
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-  stroke-dasharray: 314.16, 314.16;
-  stroke-width: 2;
-  fill: transparent;
-  r: 50;
-  cx: 55;
-  cy: 55;
-}
-.charts_orb svg circle.fill {
-  stroke: #D3D3D3;
-}
-.charts_orb svg circle.progress {
-  stroke: #ff0000;
-  transition: stroke-dashoffset 0.35s;
-  stroke-dashoffset: 214.16;
-  -webkit-animation: NAME-YOUR-ANIMATION 1.5s forwards;
-  -webkit-animation-timing-function: linear;
+  line-height: 2;
+  padding: 0.375rem 1.25rem;
+  transition: border-color 0.2s;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
-* {
+input[type=search]:focus {
+  transition: all 0.5s;
+  box-shadow: 0 0 40px #f9d442b9;
+  border-color: #f9d342;
+  outline: none;
+}
+
+form.search-form {
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: center;
+  margin-bottom: 0;
+}
+
+input.search-field {
+  margin-bottom: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: center;
+  height: 51px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+input.search-submit {
+  height: 51px;
   margin: 0;
-  padding: 0;
+  padding: 1rem 1.3rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  font-family: "Font Awesome 5 Free";
+  font-size: 1rem;
 }
 
-html, body {
-  height: 100%;
-}
-
-ul {
-  list-style: none;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.top__header {
-  position: relative;
-  height: 45px;
-  padding: 10px;
-  background: #51D6FB;
-  color: #FFFFFF;
-  font-size: 12px;
-  font-family: "Roboto", sans-serif;
-  text-align: center;
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
   overflow: hidden;
 }
-.top__header .icon__menu .menu__mobile {
-  text-align: left;
-  margin-top: -5px;
-}
-.top__header .icon__menu .menu__desktop {
-  display: none;
-}
-.top__header h3 {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-}
-.top__header:before {
-  content: "";
-  width: 100%;
-  border-radius: 10px 10px 0 0;
-  background: #1fcafa;
-  height: 100%;
-  display: block;
-  position: absolute;
-  top: 32px;
-  left: 0;
-}
 
-.cards {
-  margin-top: 1rem;
-  padding: 10px;
-  display: grid;
-  grid-gap: 20px;
-  font-family: "Roboto", sans-serif;
-}
-.cards .card {
-  position: relative;
-  max-height: 340px;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(auto, 1fr));
-}
-.cards .card__img {
-  max-height: 200px;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.cards .card__details {
-  position: relative;
-  top: -36px;
-  width: 90%;
-  padding: 10px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(3, 6, 31, 0.15);
-  display: grid;
-  grid-gap: 5px;
-}
-.cards .card__details h3 {
-  font-size: 22px;
-  font-weight: 400;
-}
-.cards .card__details .address {
-  color: #777777;
-  font-size: 12px;
-}
-.cards .card__details .price {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.cards .card__details .price .price__l {
-  width: 100%;
-  text-align: right;
-}
-.cards .card__details .price .price__l .price__label {
+.button {
+  display: inline-block;
   font-weight: 600;
-  text-align: right;
+  font-size: 0.8rem;
+  line-height: 1.15;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  background: #f9d342;
+  color: #292826;
+  border: 1px solid transparent;
+  vertical-align: middle;
+  text-shadow: none;
+  transition: all 0.2s;
 }
-.cards .card__details .price .star img {
-  width: 14px;
-}
-.cards .card__details button {
+
+.button:hover,
+.button:active,
+.button:focus {
   cursor: pointer;
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 5px;
-  background: #51D6FB;
-  color: #FFFFFF;
-}
-.cards .card__details button:focus {
-  outline: none;
-}
-.cards .card .credit-img {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  padding: 10px;
-  font-size: 10px;
-  text-align: right;
-}
-
-@media (max-width: 347px) {
-  .cards .card__details .price {
-    align-items: baseline;
-  }
-  .cards .card__details .price .price__l {
-    font-size: 12px;
-  }
-}
-@media (min-width: 425px) {
-  .top__header .icon__menu .menu__mobile {
-    display: none;
-  }
-  .top__header .icon__menu .menu__desktop {
-    display: block;
-  }
-  .top__header .icon__menu .menu__desktop ul.desktop__menu li {
-    cursor: pointer;
-    margin: 0 1rem;
-    padding: 2px 10px;
-  }
-  .top__header .icon__menu .menu__desktop ul.desktop__menu li.promo {
-    background: #D7493A;
-    border-radius: 5px;
-  }
-  .top__header .icon__menu .menu__desktop ul.desktop__menu li.promo:hover {
-    background: #b93425;
-  }
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  .cards .card {
-    grid-template-columns: 1fr 1fr;
-  }
-  .cards .card__details {
-    top: 0;
-    align-items: flex-start;
-    align-content: center;
-    grid-gap: 10px;
-  }
-  .cards .card__details .price {
-    grid-template-columns: auto 1fr;
-    font-size: 15px;
-  }
-  .cards .card__details .address {
-    margin-top: -7px;
-  }
-  .cards .card .credit-img {
-    padding: 15px 25px;
-  }
-}
-@media (min-width: 481px) and (max-width: 767px) {
-  .cards .card {
-    grid-template-columns: 1fr 1fr;
-  }
-  .cards .card__details {
-    top: 0;
-    align-items: flex-start;
-    align-content: center;
-    grid-gap: 10px;
-  }
-  .cards .card__details .price {
-    grid-template-columns: auto 1fr;
-    font-size: 15px;
-  }
-  .cards .card__details .address {
-    margin-top: -7px;
-  }
-  .cards .card .credit-img {
-    padding: 15px 25px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-  .cards .credit-img {
-    font-size: 8px !important;
-  }
-}
-@media (min-width: 1025px) {
-  .wrapper {
-    width: 960px;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  }
-  .wrapper .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  .wrapper .cards .card__details h3 {
-    font-size: 18px;
-  }
-
-  .search-box {
-  width: 350px;
-  position: relative;
-  display: flex;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.search-input {
-  width: 100%;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  padding: 15px 45px 15px 15px;
-  background-color: #eaeaeb;
-  color: #6c6c6c;
-  border-radius: 6px;
-  border:none;
-  transition: all .4s;
-}
-
-.search-input:focus {
-  border:none;
-  outline:none;
-  box-shadow: 0 1px 12px #b8c6db;
-  -moz-box-shadow: 0 1px 12px #b8c6db;
-  -webkit-box-shadow: 0 1px 12px #b8c6db;
-}
-
-.search-btn {
-  background-color: transparent;
-  font-size: 18px;
-  padding: 6px 9px;
-  margin-left:-45px;
-  border:none;
-  color: #6c6c6c;
-  transition: all .4s;
-  z-index: 10;
-}
-
-.search-btn:hover {
-  transform: scale(1.2);
-  cursor: pointer;
-  color: black;
-}
-
-.search-btn:focus {
-  outline:none;
-  color:black;
-}
-
-}
-
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 25px;
-  background: #970a0a;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider:hover {
-  opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  background: #4CAF50;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  background: #4CAF50;
-  cursor: pointer;
+  background: #E89A3D;
+  color: #292826;
+  outline: 0;
 }
 
   </style>
@@ -735,27 +460,16 @@ $(this).css({
 		// addAnimateDelay($el);
 	}
 
-	function onSelect(li, value, select, $nav) {
-		this.removeClass('open');
-		li.addClass('selected').siblings().removeClass('selected');
-		select.val(value).trigger('change');
-		$nav.html(li.html());
-	}
-})();
-$('.click-me').click(function () {
-	$('.drop-menu').toggleClass('open');
-})
+<div class="container-fluid">
+    <div class="row" style="">
+		<div class="col-md-4">
 
-</script>
+		</div>
+		<div class="col-md-8">
 
-<script>
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
+		</div>
 
-    slider.oninput = function() {
-      output.innerHTML = this.value;
-    }
-    </script>
+	</div>
+</div>
 
-</html>
+@endsection
