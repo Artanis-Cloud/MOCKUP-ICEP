@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Venues;
+use App\Models\Hotel;
+use App\Models\EventSpace;
 
 class VenueController extends Controller
 {
@@ -29,28 +31,50 @@ class VenueController extends Controller
         return view('contact');
     }
 
-    public function submit(Request $request){
+    public function submitHotel(Request $request){
         // dd($request->all());
-        $uploaded_gambar = $request->file('image')->store('public/uploads');
-        event($venue = $this->add($request->all(),$uploaded_gambar));
+        $uploaded_gambar = $request->file('thumbnail')->store('public/uploads');
+        event($venue = $this->addHotel($request->all(),$uploaded_gambar));
 
         return redirect()->route('venue');
     }
 
-    public function add(array $data,$uploaded_gambar){
-        $status = "Active";
-          return Venues::create([
-            'name' => $data['name'],
-            'description' => $data['description'],
-            'address' => $data['address'],
-            'postcode' =>$data['postcode'],
-            'state' => $data['state'],
-            'type' => $data['type'],
-            'number_of_pax' =>$data['number_of_pax'],
-            'price' => $data['price'],
-            'image' => $uploaded_gambar,
-            'status' => $status
-          ]);
+    public function addHotel(array $data,$uploaded_gambar){
+            return Hotel::create([
+            'hotel_name' => $data['hotel_name'],
+            'car_radius' => $data['car_radius'],
+            'walking_radius' => $data['walking_radius'],
+            'room_type' =>$data['room_type'],
+            'single_rate' => $data['single_rate'],
+            'double_rate' => $data['double_rate'],
+            'corporate_rate' =>$data['corporate_rate'],
+            'thumbnail' =>$uploaded_gambar,
+
+            ]);
+        }
+
+
+    public function submitEventSpace(Request $request){
+        $uploaded_gambar = $request->file('thumbnail')->store('public/uploads');
+        event($venue = $this->addEventSpace($request->all(),$uploaded_gambar));
+
+        return redirect()->route('venue');
+    }
+
+    public function addEventSpace(array $data,$uploaded_gambar){
+            return EventSpace::create([
+            'venue' => $data['venue'],
+            'size' => $data['size'],
+            'capacity' => $data['capacity'],
+            'banquet' =>$data['banquet'],
+            'classroom' => $data['classroom'],
+            'theater' => $data['theater'],
+            'cocktail' =>$data['cocktail'],
+            'daily_rates' =>$data['daily_rates'],
+            // 'hotel_id' =>$data['corporate_rate'],
+            'thumbnail' =>$uploaded_gambar,
+
+            ]);
         }
 
     public function compare(Request $request){

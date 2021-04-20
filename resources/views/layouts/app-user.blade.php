@@ -58,9 +58,13 @@
                     <ul class="p-0 m-0 mt-3 side-menu">
                         <li class="px-3 side-menu-item"><a href="{{ route('home') }}" class="py-3 pl-4 w-100">Dashboard</a></li>
 
-                        <li class="px-3 side-menu-item"><a href="{{ route('venue.add') }}" class="py-3 pl-4 w-100">Add New Venue</a></li>
+                        <li class="px-3 side-menu-item"><a href="{{ route('forms') }}" class="py-3 pl-4 w-100">Add New Venue</a></li>
 
-                        <li class="px-3 side-menu-item"><a href="{{ route('venue') }}" class="py-3 pl-4 w-100">List Venues</a></li>
+                        <li class="px-3 side-menu-item"><a href="{{ route('venue') }}" class="py-3 pl-4 w-100">List of Venues</a></li>
+
+                        <li class="px-3 side-menu-item"><a href="{{ route('venue') }}" class="py-3 pl-4 w-100">User Management</a></li>
+
+                        <li class="px-3 side-menu-item"><a href="{{ route('venue') }}" class="py-3 pl-4 w-100">Audit Trails</a></li>
 
 
 
@@ -78,7 +82,7 @@
                         <!-- <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100" >Manual Pengguna</a></li> -->
 
 
-                        \
+
 
                     </ul>
                 </div>

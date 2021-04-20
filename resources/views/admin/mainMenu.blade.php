@@ -29,25 +29,8 @@ a:active {
 
 <div class="p-4 page-body text-dark">
 
-  {{-- <div class="p-3 theme-option border-1" style="border: 1px solid;border-color: #003e61 !important;" >
-      <div class="theme-pck" data-toggle="tooltip" data-placement="left" title="Bahasa | Language">
-          <i class="fa fa-globe" aria-hidden="true" style="font-size: 180% !important;" ></i>
-      </div>
-      <p style="font-size: 110%;">Pilih Bahasa | Choose Language</p>
-      <div class="row">
-        <div class="col-md">
-          <div class="btn-group">
-              <button class="btn btn-primary">Bahasa Melayu</button>
-
-              <a href="#" class="btn btn-outline-primary">English</a>
-          </div>
-        </div>
-      </div>
-
-  </div> --}}
-
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  <div  style="font-size: 180%;color: #fff;" >
+  <div  style="font-size: 180%;color: rgb(0, 0, 0);" >
     <i class="fa fa-home" aria-hidden="true" style="color: #fff;"></i>
     Dashboard
   </div>
@@ -61,7 +44,7 @@ a:active {
 
       <div class="row">
           <!-- Col sm 6, col md 6, col lg 3 -->
-          <div class="mt-3 col-sm-6 col-md-6 col-lg-3 mt-lg-0">
+          <div class="mt-3 col-sm-6 col-md-6 col-lg-6 mt-lg-0">
             <!-- Card -->
               <div class="rounded-lg card border-1" style="border-color: #003473 !important;">
                   <!-- Card body -->
@@ -74,7 +57,7 @@ a:active {
                           </div>
                           <!-- Text -->
                           <div class="text-center small-card-text w-100">
-                              <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #003473 !important;">Venues <br> Availabe</p>
+                              <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #003473 !important;">Total Event Spaces</p>
                               <h4 class="m-0 font-weight-normal text-primary" style="color: #003473 !important;">1221</h4>
                           </div>
 
@@ -94,41 +77,9 @@ a:active {
 
           </div>
 
-          <!-- Col sm 6, col md 6, col lg 3 -->
-          <div class="mt-3 col-sm-6 col-md-6 col-lg-3 mt-lg-0">
-              <!-- Card -->
-              <div class="rounded-lg card border-1" style="border-color: #28a745 !important;">
-                  <!-- Card body -->
-                    <div class="card-body" style="border-radius:.5rem;">
-
-                        <div class="flex-row d-flex justify-content-center align-items-center">
-                            <!-- Icon -->
-                            <div class="small-card-icon">
-                                <i class="fas fa-suitcase-rolling card-icon-bg-primary fa-4x" style="color: #28a745 !important;"></i>
-                            </div>
-                            <!-- Text -->
-                            <div class="text-center small-card-text w-100">
-                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #28a745 !important;">Venues <br> Book</p>
-                                <h4 class="m-0 font-weight-normal text-primary" style="color: #28a745 !important;">432423</h4>
-                            </div>
-                        </div>
-
-                        <hr style="background-color: #28a745 !important;">
-                        <p class="m-0 font-weight-normal text-primary" style="text-align: right ; color: #28a745 !important;">
-                          <a href="#" >
-
-                          Next <i class="fa fa-caret-right" aria-hidden="true"></i>
-                        </a>
-
-                        </p>
-
-                    </div>
-
-              </div>
-          </div>
 
           <!-- Col sm 6, col md 6, col lg 3 -->
-          <div class="mt-3 col-sm-6 col-md-6 col-lg-3 mt-lg-0">
+          <div class="mt-3 col-sm-6 col-md-6 col-lg-6 mt-lg-0">
               <!-- Card -->
               <div class="rounded-lg card border-1" style="border-color: #D25F00 !important;">
                   <!-- Card body -->
@@ -141,7 +92,7 @@ a:active {
                             </div>
                             <!-- Text -->
                             <div class="text-center small-card-text w-100">
-                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #D25F00 !important;">Total<br> Venues</p>
+                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #D25F00 !important;">Total Hotels</p>
                                 <h4 class="m-0 font-weight-normal text-primary" style="color: #D25F00 !important;">342323324</h4>
                             </div>
                         </div>
@@ -159,43 +110,6 @@ a:active {
 
               </div>
           </div>
-
-          <div class="mt-3 col-sm-6 col-md- col-lg-3 mt-lg-0">
-            <!-- Card -->
-              <div class="rounded-lg card border-1" style="border-color: #003473 !important;">
-                  <!-- Card body -->
-                  <div class="card-body" style="border-radius:.5rem;">
-
-                      <div class="flex-row d-flex justify-content-center align-items-center">
-                          <!-- Icon -->
-                          <div class="small-card-icon">
-                              <i class="fas fa-calendar-check card-icon-bg-primary fa-4x" style="color: #003473 !important;"></i>
-                          </div>
-                          <!-- Text -->
-                          <div class="text-center small-card-text w-100">
-                              <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #003473 !important;">Total  <br> Events</p>
-                              <h4 class="m-0 font-weight-normal text-primary" style="color: #003473 !important;">321312312</h4>
-                          </div>
-                      </div>
-
-                      <hr style="background-color: #003473 !important;">
-                      <p class="m-0 font-weight-normal text-primary" style="text-align: right; color: #003473 !important;">
-                        <a href="#"  >
-
-                        Next <i class="fa fa-caret-right" aria-hidden="true"></i>
-                      </a>
-
-                      </p>
-
-                  </div>
-              </div>
-
-        </div>
-
-
-
-
-
 
       </div>
 

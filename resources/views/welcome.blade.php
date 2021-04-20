@@ -130,14 +130,127 @@ input.search-submit {
 }
 </style>
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4" style="text-align: center;color: #fff; padding-top: 15%;">
-            <h1>Welcome to <br> Venue Management System iCEP</h1>
-		</div>
-		<div class="col-md-4">
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div id="logo">
+        {{-- <a href="#"><img src="https://upload.wikimedia.org/wikipedia/ms/archive/9/93/20090423144020%21Coat_of_arms_of_Malaysia.png" style="height: 50px;" alt="Kerajaan Selangor"></a> --}}
+        <a href="#"><img src="http://ezran.my/ACES/wp-content/uploads/2021/02/logo-new.png" style="height: 60px;" alt="Kerajaan Selangor"></a>
+      </div>
+        <div style="padding-left: 5%;">
+            <h3 style="color: #fff;">iCEP - International Conference and Exhibition Professionals</h3>
+        </div>
+
+    <br>
+      <div>
+
+      </div>
+
+
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          {{-- <li><a class="nav-link scrollto active" href="#hero">Laman Utama</a></li> --}}
+          <li><a class="nav-link scrollto active" href="#about">HOME</a></li>
+          <li class="dropdown"><a href="#"><span>VENUE</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{{ route('hotel') }}">HOTEL</a></li>
+              <li><a href="{{ route('hall') }}">HALL</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="{{ route('gallery') }}">GALLERY</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('contact') }}">CONTACT US</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+    @auth
+        <a class="btnlogin" href="#" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> LOG OUT </a>
+        <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+        </form>
+    @endauth
+    @guest
+
+        <a class="btnlogin" href="{{ route('login') }}"> LOG IN</a>
+
+        {{-- <a href="{{ route('login') }}" class="btn-get-started"> LOG IN </a> --}}
+    @endguest
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container" data-aos="zoom-in" data-aos-delay="10">
+      <h2>Welcome to</h2>
+      <h1>Venue Management System (VMS)</h1>
+
+      <div class="container">
+		<div class="card-view">
+				<div class="search-form-box top-search">
+						<div class="input-group">
+							<input type="text" class="form-control click-me h100" placeholder="Search Venue, Hotel....">
+							<div class="input-group-append">
+									<select class="custom-select">
+											<option  selected>Kuala Lumpur</option>
+											<option>Pulau Pinang</option>
+											<option>Johor</option>														</h2></option>
+											<option>Sabah</option>
+										</select>
+							<button type="button" class="btn btn-primary search-btn">
+							<img src="https://md-aqil.github.io/images/Search.png" alt="">
+							</button>
+
+						</div>
+						<ul class="drop-menu text-left suggestion-search-menu add-scroll">
+							<li>
+								<a href="#" class="suggestion-anchor">
+									<div class="sleft">
+										<div class="media">
+
+											<div class="media-body">
+												<h5>Kuala Lumpur</h5>
+												<p>Kuala Lumpur</p>
+											</div>
+											</div>
+									</div>
+
+								</a>
+							</li>
+							<li>
+								<a href="#" class="suggestion-anchor">
+									<div class="sleft">
+										<div class="media">
+
+											<div class="media-body">
+												<h5>Kuala Lumpur</h5>
+												<p>Kuala Lumpur</p>
+											</div>
+											</div>
+									</div>
+
+								</a>
+							</li>
+							<li>
+								<a href="#" class="suggestion-anchor">
+									<div class="sleft">
+										<div class="media">
+
+											<div class="media-body">
+												<h5>Kuala Lumpur</h5>
+												<p>Kuala Lumpur</p>
+											</div>
+											</div>
+									</div>
+
+								</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
 		</div>
 	</div>
 	<div class="row">
