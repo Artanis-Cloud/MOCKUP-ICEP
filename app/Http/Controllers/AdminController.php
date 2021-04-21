@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Venues;
 use App\Models\Hotel;
 use App\Models\User;
+use App\Models\Audit;
 
 class AdminController extends Controller
 {
@@ -64,6 +65,32 @@ class AdminController extends Controller
     {
         return view('admin.add-user');
     }
+
+    public function viewAuditList()
+  {
+      $data = Audit::get();
+      return view('admin.audit-trail.audit-trail-log', compact('data'));
+  }
+
+  public function viewAuditListFilter(Request $request)
+  {
+      $tarikh_mula = date($request->tarikh_mula);
+      $tarikh_akhir = date($request->tarikh_akhir);
+
+      // $data = Audit::whereBetween('created_at', [$tarikh_mula.' 00:00:00',$tarikh_akhir.' 23:59:59'])
+      //             ->where('event', 'Log Masuk')
+      //             ->orWhere('event', 'Log Keluar')
+      //             ->orderBy('created_at', 'desc')
+      //             ->get();
+
+
+      $data = Audit:: where('updated_at', '>', $tarikh_mula.' 00:00:00')
+                  ->where('updated_at', '<', $tarikh_akhir.' 23:59:59')
+                  ->orderBy('updated_at', 'asc')
+                  ->get();
+
+      return view('admin.audit-trail.audit-trail-log-filter', compact('data'));
+  }
 
 
 }
