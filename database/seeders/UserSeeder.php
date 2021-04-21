@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             [
 
             'name' => 'admin',
-            'email' => 'admin@aces.com',
+            'email' => 'admin@icep.com',
             'password' => $hashed_random_password,
 
             ]
