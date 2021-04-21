@@ -32,7 +32,7 @@ a:active {
 
 .container-fluid{
     width: 100%;
-    height: 86vh;
+    height: 100vh;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
