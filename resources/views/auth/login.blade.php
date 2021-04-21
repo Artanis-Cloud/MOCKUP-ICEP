@@ -271,7 +271,7 @@ section {
                   </div>
                 </form>
                 {{-- <p>Forgot password? <a href="#">Click Here</a></p> --}}
-                {{-- <p>Don't have an account <a href="{{route('register')}}">Sign up</a></p> --}}
+                <p>Don't have an account <a href="{{route('register')}}">Sign up</a></p>
               </div>
             </div>
 
