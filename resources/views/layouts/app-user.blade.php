@@ -64,7 +64,7 @@
 
                         <li class="px-3 side-menu-item"><a href="{{ route('user') }}" class="py-3 pl-4 w-100">User Management</a></li>
 
-                        <li class="px-3 side-menu-item"><a href="{{ route('venue') }}" class="py-3 pl-4 w-100">Audit Trails</a></li>
+                        <li class="px-3 side-menu-item"><a href="{{ route('admin.audit-trail.audit-trail-log') }}" class="py-3 pl-4 w-100">Audit Trails</a></li>
 
 
 

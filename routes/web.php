@@ -43,6 +43,10 @@ Route::get('/user-list', [App\Http\Controllers\AdminController::class, 'user'])-
 
 Route::get('/user-add', [App\Http\Controllers\AdminController::class, 'add_user'])->name('user_add');
 
+Route::get('/audit-trail', [App\Http\Controllers\AdminController::class, 'viewAuditList'])->name('admin.audit-trail.audit-trail-log');
+
+Route::get('/audit-trail-filter', [App\Http\Controllers\AdminController::class, 'viewAuditListFilter'])->name('admin.audit-trail.audit-trail-log-filter');
+
 Route::post('/hotel/create', [App\Http\Controllers\VenueController::class, 'submitHotel'])->name('hotel.submit');
 
 Route::post('/eventspace/create', [App\Http\Controllers\VenueController::class, 'submitEventSpace'])->name('eventspace.submit');
