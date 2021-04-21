@@ -270,67 +270,27 @@ input.search-submit {
      </div>
      <div class="col-md-8" style="padding: 5%">
 
-       <div class="row">
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="{{ route('details') }}" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="{{ route('details') }}" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="{{ route('details') }}" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
-       </div>
 
-       <br>
-
-       <div class="row">
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
+      <div class="row">
+       @forelse($hotel as $data)        
+          <div class="col-md-4" style="padding: 2%">
+          <center>
+            <div class="card" style="width: 100%;">
+              <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap">
               <div class="card-body">
-                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
+                <h5 class="card-title"> {{$data->hotel_name}}</h5>
                 <a href="{{ route('details') }}" class="btn btn-primary">Details</a>
               </div>
             </div>
+            </center>
           </div>
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="{{ route('details') }}" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="{{ route('details') }}" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
+          
+          @empty
+      no data
+      @endforelse
        </div>
+                    
+      
 
      </div>
    </div>

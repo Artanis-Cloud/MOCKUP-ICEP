@@ -271,65 +271,21 @@ input.search-submit {
      <div class="col-md-8" style="padding: 5%">
 
        <div class="row">
+       @forelse($eventspace as $data)
           <div class="col-md-4">
+          <center>
             <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://cache.marriott.com/marriottassets/marriott/KULWH/kulwh-greatroom-3044-hor-feat.jpg" alt="Card image cap">
+              <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap">
               <div class="card-body">
-                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
+                <h5 class="card-title">{{$data->hotels->hotel_name}}</h5>
                 <a href="#" class="btn btn-primary">Details</a>
               </div>
             </div>
+            </center>
           </div>
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://cache.marriott.com/marriottassets/marriott/KULWH/kulwh-greatroom-3044-hor-feat.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="#" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://cache.marriott.com/marriottassets/marriott/KULWH/kulwh-greatroom-3044-hor-feat.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="#" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
-       </div>
-
-       <br>
-
-       <div class="row">
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://cache.marriott.com/marriottassets/marriott/KULWH/kulwh-greatroom-3044-hor-feat.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="#" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://cache.marriott.com/marriottassets/marriott/KULWH/kulwh-greatroom-3044-hor-feat.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="#" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://cache.marriott.com/marriottassets/marriott/KULWH/kulwh-greatroom-3044-hor-feat.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="#" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
+          @empty
+      no data
+      @endforelse
        </div>
 
      </div>
