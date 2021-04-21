@@ -6,6 +6,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"
+        integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA=="
+        crossorigin="anonymous"></script>
+
+
 <style>
 a{
   font-size: 100% !important;
@@ -33,7 +42,7 @@ a:active {
 
 .container-fluid{
     width: 100%;
-    height: 100vh;
+    height: auto;
 
 }
 
@@ -172,133 +181,374 @@ input.search-submit {
   order: 5;
   display: block;
 }
+
+/* gallery */
+#gallery{
+  position:relative;
+  width:100%;
+  height:100%;
+  min-height:100%;
+  display:table;
+  transition: all ease 1s;
+  background-color:#fff;
+  overflow-x: hidden;
+}
+#gallery .item{
+  width:20%;
+  display:block;
+  float: left;
+  transition: all ease 400ms;
+  background-color:#000;
+  position: relative;
+}
+#gallery .item:hover,
+#gallery .item:focus{
+  transform:scale(1.1);
+  z-index:50;
+  box-shadow:0 0 10px black;}
+#gallery .item figure{
+  transition: all ease 1s;
+  overflow:hidden;
+  height:300px;
+  padding:0;
+  margin:0;
+  position: relative;
+}
+#gallery .item figure img{
+  transform: scale(1.4);
+  transition: all ease 1s;
+}
+#gallery .item:hover figure,
+#gallery .item:focus figure{
+  transition: all ease 400ms;
+}
+#gallery .item:hover figure img,
+#gallery .item:focus figure img{
+  transform:scale(1.4);
+  transition: all ease 1s;
+}
+#gallery.hover{
+  transition: all ease 1s;
+/*   opacity:.7; */
+}
+#gallery.hover .item{
+  opacity:.9;
+  filter: blur(1px);
+}
+#gallery.hover .item:hover,
+#gallery.hover .item:focus{
+  opacity:1;
+  filter: blur(0);
+}
+#gallery .item figcaption{
+  position:absolute;
+  font-size:18px;
+  color:#fff;
+  width:100%;
+  height:100%;
+  padding:10%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  top:0;
+  left:0;
+  transform:scale(1.3);
+  filter: blur(4px);
+  opacity:0;
+  transition:500ms;
+  background-color: rgba(0,154,178,.6);
+  text-transform:uppercase;
+  font-weight:bold;
+}
+#gallery .item:hover figcaption,
+#gallery .item:focus figcaption{
+  transform:scale(1);
+  filter: blur(0);
+  opacity:1;
+  transition:300ms;}
+@media (max-width:1368px){
+  #gallery .item{width:25%;}
+}
+@media (max-width:1080px){
+  #gallery .item{width:33.3%;}
+}
+@media (max-width:800px){
+  #gallery .item{width:50%;}
+  #gallery .item figure{
+    height:250px;
+  }
+  #gallery .item figure img{
+    transform:rotate(0) scale(1);
+    transition: all ease 1s;
+    width:auto;
+    min-width:100%;
+    height:100%;
+    min-height:250px;
+  }
+  #gallery .item:hover figure img{
+    transform:rotate(0) scale(1);
+    
+  }
+}
+@media (max-width:500px){
+  #gallery .item{width:100%;}
+  #gallery .item figure{
+    height:250px;
+  }
+}
 </style>
 
 <body>
 
  <div class="container-fluid">
 
-   <div class="container p-4">
-     <h2>Comparison</h2>
      <div class="row">
-       <div class="col text-center">
-         <select id="product-col-1" class="custom-select product-selector">
-           <option value="product1" selected>Hotel Kuala Lumpur</option>
-           <option value="product2">Hotel Kuala Lumpur</option>
-           <option value="product3">Hotel Kuala Lumpur</option>
-   				<option value="product4">Hotel Kuala Lumpur</option>
-           <option value="product5">Hotel Kuala Lumpur</option>
-   				<option value="product6">Hotel Kuala Lumpur</option>
-   				<option value="product7">Hotel Kuala Lumpur</option>
-   				<option value="product8">Hotel Kuala Lumpur</option>
-   			</select>
-       </div>
-       <div class="col text-center">
-         <select id="product-col-2" class="custom-select product-selector">
-           <option value="product1">Hotel Kuala Lumpur</option>
-           <option value="product2" selected>Hotel Kuala Lumpur</option>
-           <option value="product3">Hotel Kuala Lumpur</option>
-   				<option value="product4">Hotel Kuala Lumpur</option>
-           <option value="product5">Hotel Kuala Lumpur</option>
-   				<option value="product6">Hotel Kuala Lumpur</option>
-   				<option value="product7">Hotel Kuala Lumpur</option>
-   				<option value="product8">Hotel Kuala Lumpur</option>
-         </select>
-       </div>
-       <div class="col text-center">
-         <select id="product-col-3" class="custom-select product-selector">
-           <option value="product1">Hotel Kuala Lumpur</option>
-           <option value="product2">Hotel Kuala Lumpur</option>
-           <option value="product3" selected>Hotel Kuala Lumpur</option>
-   				<option value="product4">Hotel Kuala Lumpur</option>
-           <option value="product5">Hotel Kuala Lumpur</option>
-   				<option value="product6">Hotel Kuala Lumpur</option>
-   				<option value="product7">Hotel Kuala Lumpur</option>
-   				<option value="product8">Hotel Kuala Lumpur</option>
-         </select>
-       </div>
+      <div class="col-md-12" style="padding-left: 5%; padding-right: 5%; padding-top: 5%;">
+      <div class="card border-1 rounded-lg">
+                                    <!-- Card body -->
+                                    <div class="card-body p-0">
+                                        <!-- Card title -->
+                                        <div class="card-title m-0 p-3 d-flex flex-row align-items-center justify-content-between">
+                                            <h1>Venue Details</h1>
+                                        </div>
+                                        <!-- Activity details -->
+                                        <div class="d-flex flex-row justify-content-between border-bottom p-3">
+                                            <div class="flex-grow-1">
+                                            <h3 class="m-0 font-weight-normal">Hotel Kuala Lumpur</h3>
+                                            <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap" style="width: 250px; height: 200px;">                                 
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h4 class="text-muted">Radius from KLCC (car)</h4>
+                                                <h5 class="m-0 font-weight-normal">1 km (4 Minutes)</h5>
+                                                <br>
+                                                <h4 class="text-muted">Radius from KLCC (walk)</h4>
+                                                <h5 class="m-0 font-weight-normal">2 km (4 Minutes)</h5>
+                                            </div>
+                                            
+                                            <div class="flex-grow-1">
+                                                <h4 class="text-muted">Room Type</h4>
+                                                <h5 class="m-0 font-weight-normal">Deluxe</h5>
+                                                <br>
+                                                <h4 class="text-muted">Single Rates ( 1 Breakfast)</h4>
+                                                <h5 class="m-0 font-weight-normal">RM 500</h5>
+                                            </div>
+                                            
+                                            <div class="flex-grow-1">
+                                                <h4 class="text-muted">Double Rates ( 2 Breakfast)</h4>
+                                                <h5 class="m-0 font-weight-normal">RM 500</h5>
+                                                <br>
+                                                <h4 class="text-muted">Corporate Rates</h4>
+                                                <h5 class="m-0 font-weight-normal">RM 500</h5>
+                                            </div>
+                                           
+                                        </div>
+
+                                        <div class="card border-0 rounded-lg" style="padding: 5%">
+                                         <!-- Tab nav -->
+                                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="background-color: #2F4858; justify-content: space-evenly;">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><font color="white">Photo Gallery</font></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><font color="white">Meeting Space</font></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><font color="white">Nearby</font></a>
+                                            </li>
+                                        </ul>
+                                        <!-- Tab content -->
+                                        <div class="tab-content" id="pills-tabContent">
+                                            <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                            <div id="gallery">
+                                            <div class="item">
+                                              <a href="https://picsum.photos/1000/1000?random=1" data-fancybox="gallery" data-caption="My caption">
+                                                <figure>
+                                                  <img src="https://picsum.photos/500/500?random=1">
+                                                  <figcaption>This is a caption with a long text to test</figcaption>
+                                                </figure>
+                                              </a>
+                                            </div>
+                                            <div class="item">
+                                              <a href="https://picsum.photos/1000/1000?random=2" data-fancybox="gallery" data-caption="My caption">
+                                                <figure>
+                                                  <img src="https://picsum.photos/500/500?random=2">
+                                                  <figcaption>This is a caption</figcaption>
+                                                </figure>
+                                              </a>
+                                            </div>
+                                            <div class="item">
+                                              <a href="https://picsum.photos/1000/1000?random=3" data-fancybox="gallery" data-caption="My caption">
+                                                <figure>
+                                                  <img src="https://picsum.photos/500/500?random=3">
+                                                  <figcaption>This is a caption</figcaption>
+                                                </figure>
+                                              </a>
+                                            </div>
+                                            <div class="item">
+                                              <a href="https://picsum.photos/1000/1000?random=4" data-fancybox="gallery" data-caption="My caption">
+                                                <figure>
+                                                  <img src="https://picsum.photos/500/500?random=4">
+                                                  <figcaption>This is a caption</figcaption>
+                                                </figure>
+                                              </a>
+                                            </div>
+                                            <div class="item">
+                                              <a href="https://picsum.photos/1000/1000?random=5" data-fancybox="gallery" data-caption="My caption">
+                                                <figure>
+                                                  <img src="https://picsum.photos/500/500?random=5">
+                                                  <figcaption>This is a caption</figcaption>
+                                                </figure>
+                                              </a>
+                                            </div>
+                                            <div class="item">
+                                              <a href="https://picsum.photos/1000/1000?random=6" data-fancybox="gallery" data-caption="My caption">
+                                                <figure>
+                                                  <img src="https://picsum.photos/500/500?random=6">
+                                                  <figcaption>This is a caption</figcaption>
+                                                </figure>
+                                              </a>
+                                            </div>
+                                            <div class="item">
+                                              <a href="https://picsum.photos/1000/1000?random=7" data-fancybox="gallery" data-caption="My caption">
+                                                <figure>
+                                                  <img src="https://picsum.photos/500/500?random=7">
+                                                  <figcaption>This is a caption</figcaption>
+                                                </figure>
+                                              </a>
+                                            </div>
+                                            <div class="item">
+                                              <a href="https://picsum.photos/1000/1000?random=8" data-fancybox="gallery" data-caption="My caption">
+                                                <figure>
+                                                  <img src="https://picsum.photos/500/500?random=8">
+                                                  <figcaption>This is a caption</figcaption>
+                                                </figure>
+                                              </a>
+                                            </div>
+                                            <div class="item">
+                                              <a href="https://picsum.photos/1000/1000?random=9" data-fancybox="gallery" data-caption="My caption">
+                                                <figure>
+                                                  <img src="https://picsum.photos/500/500?random=9">
+                                                  <figcaption>This is a caption</figcaption>
+                                                </figure>
+                                              </a>
+                                            </div>
+                                            <div class="item">
+                                              <a href="https://picsum.photos/1000/1000?random=10" data-fancybox="gallery" data-caption="My caption">
+                                                <figure>
+                                                  <img src="https://picsum.photos/500/500?random=10">
+                                                  <figcaption>This is a caption</figcaption>
+                                                </figure>
+                                              </a>
+                                            </div>
+                                          </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                               
+                                            <div class="table-responsive">
+                                    <table class="table text-dark table-borderless">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th><p class="mb-0">Meeting rooms</p></th>
+                                                <th><p class="mb-0">Size</p></th>
+                                                <th><p class="mb-0">Maximum capacity</p></th>
+                                                <th><p class="mb-0">Banquet</p></th>
+                                                <th><p class="mb-0">Classroom</p></th>
+                                                <th><p class="mb-0">Theater</p></th>
+                                                <th><p class="mb-0">Cocktail</p></th>
+                                                <th><p class="mb-0">Radius from KLCC (car)</p></th>
+                                                <th><p class="mb-0">Radius from KLCC (walk )</p></th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Table data -->
+                                            <tr class="text-center">
+                                                <td><p class="mb-0 font-weight-bold">Boardroom</p></td>
+                                                <td><p class="mb-0 font-weight-normal">300 s.q ft</p></td>
+                                                <td><p class="mb-0 font-weight-normal">2000 person</p></td>
+                                                <td><p class="mb-0 font-weight-normal">500</p></td>
+                                                <td><p class="mb-0 font-weight-normal">500</p></td>
+                                                <td><p class="mb-0 font-weight-normal">500</p></td>
+                                                <td><p class="mb-0 font-weight-normal">500</p></td>
+                                                <td><p class="mb-0 font-weight-normal">1.5 km</p></td>
+                                                <td><p class="mb-0 font-weight-normal">3.0 km</p></td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td><p class="mb-0 font-weight-bold">Meeting Room</p></td>
+                                                <td><p class="mb-0 font-weight-normal">400 s.q ft</p></td>
+                                                <td><p class="mb-0 font-weight-normal">1000 person</p></td>
+                                                <td><p class="mb-0 font-weight-normal">250</p></td>
+                                                <td><p class="mb-0 font-weight-normal">250</p></td>
+                                                <td><p class="mb-0 font-weight-normal">250</p></td>
+                                                <td><p class="mb-0 font-weight-normal">250</p></td>
+                                                <td><p class="mb-0 font-weight-normal">2.5 km</p></td>
+                                                <td><p class="mb-0 font-weight-normal">5.0 km</p></td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td><p class="mb-0 font-weight-bold">MR6</p></td>
+                                                <td><p class="mb-0 font-weight-normal">500 s.q ft</p></td>
+                                                <td><p class="mb-0 font-weight-normal">3000 person</p></td>
+                                                <td><p class="mb-0 font-weight-normal">750</p></td>
+                                                <td><p class="mb-0 font-weight-normal">500</p></td>
+                                                <td><p class="mb-0 font-weight-normal">500</p></td>
+                                                <td><p class="mb-0 font-weight-normal">500</p></td>
+                                                <td><p class="mb-0 font-weight-normal">5.0 km</p></td>
+                                                <td><p class="mb-0 font-weight-normal">10.0 km</p></td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td><p class="mb-0 font-weight-bold">Majestic</p></td>
+                                                <td><p class="mb-0 font-weight-normal">1000 s.q ft</p></td>
+                                                <td><p class="mb-0 font-weight-normal">5000 person</p></td>
+                                                <td><p class="mb-0 font-weight-normal">1000</p></td>
+                                                <td><p class="mb-0 font-weight-normal">2000</p></td>
+                                                <td><p class="mb-0 font-weight-normal">500</p></td>
+                                                <td><p class="mb-0 font-weight-normal">500</p></td>
+                                                <td><p class="mb-0 font-weight-normal">20.0 km</p></td>
+                                                <td><p class="mb-0 font-weight-normal">30.0 km</p></td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td><p class="mb-0 font-weight-bold">Shangri La</p></td>
+                                                <td><p class="mb-0 font-weight-normal">700 s.q ft</p></td>
+                                                <td><p class="mb-0 font-weight-normal">3000 person</p></td>
+                                                <td><p class="mb-0 font-weight-normal">1000</p></td>
+                                                <td><p class="mb-0 font-weight-normal">500</p></td>
+                                                <td><p class="mb-0 font-weight-normal">500</p></td>
+                                                <td><p class="mb-0 font-weight-normal">500</p></td>
+                                                <td><p class="mb-0 font-weight-normal">5.5 km</p></td>
+                                                <td><p class="mb-0 font-weight-normal">10.0 km</p></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                               
+                                            </div>
+                                            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                                
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15935.17731018773!2d101.69481858588372!3d3.148893338671856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPETRONAS%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1618928630135!5m2!1sen!2smy" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                                            </div>
+                                        </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+      </div>
      </div>
-     <div class="row">
-           <div id="product1" class="product-col col text-center compare-col-1" style="padding-top: 2%">
-             <div class="card">
-              <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-              </ul>
-              <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div>
-           </div>
-           <div id="product2" class="product-col col text-center compare-col-2" style="padding-top: 2%">
-             <div class="card">
-              <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-              </ul>
-              <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div>
-           </div>
-           <div id="product3" class="product-col col text-center compare-col-3" style="padding-top: 2%">
-             <div class="card">
-              <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-              </ul>
-              <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div>
-           </div>
-     </div>
+
    </div>
 
- </div>
 
 <script>
-$(".product-selector").each(function(){
-  $(this).data('__old', this.value);
-}).change(function() {
-  var $this = $(this), value = $this.val(), oldValue = $this.data('__old'), col = $this.attr('id').replace('product-col-', ''), dupe, dupeCol;
-
-  dupe = $(".product-selector").not(this).filter(function(){
-      return this.value == value;
-  });
-  if(dupe.length){
-      dupe.val(oldValue).data('__old', oldValue);
-      dupeCol = dupe.attr('id').replace('product-col-', '');
-      $(".product-col").removeClass('compare-col-' + dupeCol);
-      $("#" + oldValue).addClass('compare-col-' + dupeCol);
+$( "#gallery .item" ).hover(
+  function() {
+    $( '#gallery' ).addClass( "hover" );
+    $( this ).addClass( "hover" );
+  }, function() {
+    $( this ).removeClass( "hover" );
+    $( '#gallery' ).removeClass( "hover" );
   }
-
-  $(".product-col").removeClass('compare-col-' + col);
-  $("#" + value).addClass('compare-col-' + col);
-
-  $this.data('__old', value)
-});
+);
 </script>
 
 

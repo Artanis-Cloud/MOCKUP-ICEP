@@ -310,54 +310,45 @@ input.search-submit {
              <div class="card">
               <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">Hotel Kuala Lumpur</h5>
+                <p class="card-text">Address</p>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Comparison</li>
+                <li class="list-group-item">Comparison</li>
+                <li class="list-group-item">Comparison</li>
               </ul>
-              <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
+              
             </div>
            </div>
            <div id="product2" class="product-col col text-center compare-col-2" style="padding-top: 2%">
              <div class="card">
               <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">Hotel Kuala Lumpur</h5>
+                <p class="card-text">Address</p>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Comparison</li>
+                <li class="list-group-item">Comparison</li>
+                <li class="list-group-item">Comparison</li>
               </ul>
-              <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
+             
             </div>
            </div>
            <div id="product3" class="product-col col text-center compare-col-3" style="padding-top: 2%">
              <div class="card">
               <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">Hotel Kuala Lumpur</h5>
+                <p class="card-text">Address</p>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Comparison</li>
+                <li class="list-group-item">Comparison</li>
+                <li class="list-group-item">Comparison</li>
               </ul>
-              <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
+              
             </div>
            </div>
      </div>
