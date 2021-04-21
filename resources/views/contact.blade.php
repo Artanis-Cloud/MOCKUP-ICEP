@@ -32,7 +32,7 @@ a:active {
 
 .container-fluid{
     width: 100%;
-    height: 86vh;
+    height: auto;
 
 }
 
