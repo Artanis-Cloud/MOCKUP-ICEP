@@ -39,7 +39,7 @@ class AdminController extends Controller
 
     public function add_eventspace()
     {
-        $hotel_name = Hotel::get();
+        $hotel_name = Hotel::distinct('hotel_name')->get();
         return view('admin.add-new-eventspace',compact('hotel_name'));
     }
 
