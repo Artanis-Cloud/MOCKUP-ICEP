@@ -276,7 +276,7 @@ input.search-submit {
               <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="#" class="btn btn-primary">Details</a>
+                <a href="{{ route('details') }}" class="btn btn-primary">Details</a>
               </div>
             </div>
           </div>
@@ -285,7 +285,7 @@ input.search-submit {
               <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="#" class="btn btn-primary">Details</a>
+                <a href="{{ route('details') }}" class="btn btn-primary">Details</a>
               </div>
             </div>
           </div>
@@ -294,7 +294,7 @@ input.search-submit {
               <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="#" class="btn btn-primary">Details</a>
+                <a href="{{ route('details') }}" class="btn btn-primary">Details</a>
               </div>
             </div>
           </div>
@@ -317,7 +317,7 @@ input.search-submit {
               <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="#" class="btn btn-primary">Details</a>
+                <a href="{{ route('details') }}" class="btn btn-primary">Details</a>
               </div>
             </div>
           </div>
@@ -326,7 +326,7 @@ input.search-submit {
               <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">Hotel Pavilion Kuala Lumpur</h5>
-                <a href="#" class="btn btn-primary">Details</a>
+                <a href="{{ route('details') }}" class="btn btn-primary">Details</a>
               </div>
             </div>
           </div>

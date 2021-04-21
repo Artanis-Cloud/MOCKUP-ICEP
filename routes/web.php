@@ -25,6 +25,8 @@ Route::get('/hall', [App\Http\Controllers\VenueController::class, 'hall'])->name
 
 Route::get('/hotel', [App\Http\Controllers\VenueController::class, 'hotel'])->name('hotel');
 
+Route::get('/comparison', [App\Http\Controllers\VenueController::class, 'comparison'])->name('comparison');
+
 Route::get('/venue/details', [App\Http\Controllers\VenueController::class, 'details'])->name('details');
 
 Route::get('/gallery', [App\Http\Controllers\VenueController::class, 'gallery'])->name('gallery');

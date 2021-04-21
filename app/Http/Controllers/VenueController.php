@@ -21,9 +21,9 @@ class VenueController extends Controller
         return view('Venue.hall',compact('hall'));
     }
 
-    public function gallery()
+    public function comparison()
     {
-        return view('gallery');
+        return view('comparison');
     }
 
     public function contact()
