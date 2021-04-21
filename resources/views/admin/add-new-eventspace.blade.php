@@ -31,7 +31,7 @@
                         <select name="hotel_name" id="" class="form-control bg-light @error('hotel_name') is-invalid @enderror"">
                             <option selected disabled hidden value="" >Enter Hotel Name</option>
                             @forelse ($hotel_name as $data)
-                            <option value="{{ $data-> hotel_name }}" >{{ $data-> hotel_name }}</option>
+                            <option value="{{ $data-> id }}" >{{ $data-> hotel_name }}</option>
                             @empty
 
                             @endforelse

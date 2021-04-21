@@ -21,6 +21,6 @@ class Hotel extends Model
     ];
 
     public function events(){
-        return $this->hasMany('App\Event_Space');
+        return $this->hasMany('App\EventSpace');
     }
 }
