@@ -6,6 +6,7 @@ use App\Models\EventSpace;
 use Illuminate\Http\Request;
 use App\Models\Venues;
 use App\Models\Hotel;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -26,7 +27,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.mainMenu');
+        return view('admin.main-menu');
     }
 
 
@@ -50,7 +51,18 @@ class AdminController extends Controller
     {
         $hotels = Hotel::get();
         $eventspaces = EventSpace::get();
-        return view('admin.list_venue',compact('hotels','eventspaces'));
+        return view('admin.list-venue',compact('hotels','eventspaces'));
+    }
+
+    public function user()
+    {
+        $users = User::get();
+        return view('admin.user-list',compact('users'));
+    }
+
+    public function add_user()
+    {
+        return view('admin.add-user');
     }
 
 

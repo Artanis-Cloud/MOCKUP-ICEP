@@ -87,9 +87,9 @@
                             @forelse ($eventspaces as $data )
                                 <tr>
                                     <td>{{$data->id}}</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
+                                    <td>{{$data->hotels->hotel_name}}</td>
+                                    <td>{{$data->hotels->car_radius}}</td>
+                                    <td>{{$data->hotels->walking_radius}}</td>
                                     <td>{{$data->venue}}</td>
                                     <td>{{$data->size}}</td>
                                     <td>{{$data->capacity}}</td>

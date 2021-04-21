@@ -39,6 +39,10 @@ Route::get('/forms', [App\Http\Controllers\AdminController::class, 'forms'])->na
 
 Route::get('/venue/lists', [App\Http\Controllers\AdminController::class, 'list_venue'])->name('venue');
 
+Route::get('/user-list', [App\Http\Controllers\AdminController::class, 'user'])->name('user');
+
+Route::get('/user-add', [App\Http\Controllers\AdminController::class, 'add_user'])->name('user_add');
+
 Route::post('/hotel/create', [App\Http\Controllers\VenueController::class, 'submitHotel'])->name('hotel.submit');
 
 Route::post('/eventspace/create', [App\Http\Controllers\VenueController::class, 'submitEventSpace'])->name('eventspace.submit');
