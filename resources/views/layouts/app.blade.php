@@ -24,6 +24,8 @@
             text-align: center;
         }
     </style>
+
+    @livewireStyles
 </head>
 <body>
     <div id="app">
@@ -104,5 +106,7 @@
                              Copyright © 2021 iCEP - International Conference and Exhibition Professionals. All rights reserved.
             </div>
     </div>
+
+    @livewireScripts
 </body>
 </html>
