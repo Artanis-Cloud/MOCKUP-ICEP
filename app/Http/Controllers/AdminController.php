@@ -97,10 +97,7 @@ class AdminController extends Controller
 
 
         public function update_profile(Request $request){
-        // dd('dgdgdg');
-            // Validate change password form
-            // $this->validator($request->all())->validate();
-
+            // dd($request->all());
             $users = User::findOrFail(Auth::user()->id);
 
 
@@ -108,9 +105,36 @@ class AdminController extends Controller
 
             $users->email = $request->email;
 
-            $hashed_random_password = Hash::make($request->password);
 
-            $request->password = $hashed_random_password;
+            if(!(Hash::check($request->get('password'), Auth::user()->password))){
+                return redirect()->back()->with("error","Kata laluan semasa tidak betul");
+              }
+
+            if(strcmp($request->get('password'),$request->get('new_password'))== 0){
+                return redirect()->back()->with("error","Kata laluan semasa tidak boleh sama dengan kata laluan baru");
+              }
+
+            if(strcmp($request->get('new_password'),$request->get('password_confirmation'))== 1){
+                return redirect()->back()->with("error","Kata laluan baru tidak sama dengan kata laluan pengesahan");
+              }
+
+              $validatedData = $request->validate([
+                      'password' => 'required',
+                      'new_password' => 'required|string|min:6',
+                ]);
+
+                $hashed_random_password = Hash::make($request->get('new_password'));
+
+                $users->password = $hashed_random_password;
+
+                // $gambar_profile = "";
+
+                if ($files = request()->file('gambar_profile') != null) {
+                    // dd($request->gambar_profile);
+                    $profile_picture = request()->file('gambar_profile')->store('public/storage/profile');
+                    $users->profile_picture = $profile_picture;
+    }
+
 
             $users->save();
 
