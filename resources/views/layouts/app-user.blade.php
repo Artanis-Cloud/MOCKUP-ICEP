@@ -64,6 +64,9 @@
 
                         <li class="px-3 side-menu-item"><a href="{{ route('user') }}" class="py-3 pl-4 w-100">User Management</a></li>
 
+                        <li class="px-3 side-menu-item"><a href="{{ route('admin.announcement.list') }}" class="py-3 pl-4 w-100">Announcement</a></li>
+
+
                         <li class="px-3 side-menu-item"><a href="{{ route('admin.audit-trail.audit-trail-log') }}" class="py-3 pl-4 w-100">Audit Trails</a></li>
 
 
@@ -200,11 +203,11 @@
                         <!-- Icon -->
                         <a href="#" class="w-100 dropdown-toggle text-muted" data-toggle="dropdown">
 
-                          @if(Auth::user()->gambar_profile == null)
+                          @if(Auth::user()->profile_picture == null)
 
                           <img src="{{ asset('https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg') }}" alt="profile" class="profile-avatar" style="height:40px; width:40px;" data-toggle="tooltip" data-placement="left" title="Profil">
                           @else
-                          <img src="{{ asset( $image_path = str_replace('public', 'storage',  Auth::user()->gambar_profile)) }}"  class="profile-avatar" style="height:40px; width:40px; " data-toggle="tooltip" data-placement="left" title="Profil">
+                          <img src="{{ asset( $image_path = str_replace('public', 'storage',  Auth::user()->profile_picture)) }}"  class="profile-avatar" style="height:40px; width:40px; " data-toggle="tooltip" data-placement="left" title="Profil">
                           @endif
                         </a>
                         <!-- Dropdown Menu -->
