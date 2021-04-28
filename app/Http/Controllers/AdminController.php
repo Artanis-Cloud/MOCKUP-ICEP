@@ -9,6 +9,7 @@ use App\Models\Hotel;
 use App\Models\User;
 use App\Models\Audit;
 use Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -93,6 +94,7 @@ class AdminController extends Controller
       return view('admin.audit-trail.audit-trail-log-filter', compact('data'));
   }
 
+
         public function update_profile(Request $request){
         // dd('dgdgdg');
             // Validate change password form
@@ -122,6 +124,21 @@ class AdminController extends Controller
 
             return view('admin.update-profile', compact('users'));
         }
+
+  public function addUser(Request $request)
+  {
+    $hashed_random_password = Hash::make("1234567890");
+
+    User::create([
+        "name" => $request->name,
+        "email" => $request->email,
+        "password" =>$hashed_random_password,
+        "roles" => $request ->roles,
+    ]);
+
+    $users = User::get();
+    return view('admin.user-list',compact('users'))->with("success", "Your profile has been updated");
+  }
 
 
 }
