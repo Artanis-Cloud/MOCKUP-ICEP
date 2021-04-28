@@ -32,7 +32,7 @@
         <nav class="shadow-sm navbar navbar-expand-md navbar-light" style="background-color: #2F4858;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <a href="#"><img src="http://ezran.my/ACES/wp-content/uploads/2021/02/logo-new.png" style="height: 60px;" alt="Kerajaan Selangor"></a>
+                    <a href="#"><img src="{{ asset('/image/user/logo.png') }}" style="height: 60px;" alt="Kerajaan Selangor"></a>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
