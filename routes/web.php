@@ -45,6 +45,10 @@ Route::get('/user-list', [App\Http\Controllers\AdminController::class, 'user'])-
 
 Route::get('/user-add', [App\Http\Controllers\AdminController::class, 'add_user'])->name('user_add');
 
+Route::post('/update-profile-update', [App\Http\Controllers\AdminController::class, 'update_profile'])->name('admin.update-profile-update');
+
+Route::get('/update-profile', [App\Http\Controllers\AdminController::class, 'update_profile_admin'])->name('admin.update-profile');
+
 Route::get('/audit-trail', [App\Http\Controllers\AdminController::class, 'viewAuditList'])->name('admin.audit-trail.audit-trail-log');
 
 Route::get('/audit-trail-filter', [App\Http\Controllers\AdminController::class, 'viewAuditListFilter'])->name('admin.audit-trail.audit-trail-log-filter');

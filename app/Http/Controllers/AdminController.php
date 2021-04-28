@@ -8,6 +8,7 @@ use App\Models\Venues;
 use App\Models\Hotel;
 use App\Models\User;
 use App\Models\Audit;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -91,6 +92,36 @@ class AdminController extends Controller
 
       return view('admin.audit-trail.audit-trail-log-filter', compact('data'));
   }
+
+        public function update_profile(Request $request){
+        // dd('dgdgdg');
+            // Validate change password form
+            // $this->validator($request->all())->validate();
+
+            $users = User::findOrFail(Auth::user()->id);
+
+
+            $users->name = $request->name;
+
+            $users->email = $request->email;
+
+            $users->password = $request->password;
+
+            $users->confirm_password = $request->confirm_password;
+
+
+            $users->save();
+
+            return redirect()->back()->with("success", "Your profile has been updated");
+        }
+
+        public function update_profile_admin()
+        {
+
+            $users = auth()->user();
+
+            return view('admin.update-profile', compact('users'));
+        }
 
 
 }

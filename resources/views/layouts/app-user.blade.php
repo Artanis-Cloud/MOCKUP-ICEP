@@ -35,7 +35,7 @@
         <div class="side-bar side-bar-lg-active" data-theme="purple">
             <!-- Brand details -->
             <div class="mt-3 side-menu-brand d-flex flex-column justify-content-center align-items-center clear">
-                <img src="{{ asset('https://icep.com.my/wp-content/uploads/2017/08/logo-new.png') }}" alt="bran_name" class="brand-img">
+                <img src="{{ asset('/image/admin/logo.png') }}" alt="bran_name" class="brand-img">
                 <a href="{{ route('home') }}" class="mt-2 ml-2 brand-name font-weight-bold" style="text-align: center; font-size: 20px !important;padding-top: 10%;">iCEP - International Conference and Exhibition Professionals</a>
             </div>
             @if(Auth::user())
@@ -212,8 +212,8 @@
                             <!-- Menu items -->
 
                             <a href="#" class="dropdown-item disabled small"><i class="mr-1 far fa-user"></i>{{explode(' ',trim(ucwords(strtolower((Auth::user()->name)))))[0]}} </a>
-                            <a href="#" class="dropdown-item text-secondary-light">Kemaskini Profil</a>
-                            <a href="#" class="dropdown-item text-secondary-light">Tukar Kata Laluan</a>
+                            <a href="{{ route('admin.update-profile') }}" class="dropdown-item text-secondary-light">Update Profile</a>
+                            {{-- <a href="#" class="dropdown-item text-secondary-light">Tukar Kata Laluan</a> --}}
 
                             <!-- <a href="#" class="dropdown-item text-secondary-light">Billing history</a> -->
                             <a  class="dropdown-item text-secondary-light"
