@@ -8,6 +8,7 @@ use App\Models\Venues;
 use App\Models\Hotel;
 use App\Models\User;
 use App\Models\Audit;
+// use Storage;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -107,10 +108,9 @@ class AdminController extends Controller
 
             $users->email = $request->email;
 
-            $users->password = $request->password;
+            $hashed_random_password = Hash::make($request->password);
 
-            $users->confirm_password = $request->confirm_password;
-
+            $request->password = $hashed_random_password;
 
             $users->save();
 

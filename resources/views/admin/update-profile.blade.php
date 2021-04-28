@@ -67,6 +67,23 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="gambar_profile" class="col-md-4 col-form-label text-md-right">{{ __('Upload Picture') }}</label>
+
+                            <div class="col-md-6">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="gambar_profile">
+                                    <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">UPLOAD FILE</label>
+                                </div>
+
+                                @error('upload-picture')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
 
                         <div class="mb-0 form-group row">
                             <div class="col-md-6 offset-md-4">
