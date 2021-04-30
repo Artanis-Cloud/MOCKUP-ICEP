@@ -8,6 +8,7 @@ use App\Models\Venues;
 use App\Models\Hotel;
 use App\Models\User;
 use App\Models\Audit;
+use App\Models\Announcement;
 // use Storage;
 use Auth;
 use Illuminate\Support\Facades\Hash;
@@ -31,7 +32,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.main-menu');
+        $announcement =Announcement::get();
+        return view('admin.main-menu',compact('announcement'));
     }
 
 

@@ -31,7 +31,7 @@ a:active {
 
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <div  style="font-size: 180%;color: rgb(0, 0, 0);" >
-    <i class="fa fa-home" aria-hidden="true" style="color: #fff;"></i>
+    <i class="fa fa-home" aria-hidden="true" style="color: rgb(0, 0, 0);"></i>
     Dashboard
   </div>
   <hr style="background-color: black !important;">
@@ -43,8 +43,9 @@ a:active {
 
 
       <div class="row">
+          <div class="mt-3 col-sm-2 col-md-2 col-lg-2 mt-lg-0"></div>
           <!-- Col sm 6, col md 6, col lg 3 -->
-          <div class="mt-3 col-sm-6 col-md-6 col-lg-6 mt-lg-0">
+          <div class="mt-3 col-sm-4 col-md-4 col-lg-4 mt-lg-0">
             <!-- Card -->
               <div class="rounded-lg card border-1" style="border-color: #003473 !important;">
                   <!-- Card body -->
@@ -79,7 +80,7 @@ a:active {
 
 
           <!-- Col sm 6, col md 6, col lg 3 -->
-          <div class="mt-3 col-sm-6 col-md-6 col-lg-6 mt-lg-0">
+          <div class="mt-3 col-sm-4 col-md-4 col-lg-4 mt-lg-0">
               <!-- Card -->
               <div class="rounded-lg card border-1" style="border-color: #D25F00 !important;">
                   <!-- Card body -->
@@ -110,6 +111,7 @@ a:active {
 
               </div>
           </div>
+          <div class="mt-3 col-sm-2 col-md-2 col-lg-2 mt-lg-0"></div>
 
       </div>
 
@@ -118,15 +120,15 @@ a:active {
       <div style="padding: 10px;">
 
       </div>
-
-      <hr style="background-color: black;">
+{{--
+      <hr style="background-color: black;"> --}}
 
       <div style="padding: 10px;"></div>
 
 
       <div class="row">
-
-         <div class="col-md-12">
+        <div class="col-md-2"></div>
+         <div class="col-md-8">
 
             <!--  Custom content card -->
             <div class="rounded-lg card" style="border-color: #003473 !important;">
@@ -137,27 +139,20 @@ a:active {
 
 
                     <div class="list-group" style="overflow:auto;height:500px;width:100%;border:1px solid #ccc">
-                      <div class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                        <h6 class="mb-1" style="font-size: 20px; font-weight: bold;">Events</h6>
-                        <small class="text-muted" style="font-size: 110%;">18-11-2020</small>
-                        </div>
-                        <p class="my-1" style="font-size: 15px; text-align:justify;">IPMC 1-2 DEC 2021</p>
-                      </div>
-                      <div class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                        <h6 class="mb-1" style="font-size: 20px; font-weight: bold;">Events</h6>
-                        <small class="text-muted" style="font-size: 110%;">18-11-2020</small>
-                        </div>
-                        <p class="my-1" style="font-size: 15px; text-align:justify;">APGCE 2019 29-30 OCT 2019</p>
-                      </div>
-                      <div class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                        <h6 class="mb-1" style="font-size: 20px; font-weight: bold;">Events</h6>
-                        <small class="text-muted" style="font-size: 110%;">18-11-2020</small>
-                        </div>
-                        <p class="my-1" style="font-size: 15px; text-align:justify;">ORCHID RUN & RIDE 2019 - 6-6 OCT 2019</p>
-                      </div>
+
+                        @forelse($announcement as $data)
+                            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1" style="font-weight: bold;">{{ $data->user_message }}</h6>
+                                <small class="text-muted" style="font-size: 110%;"></small>
+                                </div>
+                                <p class="my-1" style="font-size: 15px; text-align:justify;">{{ $data->created_at }}</p>
+                            </div>
+                        @empty
+                            No Announcement
+                        @endforelse
+
+
                     </div>
                 </div>
             </div>
