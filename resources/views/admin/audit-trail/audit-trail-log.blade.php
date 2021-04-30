@@ -1,13 +1,19 @@
 @extends('layouts.app-user')
 
 @section('content')
-
+<div class="p-4 page-body text-dark">
+    <div  style="font-size: 180%;color: rgb(0, 0, 0);" >
+        <i class="fa fa-signal" aria-hidden="true" style="color: rgb(0, 0, 0);"></i>
+        Audit Trails
+      </div>
+      <hr style="background-color: black !important;">
+      <div style="padding:5px;"></div>
         <div class="dashboard-ecommerce">
             <div class="container-fluid dashboard-content ">
               @if ($message = Session::get('success'))
               <div id=alert>
                   <div class="alert alert-card alert-success" role="alert">
-                      <strong>Operasi Berjaya! </strong>
+                      <strong>Operation Success! </strong>
                       {{$message}}
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
@@ -28,7 +34,7 @@
                   <div class="card" style="padding: 10px;">
 
                     <div style="padding: 5px;"></div>
-                      <h2 class="card-header" style="text-align: center;"><i class="fas fa-signal" aria-hidden="true"></i>  Audit Trail</h2>
+                    <div class="card-header" style="text-align:center; border-color: #003473 !important; font-size: 130%; font-weight: bold;"> Audit Trails</div>
                       <div class="p-0 card-body">
                           <br>
                         <div class="table-responsive">
@@ -36,15 +42,15 @@
                             <!-- Table head -->
                             <thead>
                                 <tr>
-                                  <th class="all">Bil</th>
-                                  <th class="all">Nama Pengguna</th>
-                                  <th class="all">E-mail</th>
-                                  <th class="all">Alamat IP</th>
-                                  <th class="all">Masa</th>
-                                  <th class="all">Pengkalan Data</th>
-                                  <th class="all">Acara</th>
-                                  <th class="all">Data Lama</th>
-                                  <th class="all">Data Baharu</th>
+                                  <th class="all">No</th>
+                                  <th class="all">User Name</th>
+                                  <th class="all">Email</th>
+                                  <th class="all">IP Address</th>
+                                  <th class="all">Time</th>
+                                  <th class="all">Database</th>
+                                  <th class="all">Event</th>
+                                  <th class="all">Old Data</th>
+                                  <th class="all">New Data</th>
 
                                 </tr>
                             </thead>
@@ -157,6 +163,7 @@
                   </div>
             </div>
         </div>
+    </div>
 
         <script type="text/javascript">
            function pass_id_disable(id){

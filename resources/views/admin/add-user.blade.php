@@ -3,9 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+        <div class="col-md-8" >
+            <div class="card" style="border-color: #003473 !important;">
+                {{-- <div class="card-header">{{ __('Add New User') }}</div> --}}
+            <div class="card-header" style="text-align:center; border-color: #003473 !important; font-size: 130%; font-weight: bold;">Add New Hotel</div>
+
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('useradd') }}">
