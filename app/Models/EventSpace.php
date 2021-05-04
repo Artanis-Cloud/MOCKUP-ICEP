@@ -14,13 +14,17 @@ class EventSpace extends Model implements Auditable
 
     protected $fillable = [
         'venue',
+        'level',
         'size',
         'capacity',
         'banquet',
         'classroom',
         'theater',
         'cocktail',
+        'cabaret',
+        'booth_capacity',
         'daily_rates',
+        'meeting_package',
         'thumbnail',
         'hotel_id'
     ];

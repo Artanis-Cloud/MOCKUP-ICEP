@@ -42,7 +42,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="mr-auto navbar-nav" style="text-align: center;">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">HOME</a>
+                            <a class="nav-link" href="{{ url('/homepage') }}">HOME</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('hotel') }}">HOTEL</a>
