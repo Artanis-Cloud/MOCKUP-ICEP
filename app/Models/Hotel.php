@@ -17,14 +17,15 @@ class Hotel extends Model implements Auditable
         'hotel_name',
         'car_radius',
         'walking_radius',
-        'room_type',
-        'single_rate',
-        'double_rate',
-        'corporate_rate',
-        'thumbnail'
+        'thumbnail',
+        'longitude',
+        'latitude'
     ];
 
     public function events(){
         return $this->hasMany('App\EventSpace');
+    }
+    public function rooms(){
+        return $this->hasMany('App\HotelRoom');
     }
 }

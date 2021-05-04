@@ -72,7 +72,7 @@ class VenueController extends Controller
             'classroom' => $data['classroom'],
             'theater' => $data['theater'],
             'cocktail' =>$data['cocktail'],
-            'daily_rates' =>$data['daily_rates'],
+            'daily_rate' =>$data['daily_rates'],
             'hotel_id' =>$data['hotel_name'],
             'thumbnail' =>$uploaded_gambar,
 

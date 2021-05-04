@@ -16,13 +16,17 @@ class CreateEventSpacesTable extends Migration
         Schema::create('event_spaces', function (Blueprint $table) {
             $table->id();
             $table->string('venue')->nullable();
+            $table->string('level')->nullable();
             $table->string('size')->nullable();
             $table->string('capacity')->nullable();
             $table->string('banquet')->nullable();
             $table->string('classroom')->nullable();
             $table->string('theater')->nullable();
             $table->string('cocktail')->nullable();
-            $table->string('daily_rates')->nullable();
+            $table->string('cabaret')->nullable();
+            $table->string('booth_capacity')->nullable();
+            $table->string('daily_rate')->nullable();
+            $table->string('meeting_package')->nullable();
             $table->string('thumbnail')->nullable();
             $table->string('hotel_id')->nullable();
             $table->timestamps();

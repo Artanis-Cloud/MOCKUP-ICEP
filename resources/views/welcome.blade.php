@@ -1,165 +1,294 @@
-@extends('layouts.app')
-
-@section('content')
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-
 <style>
-a{
-  font-size: 100% !important;
-}
-/* unvisited link */
-a:link {
-  color: white !important;
-}
-
-/* visited link */
-a:visited {
-  color: white !important;
-}
-
-/* mouse over link */
-a:hover {
-  color: #E89A3D !important;
-}
-
-/* selected link */
-a:active {
-  color: white !important;
-
-}
-
-.container-fluid{
-    width: 100%;
-    height: 100vh;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url({{ asset('/qbadminui/img/home/homepagevms.jpg') }});
-}
-
-/* search */
-input[type=search] {
-  -webkit-appearance: none !important;
-  background-clip: padding-box;
-  background-color: white;
-  vertical-align: middle;
-  border-radius: 0.25rem;
-  border: 1px solid #e0e0e5;
-  font-size: 1rem;
-  width: 100%;
-  line-height: 2;
-  padding: 0.375rem 1.25rem;
-  transition: border-color 0.2s;
-}
-
-input[type=search]:focus {
-  transition: all 0.5s;
-  box-shadow: 0 0 40px #f9d442b9;
-  border-color: #f9d342;
-  outline: none;
-}
-
-form.search-form {
-  display: flex;
-  justify-content: center;
-}
-
-label {
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: auto;
-  align-self: center;
-  margin-bottom: 0;
-}
-
-input.search-field {
-  margin-bottom: 0;
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: auto;
-  align-self: center;
-  height: 51px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-input.search-submit {
-  height: 51px;
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+* {
   margin: 0;
-  padding: 1rem 1.3rem;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-  font-family: "Font Awesome 5 Free";
-  font-size: 1rem;
+  padding: 0;
+  box-shadow: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
 
-.screen-reader-text {
-  clip: rect(1px, 1px, 1px, 1px);
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
+body {
+  background: #031323;
   overflow: hidden;
 }
 
-.button {
-  display: inline-block;
-  font-weight: 600;
-  font-size: 0.8rem;
-  line-height: 1.15;
-  letter-spacing: 0.1rem;
-  text-transform: uppercase;
-  background: #f9d342;
-  color: #292826;
-  border: 1px solid transparent;
-  vertical-align: middle;
-  text-shadow: none;
-  transition: all 0.2s;
+img {
+  width: 32px;
 }
 
-.button:hover,
-.button:active,
-.button:focus {
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.box {
+  position: relative;
+}
+.box .square {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  animation: square 10s linear infinite;
+  animation-delay: calc(-1s * var(--i));
+}
+@keyframes square {
+  0%, 100% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+.box .square:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  top: -15px;
+  right: -45px;
+}
+.box .square:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  top: 105px;
+  left: -125px;
+  z-index: 2;
+}
+.box .square:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  bottom: 85px;
+  right: -45px;
+  z-index: 2;
+}
+.box .square:nth-child(4) {
+  width: 50px;
+  height: 50px;
+  bottom: 35px;
+  left: -95px;
+}
+.box .square:nth-child(5) {
+  width: 50px;
+  height: 50px;
+  top: -15px;
+  left: -25px;
+}
+.box .square:nth-child(6) {
+  width: 85px;
+  height: 85px;
+  top: 165px;
+  right: -155px;
+  z-index: 2;
+}
+
+.container {
+  position: relative;
+  padding: 50px;
+  width: 400px;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  left: 5px;
+  border-radius: 5px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 2%);
+}
+
+.form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.form h2 {
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  text-align: center;
+  /* padding-left: 40%; */
+}
+.form .inputBx {
+  position: relative;
+  width: 130%;
+  margin-bottom: 20px;
+}
+.form .inputBx input {
+  width: 80%;
+  outline: none;
+  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 10px;
+  padding-left: 40px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+.form .inputBx .password-control {
+  position: absolute;
+  top: 11px;
+  right: 110px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
+  transition: 0.5s;
+}
+.form .inputBx .view {
+  background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
+  transition: 0.5s;
+}
+.form .inputBx img {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  transform: scale(0.6);
+  filter: invert(1);
+}
+.form .inputBx input[type=submit] {
+  background: #fff;
+  color: #111;
+  /* max-width: 100px; */
+  padding: 8px 10px;
+  box-shadow: none;
+  letter-spacing: 1px;
   cursor: pointer;
-  background: #E89A3D;
-  color: #292826;
-  outline: 0;
+  transition: 1.5s;
+  border-radius: 20px;
+}
+.form .inputBx input[type=submit]:hover {
+  background: linear-gradient(115deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.25));
+  color: #fff;
+  transition: 0.5s;
+}
+.form .inputBx input::placeholder {
+  color: #fff;
+}
+.form .inputBx span {
+  position: absolute;
+  left: 30px;
+  padding: 10px;
+  display: inline-block;
+  color: #fff;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.form .inputBx input:focus ~ span,
+.form .inputBx input:valid ~ span {
+  transform: translateX(-30px) translateY(-25px);
+  font-size: 12px;
+}
+.form p {
+  color: #fff;
+  font-size: 15px;
+  margin-top: 5px;
+}
+.form p a {
+  color: #fff;
+}
+.form p a:hover {
+  background-color: #000;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.remember {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 </style>
 
-<body>
+        <section>
 
-  <div class="container-fluid">
-  	<div class="row">
-  		<div class="col-md-4">
-  		</div>
-  		<div class="col-md-4" style="text-align: center;color: #fff; padding-top: 15%;">
-              <h1>Welcome to <br> Venue Management System iCEP</h1>
-  		</div>
-  		<div class="col-md-4">
-  		</div>
-  	</div>
-  	<div class="row">
-  		<div class="col-md-4">
-  		</div>
-  		<div class="col-md-4">
+            <div class="box">
 
-                  <div class="container">
-                    <form role="search" method="get" class="search-form form" action="">
-                      <label>
-                          <span class="screen-reader-text">Search for...</span>
-                          <input type="search" class="search-field" placeholder="Type something..." value="" name="s" title="">
-                      </label>
-                      <input type="submit" class="search-submit button" value="">
-                  </form>
+              <div class="square" style="--i:0;"></div>
+              <div class="square" style="--i:1;"></div>
+              <div class="square" style="--i:2;"></div>
+              <div class="square" style="--i:3;"></div>
+              <div class="square" style="--i:4;"></div>
+              <div class="square" style="--i:5;"></div>
+
+             <div class="container">
+              <div class="form">
+                  <div style="text-align:center;">
+                    <a href="{{ route('welcome') }}"><img src="http://ezran.my/ACES/wp-content/uploads/2021/02/logo-new.png" style="height: 100%; width:30%;" alt="Kerajaan Selangor"></a>
                   </div>
+                  <br>
 
-  		</div>
-  		<div class="col-md-4">
-  		</div>
-  	</div>
-  </div>
-@endsection
+                <h2 style="font-size: 30px">ADMIN LOGIN</h2>
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                  <div class="inputBx">
+                    <input type="email" required="required" name="email">
+                    <span>Email</span>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/709/709699.svg" alt="user">
+                  </div>
+                  <div class="inputBx password">
+                    <input id="password-input" type="password" name="password" required="required">
+                    <span>Password</span>
+                    <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/1828/1828471.svg" alt="lock">
+                  </div>
+                  <label class="remember"><input type="checkbox">
+                    Remember</label>
+                  <div class="inputBx">
+                    <input type="submit" value="Log in" {{ __('Login') }}>
+                  </div>
+                </form>
+                {{-- <p>Forgot password? <a href="#">Click Here</a></p> --}}
+                {{-- <p>Don't have an account <a href="{{route('register')}}">Sign up</a></p> --}}
+              </div>
+            </div>
+
+            </div>
+          </section>
+
+
+<script>
+    function show_hide_password(target){
+	var input = document.getElementById('password-input');
+	if (input.getAttribute('type') == 'password') {
+		target.classList.add('view');
+		input.setAttribute('type', 'text');
+	} else {
+		target.classList.remove('view');
+		input.setAttribute('type', 'password');
+	}
+	return false;
+}
+</script>
