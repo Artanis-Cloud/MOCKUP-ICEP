@@ -18,15 +18,5 @@ class Hotels extends Component
         return view('livewire.hotels', compact('hotels'));
     }
 
-    public function add($i)
 
-    {
-        dd('test');
-        $i = $i + 1;
-
-        $this->i = $i;
-
-        array_push($this->inputs ,$i);
-
-    }
 }
