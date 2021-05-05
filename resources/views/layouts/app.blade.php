@@ -64,32 +64,29 @@
                     <ul class="ml-auto navbar-nav" style="text-align: center;">
                         <!-- Authentication Links -->
 
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
-                                </li>
-                            @endif
 
-                        @else
+
+
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </font></a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a> --}}
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
                                 </div>
 
                             </li>
-                        @endguest
-
 
                     </ul>
                 </div>
@@ -108,3 +105,11 @@
     @livewireScripts
 </body>
 </html>
+<script type="text/javascript">
+    $("document").ready(function(){
+      setTimeout(function(){
+         $("div.alert").remove();
+      }, 5000 ); // 5 secs
+
+    });
+    </script>
