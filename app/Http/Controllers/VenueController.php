@@ -7,7 +7,6 @@ use App\Models\Venues;
 use App\Models\Hotel;
 use App\Models\EventSpace;
 use App\Models\HotelRoom;
-use Yajra\Datatables\Datatables;
 
 class VenueController extends Controller
 {
