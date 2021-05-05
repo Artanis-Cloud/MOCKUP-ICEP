@@ -1,3 +1,5 @@
+
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 * {
@@ -230,7 +232,44 @@ section {
   margin-bottom: 10px;
   cursor: pointer;
 }
+
+
 </style>
+
+
+<div class="marquee">
+    <div class="marquee__item">
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+    </div><div class="marquee__item">
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+      Lorem Ipsum Dolor Sit Amet
+      <span class="marquee__seperator">+++</span>
+    </div>
+  </div>
 
         <section>
 
@@ -292,3 +331,4 @@ section {
 	return false;
 }
 </script>
+

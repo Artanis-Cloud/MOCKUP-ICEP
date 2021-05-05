@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 * {
@@ -230,7 +231,65 @@ section {
   margin-bottom: 10px;
   cursor: pointer;
 }
+
+/* announcement */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee:hover .marquee__item {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+.marquee__seperator {
+  margin: 0 2rem;
+}
+.marquee__item {
+  display: inline-block;
+  will-change: transform;
+  -webkit-animation: marquee 50s linear infinite;
+          animation: marquee 50s linear infinite;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.marquee {
+  background-color: #01586f;
+  padding: 1rem 0;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
 </style>
+
+        <div class="marquee">
+            <div class="marquee__item">
+                @if($announcement)
+                    @forelse ( $announcement as $data)
+                    <i class="fa fa-building"></i>&nbsp {{ $data->user_message }} <span class=""> &nbsp &nbsp</span>
+                    @empty
+
+                    @endforelse
+                @endif
+
+            </div>
+        </div>
 
         <section>
 
