@@ -41,6 +41,7 @@ Route::post('/comparehotel', [App\Http\Controllers\VenueController::class, 'comp
 //Announcement
 Route::middleware([CheckRole::class])->group(function(){
 
+
     Route::get('/home', [App\Http\Controllers\AdminController::class, 'index'])->name('home');
 
     Route::get('/hotel/add', [App\Http\Controllers\AdminController::class, 'add_hotel'])->name('hotel.add');
