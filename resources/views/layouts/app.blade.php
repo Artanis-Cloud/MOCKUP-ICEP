@@ -97,7 +97,7 @@
             @yield('content')
             </div>
 
-            <div class="footer" style="background-color:#2F4858; padding: 1%; color: #fff;">
+            <div class="footer" style="background-color:#2F4858; padding: 1%; color: #fff; text-align: center;">
                              Copyright © 2021 iCEP - International Conference and Exhibition Professionals. All rights reserved.
             </div>
     </div>

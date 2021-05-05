@@ -169,33 +169,37 @@ input.search-submit {
 <body>
 
  <div class="container-fluid">
-   <div class="row">
-     <div class="col-md-2">
 
-     </div>
-     <div class="col-md-4" style="padding-top: 5%">
+   <div class="row">
+     <div class="col-md-2"></div>
+     <div class="col-md-8" style="padding-top: 5%">
        <div class="card">
          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d995.9435942676603!2d101.71056462029314!3d3.154104652784245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d45d0a6ac5%3A0xbe69787fd5158e34!2sEtiqa%20Twins!5e0!3m2!1sms!2smy!4v1617597703280!5m2!1sms!2smy" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
        </div>
      </div>
-     <div class="col-md-4" style="padding-top: 5%">
-       <div class="card" style="padding: 14.5%">
-         <p style="text-align:justify;"><B>International Conference & Exhibition Professionals (iCEP)</B></p>
+     <div class="col-md-2"></div>
 
-         <p style="text-align:justify;">Etiqa Twins, Level 27, Tower 1,</p>
-         <p style="text-align:justify;">11, Jalan Pinang, 50450,</p>
-         <p style="text-align:justify;">Kuala Lumpur, Malaysia</p>
-
-         <p style="text-align:justify;">Tel: +603 2171 3500</p>
-         <p style="text-align:justify;">Fax: +603 2171 3535</p>
-
-         <p style="text-align:justify;"> Email: editorial@icep.com.my</p>
-       </div>
-     </div>
-     <div class="col-md-2">
-
-     </div>
    </div>
+
+   <div class="row">
+   <div class="col-md-2"></div>
+   <div class="col-md-8" style="padding-top: 2%; padding-bottom: 2%">
+    <div class="card" style="padding: 5%">
+      <p style="text-align:justify;"><B>International Conference & Exhibition Professionals (iCEP)</B></p>
+
+      <p style="text-align:justify;">Etiqa Twins, Level 27, Tower 1,</p>
+      <p style="text-align:justify;">11, Jalan Pinang, 50450,</p>
+      <p style="text-align:justify;">Kuala Lumpur, Malaysia</p>
+
+      <p style="text-align:justify;">Tel: +603 2171 3500</p>
+      <p style="text-align:justify;">Fax: +603 2171 3535</p>
+
+      <p style="text-align:justify;"> Email: editorial@icep.com.my</p>
+    </div>
+  </div>
+   <div class="col-md-2"></div>
+    </div>
+
  </div>
 
 
