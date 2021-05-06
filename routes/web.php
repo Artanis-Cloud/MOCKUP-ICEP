@@ -81,4 +81,10 @@ Route::middleware([CheckRole::class])->group(function(){
     Route::post('/admin/others/announcement/add/save', [App\Http\Controllers\AnnouncementController::class, 'addAnnouncement'])->name('admin.others.announcement.add.save');
 
     Route::post('/admin/others/announcement/delete/', [App\Http\Controllers\AnnouncementController::class, 'deleteAnnouncement'])->name('admin.others.announcement.delete');
+
+
+    //add room testing
+    Route::get('/room', function () {
+        return view('/admin/homelivewire');
+        });
 });
