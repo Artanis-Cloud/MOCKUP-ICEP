@@ -164,13 +164,25 @@
  <div class="container-fluid">
     <div class="row">
       <div class="col-md-12" style="padding: 5%;">
-      <div class="card rounded-lg">
+      <div class="rounded-lg card">
                             <div class="card-body">
                                 <div class="card-title">Comparison Table</div>
                                 <!-- Table -->
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered" id="dataTable2" style="width: 100%;">
                                         <thead>
+                                            <tr class="text-center">
+                                                <th style="border: 0px none #ffffff;"><p class="mb-0"></p></th>
+                                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-car" style="font-size: 25px;"></i></p></th>
+                                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-walking" style="font-size: 25px;"></i></p></th>
+                                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-person-booth" style="font-size: 25px;"></i></p></th>
+                                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-building" style="font-size: 25px;"></i></p></th>
+                                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-bed" style="font-size: 25px;"></i></p></th>
+                                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-street-view" style="font-size: 25px;"></i></p></th>
+                                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-dollar-sign" style="font-size: 25px;"></i></p></th>
+                                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-dollar-sign" style="font-size: 25px;"></i></p></th>
+                                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-dollar-sign" style="font-size: 25px;"></i></p></th>
+                                            </tr>
                                             <tr class="text-center">
                                                 <th><p class="mb-0">Hotel Name</p></th>
                                                 <th><p class="mb-0">Radius from KLCC (car)</p></th>
@@ -182,7 +194,6 @@
                                                 <th><p class="mb-0">Single Rate</p></th>
                                                 <th><p class="mb-0">Double Rate</p></th>
                                                 <th><p class="mb-0">Corporate Rate</p></th>
-
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -247,12 +258,12 @@
      </div>
      <br>
      <div class="row">
-        <div class="col text-center">
+        <div class="text-center col">
             <button class="btn btn-primary" type="submit" style="width:100%;">Declare</button>
         </div>
      </div>
      <div class="row">
-           <div id="product1" class="product-col col text-center compare-col-1" style="padding-top: 2%">
+           <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
              <div class="card">
               <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
               <div class="card-body">
@@ -267,7 +278,7 @@
 
             </div>
            </div>
-           <div id="product2" class="product-col col text-center compare-col-2" style="padding-top: 2%">
+           <div id="product2" class="text-center product-col col compare-col-2" style="padding-top: 2%">
              <div class="card">
               <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
               <div class="card-body">
@@ -282,7 +293,7 @@
 
             </div>
            </div>
-           <div id="product3" class="product-col col text-center compare-col-3" style="padding-top: 2%">
+           <div id="product3" class="text-center product-col col compare-col-3" style="padding-top: 2%">
              <div class="card">
               <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
               <div class="card-body">

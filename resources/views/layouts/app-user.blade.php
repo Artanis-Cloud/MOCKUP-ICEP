@@ -146,7 +146,7 @@
 
                 <a href="{{ url()->previous() }}" class="m-2 btn btn-outline-primary" style="font-size:150%;color:#fff;"><i class="fa fa-chevron-circle-left" aria-hidden="true" style="color: #000;"></i> Back</a>
 
-                <a href="{{ url('/homepage') }}" target=”_blank” class="m-2 btn btn-outline-primary" style="font-size:150%;color:#fff;"><i class="fas fa-home" aria-hidden="true" style="color: #000;"></i> View</a>
+                <a href="{{ url('/homepage') }}" target="_blank" class="m-2 btn btn-outline-primary" style="font-size:150%;color:#fff;"><i class="fas fa-home" aria-hidden="true" style="color: #000;"></i> View</a>
 
 
                 <!-- Navbar search section -->
