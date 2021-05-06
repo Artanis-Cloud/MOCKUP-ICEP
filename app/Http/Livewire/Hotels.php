@@ -24,7 +24,6 @@ class Hotels extends Component
     }
 
 
-
     public function updated()                   //function called everytime user input
     {
         $this->validate();
@@ -59,4 +58,5 @@ class Hotels extends Component
         // dd($image);
         return $image;
     }
+
 }

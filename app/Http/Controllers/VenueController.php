@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Venues;
 use App\Models\Hotel;
 use App\Models\EventSpace;
+use App\Models\HotelRoom;
 
 class VenueController extends Controller
 {
@@ -25,8 +26,11 @@ class VenueController extends Controller
 
     public function comparison()
     {
-        return view('comparison');
+        $room = HotelRoom::get();
+        $hotel = Hotel::get();
+        return view('comparison',compact('room','hotel'));
     }
+
 
     public function contact()
     {

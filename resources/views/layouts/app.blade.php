@@ -7,24 +7,26 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <title>{{ config('app.name', 'ICEP') }}</title> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('qbadminui/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('qbadminui/css/vendor/bootstrap-4.3.1/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('qbadminui/css/main.css') }}">
 
-    <style>
-        .footer{
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('qbadminui/css/vendor/DataTable-1.10.20/datatables.min.css') }}"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script src="{{ asset('qbadminui/js/vendor/DataTable-1.10.20/datatables.min.js') }}"></script>
+    <!-- Data Table script -->
+    <script src="{{ asset('qbadminui/js/plugins/dataTable_script.js') }}"></script>
+
+    <meta name="theme-color" content="#fafafa">
     @livewireStyles
 </head>
 <body>
@@ -62,37 +64,30 @@
                     <ul class="ml-auto navbar-nav" style="text-align: center;">
                         <!-- Authentication Links -->
 
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
-                                </li>
-                            @endif
 
-                            {{-- @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif --}}
-                        @else
+
+
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"><font color="black">
+
+                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </font></a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a> --}}
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
                                 </div>
+
                             </li>
-                        @endguest
+
                     </ul>
                 </div>
             </div>
@@ -102,7 +97,7 @@
             @yield('content')
             </div>
 
-            <div class="footer" style="background-color:#2F4858; padding: 1%; color: #fff;">
+            <div class="footer" style="background-color:#2F4858; padding: 1%; color: #fff; text-align: center;">
                              Copyright © 2021 iCEP - International Conference and Exhibition Professionals. All rights reserved.
             </div>
     </div>
@@ -110,3 +105,11 @@
     @livewireScripts
 </body>
 </html>
+<script type="text/javascript">
+    $("document").ready(function(){
+      setTimeout(function(){
+         $("div.alert").remove();
+      }, 5000 ); // 5 secs
+
+    });
+    </script>

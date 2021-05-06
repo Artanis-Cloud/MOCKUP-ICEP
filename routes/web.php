@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Announcement;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $announcement =Announcement::get();
+    return view('welcome',compact('announcement'));
 })->name('welcome');
 
 Auth::routes();
@@ -33,10 +35,14 @@ Route::get('/gallery', [App\Http\Controllers\VenueController::class, 'gallery'])
 
 Route::get('/contact', [App\Http\Controllers\VenueController::class, 'contact'])->name('contact');
 
+Route::post('/comparehotel', [App\Http\Controllers\VenueController::class, 'comparehotel'])->name('comparehotel');
+
+
 
 
 //Announcement
 Route::middleware([CheckRole::class])->group(function(){
+
 
     Route::get('/home', [App\Http\Controllers\AdminController::class, 'index'])->name('home');
 
@@ -65,8 +71,6 @@ Route::middleware([CheckRole::class])->group(function(){
     Route::post('/eventspace/create', [App\Http\Controllers\VenueController::class, 'submitEventSpace'])->name('eventspace.submit');
 
     Route::post('/compare', [App\Http\Controllers\VenueController::class, 'compare'])->name('compare');
-
-    Route::post('/comparehotel', [App\Http\Controllers\VenueController::class, 'comparehotel'])->name('comparehotel');
 
     Route::post('/deletevenue/{id}', [App\Http\Controllers\VenueController::class, 'delete'])->name('delete');
 
