@@ -12,9 +12,9 @@ class VenueController extends Controller
 {
     public function hotel()
     {
-
-        // $hotel = Hotel::get();
-        return view('Venue.hotel');
+        // dd('rr');
+        $hotels = Hotel::get();
+        return view('Venue.hotel', compact('hotels'));
 
     }
 
