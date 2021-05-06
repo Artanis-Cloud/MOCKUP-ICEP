@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 
 class Room extends Component
 {
+    public $show = true;
+    public $add = true;
     public $employees, $name, $email, $employee_id;
     public $updateMode = false;
     public $inputs = [];

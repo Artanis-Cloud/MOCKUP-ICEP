@@ -43,9 +43,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="mr-auto navbar-nav" style="text-align: center;">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ url('/homepage') }}">HOME</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('hotel') }}">HOTEL</a>
                         </li>
@@ -68,7 +68,7 @@
 
 
                             <li class="nav-item dropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
 
                                                      document.getElementById('logout-form').submit();">
