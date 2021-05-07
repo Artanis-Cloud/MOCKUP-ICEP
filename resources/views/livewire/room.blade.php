@@ -1,9 +1,5 @@
 <div>
-    @if (session()->has('message'))
-    <div class="alert alert-success">
-    {{ session('message') }}
-    </div>
-    @endif
+
 
     <div class="row">
         <div class="col-md-12" style="text-align:center;">
@@ -254,6 +250,8 @@
     </div> --}}
 
     </form>
+
+
 
     </div>
 

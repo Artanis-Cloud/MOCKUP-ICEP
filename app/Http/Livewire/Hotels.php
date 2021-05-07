@@ -49,6 +49,8 @@ class Hotels extends Component
         $this->resetInputFields();
 
         $this->emit('room-process', $hotel->id);
+
+        session()->flash('message', 'Room Has Been Added Successfully.');
     }
 
     public function storeImage()
