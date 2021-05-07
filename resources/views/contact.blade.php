@@ -164,6 +164,20 @@ input.search-submit {
   background: #4CAF50;
   cursor: pointer;
 }
+
+.map-container-6{
+overflow:hidden;
+padding-bottom:56.25%;
+position:relative;
+height:0;
+}
+.map-container-6 iframe{
+left:0;
+top:0;
+height:100%;
+width:100%;
+position:absolute;
+}
 </style>
 
 <body>
@@ -172,33 +186,38 @@ input.search-submit {
 
    <div class="row">
      <div class="col-md-2"></div>
-     <div class="col-md-8" style="padding-top: 5%">
+     <div class="col-md-8" style="padding-top: 3%;padding-bottom: 3%">
        <div class="card">
-         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d995.9435942676603!2d101.71056462029314!3d3.154104652784245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d45d0a6ac5%3A0xbe69787fd5158e34!2sEtiqa%20Twins!5e0!3m2!1sms!2smy!4v1617597703280!5m2!1sms!2smy" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <!--Google map-->
+        <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 400px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.774091618657!2d101.7085994152521!3d3.154179154000093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d45c6fd879%3A0xcd01fb3d09240522!2siCEP%20-%20International%20Conference%20and%20Exhibition%20Professionals!5e0!3m2!1sen!2smy!4v1620358135322!5m2!1sen!2smy" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+
+          <br>
+          <!--Buttons-->
+          <div class="text-center row">
+            <div class="col-md-4">
+              <a class="btn-floating blue accent-1"><i class="fas fa-map-marker-alt"></i></a>
+              <p>International Conference & Exhibition Professionals (iCEP)</p>
+              <p>Etiqa Twins, Level 27, Tower 1,</p>
+            </div>
+
+            <div class="col-md-4">
+              <a class="btn-floating blue accent-1"><i class="fas fa-phone"></i></a>
+              <p>+603 2171 3500</p>
+              <p>Mon - Fri, 8:00-6:00</p>
+            </div>
+
+            <div class="col-md-4">
+              <a class="btn-floating blue accent-1"><i class="fas fa-envelope"></i></a>
+              <p>editorial@icep.com.my</p>
+            </div>
+          </div>
        </div>
      </div>
      <div class="col-md-2"></div>
 
    </div>
-
-   <div class="row">
-   <div class="col-md-2"></div>
-   <div class="col-md-8" style="padding-top: 2%; padding-bottom: 2%">
-    <div class="card" style="padding: 5%">
-      <p style="text-align:justify;"><B>International Conference & Exhibition Professionals (iCEP)</B></p>
-
-      <p style="text-align:justify;">Etiqa Twins, Level 27, Tower 1,</p>
-      <p style="text-align:justify;">11, Jalan Pinang, 50450,</p>
-      <p style="text-align:justify;">Kuala Lumpur, Malaysia</p>
-
-      <p style="text-align:justify;">Tel: +603 2171 3500</p>
-      <p style="text-align:justify;">Fax: +603 2171 3535</p>
-
-      <p style="text-align:justify;"> Email: editorial@icep.com.my</p>
-    </div>
-  </div>
-   <div class="col-md-2"></div>
-    </div>
 
  </div>
 
