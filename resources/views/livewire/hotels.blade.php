@@ -82,6 +82,17 @@
         <div class="col-md-12" style="padding-top: 1%">
 
             <button type="submit" class="m-auto btn btn-primary btn-outline-primary badge-pill btn-block w-75" style="background: #e89a3d !important;">Submit</button>
+
         </div>
+
+    <div class="row">
+        <div class="col-md-12" style="padding-top: 1%">
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+             {{ session('message') }}
+            </div>
+        </div>
+    </div>
+    @endif
     </div>
 </form>

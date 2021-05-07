@@ -333,7 +333,7 @@ input.search-submit {
                  <div class="card" style="width: 18rem;">
                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap">
                    <div class="card-body">
-                     <h5 class="card-title">{{$data->hotels->hotel_name}}</h5>
+                     <h5 class="card-title">{{$data->hotel_name}}</h5>
                      <a href="#" class="btn btn-primary">Details</a>
                    </div>
                  </div>
