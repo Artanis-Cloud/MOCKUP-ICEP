@@ -18,7 +18,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>Room Type</label>
-                <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" wire:model="room_type.0" name="single_rate" placeholder="Room Type">
+                <input type="text"  class="form-control bg-light @error('room_type') is-invalid @enderror" wire:model="room_type.0" name="room_type" placeholder="Room Type">
                 @error('single_rate')
                 <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -30,7 +30,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>Room Size</label>
-                <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" wire:model="size.0" name="single_rate" placeholder="Size">
+                <input type="text"  class="form-control bg-light @error('size') is-invalid @enderror" wire:model="size.0" name="size" placeholder="Size">
                 @error('single_rate')
                 <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -42,7 +42,7 @@
         <div class="col-md-6">
             <div class="form-group" >
                 <label>Type Of Bed</label>
-                <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" wire:model="type_of_bed.0" name="single_rate" placeholder="">
+                <input type="text"  class="form-control bg-light @error('type_of_bed') is-invalid @enderror" wire:model="type_of_bed.0" name="type_of_bed" placeholder="">
                 @error('single_rate')
                 <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -54,7 +54,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>View</label>
-                <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" wire:model="view.0" name="single_rate" placeholder="">
+                <input type="text"  class="form-control bg-light @error('view') is-invalid @enderror" wire:model="view.0" name="view" placeholder="">
                 @error('single_rate')
                 <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -78,7 +78,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>Double Rate (2 Breakfast)</label>
-                <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" wire:model="double_rate.0" name="single_rate" placeholder="Double Rate (2 Breakfast)">
+                <input type="text"  class="form-control bg-light @error('double_rate') is-invalid @enderror" wire:model="double_rate.0" name="double_rate" placeholder="Double Rate (2 Breakfast)">
                 @error('single_rate')
                 <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -90,7 +90,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>Corporate Rate</label>
-                <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" wire:model="corporate_rate.0" name="single_rate" placeholder="Corporate Rate">
+                <input type="text"  class="form-control bg-light @error('corporate_rate') is-invalid @enderror" wire:model="corporate_rate.0" name="corporate_rate" placeholder="Corporate Rate">
                 @error('single_rate')
                 <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -102,7 +102,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>Benefits</label>
-                <input type="text"  class="form-control bg-light @error('double_rate') is-invalid @enderror" wire:model="benefits.0" name="double_rate" placeholder="Benefits">
+                <input type="text"  class="form-control bg-light @error('benefits') is-invalid @enderror" wire:model="benefits.0" name="benefits" placeholder="Benefits">
                 @error('double_rate')
                 <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -129,7 +129,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Room Type</label>
-                    <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" name="single_rate" placeholder="Room Type">
+                    <input type="text"  class="form-control bg-light @error('room_type') is-invalid @enderror" wire:model="room_type.{{ $value }}" name="room_type" placeholder="Room Type">
                     @error('single_rate')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -141,7 +141,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Room Size</label>
-                    <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" name="single_rate" placeholder="Size">
+                    <input type="text"  class="form-control bg-light @error('size') is-invalid @enderror" wire:model="size.{{ $value }}" name="size" placeholder="Size">
                     @error('single_rate')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -153,7 +153,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Type Of Bed</label>
-                    <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" name="single_rate" placeholder="">
+                    <input type="text"  class="form-control bg-light @error('type_of_bed') is-invalid @enderror" wire:model="type_of_bed.{{ $value }}" name="type_of_bed" placeholder="">
                     @error('single_rate')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -165,7 +165,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>View</label>
-                    <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" name="single_rate" placeholder="">
+                    <input type="text"  class="form-control bg-light @error('view') is-invalid @enderror" wire:model="view.{{ $value }}" name="view" placeholder="">
                     @error('single_rate')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -177,7 +177,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Single Rate (1 Breakfast)</label>
-                    <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" name="single_rate" placeholder="Single Rate (1 Breakfast)">
+                    <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" wire:model="single_rate.{{ $value }}" name="single_rate" placeholder="Single Rate (1 Breakfast)">
                     @error('single_rate')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -189,7 +189,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Double Rate (2 Breakfast)</label>
-                    <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" name="single_rate" placeholder="Double Rate (2 Breakfast)">
+                    <input type="text"  class="form-control bg-light @error('double_rate') is-invalid @enderror" wire:model="double_rate.{{ $value }}" name="double_rate" placeholder="Double Rate (2 Breakfast)">
                     @error('single_rate')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -201,7 +201,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Corporate Rate</label>
-                    <input type="text"  class="form-control bg-light @error('single_rate') is-invalid @enderror" name="single_rate" placeholder="Corporate Rate">
+                    <input type="text"  class="form-control bg-light @error('corporate_rate') is-invalid @enderror" wire:model="corporate_rate.{{ $value }}" name="corporate_rate" placeholder="Corporate Rate">
                     @error('single_rate')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -213,7 +213,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Benefits</label>
-                    <input type="text"  class="form-control bg-light @error('double_rate') is-invalid @enderror" name="double_rate" placeholder="Benefits">
+                    <input type="text"  class="form-control bg-light @error('benefits') is-invalid @enderror" wire:model="benefits.{{ $value }}" name="benefits" placeholder="Benefits">
                     @error('double_rate')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -221,6 +221,8 @@
                     @enderror
                 </div>
             </div>
+
+
 
     </div>
 

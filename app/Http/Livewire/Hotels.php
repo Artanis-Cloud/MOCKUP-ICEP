@@ -11,6 +11,7 @@ class Hotels extends Component
 {
     use WithFileUploads;
     public $hotel_name, $room_type,$car_radius,$walking_radius,$image,$longitude,$latitude;
+    public $postSubmit, $hotel;
 
     protected $rules = [
         'hotel_name' => 'required|string|max:10',
@@ -23,7 +24,6 @@ class Hotels extends Component
         return view('livewire.hotels');
     }
 
-
     public function updated()                   //function called everytime user input
     {
         $this->validate();
@@ -32,10 +32,11 @@ class Hotels extends Component
     public function addHotel()
 
     {
+        // dd('here');
         $this->validate();
-
         $image = $this->storeImage();
-        Hotel::create([
+
+        $hotel = Hotel::create([
             'hotel_name'=> $this->hotel_name,
             'room_type' => $this->room_type,
             'car_radius' => $this->car_radius,
@@ -45,8 +46,9 @@ class Hotels extends Component
             'latitude' => $this->latitude,
 
         ]);
+        $this->resetInputFields();
 
-
+        $this->emit('room-process', $hotel->id);
     }
 
     public function storeImage()
@@ -57,6 +59,16 @@ class Hotels extends Component
         }
         // dd($image);
         return $image;
+    }
+
+    private function resetInputFields(){
+        $this->hotel_name = '';
+        $this->room_type = '';
+        $this->car_radius = '';
+        $this->walking_radius = '';
+        $this->image = '';
+        $this->longitude = '';
+        $this->latitude = '';
     }
 
 }
