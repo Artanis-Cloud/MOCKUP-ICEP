@@ -12,7 +12,7 @@
             <div class="container-fluid dashboard-content ">
               @if ($message = Session::get('success'))
               <div id=alert>
-                  <div class="alert alert-card  alert-success" role="alert">
+                  <div class="alert alert-card alert-success" role="alert">
                       <strong>Operation Success! </strong>
                       {{$message}}
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -22,7 +22,7 @@
               </div>
               @elseif ($message = Session::get('error'))
               <div id="alert">
-                <div class="alert alert-card  alert-danger" role="alert">
+                <div class="alert alert-card alert-danger" role="alert">
                     <strong>Error! </strong>
                     {{$message}}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -37,9 +37,9 @@
                     <div class="card" style="padding: 10px;border-color: #003473 !important;">
                         <!-- <div style="padding: 5px;"></div> -->
                         <div class="card-header" style="text-align:center; border-color: #003473 !important; font-size: 130%; font-weight: bold;">Announcement</div>
-                        <div class="card-body p-0">
+                        <div class="p-0 card-body">
                             <div style="padding: 10px;"></div>
-                            <a href="{{route('admin.others.announcement.create')}}" class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> &nbsp Add New</a> &nbsp &nbsp
+                            <a href="{{route('admin.announcement.create')}}" class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> &nbsp Add New</a> &nbsp &nbsp
                             <div style="padding: 10px;"></div>
 
                             <div class="table table-striped table-bordered">
@@ -72,7 +72,7 @@
                                                 <div class="modal-footer">
 
                                                     <!-- <a href="#" class="btn btn-primary">Yes</a> -->
-                                                    <form class="" action="{{route('admin.others.announcement.delete')}}" method="post">
+                                                    <form class="" action="{{route('admin.announcement.delete')}}" method="post">
                                                     @csrf
                                                     <input type="hidden" id="announcement_id" name="announcement_id">
                                                     <button type="submit" name="button" class="btn btn-primary">Delete</button>

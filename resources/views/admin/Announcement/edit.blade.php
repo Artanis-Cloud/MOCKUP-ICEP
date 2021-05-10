@@ -33,7 +33,7 @@
                       <div class="p-0 card-body">
                         <div style="padding: 10px;"></div>
 
-                        <form class="" action="{{route('admin.others.announcement.edit') }}" method="POST">
+                        <form class="" action="{{route('admin.announcement.edit') }}" method="POST">
                           @csrf
                           <div class="row">
                             <div class="col-md-2">
