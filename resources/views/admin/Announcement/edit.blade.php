@@ -8,7 +8,7 @@
 
                     @if ($message = Session::get('success'))
                     <div id=alert>
-                        <div class="alert alert-card  alert-success" role="alert">
+                        <div class="alert alert-card alert-success" role="alert">
                             <strong>Operation Successful! </strong>
                             {{$message}}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -18,7 +18,7 @@
                     </div>
                     @elseif ($message = Session::get('error'))
                     <div id="alert">
-                      <div class="alert alert-card  alert-danger" role="alert">
+                      <div class="alert alert-card alert-danger" role="alert">
                           <strong>Error! </strong>
                           {{$message}}
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -30,7 +30,7 @@
 
                     <!-- <div style="padding: 5px;"></div> -->
                       <h2 class="card-header" style="text-align: center;"><i class="fa fa-question-circle" aria-hidden="true"></i>&nbsp Tambah Pengumuman Baru</h2>
-                      <div class="card-body p-0">
+                      <div class="p-0 card-body">
                         <div style="padding: 10px;"></div>
 
                         <form class="" action="{{route('admin.others.announcement.edit') }}" method="POST">
