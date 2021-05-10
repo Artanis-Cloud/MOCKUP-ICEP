@@ -223,34 +223,43 @@
       </div>
     </div>
    <div class="container p-4">
-     <h2>Comparison</h2>
+
      <div class="row">
+       <div class="text-center col">
+            <h2>Comparison</h2>
+       </div>
+    </div>
+    <br><br>
+
+    <form action="{{ route('compareHotel') }}" method="POST">
+        @csrf
+    <div class="row">
        <div class="col">
            <label for="first_hotel"><b>First Hotel</b></label>
-            <select id="product-col-1" class="custom-select product-selector" name="first_hotel">
+            <select id="product-col-1" class="custom-select " name="first_hotel">
                 <option value="" selected hidden disabled>Please Choose Hotel</option>
                 @forelse($hotel as $data)
-                <option value="{{ $data->hotel_name }}">{{ $data->hotel_name }}</option>
+                <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                 @empty
                 @endforelse
    			</select>
        </div>
        <div class="col">
-        <label for="first_hotel"><b>Second Hotel</b></label>
-            <select id="product-col-2" class="custom-select product-selector" name="second_hotel">
+        <label for="second_hotel"><b>Second Hotel</b></label>
+            <select id="product-col-2" class="custom-select " name="second_hotel">
                 <option value="" selected hidden disabled>Please Choose Hotel</option>
                 @forelse($hotel as $data)
-                <option value="{{ $data->hotel_name }}">{{ $data->hotel_name }}</option>
+                <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                 @empty
                 @endforelse
             </select>
        </div>
        <div class="col">
-        <label for="first_hotel"><b>Third Hotel</b></label>
-            <select id="product-col-3" class="custom-select product-selector" name="third_hotel">
+        <label for="third_hotel"><b>Third Hotel</b></label>
+            <select id="product-col-3" class="custom-select " name="third_hotel">
                 <option value="" selected hidden disabled>Please Choose Hotel</option>
                 @forelse($hotel as $data)
-                <option value="{{ $data->hotel_name }}">{{ $data->hotel_name }}</option>
+                <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                 @empty
                 @endforelse
             </select>
@@ -258,10 +267,12 @@
      </div>
      <br>
      <div class="row">
+
         <div class="text-center col">
-            <button class="btn btn-primary" type="submit" style="width:100%;">Declare</button>
+            <button class="btn btn-primary" type="submit" style="width:100%;">Compare</button>
         </div>
      </div>
+    </form>
      <div class="row">
            <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
              <div class="card">
