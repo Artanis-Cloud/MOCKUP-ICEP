@@ -28,6 +28,30 @@
 
     <meta name="theme-color" content="#fafafa">
     @livewireStyles
+
+    <style>
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        font-size: 15px;
+        padding-top: 7px;
+        color: #fff;
+        }
+
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #2f4858;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+        display: block;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -56,14 +80,16 @@
                         {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('comparison') }}">COMPARABILITY</a> --}}
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{{ route('comparison-hotel') }}" data-toggle="dropdown">COMPARISON</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('comparison-hotel') }}">COMPARISON</a>
-                                <a class="dropdown-item" href="{{ route('comparison-hotel') }}">COMPARISON</a>
-                            </div>
 
+                        <li class="dropdown nav-item">
+                            <span>COMPARABILITY</span>
+                            <ul class="dropdown-content">
+                                    <a href="{{ route('comparison-hotel') }}" class="nav-link">HOTEL</a>
+                                    <a href="{{ route('comparison-hotel') }}" class="nav-link">EVENT SPACE</a>
+                            </ul>
                         </li>
+
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('contact') }}">CONTACT US</a>
                         </li>

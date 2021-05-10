@@ -163,8 +163,8 @@
     </style>
  <div class="container-fluid">
     <div class="row" style="justify-content: center;">
-      <div class="col-md-8" style="padding: 5%;">
-      <div class="card rounded-lg">
+      <div class="col-md-8" style="padding: 3%;">
+      <div class="rounded-lg card">
             <div class="card-body">
                 <div class="card-title"> Hotel Comparison Table</div>
                 <!-- Table -->
@@ -214,7 +214,7 @@
    <div class="container p-4">
 
      <div class="row">
-       <div class="col text-center">
+       <div class="text-center col">
             <h2> Hotel Comparison</h2>
        </div>
     </div>
@@ -256,14 +256,14 @@
      </div>
      <br>
      <div class="row">
-        <div class="col text-center">
+        <div class="text-center col">
             <button class="btn btn-primary" type="submit" style="width:100%;">Compare</button>
         </div>
      </div>
     </form>
      <div class="row">
         @if($hotel_1)
-            <div id="product1" class="product-col col text-center compare-col-1" style="padding-top: 2%">
+            <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
                 <div class="card">
                     <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
                 <div class="card-body">
@@ -291,7 +291,7 @@
             </div>
         @endif
         @if($hotel_2)
-            <div id="product1" class="product-col col text-center compare-col-1" style="padding-top: 2%">
+            <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
                 <div class="card">
                     <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
                 <div class="card-body">
@@ -318,7 +318,7 @@
             </div>
         @endif
         @if($hotel_3)
-            <div id="product1" class="product-col col text-center compare-col-1" style="padding-top: 2%">
+            <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
                 <div class="card">
                     <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
                 <div class="card-body">
