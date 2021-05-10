@@ -27,7 +27,7 @@ class CreateEventSpacesTable extends Migration
             $table->string('booth_capacity')->nullable();
             $table->string('daily_rate')->nullable();
             $table->string('meeting_package')->nullable();
-            $table->string('thumbnail')->nullable();
+            $table->string('image')->nullable();
             $table->string('hotel_id')->nullable();
             $table->timestamps();
         });

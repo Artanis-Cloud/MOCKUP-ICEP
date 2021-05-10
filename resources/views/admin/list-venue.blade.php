@@ -46,7 +46,7 @@
                                     </tr>
                                 </thead>
                                 <tbody align="center">
-                                    @forelse ($hotels as $data )
+                                    @forelse($hotels as $data )
                                         <tr>
                                             <td>{{$data->id}}</td>
                                             <td>{{$data->hotel_name}}</td>

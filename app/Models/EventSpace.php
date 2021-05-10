@@ -23,7 +23,7 @@ class EventSpace extends Model implements Auditable
         'cocktail',
         'cabaret',
         'booth_capacity',
-        'daily_rates',
+        'daily_rate',
         'meeting_package',
         'thumbnail',
         'hotel_id'

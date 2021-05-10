@@ -56,6 +56,7 @@ class AdminController extends Controller
     public function list_venue()
     {
         $hotels = Hotel::get();
+        // dd($hotels->hotel_name);
         $eventspaces = EventSpace::get();
         return view('admin.list-venue',compact('hotels','eventspaces'));
     }
