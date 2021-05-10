@@ -164,9 +164,10 @@
  <div class="container-fluid">
     <div class="row" style="justify-content: center;">
       <div class="col-md-8" style="padding: 3%;">
+
       <div class="rounded-lg card">
                             <div class="card-body">
-                                <div class="card-title">Comparison Table</div>
+                                <div class="card-title">Hotel Comparison Table</div>
                                 <!-- Table -->
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered" id="dataTable2" style="width: 100%;">
@@ -187,18 +188,18 @@
                                         </thead>
                                         <tbody>
                                             <!-- Table data -->
-                                            @forelse ($room as $data)
+                                            @forelse ($rooms as $room)
                                             <tr class="text-center">
-                                                <td><p class="mb-0 font-weight-normal">{{ $data->hotels->hotel_name ? $data->hotels->hotel_name : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">{{ $data->hotels->car_radius ? $data->hotels->car_radius : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">{{ $data->hotels->walking_radius ? $data->hotels->walking_radius : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">{{ $data->room_type ? $data->room_type : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">{{ $data->size ? $data->size : "-" }} sq.ft</p></td>
-                                                <td><p class="mb-0 font-weight-normal">{{ $data->type_of_bed ? $data->type_of_bed : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">{{ $data->view ? $data->view : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">RM {{ $data->single_rate ? $data->single_rate : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">RM {{ $data->double_rate ? $data->double_rate : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">RM {{ $data->corporate_rate ? $data->corporate_rate : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $room->hotels->hotel_name ? $room->hotels->hotel_name : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $room->hotels->car_radius ? $room->hotels->car_radius : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $room->hotels->walking_radius ? $room->hotels->walking_radius : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $room->room_type ? $room->room_type : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $room->size ? $room->size : "-" }} sq.ft</p></td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $room->type_of_bed ? $room->type_of_bed : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $room->view ? $room->view : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">RM {{ $room->single_rate ? $room->single_rate : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">RM {{ $room->double_rate ? $room->double_rate : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">RM {{ $room->corporate_rate ? $room->corporate_rate : "-" }}</p></td>
                                             </tr>
                                             @empty
                                                 No Data
@@ -215,7 +216,8 @@
 
      <div class="row">
        <div class="text-center col">
-            <h2>Comparison</h2>
+
+            <h2>Hotel Comparison</h2>
        </div>
     </div>
     <br><br>
@@ -227,7 +229,7 @@
            <label for="first_hotel"><b>First Hotel</b></label>
             <select id="product-col-1" class="custom-select " name="first_hotel">
                 <option value="" selected hidden disabled>Please Choose Hotel</option>
-                @forelse($hotel as $data)
+                @forelse($hotels as $data)
                 <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                 @empty
                 @endforelse
@@ -237,7 +239,7 @@
         <label for="second_hotel"><b>Second Hotel</b></label>
             <select id="product-col-2" class="custom-select " name="second_hotel">
                 <option value="" selected hidden disabled>Please Choose Hotel</option>
-                @forelse($hotel as $data)
+                @forelse($hotels as $data)
                 <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                 @empty
                 @endforelse
@@ -247,7 +249,7 @@
         <label for="third_hotel"><b>Third Hotel</b></label>
             <select id="product-col-3" class="custom-select " name="third_hotel">
                 <option value="" selected hidden disabled>Please Choose Hotel</option>
-                @forelse($hotel as $data)
+                @forelse($hotels as $data)
                 <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                 @empty
                 @endforelse

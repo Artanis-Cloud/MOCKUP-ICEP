@@ -26,16 +26,16 @@ class VenueController extends Controller
 
     public function comparisonHotel()
     {
-        $room = HotelRoom::get();
-        $hotel = Hotel::get();
-        return view('Hotel.comparison',compact('room','hotel'));
+        $rooms = HotelRoom::get();
+        $hotels = Hotel::get();
+        return view('Hotel.comparison',compact('rooms','hotels'));
     }
 
     public function comparisonEventSpace()
     {
-        $room = HotelRoom::get();
+        $eventspace = EventSpace::get();
         $hotel = Hotel::get();
-        return view('EventSpace.comparison',compact('room','hotel'));
+        return view('EventSpace.comparison',compact('eventspace','hotel'));
     }
 
     public function compareHotel(Request $request)

@@ -81,11 +81,12 @@
                             <a class="nav-link" href="{{ route('comparison') }}">COMPARABILITY</a> --}}
 
 
+
                         <li class="dropdown nav-item">
                             <span>COMPARABILITY</span>
                             <ul class="dropdown-content">
                                     <a href="{{ route('comparison-hotel') }}" class="nav-link">HOTEL</a>
-                                    <a href="{{ route('comparison-hotel') }}" class="nav-link">EVENT SPACE</a>
+                                    <a href="{{ route('comparison-eventspace') }}" class="nav-link">EVENT SPACE</a>
                             </ul>
                         </li>
 
