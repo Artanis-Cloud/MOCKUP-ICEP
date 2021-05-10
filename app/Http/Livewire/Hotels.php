@@ -14,7 +14,7 @@ class Hotels extends Component
     public $postSubmit, $hotel;
 
     protected $rules = [
-        'hotel_name' => 'required|string|max:10',
+        'hotel_name' => 'required|string',
         'image' => 'max:2048', // 2MB Max                   //validate
     ];
 
