@@ -27,6 +27,7 @@
     <script src="{{ asset('qbadminui/js/plugins/dataTable_script.js') }}"></script>
 
     <meta name="theme-color" content="#fafafa">
+
     @livewireStyles
 
     <style>
@@ -141,6 +142,7 @@
     </div>
 
     @livewireScripts
+
 </body>
 </html>
 <script type="text/javascript">
