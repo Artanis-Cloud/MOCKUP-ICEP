@@ -16,20 +16,20 @@ class AnnouncementController extends Controller
     $data = Announcement::get();
 
 
-      return view('admin.announcement.list', compact('data'));
+      return view('admin.Announcement.list', compact('data'));
   }
 
 
   public function editAnnouncement()
   {
 
-        return redirect()->route('admin.announcement.list');
+        return redirect()->route('admin.Announcement.list');
   }
 
   public function  createAnnouncement()
   {
 
-      return view('admin.announcement.create');
+      return view('admin.Announcement.create');
   }
 
   public function addAnnouncement(Request $request)
@@ -46,7 +46,7 @@ class AnnouncementController extends Controller
 
 
 
-      return redirect()->route('admin.announcement.edit');
+      return redirect()->route('admin.Announcement.edit');
 
     }
 
@@ -58,7 +58,7 @@ class AnnouncementController extends Controller
 
         $announcement->delete();
 
-        return redirect()->route('admin.announcement.list');
+        return redirect()->route('admin.Announcement.list');
       }
 
 
