@@ -80,15 +80,15 @@ Route::middleware([CheckRole::class])->group(function(){
 
     Route::post('/user-admin-add', [App\Http\Controllers\AdminController::class, 'addUser'])->name('useradd');
 
-    Route::get('/admin/others/announcement/list', [App\Http\Controllers\AnnouncementController::class, 'viewAnnouncementList'])->name('admin.announcement.list');
+    Route::get('/admin/announcement/list', [App\Http\Controllers\AnnouncementController::class, 'viewAnnouncementList'])->name('admin.announcement.list');
 
-    Route::get('/admin/others/announcement/create', [App\Http\Controllers\AnnouncementController::class, 'createAnnouncement'])->name('admin.others.announcement.create');
+    Route::get('/admin/announcement/create', [App\Http\Controllers\AnnouncementController::class, 'createAnnouncement'])->name('admin.announcement.create');
 
     // Route::get('/admin/others/announcement/edit', [App\Http\Controllers\AnnouncementController::class, 'editAnnouncement'])->name('admin.announcement.edit');
 
-    Route::post('/admin/others/announcement/add/save', [App\Http\Controllers\AnnouncementController::class, 'addAnnouncement'])->name('admin.others.announcement.add.save');
+    Route::post('/admin/announcement/add/save', [App\Http\Controllers\AnnouncementController::class, 'addAnnouncement'])->name('admin.announcement.add.save');
 
-    Route::post('/admin/others/announcement/delete/', [App\Http\Controllers\AnnouncementController::class, 'deleteAnnouncement'])->name('admin.others.announcement.delete');
+    Route::post('/admin/announcement/delete/', [App\Http\Controllers\AnnouncementController::class, 'deleteAnnouncement'])->name('admin.announcement.delete');
 
 
     //add room testing

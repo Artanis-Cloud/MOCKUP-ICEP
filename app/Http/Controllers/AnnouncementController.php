@@ -20,11 +20,11 @@ class AnnouncementController extends Controller
   }
 
 
-//   public function editAnnouncement()
-//   {
+  public function editAnnouncement()
+  {
 
-//         return redirect()->route('admin.Announcement.list');
-//   }
+        return redirect()->route('admin.Announcement.list');
+  }
 
   public function  createAnnouncement()
   {
@@ -34,19 +34,13 @@ class AnnouncementController extends Controller
 
   public function addAnnouncement(Request $request)
   {
-      // $data = User::findOrFail($id);
-      // $data = $request->all();
-      // dd($request->all());
-
       Announcement::create([
         "user_id" => Auth::user()->id,
         "user_message" => $request->message,
 
       ]);
 
-
-
-      return redirect()->route('admin.Announcement.edit');
+      return redirect()->route('admin.announcement.list');
 
     }
 
@@ -58,7 +52,7 @@ class AnnouncementController extends Controller
 
         $announcement->delete();
 
-        return redirect()->route('admin.Announcement.list');
+        return redirect()->route('admin.announcement.list');
       }
 
 
