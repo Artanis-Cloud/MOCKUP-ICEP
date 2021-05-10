@@ -60,12 +60,16 @@ margin-bottom: 30px;
 <div class="card">
 <div class="text-white card-header bg-success"><h5 style="font-size: 19px;">Laravel Livewire 7 Dynamically Add/Remove Input Fields - Tutsmake.com</h5></div>
 <div class="card-body">
+
 @livewire('room')
+
 </div>
 </div>
 </div>
 </div>
 </div>
+
 @livewireScripts
+
 </body>
 </html>

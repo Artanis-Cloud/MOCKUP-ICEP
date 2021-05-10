@@ -73,7 +73,9 @@
 
         <div class="row" style="padding: 1%">
             <div class="col-md-12">
+
                 @livewire('room')
+
             </div>
         </div>
 
