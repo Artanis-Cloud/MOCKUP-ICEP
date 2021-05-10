@@ -24,10 +24,8 @@ class HotelRoom extends Model implements Auditable
         'hotel_id'
     ];
 
-    public function events(){
-        return $this->hasMany('App\EventSpace');
-    }
-    public function rooms(){
-        return $this->hasMany('App\HotelRoom');
+    public function hotels(){
+        return $this->belongsTo(Hotel::class, 'hotel_id');
+
     }
 }

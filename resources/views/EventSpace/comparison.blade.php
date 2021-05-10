@@ -162,11 +162,11 @@
     }
     </style>
  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12" style="padding: 5%;">
+    <div class="row" style="justify-content: center;">
+      <div class="col-md-8" style="padding: 5%;">
       <div class="rounded-lg card">
                             <div class="card-body">
-                                <div class="card-title">Comparison Table</div>
+                                <div class="card-title">Event Space Comparison Table</div>
                                 <!-- Table -->
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered" id="dataTable2" style="width: 100%;">
@@ -187,29 +187,35 @@
                                                 <th><p class="mb-0">Hotel Name</p></th>
                                                 <th><p class="mb-0">Radius from KLCC (car)</p></th>
                                                 <th><p class="mb-0">Radius from KLCC (walk)</p></th>
-                                                <th><p class="mb-0">Room Type</p></th>
-                                                <th><p class="mb-0">Room Size</p></th>
-                                                <th><p class="mb-0">Type of Bed</p></th>
-                                                <th><p class="mb-0">View</p></th>
-                                                <th><p class="mb-0">Single Rate</p></th>
-                                                <th><p class="mb-0">Double Rate</p></th>
-                                                <th><p class="mb-0">Corporate Rate</p></th>
+                                                <th><p class="mb-0">Venue</p></th>
+                                                <th><p class="mb-0">Level</p></th>
+                                                <th><p class="mb-0">Size</p></th>
+                                                <th><p class="mb-0">Banquet</p></th>
+                                                <th><p class="mb-0">Classroom</p></th>
+                                                <th><p class="mb-0">Theater</p></th>
+                                                <th><p class="mb-0">Cocktail</p></th>
+                                                <th><p class="mb-0">Cabaret</p></th>
+                                                <th><p class="mb-0">Booth Capacity</p></th>
+                                                <th><p class="mb-0">Daily Rate</p></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <!-- Table data -->
-                                            @forelse ($room as $data)
+                                            @forelse ($eventspace as $data)
                                             <tr class="text-center">
                                                 <td><p class="mb-0 font-weight-normal">{{ $data->hotels->hotel_name ? $data->hotels->hotel_name : "-" }}</p></td>
                                                 <td><p class="mb-0 font-weight-normal">{{ $data->hotels->car_radius ? $data->hotels->car_radius : "-" }}</p></td>
                                                 <td><p class="mb-0 font-weight-normal">{{ $data->hotels->walking_radius ? $data->hotels->walking_radius : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">{{ $data->room_type ? $data->room_type : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">{{ $data->size ? $data->size : "-" }} sq.ft</p></td>
-                                                <td><p class="mb-0 font-weight-normal">{{ $data->type_of_bed ? $data->type_of_bed : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">{{ $data->view ? $data->view : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">RM {{ $data->single_rate ? $data->single_rate : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">RM {{ $data->double_rate ? $data->double_rate : "-" }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">RM {{ $data->corporate_rate ? $data->corporate_rate : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $data->venue ? $data->venue : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $data->level ? $data->level : "-" }} sq.ft</p></td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $data->size ? $data->size : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $data->banquet ? $data->banquet : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">RM {{ $data->classroom ? $data->classroom : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">RM {{ $data->theater ? $data->theater : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">RM {{ $data->cocktail ? $data->cocktail : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">RM {{ $data->cabaret ? $data->cabaret : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">RM {{ $data->booth_capacity ? $data->booth_capacity : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">RM {{ $data->daily_rate ? $data->daily_rate : "-" }}</p></td>
                                             </tr>
                                             @empty
                                                 No Data
@@ -226,7 +232,7 @@
 
      <div class="row">
        <div class="text-center col">
-            <h2>Comparison</h2>
+            <h2> Event Space Comparison</h2>
        </div>
     </div>
     <br><br>
@@ -255,9 +261,9 @@
             </select>
        </div>
        <div class="col">
-        <label for="third_hotel"><b>Third Hotel</b></label>
+        <label for="third_hotel"><b>Event Space</b></label>
             <select id="product-col-3" class="custom-select " name="third_hotel">
-                <option value="" selected hidden disabled>Please Choose Hotel</option>
+                <option value="" selected hidden disabled>Please Choose Event Space</option>
                 @forelse($hotel as $data)
                 <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                 @empty
