@@ -28,7 +28,7 @@
 
     <meta name="theme-color" content="#fafafa">
 
-    @livewireStyles
+@livewireStyles
 
     <style>
         .dropdown {
@@ -141,7 +141,7 @@
             </div>
     </div>
 
-    @livewireScripts
+@livewireScripts
 
 </body>
 </html>
