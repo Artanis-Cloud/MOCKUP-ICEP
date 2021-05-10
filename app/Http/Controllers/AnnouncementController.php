@@ -20,11 +20,11 @@ class AnnouncementController extends Controller
   }
 
 
-  public function editAnnouncement()
-  {
+//   public function editAnnouncement()
+//   {
 
-        return redirect()->route('admin.Announcement.list');
-  }
+//         return redirect()->route('admin.Announcement.list');
+//   }
 
   public function  createAnnouncement()
   {
