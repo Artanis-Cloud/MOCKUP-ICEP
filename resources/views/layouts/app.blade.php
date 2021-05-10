@@ -34,7 +34,7 @@
         .dropdown {
         position: relative;
         display: inline-block;
-        font-size: 15px;
+        font-size: 100%;
         padding-top: 7px;
         color: #fff;
         }
