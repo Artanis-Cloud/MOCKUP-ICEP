@@ -27,7 +27,9 @@ Route::get('/hall', [App\Http\Controllers\VenueController::class, 'hall'])->name
 
 Route::get('/hotel', [App\Http\Controllers\VenueController::class, 'hotel'])->name('hotel');
 
-Route::get('/comparison', [App\Http\Controllers\VenueController::class, 'comparison'])->name('comparison');
+Route::get('/hotel-comparison', [App\Http\Controllers\VenueController::class, 'comparisonHotel'])->name('comparison-hotel');
+
+Route::get('/eventspace-comparison', [App\Http\Controllers\VenueController::class, 'comparisonEventSpace'])->name('comparison-eventspace');
 
 Route::get('/venue/details', [App\Http\Controllers\VenueController::class, 'details'])->name('details');
 
@@ -35,7 +37,9 @@ Route::get('/gallery', [App\Http\Controllers\VenueController::class, 'gallery'])
 
 Route::get('/contact', [App\Http\Controllers\VenueController::class, 'contact'])->name('contact');
 
-Route::post('/comparehotel', [App\Http\Controllers\VenueController::class, 'comparehotel'])->name('comparehotel');
+Route::post('/compare-hotel', [App\Http\Controllers\VenueController::class, 'compareHotel'])->name('compareHotel');
+
+Route::post('/compare-event-space', [App\Http\Controllers\VenueController::class, 'compareEventSpace'])->name('compareEventSpace');
 
 
 

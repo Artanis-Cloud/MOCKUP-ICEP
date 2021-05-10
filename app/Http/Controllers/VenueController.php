@@ -24,11 +24,54 @@ class VenueController extends Controller
         return view('Venue.hall',compact('eventspace'));
     }
 
-    public function comparison()
+    public function comparisonHotel()
     {
         $room = HotelRoom::get();
         $hotel = Hotel::get();
-        return view('comparison',compact('room','hotel'));
+        return view('Hotel.comparison',compact('room','hotel'));
+    }
+
+    public function comparisonEventSpace()
+    {
+        $room = HotelRoom::get();
+        $hotel = Hotel::get();
+        return view('EventSpace.comparison',compact('room','hotel'));
+    }
+
+    public function compareHotel(Request $request)
+    {
+        // dd($request->all());
+        $room = HotelRoom::get();
+        $hotel = Hotel::get();
+        // dd($room);
+
+        $room_1 = HotelRoom::where('hotel_id',$request->first_hotel)->get();
+        $room_2 = HotelRoom::where('hotel_id',$request->second_hotel)->get();
+        $room_3 = HotelRoom::where('hotel_id',$request->third_hotel)->get();
+        //  dd($room_3);
+        $hotel_1 = Hotel::where('id',$request->first_hotel)->first();
+        $hotel_2 = Hotel::where('id',$request->second_hotel)->first();
+        $hotel_3 = Hotel::where('id',$request->third_hotel)->first();
+        // dd($hotel_1);
+        return view('Hotel.compared',compact('room','hotel','hotel_1','hotel_2','hotel_3','room_1','room_2','room_3'));
+    }
+
+    public function compareEventSpace(Request $request)
+    {
+        // dd($request->all());
+        $room = HotelRoom::get();
+        $hotel = Hotel::get();
+        // dd($room);
+
+        $room_1 = HotelRoom::where('hotel_id',$request->first_hotel)->get();
+        $room_2 = HotelRoom::where('hotel_id',$request->second_hotel)->get();
+        $room_3 = HotelRoom::where('hotel_id',$request->third_hotel)->get();
+        //  dd($room_3);
+        $hotel_1 = Hotel::where('id',$request->first_hotel)->first();
+        $hotel_2 = Hotel::where('id',$request->second_hotel)->first();
+        $hotel_3 = Hotel::where('id',$request->third_hotel)->first();
+        // dd($hotel_1);
+        return view('EventSpace.compared',compact('room','hotel','hotel_1','hotel_2','hotel_3','room_1','room_2','room_3'));
     }
 
 
