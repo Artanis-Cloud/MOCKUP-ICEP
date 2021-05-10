@@ -49,7 +49,7 @@ class Hotels extends Component
         $this->resetInputFields();
 
         $this->emit('room-process', $hotel->id);
-
+        // return $hotel->id;
         session()->flash('message', 'Room Has Been Added Successfully.');
     }
 
