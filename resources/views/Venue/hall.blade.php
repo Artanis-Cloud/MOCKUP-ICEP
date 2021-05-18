@@ -331,7 +331,12 @@ input.search-submit {
             <div class="card" style="width: 18rem;">
               <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap">
               <div class="card-body">
-                <h5 class="card-title">{{$data->hotels->hotel_name}}</h5>
+                  @if($data->hotel_id)
+                    <h5 class="card-title">{{$data->hotels->hotel_name}}</h5>
+                  @else
+                    <h5 class="card-title">{{$data->venue}}</h5>
+                  @endif
+
                 <a href="#" class="btn btn-primary">Details</a>
               </div>
             </div>

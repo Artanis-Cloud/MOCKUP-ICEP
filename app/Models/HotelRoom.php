@@ -28,4 +28,8 @@ class HotelRoom extends Model implements Auditable
         return $this->belongsTo(Hotel::class, 'hotel_id');
 
     }
+
+    public function photos(){
+        return $this->hasMany('App\Gallery');
+    }
 }

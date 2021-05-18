@@ -41,6 +41,8 @@ Route::post('/compare-hotel', [App\Http\Controllers\VenueController::class, 'com
 
 Route::post('/compare-event-space', [App\Http\Controllers\VenueController::class, 'compareEventSpace'])->name('compareEventSpace');
 
+Route::post('/room-details', [App\Http\Controllers\VenueController::class, 'roomDetail'])->name('room_detail');
+
 
 
 

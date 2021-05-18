@@ -5,6 +5,7 @@ $(document).ready(function(){
         dataTable.DataTable();
     }
 
+
     // Feature enable / disable Data Table
     let dataTable2 = $("#dataTable2")
     $(dataTable2).DataTable({
@@ -33,18 +34,18 @@ $(document).ready(function(){
     $(defaultOrderingTable).DataTable({
         "order": [[ 4, "desc" ]],
         "language": {
-            "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-            "zeroRecords": "Maaf, tiada rekod.",
-            "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-            "infoEmpty": "Tidak ada rekod yang tersedia",
+            "lengthMenu": "Show _MENU_ entries",
+            "zeroRecords": "Sorry, no record.",
+            "info": "Showing _PAGE_ from _PAGES_ pages",
+            "infoEmpty": "No Record",
             "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-            "search": "Carian",
-            "previous": "Sebelum",
+            "search": "Search:",
+            "previous": "Previous",
             "paginate": {
-                "first":      "Pertama",
-                "last":       "Terakhir",
-                "next":       "Seterusnya",
-                "previous":   "Sebelumnya"
+                "first":      "First",
+                "last":       "Last",
+                "next":       "Next",
+                "previous":   "Previous"
             },
         },
     });

@@ -16,7 +16,6 @@ class EventSpace extends Model implements Auditable
         'venue',
         'level',
         'size',
-        'capacity',
         'banquet',
         'classroom',
         'theater',
@@ -24,7 +23,6 @@ class EventSpace extends Model implements Auditable
         'cabaret',
         'booth_capacity',
         'daily_rate',
-        'meeting_package',
         'thumbnail',
         'hotel_id'
     ];
@@ -32,5 +30,9 @@ class EventSpace extends Model implements Auditable
     public function hotels(){
         return $this->belongsTo(Hotel::class, 'hotel_id');
 
+    }
+
+    public function photos(){
+        return $this->hasMany('App\Gallery');
     }
 }

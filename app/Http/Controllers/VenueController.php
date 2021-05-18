@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Venues;
 use App\Models\Hotel;
+use App\Models\Gallery;
 use App\Models\EventSpace;
 use App\Models\HotelRoom;
 
@@ -14,8 +15,19 @@ class VenueController extends Controller
     {
         // dd('rr');
         $hotels = Hotel::get();
-        return view('Venue.hotel', compact('hotels'));
+        $room_type = HotelRoom::get();
+        return view('Venue.hotel', compact('hotels','room_type'));
 
+    }
+
+    public function roomDetail(Request $request)
+    {
+        // dd($request->all());
+        $rooms=HotelRoom::where('id', $request->room_id)->get();
+        $photos=Gallery::where('room_id', $request->room_id)->get();
+        // dd($photos);
+
+;        return view('venue.room_details', compact('rooms','photos'));
     }
 
     public function hall()
@@ -23,6 +35,7 @@ class VenueController extends Controller
         $eventspace = EventSpace::get();
         return view('Venue.hall',compact('eventspace'));
     }
+
 
     public function comparisonHotel()
     {

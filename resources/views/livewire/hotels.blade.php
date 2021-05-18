@@ -57,6 +57,15 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            @if ($image)
+                <p>Photo Preview:</p>
+                <img src="{{ $image->temporaryUrl() }}" style="width:100%;height:30vh;">
+            @endif
+        </div>
+    </div>
 
     <div class="row" >
         <div class="col-md-12">
