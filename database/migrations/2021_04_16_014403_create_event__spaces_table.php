@@ -18,7 +18,6 @@ class CreateEventSpacesTable extends Migration
             $table->string('venue')->nullable();
             $table->string('level')->nullable();
             $table->string('size')->nullable();
-            $table->string('capacity')->nullable();
             $table->string('banquet')->nullable();
             $table->string('classroom')->nullable();
             $table->string('theater')->nullable();
@@ -26,8 +25,7 @@ class CreateEventSpacesTable extends Migration
             $table->string('cabaret')->nullable();
             $table->string('booth_capacity')->nullable();
             $table->string('daily_rate')->nullable();
-            $table->string('meeting_package')->nullable();
-            $table->string('image')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->string('hotel_id')->nullable();
             $table->timestamps();
         });

@@ -6,6 +6,7 @@ use App\Models\EventSpace;
 use Illuminate\Http\Request;
 use App\Models\Venues;
 use App\Models\Hotel;
+use App\Models\HotelRoom;
 use App\Models\User;
 use App\Models\Audit;
 use App\Models\Announcement;
@@ -56,9 +57,10 @@ class AdminController extends Controller
     public function list_venue()
     {
         $hotels = Hotel::get();
+        $rooms = HotelRoom::get();
         // dd($hotels->hotel_name);
         $eventspaces = EventSpace::get();
-        return view('admin.list-venue',compact('hotels','eventspaces'));
+        return view('admin.list-venue',compact('hotels','rooms','eventspaces'));
     }
 
     public function user()

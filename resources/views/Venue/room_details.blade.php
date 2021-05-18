@@ -288,7 +288,7 @@ input.search-submit {
   }
   #gallery .item:hover figure img{
     transform:rotate(0) scale(1);
-    
+
   }
 }
 @media (max-width:500px){
@@ -305,48 +305,53 @@ input.search-submit {
 
      <div class="row">
       <div class="col-md-12" style="padding-left: 5%; padding-right: 5%; padding-top: 5%;">
-      <div class="card border-1 rounded-lg">
+      <div class="rounded-lg card border-1">
                                     <!-- Card body -->
-                                    <div class="card-body p-0">
+                                    <div class="p-0 card-body">
                                         <!-- Card title -->
-                                        <div class="card-title m-0 p-3 d-flex flex-row align-items-center justify-content-between">
-                                            <h1>Venue Details</h1>
+                                        <div class="flex-row p-3 m-0 card-title d-flex align-items-center justify-content-between">
+                                            <h1>Room Details</h1>
                                         </div>
                                         <!-- Activity details -->
-                                        <div class="d-flex flex-row justify-content-between border-bottom p-3">
+                                        @forelse($rooms as $data)
+
+                                        <div class="flex-row p-3 d-flex justify-content-between border-bottom">
                                             <div class="flex-grow-1">
-                                            <h3 class="m-0 font-weight-normal">Hotel Kuala Lumpur</h3>
-                                            <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap" style="width: 250px; height: 200px;">                                 
+                                            <h3 class="m-0 font-weight-normal">{{ $data->hotels->hotel_name }}</h3>
+                                            <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap" style="width: 250px; height: 200px;">
                                             </div>
                                             <div class="flex-grow-1">
                                                 <h4 class="text-muted">Radius from KLCC (car)</h4>
-                                                <h5 class="m-0 font-weight-normal">1 km (4 Minutes)</h5>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->hotels->car_radius }}</h5>
                                                 <br>
                                                 <h4 class="text-muted">Radius from KLCC (walk)</h4>
-                                                <h5 class="m-0 font-weight-normal">2 km (4 Minutes)</h5>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->hotels->walking_radius }}</h5>
                                             </div>
-                                            
+
                                             <div class="flex-grow-1">
                                                 <h4 class="text-muted">Room Type</h4>
-                                                <h5 class="m-0 font-weight-normal">Deluxe</h5>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->room_type }}</h5>
                                                 <br>
                                                 <h4 class="text-muted">Single Rates ( 1 Breakfast)</h4>
-                                                <h5 class="m-0 font-weight-normal">RM 500</h5>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->single_rate }}</h5>
                                             </div>
-                                            
+
                                             <div class="flex-grow-1">
                                                 <h4 class="text-muted">Double Rates ( 2 Breakfast)</h4>
-                                                <h5 class="m-0 font-weight-normal">RM 500</h5>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->double_rate }}</h5>
                                                 <br>
                                                 <h4 class="text-muted">Corporate Rates</h4>
-                                                <h5 class="m-0 font-weight-normal">RM 500</h5>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->corporate_rate }}</h5>
                                             </div>
-                                           
-                                        </div>
 
-                                        <div class="card border-0 rounded-lg" style="padding: 5%">
+                                        </div>
+                                        @empty
+
+                                    @endforelse
+
+                                        <div class="border-0 rounded-lg card" style="padding: 5%">
                                          <!-- Tab nav -->
-                                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="background-color: #2F4858; justify-content: space-evenly;">
+                                         <ul class="mb-3 nav nav-pills" id="pills-tab" role="tablist" style="background-color: #2F4858; justify-content: space-evenly;">
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><font color="white">Photo Gallery</font></a>
                                             </li>
@@ -358,93 +363,32 @@ input.search-submit {
                                             </li>
                                         </ul>
                                         <!-- Tab content -->
+
                                         <div class="tab-content" id="pills-tabContent">
+                                            @forelse($photos as $photo)
+                                            {{-- @forelse($photo as $data) --}}
                                             <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                            <div id="gallery">
-                                            <div class="item">
-                                              <a href="https://picsum.photos/1000/1000?random=1" data-fancybox="gallery" data-caption="My caption">
-                                                <figure>
-                                                  <img src="https://picsum.photos/500/500?random=1">
-                                                  <figcaption>This is a caption with a long text to test</figcaption>
-                                                </figure>
-                                              </a>
-                                            </div>
-                                            <div class="item">
-                                              <a href="https://picsum.photos/1000/1000?random=2" data-fancybox="gallery" data-caption="My caption">
-                                                <figure>
-                                                  <img src="https://picsum.photos/500/500?random=2">
-                                                  <figcaption>This is a caption</figcaption>
-                                                </figure>
-                                              </a>
-                                            </div>
-                                            <div class="item">
-                                              <a href="https://picsum.photos/1000/1000?random=3" data-fancybox="gallery" data-caption="My caption">
-                                                <figure>
-                                                  <img src="https://picsum.photos/500/500?random=3">
-                                                  <figcaption>This is a caption</figcaption>
-                                                </figure>
-                                              </a>
-                                            </div>
-                                            <div class="item">
-                                              <a href="https://picsum.photos/1000/1000?random=4" data-fancybox="gallery" data-caption="My caption">
-                                                <figure>
-                                                  <img src="https://picsum.photos/500/500?random=4">
-                                                  <figcaption>This is a caption</figcaption>
-                                                </figure>
-                                              </a>
-                                            </div>
-                                            <div class="item">
-                                              <a href="https://picsum.photos/1000/1000?random=5" data-fancybox="gallery" data-caption="My caption">
-                                                <figure>
-                                                  <img src="https://picsum.photos/500/500?random=5">
-                                                  <figcaption>This is a caption</figcaption>
-                                                </figure>
-                                              </a>
-                                            </div>
-                                            <div class="item">
-                                              <a href="https://picsum.photos/1000/1000?random=6" data-fancybox="gallery" data-caption="My caption">
-                                                <figure>
-                                                  <img src="https://picsum.photos/500/500?random=6">
-                                                  <figcaption>This is a caption</figcaption>
-                                                </figure>
-                                              </a>
-                                            </div>
-                                            <div class="item">
-                                              <a href="https://picsum.photos/1000/1000?random=7" data-fancybox="gallery" data-caption="My caption">
-                                                <figure>
-                                                  <img src="https://picsum.photos/500/500?random=7">
-                                                  <figcaption>This is a caption</figcaption>
-                                                </figure>
-                                              </a>
-                                            </div>
-                                            <div class="item">
-                                              <a href="https://picsum.photos/1000/1000?random=8" data-fancybox="gallery" data-caption="My caption">
-                                                <figure>
-                                                  <img src="https://picsum.photos/500/500?random=8">
-                                                  <figcaption>This is a caption</figcaption>
-                                                </figure>
-                                              </a>
-                                            </div>
-                                            <div class="item">
-                                              <a href="https://picsum.photos/1000/1000?random=9" data-fancybox="gallery" data-caption="My caption">
-                                                <figure>
-                                                  <img src="https://picsum.photos/500/500?random=9">
-                                                  <figcaption>This is a caption</figcaption>
-                                                </figure>
-                                              </a>
-                                            </div>
-                                            <div class="item">
-                                              <a href="https://picsum.photos/1000/1000?random=10" data-fancybox="gallery" data-caption="My caption">
-                                                <figure>
-                                                  <img src="https://picsum.photos/500/500?random=10">
-                                                  <figcaption>This is a caption</figcaption>
-                                                </figure>
-                                              </a>
-                                            </div>
-                                          </div>
-                                            </div>
+                                                <div id="gallery">
+                                                    <div class="item">
+                                                    <a href="" data-fancybox="gallery" data-caption="My caption">
+                                                        <figure>
+                                                            <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$photo->photos))}}" alt="Card image cap">
+                                                        <figcaption>This is a caption with a long text to test</figcaption>
+                                                        </figure>
+                                                    </a>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            {{-- @empty
+
+                                            @endforelse --}}
+
+
+                                        @empty
+
+                                        @endforelse
                                             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                               
+
                                             <div class="table-responsive">
                                     <table class="table text-dark table-borderless">
                                         <thead>
@@ -458,7 +402,7 @@ input.search-submit {
                                                 <th><p class="mb-0">Cocktail</p></th>
                                                 <th><p class="mb-0">Radius from KLCC (car)</p></th>
                                                 <th><p class="mb-0">Radius from KLCC (walk )</p></th>
-                                                
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -521,17 +465,18 @@ input.search-submit {
                                         </tbody>
                                     </table>
                                 </div>
-                                               
+
                                             </div>
                                             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                                                
+
                                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15935.17731018773!2d101.69481858588372!3d3.148893338671856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPETRONAS%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1618928630135!5m2!1sen!2smy" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
                                             </div>
                                         </div>
                                         </div>
-                                       
+
                                     </div>
+
                                 </div>
       </div>
      </div>

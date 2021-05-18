@@ -1,6 +1,4 @@
 <div>
-
-
     <div class="row">
         <div class="col-md-12" style="text-align:center;">
             <label><b>Room Rates (per room per night)</b></label>
@@ -95,19 +93,40 @@
             </div>
         </div>
 
+
         <div class="col-md-6">
             <div class="form-group">
-                <label>Benefits</label>
-                <input type="text"  class="form-control bg-light @error('benefits') is-invalid @enderror" wire:model="benefits.0" name="benefits" placeholder="Benefits">
-                @error('double_rate')
-                <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <label  class="required">Upload Photos</label>
+                <div class="custom-file">
+                    <input wire:model="photos.0" type="file" class="custom-file-input" id="photos" name="photos" multiple>
+                    <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
+                </div>
+                <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB</small>
+                @error('photos')
+                <div class="alert alert-danger">
+                <strong>{{ $message }}</strong>
+                </div>
                 @enderror
             </div>
-        </div>
 
+        </div>
     </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            @if($photos)
+            <p>Photo Preview:</p>
+                @foreach ( $photos as $photo )
+                    @foreach($photo as $data)
+                        @if ($data)
+                        <img src="{{ $data->temporaryUrl() }}" style="width:100%;height:30vh;">
+                        @endif
+                    @endforeach
+                @endforeach
+            @endif
+        </div>
+    </div>
+
     </div>
 
     @foreach($inputs as $key => $value)
@@ -208,6 +227,37 @@
 
             <div class="col-md-6">
                 <div class="form-group">
+                    <label  class="required">Upload Photos</label>
+                    <div class="custom-file">
+                        <input wire:model="photos.{{ $value }}" type="file" class="custom-file-input" id="photos" name="photos" multiple>
+                        <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
+                    </div>
+                    <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB</small>
+                    @error('photos')
+                    <div class="alert alert-danger">
+                    <strong>{{ $message }}</strong>
+                    </div>
+                    @enderror
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    @if($photos)
+                    <p>Photo Preview:</p>
+                        @foreach ( $photos as $photo )
+                            @foreach($photo as $data)
+                                @if ($data)
+                                <img src="{{ $data->temporaryUrl() }}" style="width:100%;height:30vh;">
+                                @endif
+                            @endforeach
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+
+            {{-- <div class="col-md-6">
+                <div class="form-group">
                     <label>Benefits</label>
                     <input type="text"  class="form-control bg-light @error('benefits') is-invalid @enderror" wire:model="benefits.{{ $value }}" name="benefits" placeholder="Benefits">
                     @error('double_rate')
@@ -216,7 +266,7 @@
                         </span>
                     @enderror
                 </div>
-            </div>
+            </div> --}}
 
 
 
