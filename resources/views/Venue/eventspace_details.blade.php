@@ -310,15 +310,15 @@ input.search-submit {
                                     <div class="p-0 card-body">
                                         <!-- Card title -->
                                         <div class="flex-row p-3 m-0 card-title d-flex align-items-center justify-content-between">
-                                            <h1>Room Details</h1>
+                                            <h1>Event Space Details</h1>
                                         </div>
                                         <!-- Activity details -->
-                                        @forelse($rooms as $data)
-
+                                        @forelse($eventspace as $data)
                                         <div class="flex-row p-3 d-flex justify-content-between border-bottom">
+                                        @if($data->hotel_id)
                                             <div class="flex-grow-1">
                                             <h3 class="m-0 font-weight-normal">{{ $data->hotels->hotel_name }}</h3>
-                                            <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap" style="width: 250px; height: 200px;">
+                                            <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->hotels->thumbnail))}}" style="width: 250px; height: 200px;" alt="Card image cap">
                                             </div>
                                             <div class="flex-grow-1">
                                                 <h4 class="text-muted">Radius from KLCC (car)</h4>
@@ -327,21 +327,50 @@ input.search-submit {
                                                 <h4 class="text-muted">Radius from KLCC (walk)</h4>
                                                 <h5 class="m-0 font-weight-normal">{{ $data->hotels->walking_radius }}</h5>
                                             </div>
-
+                                        @else
+                                        <div class="flex-grow-1">
+                                            <h3 class="m-0 font-weight-normal">{{ $data->venue }}</h3>
+                                            <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" style="width: 250px; height: 200px;" alt="Card image cap">
+                                            </div>
+                                        @endif
                                             <div class="flex-grow-1">
-                                                <h4 class="text-muted">Room Type</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->room_type }}</h5>
+                                                <h4 class="text-muted">Event Space</h4>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->venue }}</h5>
                                                 <br>
-                                                <h4 class="text-muted">Single Rates ( 1 Breakfast)</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->single_rate }}</h5>
+                                                <h4 class="text-muted">Level</h4>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->level }}</h5>
                                             </div>
 
                                             <div class="flex-grow-1">
-                                                <h4 class="text-muted">Double Rates ( 2 Breakfast)</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->double_rate }}</h5>
+                                                <h4 class="text-muted">Size</h4>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->size }} sq.ft</h5>
                                                 <br>
-                                                <h4 class="text-muted">Corporate Rates</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->corporate_rate }}</h5>
+                                                <h4 class="text-muted">Banquet</h4>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->banquet }}</h5>
+                                            </div>
+
+                                            <div class="flex-grow-1">
+                                                <h4 class="text-muted">Classroom</h4>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->classroom }}</h5>
+                                                <br>
+                                                <h4 class="text-muted">Theater</h4>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->theater }}</h5>
+                                            </div>
+
+                                            <div class="flex-grow-1">
+                                                <h4 class="text-muted">Cocktail</h4>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->cocktail }}</h5>
+                                                <br>
+                                                <h4 class="text-muted">Cabaret</h4>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->cabaret }}</h5>
+                                            </div>
+
+                                            <div class="flex-grow-1">
+                                                <h4 class="text-muted">Booth Capacity</h4>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->booth_capacity }}</h5>
+                                                <br>
+                                                <h4 class="text-muted">Daily Rates</h4>
+                                                <h5 class="m-0 font-weight-normal">RM {{ $data->daily_rate }}</h5>
                                             </div>
 
                                         </div>

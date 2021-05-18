@@ -27,13 +27,34 @@ class VenueController extends Controller
         $photos=Gallery::where('room_id', $request->room_id)->get();
         // dd($photos);
 
-;        return view('venue.room_details', compact('rooms','photos'));
+        return view('venue.room_details', compact('rooms','photos'));
     }
 
-    public function hall()
+    public function eventspaceDetail(Request $request)
+    {
+        // dd($request->all());
+        $eventspace=EventSpace::where('id', $request->eventspace_id)->get();
+        $photos=Gallery::where('eventspace_id', $request->eventspace_id)->get();
+        // dd($photos);
+
+       return view('venue.eventspace_details', compact('eventspace','photos'));
+    }
+
+    public function eventspaceDetails($id)
+    {
+        $eventspace_id = EventSpace::find($id);
+        // dd($eventspace_id);
+        $eventspace = EventSpace::where('id', $eventspace_id->id)->get();
+        // dd($eventspace);
+        $photos = Gallery::where('eventspace_id', $eventspace_id->id)->get();
+
+       return view('venue.eventspace_details', compact('eventspace','photos'));
+    }
+    public function eventspace()
     {
         $eventspace = EventSpace::get();
-        return view('Venue.hall',compact('eventspace'));
+        $hotels = Hotel::get();
+        return view('Venue.eventspace',compact('eventspace','hotels'));
     }
 
 

@@ -71,6 +71,7 @@ class Hotels extends Component
         $this->image = '';
         $this->longitude = '';
         $this->latitude = '';
+
     }
 
 }

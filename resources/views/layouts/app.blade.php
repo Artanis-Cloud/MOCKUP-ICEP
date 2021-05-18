@@ -75,7 +75,7 @@
                             <a class="nav-link" href="{{ route('hotel') }}">HOTEL</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('hall') }}">EVENTS SPACE</a>
+                            <a class="nav-link" href="{{ route('eventspace') }}">EVENTS SPACE</a>
                         </li>
 
                         {{-- <li class="nav-item">
