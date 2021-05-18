@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::get('/homepage', [App\Http\Controllers\UserController::class, 'index'])->name('homepage');
 
-Route::get('/hall', [App\Http\Controllers\VenueController::class, 'hall'])->name('hall');
+Route::get('/eventsapce', [App\Http\Controllers\VenueController::class, 'eventspace'])->name('eventspace');
 
 Route::get('/hotel', [App\Http\Controllers\VenueController::class, 'hotel'])->name('hotel');
 
@@ -42,6 +42,10 @@ Route::post('/compare-hotel', [App\Http\Controllers\VenueController::class, 'com
 Route::post('/compare-event-space', [App\Http\Controllers\VenueController::class, 'compareEventSpace'])->name('compareEventSpace');
 
 Route::post('/room-details', [App\Http\Controllers\VenueController::class, 'roomDetail'])->name('room_detail');
+
+Route::post('/eventspace-details', [App\Http\Controllers\VenueController::class, 'eventspaceDetail'])->name('eventspace_detail');
+
+Route::get('/eventspace-detail/{id}', [App\Http\Controllers\VenueController::class, 'eventspaceDetails'])->name('eventspace_details');
 
 
 

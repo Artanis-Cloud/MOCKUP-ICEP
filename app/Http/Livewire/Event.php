@@ -41,9 +41,10 @@ class Event extends Component
     {
         // dd($this->hotel_id);
         // $this->validate();
-        $image = $this->storeImage();
+        // $image = $this->storeImage();
 
-        EventSpace::create([
+
+        $event_space =EventSpace::create([
             'venue'=> $this->venue,
             'level' => $this->level,
             'size' => $this->size,
@@ -55,10 +56,10 @@ class Event extends Component
             'hotel_id'=> $this->hotel_id,
             'booth_capacity' => $this->booth_capacity,
             'daily_rate' => $this->daily_rate,
-            'thumbnail' => $image,
 
         ]);
 
+        $photos = $this->storePhoto($event_space);
         $this->resetInputFields();
 
         session()->flash('message', 'Venue Has Been Added Successfully.');
@@ -67,7 +68,7 @@ class Event extends Component
     public function addEventOnly()
 
     {
-        // dd($this->image);
+        // dd($this->photos);
         // $this->validate();
         $image = $this->storeImage();
 
@@ -135,7 +136,8 @@ class Event extends Component
         $this->cabaret = '';
         $this->booth_capacity = '';
         $this->daily_rate = '';
-        $this->thumbnail = '';
+        $this->image = '';
+        $this->photos = '';
     }
 
     public function showFormHotel()

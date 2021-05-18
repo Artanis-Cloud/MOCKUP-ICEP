@@ -2,8 +2,15 @@
 
 @section('content')
 
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
 <style>
 a{
@@ -167,28 +174,7 @@ input.search-submit {
 
 
 /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
 
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
 
 /* The Close Button */
 .close {
@@ -229,7 +215,7 @@ input.search-submit {
                                    <!-- 1st row -->
                                    <div class="col-md-12">
                                        <div class="form-group">
-                                           <label for="email-1">Type of Events Hall</label>
+                                           <label for="email-1">Setup Style</label>
                                              <div class="custom-control custom-checkbox">
                                                  <input type="checkbox" class="custom-control-input" id="customCheck1">
                                                  <label class="custom-control-label" for="customCheck1">Banquet</label>
@@ -270,7 +256,7 @@ input.search-submit {
                                        <div class="form-group">
                                          <label for="f-name-1">Radius from KLCC (car)</label>
                                          <div class="slidecontainer">
-                                         <input type="range" min="1" max="300" value="50" class="slider" id="km">
+                                         <input type="range" min="1" max="30" value="50" class="slider" id="km">
                                          <p>Km: <span id="demokm"></span></p>
                                          </div>
                                        </div>
@@ -284,7 +270,7 @@ input.search-submit {
                                        <div class="form-group">
                                          <label for="f-name-1">Radius from KLCC (walk)</label>
                                          <div class="slidecontainer">
-                                         <input type="range" min="1" max="300" value="100" class="slider" id="walk">
+                                         <input type="range" min="1" max="30" value="100" class="slider" id="walk">
                                          <p>Km: <span id="demowalk"></span></p>
                                          </div>
                                        </div>
@@ -326,25 +312,78 @@ input.search-submit {
 
        <div class="row">
        @forelse($eventspace as $data)
-          <div class="col-md-4">
-          <center>
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap">
-              <div class="card-body">
-                  @if($data->hotel_id)
-                    <h5 class="card-title">{{$data->hotels->hotel_name}}</h5>
-                  @else
-                    <h5 class="card-title">{{$data->venue}}</h5>
-                  @endif
+        @if($data->hotel_id)
+            <div class="col-md-4">
+            <center>
+                <div class="card" style="width: 18rem;">
 
-                <a href="#" class="btn btn-primary">Details</a>
-              </div>
-            </div>
+                <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->hotels->thumbnail))}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{$data->hotels->hotel_name}}</h5>
+                <button type="button" data-toggle="modal" data-target="#exampleModal{{ $data->id }}" class="btn btn-primary">Details</button>
+                </div>
+                </div>
             </center>
-          </div>
-          @empty
-      no data
-      @endforelse
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ $data->hotels->hotel_name }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->hotels->thumbnail))}}" alt="Card image cap">
+                    <h5 class="">Details</h5>
+                    <p>Radius from KLCC (by car): {{ $data->hotels->car_radius }}</p>
+                    <p>Radius from KLCC (walking distance): {{ $data->hotels->walking_radius }}</p>
+                    <p>Event Space Type</p>
+                    <form action="{{ route('eventspace_detail') }}" class="" method="POST">
+                        @csrf
+                        <select name="eventspace_id" id="" class="form-control bg-light @error('eventspace_id') is-invalid @enderror"">
+                            <option disabled="disabled" hidden value="0">Choose Event Space</option>
+                            @forelse ($hotels as $dataRoom)
+                                @if($data->hotel_id == $dataRoom->id)
+                                    <option value="{{ $data->hotel_id }}" >{{ $data->venue }}</option>
+                                @endif
+                            @empty
+                                <option selected="true" disabled="disabled" value="0">No Event Space Available</option>
+                            @endforelse
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Event Space Detail</button>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+
+            @else
+            <div class="col-md-4">
+                <center>
+                <div class="card" style="width: 18rem;">
+
+                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">{{$data->venue}}</h5>
+                    <a type="button" href="{{ route('eventspace_details', $data->id) }}" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+                </center>
+            </div>
+
+
+            @endif
+
+        @empty
+        no data
+        @endforelse
        </div>
 
      </div>
@@ -363,22 +402,22 @@ slider.oninput = function() {
 </script>
 
 <script>
-var slider = document.getElementById("km");
-var output = document.getElementById("demokm");
-output.innerHTML = slider.value;
+var slider1 = document.getElementById("km");
+var output1 = document.getElementById("demokm");
+output1.innerHTML = slider1.value;
 
-slider.oninput = function() {
-output.innerHTML = this.value;
+slider1.oninput = function() {
+output1.innerHTML = this.value;
 }
 </script>
 
 <script>
-var slider = document.getElementById("walk");
-var output = document.getElementById("demowalk");
-output.innerHTML = slider.value;
+var slider2 = document.getElementById("walk");
+var output2 = document.getElementById("demowalk");
+output2.innerHTML = slider2.value;
 
-slider.oninput = function() {
-output.innerHTML = this.value;
+slider2.oninput = function() {
+output2.innerHTML = this.value;
 }
 </script>
 

@@ -146,7 +146,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Daily Rate</label>
-                                <input type="text"  wire:model='daily_rate' class="form-control bg-light @error('daily_rate') is-invalid @enderror" name="Daily Rate" placeholder="Cocktail">
+                                <input type="text"  wire:model='daily_rate' class="form-control bg-light @error('daily_rate') is-invalid @enderror" name="Daily Rate" placeholder="Daily Rates">
                                 @error('daily_rate')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
