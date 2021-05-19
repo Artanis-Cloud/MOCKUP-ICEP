@@ -209,7 +209,7 @@ input.search-submit {
 #gallery .item figure{
   transition: all ease 1s;
   overflow:hidden;
-  height:300px;
+  height:auto;
   padding:0;
   margin:0;
   position: relative;
