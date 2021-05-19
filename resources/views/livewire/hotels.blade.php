@@ -69,9 +69,59 @@
 
     <div class="row" >
         <div class="col-md-12">
-            <label>Your selected Location is(latitude,Longitude): </label><input id='loc' type='text'  value=''/>
+            {{-- maps --}}
+            {{-- <label>Your selected Location is(latitude,Longitude): </label><input id='loc' type='text'  value=''/>
             <br/>
-            <div wire:emit id="map" style="height: 350px; width:100%;"></div>
+            <div wire:emit id="map" style="height: 350px; width:100%;"></div> --}}
+
+            <body onload="initialize()">
+                <div class="container_12" id="header">
+                  <div class="clear"></div>
+                  <div class="grid_4">
+                    <h5>Latitude and Longitude</h5>
+                    <div class="box">
+                      <table>
+                        <tr>
+                          <td><strong>Latitude:</strong></td>
+                          <td>
+                            <input type="text" name="lat" id="lat" value="latvalue" />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><strong>Longitude:</strong></td>
+                          <td>
+                            <input type="text" name="lng" id="lng" value="lngvalue" />
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <br>
+                    <div class="box">
+                        <h5>Mouse Over the map below for your latitude and longitude.</h5>
+                      <table>
+                        <tr>
+                          <td><strong>Lat:</strong></td>
+                          <td>
+                            <input type="text" name="mlat" id="mlat" value="0" />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><strong>Long:</strong></td>
+                          <td>
+                            <input type="text" name="mlong" id="mlong" value="0" />
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <br />
+                    <div style="clear:both;"></div>
+                    <br />
+                  </div>
+                  <div class="grid_8">
+                    <div id="latlongmap" wire:ignore style="width:100%; height:480px;">
+                    </div>
+                  </div>
+                </div>
         </div>
     </div>
 
