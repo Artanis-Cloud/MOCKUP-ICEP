@@ -203,9 +203,16 @@
                                             <!-- Table data -->
                                             @forelse ($eventspace as $data)
                                             <tr class="text-center">
+                                                @if($data->hotel_id)
                                                 <td><p class="mb-0 font-weight-normal">{{ $data->hotels->hotel_name ? $data->hotels->hotel_name : "-" }}</p></td>
                                                 <td><p class="mb-0 font-weight-normal">{{ $data->hotels->car_radius ? $data->hotels->car_radius : "-" }}</p></td>
                                                 <td><p class="mb-0 font-weight-normal">{{ $data->hotels->walking_radius ? $data->hotels->walking_radius : "-" }}</p></td>
+                                                @else
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+
+                                                @endif
                                                 <td><p class="mb-0 font-weight-normal">{{ $data->venue ? $data->venue : "-" }}</p></td>
                                                 <td><p class="mb-0 font-weight-normal">{{ $data->level ? $data->level : "-" }} sq.ft</p></td>
                                                 <td><p class="mb-0 font-weight-normal">{{ $data->size ? $data->size : "-" }}</p></td>
