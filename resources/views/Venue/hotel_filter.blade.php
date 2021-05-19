@@ -326,13 +326,13 @@ input.search-submit {
           <div class="col-md-8" style="padding: 5%">
 
             <div class="row">
-            @forelse($hotels as $data)
+            @forelse($rooms as $data)
                <div class="col-md-4">
                <center>
                  <div class="card" style="width: 18rem;">
-                   <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap">
+                   <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->hotels->thumbnail))}}" alt="Card image cap">
                    <div class="card-body">
-                     <h5 class="card-title">{{$data->hotel_name}}</h5>
+                     <h5 class="card-title">{{$data->hotels->hotel_name}}</h5>
                      <button type="button" data-toggle="modal" data-target="#exampleModal{{ $data->id }}" class="btn btn-primary">Details</button>
                    </div>
                  </div>
@@ -344,23 +344,23 @@ input.search-submit {
                     <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">{{ $data->hotel_name }}</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">{{ $data->hotels->hotel_name }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
                         <div class="modal-body">
-                        <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->hotels->thumbnail))}}" alt="Card image cap">
                         <h5 class="">Details</h5>
-                        <p>Radius from KLCC (by car): {{ $data->car_radius }}</p>
-                        <p>Radius from KLCC (walking distance): {{ $data->walking_radius }}</p>
+                        <p>Radius from KLCC (by car): {{ $data->hotels->car_radius }}</p>
+                        <p>Radius from KLCC (walking distance): {{ $data->hotels->walking_radius }}</p>
                         <p>Room Type</p>
                         <form action="{{ route('room_detail') }}" class="" method="POST">
                             @csrf
                             <select name="room_id" id="" class="form-control bg-light @error('room_id') is-invalid @enderror"">
                                 <option disabled="disabled" hidden value="0">Choose Room Type</option>
-                                @forelse ($room_type as $dataRoom)
-                                    @if($data->id == $dataRoom->hotel_id)
+                                @forelse ($rooms as $dataRoom)
+                                    @if($data->hotel_id == $dataRoom->hotel_id)
                                         <option value="{{ $dataRoom->id }}" >{{ $dataRoom->room_type }}</option>
                                     @endif
                                 @empty

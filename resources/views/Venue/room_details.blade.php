@@ -318,7 +318,8 @@ input.search-submit {
                                         <div class="flex-row p-3 d-flex justify-content-between border-bottom">
                                             <div class="flex-grow-1">
                                             <h3 class="m-0 font-weight-normal">{{ $data->hotels->hotel_name }}</h3>
-                                            <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap" style="width: 250px; height: 200px;">
+                                            <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->hotels->thumbnail))}}" style="width: 250px; height: 200px;" alt="Card image cap">
+                                            {{-- <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap" style="width: 250px; height: 200px;"> --}}
                                             </div>
                                             <div class="flex-grow-1">
                                                 <h4 class="text-muted">Radius from KLCC (car)</h4>

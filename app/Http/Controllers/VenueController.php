@@ -16,7 +16,9 @@ class VenueController extends Controller
         // dd('rr');
         $hotels = Hotel::get();
         $room_type = HotelRoom::get();
-        return view('Venue.hotel', compact('hotels','room_type'));
+        $bed_type = HotelRoom::distinct('type_of_bed')->get('type_of_bed');
+        // dd($bed_type);
+        return view('Venue.hotel', compact('hotels','room_type','bed_type'));
 
     }
 
@@ -38,6 +40,21 @@ class VenueController extends Controller
         // dd($photos);
 
        return view('venue.eventspace_details', compact('eventspace','photos'));
+    }
+
+    public function roomFilter(Request $request)
+    {
+        // dd($request->all());
+        $rooms=HotelRoom::where('size','<=', $request->size)
+                        ->where('type_of_bed',$request->type_of_bed)
+                        ->where('single_rate','<=',$request->single)
+                        ->where('double_rate','<=',$request->double)
+                        ->where('corporate_rate','<=',$request->corporate)->get();
+        // dd($rooms);
+        $bed_type = HotelRoom::distinct('type_of_bed')->get('type_of_bed');
+
+
+        return view('Venue.hotel_filter', compact('rooms','bed_type'));
     }
 
     public function eventspaceDetails($id)
