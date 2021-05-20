@@ -6,22 +6,22 @@
 {{-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=initialize"></script> --}}
 
 <script type="text/javascript">
-    $(document).ready(function() {
-       $("#gadres")
-        .css("color", "#555555")
-        .focus(function(){
-            $(this).css("color", "black"); $(this).css("background-color", "#ffffff");$(this).select();
-        })
-        .blur(function(){
-            $(this).css("color", "#555555"); $(this).css("background-color", "#fafafa");
-        });
-    $("#gadres").keyup(function(event){
-        if(event.keyCode == 13){
-            codeAddress();
-        }
-    });
-     });
-  </script>
+//     $(document).ready(function() {
+//        $("#gadres")
+//         .css("color", "#555555")
+//         .focus(function(){
+//             $(this).css("color", "black"); $(this).css("background-color", "#ffffff");$(this).select();
+//         })
+//         .blur(function(){
+//             $(this).css("color", "#555555"); $(this).css("background-color", "#fafafa");
+//         });
+//     $("#gadres").keyup(function(event){
+//         if(event.keyCode == 13){
+//             codeAddress();
+//         }
+//     });
+//      });
+//   </script>
 
   <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
   <script type="text/javascript">
@@ -55,35 +55,35 @@
     document.getElementById("mlat").value = yeri.lat().toFixed(6);
     document.getElementById("mlong").value = yeri.lng().toFixed(6);
     });
-    codeAddress();
+    // codeAddress();
     }
 
-    function codeAddress() {
-        var address = document.getElementById("gadres").value;
-        geocoder.geocode( { 'address': address}, function(results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
-            map.setCenter(results[0].geometry.location);
-            document.getElementById('lat').value=results[0].geometry.location.lat().toFixed(6);
-            document.getElementById('lng').value=results[0].geometry.location.lng().toFixed(6);
-    var latlong = "(" + results[0].geometry.location.lat().toFixed(6) + " , " +
-        + results[0].geometry.location.lng().toFixed(6) + ")";
+    // function codeAddress() {
+    //     var address = document.getElementById("gadres").value;
+    //     geocoder.geocode( { 'address': address}, function(results, status) {
+    //       if (status == google.maps.GeocoderStatus.OK) {
+    //         map.setCenter(results[0].geometry.location);
+    //         document.getElementById('lat').value=results[0].geometry.location.lat().toFixed(6);
+    //         document.getElementById('lng').value=results[0].geometry.location.lng().toFixed(6);
+    // var latlong = "(" + results[0].geometry.location.lat().toFixed(6) + " , " +
+    //     + results[0].geometry.location.lng().toFixed(6) + ")";
 
-     var infowindow = new google.maps.InfoWindow({
-            content: latlong
-        });
+    //  var infowindow = new google.maps.InfoWindow({
+    //         content: latlong
+    //     });
 
-            marker.setPosition(results[0].geometry.location);
-            map.setZoom(16);
+    //         marker.setPosition(results[0].geometry.location);
+    //         map.setZoom(16);
 
-    google.maps.event.addListener(marker, 'click', function() {
-          infowindow.open(map,marker);
-        });
+    // google.maps.event.addListener(marker, 'click', function() {
+    //       infowindow.open(map,marker);
+    //     });
 
-          } else {
-            alert("Lat and long cannot be found.");
-          }
-        });
-      }
+    //       } else {
+    //         alert("Lat and long cannot be found.");
+    //       }
+    //     });
+    //   }
   </script>
 
 <style>
@@ -146,46 +146,7 @@
   }
 </script>
 
-{{-- <script>
-    //the maps api is setup above
-window.onload = function() {
 
-var latlng = new google.maps.LatLng(3.1580,101.7118); //Set the default location of map
-
-var map = new google.maps.Map(document.getElementById('map'), {
-
-    center: latlng,
-
-    zoom: 18, //The zoom value for map
-
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-
-});
-
-var marker = new google.maps.Marker({
-
-    position: latlng,
-
-    map: map,
-
-    title: 'Place the marker for your location!', //The title on hover to display
-
-    draggable: true //this makes it drag and drop
-
-});
-
-google.maps.event.addListener(marker, 'dragend', function(a) {
-
-    console.log(a);
-
-    document.getElementById('loc').value = a.latLng.lat().toFixed(4) + ', ' + a.latLng.lng().toFixed(4); //Place the value in input box
-
-
-
-});
-
-};
-</script> --}}
 
 {{-- maps --}}
 <script type="text/javascript">

@@ -355,8 +355,8 @@ input.search-submit {
                         @csrf
                         <select name="eventspace_id" id="" class="form-control bg-light @error('eventspace_id') is-invalid @enderror"">
                             <option disabled="disabled" hidden value="0">Choose Event Space</option>
-                            @forelse ($hotels as $dataRoom)
-                                @if($data->hotel_id == $dataRoom->id)
+                            @forelse ($eventspace as $dataRoom)
+                                @if($data->hotel_id == $dataRoom->hotel_id)
                                     <option value="{{ $data->hotel_id }}" >{{ $data->venue }}</option>
                                 @endif
                             @empty

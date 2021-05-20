@@ -49,6 +49,9 @@ Route::get('/eventspace-detail/{id}', [App\Http\Controllers\VenueController::cla
 
 Route::get('/hotelroom-filtered', [App\Http\Controllers\VenueController::class, 'roomFilter'])->name('room_filter');
 
+Route::get('/eventspace-filtered', [App\Http\Controllers\VenueController::class, 'eventspaceFilter'])->name('eventspace_filter');
+
+
 
 
 
