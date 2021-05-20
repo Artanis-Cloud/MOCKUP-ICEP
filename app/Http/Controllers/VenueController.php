@@ -57,6 +57,20 @@ class VenueController extends Controller
         return view('Venue.hotel_filter', compact('rooms','bed_type'));
     }
 
+    public function eventspaceFilter(Request $request)
+    {
+        // dd($request->all());
+        $eventspace=EventSpace::where('size','<=', $request->size)
+                        ->where('banquet','<=',$request->banquet)
+                        ->where('classroom','<=',$request->classroom)
+                        ->where('cocktail','<=',$request->cocktail)
+                        ->where('theater','<=',$request->theater)
+                        ->where('cabaret','<=',$request->cabaret)
+                        ->where('booth_capacity','<=',$request->booth)->get();
+
+        return view('Venue.eventspace_filter', compact('eventspace'));
+    }
+
     public function eventspaceDetails($id)
     {
         $eventspace_id = EventSpace::find($id);

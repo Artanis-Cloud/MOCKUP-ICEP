@@ -10,7 +10,7 @@ use Livewire\WithFileUploads;
 class Hotels extends Component
 {
     use WithFileUploads;
-    public $hotel_name, $room_type,$car_radius,$walking_radius,$image,$longitude,$latitude;
+    public $hotel_name, $room_type,$car_radius,$walking_radius,$image,$longitude,$latitude,$lat,$lng;
     public $postSubmit, $hotel;
 
     protected $rules = [
@@ -32,7 +32,7 @@ class Hotels extends Component
     public function addHotel()
 
     {
-        // dd('here');
+        dd($this);
         $this->validate();
         $image = $this->storeImage();
 
@@ -42,8 +42,8 @@ class Hotels extends Component
             'car_radius' => $this->car_radius,
             'walking_radius' => $this->walking_radius,
             'thumbnail' => $image,
-            'longitude' => $this->longitude,
-            'latitude' => $this->latitude,
+            'longitude' => $this->lng,
+            'latitude' => $this->lat,
 
         ]);
         $this->resetInputFields();

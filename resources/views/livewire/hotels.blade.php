@@ -78,19 +78,19 @@
                 <div class="container_12" id="header">
                   <div class="clear"></div>
                   <div class="grid_4">
-                    <h5>Latitude and Longitude</h5>
+                    {{-- <h5>Latitude and Longitude</h5> --}}
                     <div class="box">
                       <table>
                         <tr>
                           <td><strong>Latitude:</strong></td>
                           <td>
-                            <input type="text" name="lat" id="lat" value="latvalue" />
+                            <input type="text" wire:model='lat' name="lat" id="lat" value="0" />
                           </td>
                         </tr>
                         <tr>
                           <td><strong>Longitude:</strong></td>
                           <td>
-                            <input type="text" name="lng" id="lng" value="lngvalue" />
+                            <input type="text" wire:model='lng' name="lng" id="lng" value="0" />
                           </td>
                         </tr>
                       </table>
@@ -102,13 +102,13 @@
                         <tr>
                           <td><strong>Lat:</strong></td>
                           <td>
-                            <input type="text" name="mlat" id="mlat" value="0" />
+                            <input type="text" wire:model='latitude' name="latitude" id="mlat" value="0" />
                           </td>
                         </tr>
                         <tr>
                           <td><strong>Long:</strong></td>
                           <td>
-                            <input type="text" name="mlong" id="mlong" value="0" />
+                            <input type="text" wire:model='longitude' name="longitude" id="mlong" value="0" />
                           </td>
                         </tr>
                       </table>
