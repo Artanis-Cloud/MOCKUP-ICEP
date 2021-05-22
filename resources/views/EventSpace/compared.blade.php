@@ -164,41 +164,65 @@
  <div class="container-fluid">
     <div class="row" style="justify-content: center;">
       <div class="col-md-8" style="padding: 5%;">
-      <div class="card rounded-lg">
+      <div class="rounded-lg card">
             <div class="card-body">
-                <div class="card-title"> Hotel Comparison Table</div>
+                <div class="card-title"> Event Space Comparison Table</div>
                 <!-- Table -->
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered" id="dataTable2" style="width: 100%;">
                         <thead>
                             <tr class="text-center">
+                                <th style="border: 0px none #ffffff;"><p class="mb-0"></p></th>
+                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-car" style="font-size: 25px;"></i></p></th>
+                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-walking" style="font-size: 25px;"></i></p></th>
+                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-person-booth" style="font-size: 25px;"></i></p></th>
+                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-building" style="font-size: 25px;"></i></p></th>
+                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-bed" style="font-size: 25px;"></i></p></th>
+                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-street-view" style="font-size: 25px;"></i></p></th>
+                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-dollar-sign" style="font-size: 25px;"></i></p></th>
+                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-dollar-sign" style="font-size: 25px;"></i></p></th>
+                                <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-dollar-sign" style="font-size: 25px;"></i></p></th>
+                            </tr>
+                            <tr class="text-center">
                                 <th><p class="mb-0">Hotel Name</p></th>
                                 <th><p class="mb-0">Radius from KLCC (car)</p></th>
                                 <th><p class="mb-0">Radius from KLCC (walk)</p></th>
-                                <th><p class="mb-0">Room Type</p></th>
-                                <th><p class="mb-0">Room Size</p></th>
-                                <th><p class="mb-0">Type of Bed</p></th>
-                                <th><p class="mb-0">View</p></th>
-                                <th><p class="mb-0">Single Rate</p></th>
-                                <th><p class="mb-0">Double Rate</p></th>
-                                <th><p class="mb-0">Corporate Rate</p></th>
-
+                                <th><p class="mb-0">Venue</p></th>
+                                <th><p class="mb-0">Level</p></th>
+                                <th><p class="mb-0">Size</p></th>
+                                <th><p class="mb-0">Banquet</p></th>
+                                <th><p class="mb-0">Classroom</p></th>
+                                <th><p class="mb-0">Theater</p></th>
+                                <th><p class="mb-0">Cocktail</p></th>
+                                <th><p class="mb-0">Cabaret</p></th>
+                                <th><p class="mb-0">Booth Capacity</p></th>
+                                <th><p class="mb-0">Daily Rate</p></th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- Table data -->
-                            @forelse ($room as $data)
+                            @forelse ($eventspace as $data)
                             <tr class="text-center">
+                                @if($data->hotel_id)
                                 <td><p class="mb-0 font-weight-normal">{{ $data->hotels->hotel_name ? $data->hotels->hotel_name : "-" }}</p></td>
                                 <td><p class="mb-0 font-weight-normal">{{ $data->hotels->car_radius ? $data->hotels->car_radius : "-" }}</p></td>
                                 <td><p class="mb-0 font-weight-normal">{{ $data->hotels->walking_radius ? $data->hotels->walking_radius : "-" }}</p></td>
-                                <td><p class="mb-0 font-weight-normal">{{ $data->room_type ? $data->room_type : "-" }}</p></td>
-                                <td><p class="mb-0 font-weight-normal">{{ $data->size ? $data->size : "-" }} sq.ft</p></td>
-                                <td><p class="mb-0 font-weight-normal">{{ $data->type_of_bed ? $data->type_of_bed : "-" }}</p></td>
-                                <td><p class="mb-0 font-weight-normal">{{ $data->view ? $data->view : "-" }}</p></td>
-                                <td><p class="mb-0 font-weight-normal">RM {{ $data->single_rate ? $data->single_rate : "-" }}</p></td>
-                                <td><p class="mb-0 font-weight-normal">RM {{ $data->double_rate ? $data->double_rate : "-" }}</p></td>
-                                <td><p class="mb-0 font-weight-normal">RM {{ $data->corporate_rate ? $data->corporate_rate : "-" }}</p></td>
+                                @else
+                                <td>-</td>
+                                <td><p class="mb-0 font-weight-normal">{{ $data->car_radius ? $data->car_radius : "-" }}</p></td>
+                                <td><p class="mb-0 font-weight-normal">{{ $data->walking_radius ? $data->walking_radius : "-" }}</p></td>
+
+                                @endif
+                                <td><p class="mb-0 font-weight-normal">{{ $data->venue ? $data->venue : "-" }}</p></td>
+                                <td><p class="mb-0 font-weight-normal">{{ $data->level ? $data->level : "-" }} sq.ft</p></td>
+                                <td><p class="mb-0 font-weight-normal">{{ $data->size ? $data->size : "-" }}</p></td>
+                                <td><p class="mb-0 font-weight-normal">{{ $data->banquet ? $data->banquet : "-" }}</p></td>
+                                <td><p class="mb-0 font-weight-normal">RM {{ $data->classroom ? $data->classroom : "-" }}</p></td>
+                                <td><p class="mb-0 font-weight-normal">RM {{ $data->theater ? $data->theater : "-" }}</p></td>
+                                <td><p class="mb-0 font-weight-normal">RM {{ $data->cocktail ? $data->cocktail : "-" }}</p></td>
+                                <td><p class="mb-0 font-weight-normal">RM {{ $data->cabaret ? $data->cabaret : "-" }}</p></td>
+                                <td><p class="mb-0 font-weight-normal">RM {{ $data->booth_capacity ? $data->booth_capacity : "-" }}</p></td>
+                                <td><p class="mb-0 font-weight-normal">RM {{ $data->daily_rate ? $data->daily_rate : "-" }}</p></td>
                             </tr>
                             @empty
                                 No Data
@@ -214,13 +238,13 @@
    <div class="container p-4">
 
      <div class="row">
-       <div class="col text-center">
-            <h2> Hotel Comparison</h2>
+       <div class="text-center col">
+            <h2> Event Space Comparison</h2>
        </div>
     </div>
     <br><br>
 
-    <form action="{{ route('compareHotel') }}" method="POST">
+    <form action="{{ route('compareEventSpace') }}" method="POST">
         @csrf
     <div class="row">
        <div class="col">
@@ -244,29 +268,32 @@
             </select>
        </div>
        <div class="col">
-        <label for="third_hotel"><b>Third Hotel</b></label>
-            <select id="product-col-3" class="custom-select " name="third_hotel">
-                <option value="" selected hidden disabled>Please Choose Hotel</option>
-                @forelse($hotel as $data)
-                <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
-                @empty
-                @endforelse
-            </select>
+        <label for="third_hotel"><b>Event Space</b></label>
+        <select id="product-col-3" class="custom-select " name="third_hotel">
+            <option value="" selected hidden disabled>Please Choose Event Space</option>
+            @forelse($eventspace as $data)
+            <option value="{{ $data->id }}">{{ $data->venue }}</option>
+            @empty
+            <option selected disabled>No event space available</option>
+            @endforelse
+        </select>
        </div>
      </div>
      <br>
      <div class="row">
-        <div class="col text-center">
+        <div class="text-center col">
             <button class="btn btn-primary" type="submit" style="width:100%;">Compare</button>
         </div>
      </div>
     </form>
      <div class="row">
         @if($hotel_1)
-            <div id="product1" class="product-col col text-center compare-col-1" style="padding-top: 2%">
+            <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
                 <div class="card">
-                    <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-                <div class="card-body">
+                    {{-- <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap"> --}}
+                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_1->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap">
+
+                    <div class="card-body">
                     <h5 class="card-title">{{ $hotel_1->hotel_name ? $hotel_1->hotel_name : "-" }}</h5>
                     {{-- <p class="card-text">Address</p> --}}
                 </div>
@@ -274,12 +301,12 @@
                     <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_1->walking_radius ? $hotel_1->walking_radius : "-" }} km</li>
                     <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_1->car_radius ? $hotel_1->car_radius : "-" }} km</li>
 
-                    <li class="list-group-item">Room Available<br>
+                    <li class="list-group-item">Event Space Available<br>
                         @if($room_1)
                             @forelse($room_1 as $data)
-                            {{ $data->room_type ? $data->room_type : "-" }} <br>
+                            {{ $data->venue ? $data->venue : "-" }} <br>
                             @empty
-                            No Room Available
+                            No Event Space Available
                             @endforelse
                         @endif
                     </li>
@@ -291,22 +318,24 @@
             </div>
         @endif
         @if($hotel_2)
-            <div id="product1" class="product-col col text-center compare-col-1" style="padding-top: 2%">
+            <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
                 <div class="card">
-                    <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-                <div class="card-body">
+                    {{-- <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap"> --}}
+                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_2->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap">
+
+                    <div class="card-body">
                     <h5 class="card-title">{{ $hotel_2->hotel_name ? $hotel_2->hotel_name : "-" }}</h5>
                     {{-- <p class="card-text">Address</p> --}}
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_2->walking_radius ? $hotel_2->walking_radius : "-" }} km</li>
                     <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_2->car_radius ? $hotel_2->car_radius : "-" }} km</li>
-                    <li class="list-group-item">Room Available<br>
+                    <li class="list-group-item">Event Space Available<br>
                         @if($room_2)
                             @forelse($room_2 as $data)
-                            {{ $data->room_type ? $data->room_type : "-" }} <br>
+                            {{ $data->venue ? $data->venue : "-" }} <br>
                             @empty
-                            No Room Available
+                            No Event Space Available
                             @endforelse
                         @endif
                     </li>
@@ -318,22 +347,24 @@
             </div>
         @endif
         @if($hotel_3)
-            <div id="product1" class="product-col col text-center compare-col-1" style="padding-top: 2%">
+            <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
                 <div class="card">
-                    <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $hotel_3->hotel_name ? $hotel_3->hotel_name : "-" }}</h5>
+                    {{-- <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap"> --}}
+                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_3->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap">
+
+                    <div class="card-body">
+                    <h5 class="card-title">{{ $hotel_3->venue ? $hotel_3->venue : "-" }}</h5>
                     {{-- <p class="card-text">Address</p> --}}
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_3->walking_radius ? $hotel_3->walking_radius : "-" }} km</li>
                     <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_3->car_radius ? $hotel_3->car_radius : "-" }} km</li>
-                    <li class="list-group-item">Room Available<br>
+                    <li class="list-group-item">Event Space Available<br>
                         @if($room_3)
                             @forelse($room_3 as $data)
-                            {{ $data->room_type ? $data->room_type : "-" }} <br>
+                            {{ $data->venue ? $data->venue : "-" }} <br>
                             @empty
-                            No Room Available
+                            No Event Space Available
                             @endforelse
                         @endif
                 </div>

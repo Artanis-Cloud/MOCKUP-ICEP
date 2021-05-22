@@ -40,7 +40,7 @@ class AnnouncementController extends Controller
 
       ]);
 
-      return redirect()->route('admin.announcement.list');
+      return redirect()->route('admin.announcement.list')->with("success", "Announcement Created");
 
     }
 
@@ -52,7 +52,7 @@ class AnnouncementController extends Controller
 
         $announcement->delete();
 
-        return redirect()->route('admin.announcement.list');
+        return redirect()->route('admin.announcement.list')->with("success", "Announcement Deleted");
       }
 
 

@@ -23,50 +23,46 @@
                     {{-- <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Hotels</a> --}}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" id="rooms-tab" data-toggle="tab" href="#room" role="tab" aria-controls="room" aria-selected="true">Hotel Rooms</a>
-                        </li>
+                        <a class="nav-link active" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel" aria-selected="true">Hotels</a>
+                    </li>
                     <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Event Spaces</a>
+                        <a class="nav-link" id="rooms-tab" data-toggle="tab" href="#room" role="tab" aria-controls="room" aria-selected="true">Hotel Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Event Spaces</a>
                     </li>
                 </ul>
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div class="tab-pane " id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered" id="example" style="width: 100%;">
+                    <div class="tab-pane active" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
+                        <div class="">
+                            <table class="table table-striped table-bordered" id="" style="width: 100%;">
                                 <thead class="thead-light">
                                     <tr class="text-center">
                                         <th><p class="mb-0">ID</p></th>
                                         <th><p class="mb-0">Hotel Name</p></th>
                                         <th><p class="mb-0">Radius from KLCC (by car)</p></th>
                                         <th><p class="mb-0">Radius from KLCC (walking distance)</p></th>
+                                        <th><p class="mb-0">Action</p></th>
+
 
                                     </tr>
                                 </thead>
                                 <tbody align="center">
-                                    @forelse($rooms as $data )
+                                    @forelse($hotels as $data )
                                         <tr>
                                             <td>{{$data->id}}</td>
                                             <td>{{$data->hotel_name}}</td>
                                             <td>{{$data->car_radius}}</td>
                                             <td>{{$data->walking_radius}}</td>
                                             <td>
-                                                @forelse ($rooms as $data)
-                                                {{$data->room_type}} ,
-                                                @empty
-                                                    No Room Available
-                                                @endforelse
-
-                                            </td>
-                                            <td>
                                                 <a href="#" class="mr-1 btn btn-success"><i class="fas fa-pencil-alt"></i></a>
-                                                <form action="{{ route('delete', $data->id) }}" method="POST">
+                                                <form action="{{ route('hotel.delete', $data->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="mr-1 btn btn-danger"><i class="fas fa-trash"></i></button>
                                                 </form>
                                             </td>
-
                                         </tr>
                                     @empty
                                     {{-- <td>Table is Empty</td> --}}
@@ -75,7 +71,8 @@
                             </table>
                         </div>
                     </div>
-                    <div class="tab-pane active" id="room" role="tabpanel" aria-labelledby="room-tab"><br>
+
+                    <div class="tab-pane" id="room" role="tabpanel" aria-labelledby="room-tab"><br>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered" id="basicDataTable" style="width: 100%;">
                                 <thead class="thead-light">
@@ -111,7 +108,7 @@
                                             <td><p class="mb-0 font-weight-normal">RM {{ $data->corporate_rate ? $data->corporate_rate : "-" }}</p></td>
                                             <td>
                                                 <a href="#" class="mr-1 btn btn-success"><i class="fas fa-pencil-alt"></i></a>
-                                                <form action="{{ route('delete', $data->id) }}" method="POST">
+                                                <form action="{{ route('hotelroom.delete', $data->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="mr-1 btn btn-danger"><i class="fas fa-trash"></i></button>
                                                 </form>
@@ -163,7 +160,7 @@
                                             <td>{{$data->daily_rate}}</td>
                                             <td>
                                                 <a href="#" class="mr-1 btn btn-success"><i class="fas fa-pencil-alt"></i></a>
-                                                <form action="{{ route('delete', $data->id) }}" method="POST">
+                                                <form action="{{ route('eventspace.delete', $data->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="mr-1 btn btn-danger"><i class="fas fa-trash"></i></button>
                                                 </form>
@@ -184,7 +181,7 @@
                                             <td>{{$data->daily_rate}}</td>
                                             <td>
                                                 <a href="#" class="mr-1 btn btn-success"><i class="fas fa-pencil-alt"></i></a>
-                                                <form action="{{ route('delete', $data->id) }}" method="POST">
+                                                <form action="{{ route('eventspace.delete', $data->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="mr-1 btn btn-danger"><i class="fas fa-trash"></i></button>
                                                 </form>

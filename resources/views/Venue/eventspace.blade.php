@@ -357,12 +357,13 @@ input.search-submit {
                             <option disabled="disabled" hidden value="0">Choose Event Space</option>
                             @forelse ($hotels as $dataRoom)
                                 @if($data->hotel_id == $dataRoom->id)
-                                    <option value="{{ $data->hotel_id }}" >{{ $data->venue }}</option>
+                                    <option value="{{ $data->id }}" >{{ $data->venue }}</option>
                                 @endif
                             @empty
                                 <option selected="true" disabled="disabled" value="0">No Event Space Available</option>
                             @endforelse
                         </select>
+                        <input type="hidden" name="hotel_id" value="{{ $data->hotel_id }}">
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

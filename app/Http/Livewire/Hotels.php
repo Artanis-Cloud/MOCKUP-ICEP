@@ -13,6 +13,11 @@ class Hotels extends Component
     public $hotel_name, $room_type,$car_radius,$walking_radius,$image,$longitude,$latitude,$lat,$lng;
     public $postSubmit, $hotel;
 
+    protected $listeners = [
+        'lat' => 'latStore',
+        'lng' => 'lngStore'
+    ];
+
     protected $rules = [
         'hotel_name' => 'required|string',
         'image' => 'max:2048', // 2MB Max                   //validate
@@ -32,18 +37,18 @@ class Hotels extends Component
     public function addHotel()
 
     {
-        dd($this);
+        // dd($this);
         $this->validate();
         $image = $this->storeImage();
-
+        // dd($this->latitude);
         $hotel = Hotel::create([
             'hotel_name'=> $this->hotel_name,
             'room_type' => $this->room_type,
             'car_radius' => $this->car_radius,
             'walking_radius' => $this->walking_radius,
             'thumbnail' => $image,
-            'longitude' => $this->lng,
-            'latitude' => $this->lat,
+            'longitude' => $this->longitude,
+            'latitude' => $this->latitude,
 
         ]);
         $this->resetInputFields();
@@ -72,6 +77,16 @@ class Hotels extends Component
         $this->longitude = '';
         $this->latitude = '';
 
+    }
+
+    public function latStore($lat)
+    {
+        $this->latitude = $lat;
+    }
+
+    public function lngStore($lng)
+    {
+        $this->longitude = $lng;
     }
 
 }

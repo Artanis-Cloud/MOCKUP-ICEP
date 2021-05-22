@@ -111,7 +111,7 @@
 
         </div>
     </div>
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
             @if($photos)
@@ -125,7 +125,7 @@
                 @endforeach
             @endif
         </div>
-    </div>
+    </div> --}}
 
     </div>
 
@@ -240,7 +240,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     @if($photos)
@@ -254,7 +254,7 @@
                         @endforeach
                     @endif
                 </div>
-            </div>
+            </div> --}}
 
             {{-- <div class="col-md-6">
                 <div class="form-group">

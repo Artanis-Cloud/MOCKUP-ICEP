@@ -23,7 +23,7 @@ class Room extends Component
     public $room_type, $size, $type_of_bed, $view, $single_rate, $double_rate, $corporate_rate;
     public $updateMode = false;
     public $inputs = [];
-    public $i = 1;
+    public $i = 0;
     public $photos = [];
 
     public function add($i)
@@ -31,11 +31,15 @@ class Room extends Component
         $i = $i + 1;
         $this->i = $i;
         array_push($this->inputs ,$i);
+        array_push($this->photos ,$i);
+
     }
 
     public function remove($i)
     {
         unset($this->inputs[$i]);
+        unset($this->photos[$i]);
+
     }
 
     private function resetInputFields(){
@@ -50,20 +54,10 @@ class Room extends Component
 
     }
 
-
-    // public $hotels, $hotel;
-    // public function mount(){
-    //   $this->hotels = Hotel::all();
-    // }
-
-    // public function getDtata($id){
-    //   $hotel = Hotel::find($id);
-    //   $this->hotel = $hotel;
-    // }
-
-    //bahagian isi data
     public function store(Hotel $hotel)
     {
+
+        // dd($this);
         foreach ($this->room_type as $key => $value) {
             $hotel_room = HotelRoom::create ([
                 'room_type' => $this->room_type[$key],
@@ -75,9 +69,9 @@ class Room extends Component
                 'corporate_rate' => $this->corporate_rate[$key],
                 'hotel_id' =>$hotel->id,
             ]);
+
             $image = $this->storeImage($hotel_room);
-
-
+            // dd($hotel_room->id);
         }
 
         $this->inputs = [];
@@ -93,25 +87,24 @@ class Room extends Component
         return view('livewire.room');
     }
 
-    public function storeImage( $hotel_room)
+    public function storeImage($hotel_room)
     {
-
         $photos = $this->photos ?? null;
         // dd($this->photos);
         if ($photos) {
             foreach ($photos as $photo) {
                 foreach ($photo as $data) {
-                    // dd($data);
-                    $image=$data->store('public/upload');
-                    $test = Gallery::create ([
-                        'photos' => $image,
-                        'room_id' =>$hotel_room->id
+                    $images = $data->store('public/upload');
+                    Gallery::create ([
+                        'photos' => $images,
+                        'room_id' => $hotel_room->id
                     ]);
                 }
             }
         }
     }
 }
+
 
 
 

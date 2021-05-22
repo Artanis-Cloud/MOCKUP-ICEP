@@ -366,10 +366,9 @@ input.search-submit {
                                 @empty
                                     <option selected="true" disabled="disabled" value="0">No Room Available</option>
                                 @endforelse
-
-
                             </select>
                         </div>
+                        <input type="hidden" name="hotel_id" value="{{ $data->id }}">
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Room Detail</button>

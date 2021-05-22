@@ -80,40 +80,36 @@
                   <div class="grid_4">
                     {{-- <h5>Latitude and Longitude</h5> --}}
                     <div class="box">
-                      <table>
-                        <tr>
-                          <td><strong>Latitude:</strong></td>
-                          <td>
-                            <input type="text" wire:model='lat' name="lat" id="lat" value="0" />
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><strong>Longitude:</strong></td>
-                          <td>
-                            <input type="text" wire:model='lng' name="lng" id="lng" value="0" />
-                          </td>
-                        </tr>
-                      </table>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <label>Latitude:</label>
+                            <input type="text" class="form-control bg-light" name="lat" id="lat" value="0" disabled />
+                          </div>
+                          <div class="col-md-6">
+                            <label>Longitude:</label>
+                            <input type="text" class="form-control bg-light" name="lng" id="lng" value="0" disabled />
+                          </div>
+                        </div>
                     </div>
                     <br>
-                    <div class="box">
+                    {{-- <div class="box">
                         <h5>Mouse Over the map below for your latitude and longitude.</h5>
                       <table>
                         <tr>
                           <td><strong>Lat:</strong></td>
                           <td>
-                            <input type="text" wire:model='latitude' name="latitude" id="mlat" value="0" />
+                            <input type="text"  name="latitude" id="mlat" value="0" />
                           </td>
                         </tr>
                         <tr>
                           <td><strong>Long:</strong></td>
                           <td>
-                            <input type="text" wire:model='longitude' name="longitude" id="mlong" value="0" />
+                            <input type="text"  name="longitude" id="mlong" value="0" />
                           </td>
                         </tr>
                       </table>
-                    </div>
-                    <br />
+                    </div> --}}
+                    {{-- <br /> --}}
                     <div style="clear:both;"></div>
                     <br />
                   </div>

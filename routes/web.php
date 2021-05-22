@@ -21,9 +21,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['middleware' => ['auth', 'active_user']], function() {
+
 Route::get('/homepage', [App\Http\Controllers\UserController::class, 'index'])->name('homepage');
 
-Route::get('/eventsapce', [App\Http\Controllers\VenueController::class, 'eventspace'])->name('eventspace');
+Route::get('/eventspace', [App\Http\Controllers\VenueController::class, 'eventspace'])->name('eventspace');
 
 Route::get('/hotel', [App\Http\Controllers\VenueController::class, 'hotel'])->name('hotel');
 
@@ -69,7 +71,17 @@ Route::middleware([CheckRole::class])->group(function(){
 
     Route::get('/venue/lists', [App\Http\Controllers\AdminController::class, 'list_venue'])->name('venue');
 
+    Route::post('/admin/hotel/delete/{id}', [App\Http\Controllers\AdminController::class, 'deleteHotel'])->name('hotel.delete');
+
+    Route::post('/admin/hotelroom/delete/{id}', [App\Http\Controllers\AdminController::class, 'deleteHotelRoom'])->name('hotelroom.delete');
+
+    Route::post('/admin/eventspace/delete/{id}', [App\Http\Controllers\AdminController::class, 'deleteEventSpace'])->name('eventspace.delete');
+
     Route::get('/user-list', [App\Http\Controllers\AdminController::class, 'user'])->name('user');
+
+    Route::get('/user-deactive/{id}', [App\Http\Controllers\AdminController::class, 'userDelete'])->name('users.deactivate');
+
+    Route::post('/users/id={id}', [App\Http\Controllers\AdminController::class, 'updateUserRole'])->name('user.update');
 
     Route::get('/user-add', [App\Http\Controllers\AdminController::class, 'add_user'])->name('user_add');
 
@@ -106,4 +118,5 @@ Route::middleware([CheckRole::class])->group(function(){
     Route::get('/room', function () {
         return view('/admin/homelivewire');
         });
+});
 });

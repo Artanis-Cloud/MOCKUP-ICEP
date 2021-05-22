@@ -25,21 +25,25 @@ class VenueController extends Controller
     public function roomDetail(Request $request)
     {
         // dd($request->all());
-        $rooms=HotelRoom::where('id', $request->room_id)->get();
-        $photos=Gallery::where('room_id', $request->room_id)->get();
-        // dd($photos);
+        $hotel = HotelRoom::where('hotel_id',$request->hotel_id)->get();
+        $rooms = HotelRoom::where('id', $request->room_id)->get();
+        $photos = Gallery::where('room_id', $request->room_id)->get();
+        $map = Hotel::where('id',$request->hotel_id)->get();
+        // dd($hotel);
 
-        return view('venue.room_details', compact('rooms','photos'));
+        return view('venue.room_details', compact('rooms','photos','hotel','map'));
     }
 
     public function eventspaceDetail(Request $request)
     {
         // dd($request->all());
+        $hotel = EventSpace::where('hotel_id',$request->hotel_id)->get();
         $eventspace=EventSpace::where('id', $request->eventspace_id)->get();
         $photos=Gallery::where('eventspace_id', $request->eventspace_id)->get();
-        // dd($photos);
+        $map = Hotel::where('id',$request->hotel_id)->get();
+        // dd($eventspace);
 
-       return view('venue.eventspace_details', compact('eventspace','photos'));
+       return view('venue.eventspace_details', compact('eventspace','photos','hotel','map'));
     }
 
     public function roomFilter(Request $request)
@@ -51,10 +55,12 @@ class VenueController extends Controller
                         ->where('double_rate','<=',$request->double)
                         ->where('corporate_rate','<=',$request->corporate)->get();
         // dd($rooms);
+        $hotels=Hotel::distinct('id')->get();
+        // dd($hotels);
         $bed_type = HotelRoom::distinct('type_of_bed')->get('type_of_bed');
 
 
-        return view('Venue.hotel_filter', compact('rooms','bed_type'));
+        return view('Venue.hotel_filter', compact('hotels','bed_type','rooms'));
     }
 
     public function eventspaceFilter(Request $request)
@@ -124,19 +130,19 @@ class VenueController extends Controller
     public function compareEventSpace(Request $request)
     {
         // dd($request->all());
-        $room = HotelRoom::get();
+        $eventspace = EventSpace::get();
         $hotel = Hotel::get();
         // dd($room);
 
-        $room_1 = HotelRoom::where('hotel_id',$request->first_hotel)->get();
-        $room_2 = HotelRoom::where('hotel_id',$request->second_hotel)->get();
-        $room_3 = HotelRoom::where('hotel_id',$request->third_hotel)->get();
+        $room_1 = EventSpace::where('hotel_id',$request->first_hotel)->get();
+        $room_2 = EventSpace::where('hotel_id',$request->second_hotel)->get();
+        $room_3 = EventSpace::where('id',$request->third_hotel)->get();
         //  dd($room_3);
         $hotel_1 = Hotel::where('id',$request->first_hotel)->first();
         $hotel_2 = Hotel::where('id',$request->second_hotel)->first();
-        $hotel_3 = Hotel::where('id',$request->third_hotel)->first();
+        $hotel_3 = EventSpace::where('id',$request->third_hotel)->first();
         // dd($hotel_1);
-        return view('EventSpace.compared',compact('room','hotel','hotel_1','hotel_2','hotel_3','room_1','room_2','room_3'));
+        return view('EventSpace.compared',compact('eventspace','hotel','hotel_1','hotel_2','hotel_3','room_1','room_2','room_3'));
     }
 
 
