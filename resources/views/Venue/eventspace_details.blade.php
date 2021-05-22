@@ -396,9 +396,7 @@ input.search-submit {
                                             </div>
 
                                         </div>
-                                        @empty
 
-                                    @endforelse
 
                                         <div class="border-0 rounded-lg card" style="padding: 5%">
                                          <!-- Tab nav -->
@@ -407,7 +405,7 @@ input.search-submit {
                                                 <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><font color="white">Photo Gallery</font></a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><font color="white">Meeting Space</font></a>
+                                                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><font color="white">Event Space Available</font></a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><font color="white">Nearby</font></a>
@@ -428,7 +426,7 @@ input.search-submit {
                                                     </a>
                                                     </div>
                                                     @empty
-
+                                                    No photos available
                                                     @endforelse
                                                 </div>
                                             </div>
@@ -439,75 +437,49 @@ input.search-submit {
                                     <table class="table text-dark table-borderless">
                                         <thead>
                                             <tr class="text-center">
-                                                <th><p class="mb-0">Meeting rooms</p></th>
+                                                <th><p class="mb-0">Event Space</p></th>
+                                                <th><p class="mb-0">Level</p></th>
                                                 <th><p class="mb-0">Size</p></th>
-                                                <th><p class="mb-0">Maximum capacity</p></th>
                                                 <th><p class="mb-0">Banquet</p></th>
                                                 <th><p class="mb-0">Classroom</p></th>
                                                 <th><p class="mb-0">Theater</p></th>
                                                 <th><p class="mb-0">Cocktail</p></th>
-                                                <th><p class="mb-0">Radius from KLCC (car)</p></th>
-                                                <th><p class="mb-0">Radius from KLCC (walk )</p></th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <!-- Table data -->
-                                            <tr class="text-center">
-                                                <td><p class="mb-0 font-weight-bold">Boardroom</p></td>
-                                                <td><p class="mb-0 font-weight-normal">300 s.q ft</p></td>
-                                                <td><p class="mb-0 font-weight-normal">2000 person</p></td>
-                                                <td><p class="mb-0 font-weight-normal">500</p></td>
-                                                <td><p class="mb-0 font-weight-normal">500</p></td>
-                                                <td><p class="mb-0 font-weight-normal">500</p></td>
-                                                <td><p class="mb-0 font-weight-normal">500</p></td>
-                                                <td><p class="mb-0 font-weight-normal">1.5 km</p></td>
-                                                <td><p class="mb-0 font-weight-normal">3.0 km</p></td>
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td><p class="mb-0 font-weight-bold">Meeting Room</p></td>
-                                                <td><p class="mb-0 font-weight-normal">400 s.q ft</p></td>
-                                                <td><p class="mb-0 font-weight-normal">1000 person</p></td>
-                                                <td><p class="mb-0 font-weight-normal">250</p></td>
-                                                <td><p class="mb-0 font-weight-normal">250</p></td>
-                                                <td><p class="mb-0 font-weight-normal">250</p></td>
-                                                <td><p class="mb-0 font-weight-normal">250</p></td>
-                                                <td><p class="mb-0 font-weight-normal">2.5 km</p></td>
-                                                <td><p class="mb-0 font-weight-normal">5.0 km</p></td>
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td><p class="mb-0 font-weight-bold">MR6</p></td>
-                                                <td><p class="mb-0 font-weight-normal">500 s.q ft</p></td>
-                                                <td><p class="mb-0 font-weight-normal">3000 person</p></td>
-                                                <td><p class="mb-0 font-weight-normal">750</p></td>
-                                                <td><p class="mb-0 font-weight-normal">500</p></td>
-                                                <td><p class="mb-0 font-weight-normal">500</p></td>
-                                                <td><p class="mb-0 font-weight-normal">500</p></td>
-                                                <td><p class="mb-0 font-weight-normal">5.0 km</p></td>
-                                                <td><p class="mb-0 font-weight-normal">10.0 km</p></td>
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td><p class="mb-0 font-weight-bold">Majestic</p></td>
-                                                <td><p class="mb-0 font-weight-normal">1000 s.q ft</p></td>
-                                                <td><p class="mb-0 font-weight-normal">5000 person</p></td>
-                                                <td><p class="mb-0 font-weight-normal">1000</p></td>
-                                                <td><p class="mb-0 font-weight-normal">2000</p></td>
-                                                <td><p class="mb-0 font-weight-normal">500</p></td>
-                                                <td><p class="mb-0 font-weight-normal">500</p></td>
-                                                <td><p class="mb-0 font-weight-normal">20.0 km</p></td>
-                                                <td><p class="mb-0 font-weight-normal">30.0 km</p></td>
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td><p class="mb-0 font-weight-bold">Shangri La</p></td>
-                                                <td><p class="mb-0 font-weight-normal">700 s.q ft</p></td>
-                                                <td><p class="mb-0 font-weight-normal">3000 person</p></td>
-                                                <td><p class="mb-0 font-weight-normal">1000</p></td>
-                                                <td><p class="mb-0 font-weight-normal">500</p></td>
-                                                <td><p class="mb-0 font-weight-normal">500</p></td>
-                                                <td><p class="mb-0 font-weight-normal">500</p></td>
-                                                <td><p class="mb-0 font-weight-normal">5.5 km</p></td>
-                                                <td><p class="mb-0 font-weight-normal">10.0 km</p></td>
-                                            </tr>
+                                            @if($data->hotel_id)
+                                                @forelse ( $hotel as $data)
+                                                <tr class="text-center">
+                                                    <td><p class="mb-0 font-weight-bold">{{ $data->venue }}</p></td>
+                                                    <td><p class="mb-0 font-weight-normal">{{ $data->level }}</p></td>
+                                                    <td><p class="mb-0 font-weight-normal">{{ $data->size }}</p></td>
+                                                    <td><p class="mb-0 font-weight-normal">{{ $data->banquet }}</p></td>
+                                                    <td><p class="mb-0 font-weight-normal">{{ $data->classroom }}</p></td>
+                                                    <td><p class="mb-0 font-weight-normal">{{ $data->theater }}</p></td>
+                                                    <td><p class="mb-0 font-weight-normal">{{ $data->cocktail }}</p></td>
+                                                </tr>
+                                                @empty
+
+                                            @endforelse
+                                            @else
+                                            @forelse ( $eventspace as $data)
+                                                <tr class="text-center">
+                                                    <td><p class="mb-0 font-weight-bold">{{ $data->venue }}</p></td>
+                                                    <td><p class="mb-0 font-weight-normal">{{ $data->level }}</p></td>
+                                                    <td><p class="mb-0 font-weight-normal">{{ $data->size }}</p></td>
+                                                    <td><p class="mb-0 font-weight-normal">{{ $data->banquet }}</p></td>
+                                                    <td><p class="mb-0 font-weight-normal">{{ $data->classroom }}</p></td>
+                                                    <td><p class="mb-0 font-weight-normal">{{ $data->theater }}</p></td>
+                                                    <td><p class="mb-0 font-weight-normal">{{ $data->cocktail }}</p></td>
+                                                </tr>
+                                                @empty
+                                                @endforelse
+                                            @endif
+
+
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -518,11 +490,119 @@ input.search-submit {
                                                 <div id="map"></div>
                                                 <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 
+                                                @if($data->hotel_id)
+                                                @forelse ($map as $item)
+                                                <script>
 
+                                                    var icons = { parking: { icon: 'https://tarantelleromane.files.wordpress.com/2016/10/map-marker.png?w=50' } };
+
+
+                                                    // REPLACE WITH DATA FROM API
+                                                    //TITLE | POSITION - LAT , LNG | ICON | TITLE | CONTENT
+                                                    var airports = [
+                                                        {
+                                                            title: "{{ $item->hotel_name }}",
+                                                            position: {
+                                                                lat: {{ $item->latitude }},
+                                                                lng: {{ $item->longitude }} },
+                                                            icon: 'parking',
+                                                            content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">{{ $item->hotel_name }}</h1><div id="bodyContent"><p><b>{{ $item->hotel_name }}</b></div></div>'
+                                                        }
+                                                        ];
+
+                                                    function initMap() {
+
+                                                        var uk = {
+                                                            lat: 3.1580,
+                                                            lng: 101.7118
+                                                        };
+
+                                                        var map = new google.maps.Map( document.getElementById('map'), {
+                                                          zoom: 15,
+                                                          center: uk,
+                                                          disableDefaultUI: true,
+                                                          styles: [{"elementType":"labels","stylers":[{"visibility":"off"},{"color":"#f49f53"}]},{"featureType":"landscape","stylers":[{"color":"#f9ddc5"},{"lightness":-7}]},{"featureType":"road","stylers":[{"color":"#813033"},{"lightness":43}]},{"featureType":"poi.business","stylers":[{"color":"#645c20"},{"lightness":38}]},{"featureType":"water","stylers":[{"color":"#1994bf"},{"saturation":-69},{"gamma":0.99},{"lightness":43}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#f19f53"},{"weight":1.3},{"visibility":"on"},{"lightness":16}]},{"featureType":"poi.business"},{"featureType":"poi.park","stylers":[{"color":"#645c20"},{"lightness":39}]},{"featureType":"poi.school","stylers":[{"color":"#a95521"},{"lightness":35}]},{},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"color":"#813033"},{"lightness":38},{"visibility":"off"}]},{},{},{},{},{},{},{},{},{},{},{},{"elementType":"labels"},{"featureType":"poi.sports_complex","stylers":[{"color":"#9e5916"},{"lightness":32}]},{},{"featureType":"poi.government","stylers":[{"color":"#9e5916"},{"lightness":46}]},{"featureType":"transit.station","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","stylers":[{"color":"#813033"},{"lightness":22}]},{"featureType":"transit","stylers":[{"lightness":38}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#f19f53"},{"lightness":-10}]},{},{},{}]
+                                                        });
+
+                                                        var InfoWindows = new google.maps.InfoWindow({});
+
+                                                        airports.forEach(function(airport) {
+                                                            var marker = new google.maps.Marker({
+                                                              position: { lat: airport.position.lat, lng: airport.position.lng },
+                                                              map: map,
+                                                              icon: icons[airport.icon].icon,
+                                                              title: airport.title
+                                                            });
+                                                            marker.addListener('mouseover', function() {
+                                                              InfoWindows.open(map, this);
+                                                              InfoWindows.setContent(airport.content);
+                                                            });
+                                                        });
+                                                    }
+
+
+                                                    </script>
+                                                    @empty
+
+                                                    @endforelse
+                                                    @else
+                                                    <script>
+
+                                                        var icons = { parking: { icon: 'https://tarantelleromane.files.wordpress.com/2016/10/map-marker.png?w=50' } };
+
+
+                                                        // REPLACE WITH DATA FROM API
+                                                        //TITLE | POSITION - LAT , LNG | ICON | TITLE | CONTENT
+                                                        var airports = [
+                                                            {
+                                                                title: "{{ $data->venue }}",
+                                                                position: {
+                                                                    lat: {{ $data->latitude }},
+                                                                    lng: {{ $data->longitude }} },
+                                                                icon: 'parking',
+                                                                content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">{{ $data->venue }}</h1><div id="bodyContent"><p><b>{{ $data->venue }}</b></div></div>'
+                                                            }
+                                                            ];
+
+                                                        function initMap() {
+
+                                                            var uk = {
+                                                                lat: 3.1580,
+                                                                lng: 101.7118
+                                                            };
+
+                                                            var map = new google.maps.Map( document.getElementById('map'), {
+                                                              zoom: 15,
+                                                              center: uk,
+                                                              disableDefaultUI: true,
+                                                              styles: [{"elementType":"labels","stylers":[{"visibility":"off"},{"color":"#f49f53"}]},{"featureType":"landscape","stylers":[{"color":"#f9ddc5"},{"lightness":-7}]},{"featureType":"road","stylers":[{"color":"#813033"},{"lightness":43}]},{"featureType":"poi.business","stylers":[{"color":"#645c20"},{"lightness":38}]},{"featureType":"water","stylers":[{"color":"#1994bf"},{"saturation":-69},{"gamma":0.99},{"lightness":43}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#f19f53"},{"weight":1.3},{"visibility":"on"},{"lightness":16}]},{"featureType":"poi.business"},{"featureType":"poi.park","stylers":[{"color":"#645c20"},{"lightness":39}]},{"featureType":"poi.school","stylers":[{"color":"#a95521"},{"lightness":35}]},{},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"color":"#813033"},{"lightness":38},{"visibility":"off"}]},{},{},{},{},{},{},{},{},{},{},{},{"elementType":"labels"},{"featureType":"poi.sports_complex","stylers":[{"color":"#9e5916"},{"lightness":32}]},{},{"featureType":"poi.government","stylers":[{"color":"#9e5916"},{"lightness":46}]},{"featureType":"transit.station","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","stylers":[{"color":"#813033"},{"lightness":22}]},{"featureType":"transit","stylers":[{"lightness":38}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#f19f53"},{"lightness":-10}]},{},{},{}]
+                                                            });
+
+                                                            var InfoWindows = new google.maps.InfoWindow({});
+
+                                                            airports.forEach(function(airport) {
+                                                                var marker = new google.maps.Marker({
+                                                                  position: { lat: airport.position.lat, lng: airport.position.lng },
+                                                                  map: map,
+                                                                  icon: icons[airport.icon].icon,
+                                                                  title: airport.title
+                                                                });
+                                                                marker.addListener('mouseover', function() {
+                                                                  InfoWindows.open(map, this);
+                                                                  InfoWindows.setContent(airport.content);
+                                                                });
+                                                            });
+                                                        }
+
+
+                                                        </script>
+                                                    @endif
                                             </div>
                                         </div>
                                         </div>
+                                        @empty
 
+                                    @endforelse
                                     </div>
 
                                 </div>
@@ -544,95 +624,7 @@ $( "#gallery .item" ).hover(
 );
 </script>
 
-<script>
 
-var icons = { parking: { icon: 'https://tarantelleromane.files.wordpress.com/2016/10/map-marker.png?w=50' } };
-
-
-// REPLACE WITH DATA FROM API
-//TITLE | POSITION - LAT , LNG | ICON | TITLE | CONTENT
-var airports = [
-	{
-		title: 'Royal Chulan',
-		position: {
-			lat: 3.149698,
-			lng: 101.716964 },
-		icon: 'parking',
-		content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">Royal Chulan</h1><div id="bodyContent"><p><b>Manchester Airport</b> - 3 terminal airport offering flights to Europe and around the world with national rail connections.</p> <p><a href="https://www.google.co.uk">BOOK</a></p></div></div>'
-	},
-	{
-		title: 'Leeds Airport',
-		position: {
-			lat: 53.8679434,
-			lng: -1.6637193 },
-		icon: 'parking',
-		content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">Leeds Airport - from £30</h1><div id="bodyContent"><p><b>Leeds Airport</b> - 3 terminal airport offering flights to Europe and around the world with national rail connections.</p> <p><a href="https://www.google.co.uk">BOOK</a></p></div></div>'
-	},
-	{
-		title: 'Belfast Airport',
-		position: {
-			lat: 54.661781,
-			lng: -6.2184331 },
-		icon: 'parking',
-		content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">Belfast Airport - from £30</h1><div id="bodyContent"><p><b>Belfast Airport</b> - 3 terminal airport offering flights to Europe and around the world with national rail connections.</p> <p><a href="https://www.google.co.uk">BOOK</a></p></div></div>'
-	},
-	{
-		title: 'Edinburgh Airport',
-		position: {
-			lat: 55.950785,
-			lng: -3.3636419 },
-		icon: 'parking',
-		content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">Edinburgh Airport - from £30</h1><div id="bodyContent"><p><b>Edinburgh Airport</b> - 3 terminal airport offering flights to Europe and around the world with national rail connections.</p> <p><a href="https://www.google.co.uk">BOOK</a></p></div></div>'
-	},
-	{
-		title: 'Cardiff Airport',
-		position: {
-			lat: 51.3985498,
-			lng: -3.3416461 },
-		icon: 'parking',
-		content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">Cardiff Airport - from £30</h1><div id="bodyContent"><p><b>Cardiff Airport</b> - 3 terminal airport offering flights to Europe and around the world with national rail connections.</p> <p><a href="https://www.google.co.uk">BOOK</a></p></div></div>'
-	},
-	{
-		title: 'Heathrow Airport',
-		position: {
-			lat: 51.4700223,
-			lng: -0.4542955 },
-		icon: 'parking',
-		content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">Heathrow Airport - from £50</h1><div id="bodyContent"><p><b>Heathrow Airport</b> - 3 terminal airport offering flights to Europe and around the world with national rail connections.</p> <p><a href="https://www.google.co.uk">BOOK</a></p></div></div>'}
-];
-
-function initMap() {
-
-	var uk = {
-		lat: 3.1580,
-		lng: 101.7118
-	};
-
-	var map = new google.maps.Map( document.getElementById('map'), {
-	  zoom: 15,
-	  center: uk,
-	  disableDefaultUI: true,
-	  styles: [{"elementType":"labels","stylers":[{"visibility":"off"},{"color":"#f49f53"}]},{"featureType":"landscape","stylers":[{"color":"#f9ddc5"},{"lightness":-7}]},{"featureType":"road","stylers":[{"color":"#813033"},{"lightness":43}]},{"featureType":"poi.business","stylers":[{"color":"#645c20"},{"lightness":38}]},{"featureType":"water","stylers":[{"color":"#1994bf"},{"saturation":-69},{"gamma":0.99},{"lightness":43}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#f19f53"},{"weight":1.3},{"visibility":"on"},{"lightness":16}]},{"featureType":"poi.business"},{"featureType":"poi.park","stylers":[{"color":"#645c20"},{"lightness":39}]},{"featureType":"poi.school","stylers":[{"color":"#a95521"},{"lightness":35}]},{},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"color":"#813033"},{"lightness":38},{"visibility":"off"}]},{},{},{},{},{},{},{},{},{},{},{},{"elementType":"labels"},{"featureType":"poi.sports_complex","stylers":[{"color":"#9e5916"},{"lightness":32}]},{},{"featureType":"poi.government","stylers":[{"color":"#9e5916"},{"lightness":46}]},{"featureType":"transit.station","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","stylers":[{"color":"#813033"},{"lightness":22}]},{"featureType":"transit","stylers":[{"lightness":38}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#f19f53"},{"lightness":-10}]},{},{},{}]
-	});
-
-	var InfoWindows = new google.maps.InfoWindow({});
-
-	airports.forEach(function(airport) {
-		var marker = new google.maps.Marker({
-		  position: { lat: airport.position.lat, lng: airport.position.lng },
-		  map: map,
-		  icon: icons[airport.icon].icon,
-		  title: airport.title
-		});
-		marker.addListener('mouseover', function() {
-		  InfoWindows.open(map, this);
-		  InfoWindows.setContent(airport.content);
-		});
-	});
-}
-
-
-</script>
 
 @endsection
 

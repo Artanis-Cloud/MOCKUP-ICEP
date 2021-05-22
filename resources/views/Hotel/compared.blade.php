@@ -265,8 +265,10 @@
         @if($hotel_1)
             <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
                 <div class="card">
-                    <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-                <div class="card-body">
+                    {{-- <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap"> --}}
+                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_1->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap">
+
+                    <div class="card-body">
                     <h5 class="card-title">{{ $hotel_1->hotel_name ? $hotel_1->hotel_name : "-" }}</h5>
                     {{-- <p class="card-text">Address</p> --}}
                 </div>
@@ -293,8 +295,10 @@
         @if($hotel_2)
             <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
                 <div class="card">
-                    <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-                <div class="card-body">
+                    {{-- <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap"> --}}
+                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_2->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap">
+
+                    <div class="card-body">
                     <h5 class="card-title">{{ $hotel_2->hotel_name ? $hotel_2->hotel_name : "-" }}</h5>
                     {{-- <p class="card-text">Address</p> --}}
                 </div>
@@ -320,8 +324,10 @@
         @if($hotel_3)
             <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
                 <div class="card">
-                    <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
-                <div class="card-body">
+                    {{-- <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap"> --}}
+                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_3->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap">
+
+                    <div class="card-body">
                     <h5 class="card-title">{{ $hotel_3->hotel_name ? $hotel_3->hotel_name : "-" }}</h5>
                     {{-- <p class="card-text">Address</p> --}}
                 </div>

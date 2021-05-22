@@ -263,7 +263,7 @@
         </div>
      </div>
     </form>
-     <div class="row">
+     {{-- <div class="row">
            <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
              <div class="card">
               <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
@@ -309,7 +309,7 @@
 
             </div>
            </div>
-     </div>
+     </div> --}}
    </div>
 
  </div>

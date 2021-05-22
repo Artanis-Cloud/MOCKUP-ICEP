@@ -16,6 +16,10 @@ class CreateEventSpacesTable extends Migration
         Schema::create('event_spaces', function (Blueprint $table) {
             $table->id();
             $table->string('venue')->nullable();
+            $table->string('car_radius')->nullable();
+            $table->string('walking_radius')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
             $table->string('level')->nullable();
             $table->string('size')->nullable();
             $table->string('banquet')->nullable();

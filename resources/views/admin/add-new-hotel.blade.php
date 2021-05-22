@@ -43,17 +43,24 @@
           map: map
       });
 
-    map.streetViewControl=false;
-        google.maps.event.addListener(map, 'click', function(event) {
-        marker.setPosition(event.latLng);
+        map.streetViewControl=false;
+            google.maps.event.addListener(map, 'click', function(event) {
+            marker.setPosition(event.latLng);
+            var yeri = event.latLng;
+            document.getElementById('lat').value=yeri.lat().toFixed(6);
+            document.getElementById('lng').value=yeri.lng().toFixed(6);
+        });
+        google.maps.event.addListener(map, 'mousemove', function(event) {
         var yeri = event.latLng;
-        document.getElementById('lat').value=yeri.lat().toFixed(6);
-        document.getElementById('lng').value=yeri.lng().toFixed(6);
-      });
-    google.maps.event.addListener(map, 'mousemove', function(event) {
-    var yeri = event.latLng;
-    document.getElementById("mlat").value = yeri.lat().toFixed(6);
-    document.getElementById("mlong").value = yeri.lng().toFixed(6);
+        // document.getElementById("mlat").value = yeri.lat().toFixed(6);
+        // document.getElementById("mlong").value = yeri.lng().toFixed(6);
+
+        var lat = yeri.lat().toFixed(6);
+        var lng = yeri.lng().toFixed(6);
+
+        Livewire.emit('lat', lat);
+        Livewire.emit('lng', lng);
+
     });
     // codeAddress();
     }

@@ -23,8 +23,12 @@ class EventSpace extends Model implements Auditable
         'cabaret',
         'booth_capacity',
         'daily_rate',
+        'car_radius',
+        'walking_radius',
         'thumbnail',
-        'hotel_id'
+        'longitude',
+        'latitude',
+        'hotel_id',
     ];
 
     public function hotels(){

@@ -258,6 +258,82 @@
 
             <div class="col-md-6">
                 <div class="form-group">
+                <label>Radius from KLCC (by Car)</label>
+                <input type="text" wire:model='car_radius' class="form-control bg-light @error('car_radius') is-invalid @enderror" name="car_radius" placeholder="Radius from KLCC (by Car)">
+                @error('car_radius')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                <label>Radius from KLCC (Walking Distance)</label>
+                <input type="text" wire:model='walking_radius' class="form-control bg-light @error('walking_radius') is-invalid @enderror" name="walking_radius" placeholder="Radius from KLCC (Walking Distance)">
+                @error('walking_radius')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                {{-- maps --}}
+                {{-- <label>Your selected Location is(latitude,Longitude): </label><input id='loc' type='text'  value=''/>
+                <br/>
+                <div wire:emit id="map" style="height: 350px; width:100%;"></div> --}}
+
+                <body onload="initialize()">
+                    <div class="container_12" id="header">
+                        <div class="clear"></div>
+                        <div class="grid_4">
+                        {{-- <h5>Latitude and Longitude</h5> --}}
+                        <div class="box">
+                            <div class="row">
+                                <div class="col-md-6">
+                                <label>Latitude:</label>
+                                <input type="text" class="form-control bg-light" name="lat" id="lat" value="0" disabled />
+                                </div>
+                                <div class="col-md-6">
+                                <label>Longitude:</label>
+                                <input type="text" class="form-control bg-light" name="lng" id="lng" value="0" disabled />
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        {{-- <div class="box">
+                            <h5>Mouse Over the map below for your latitude and longitude.</h5>
+                            <table>
+                            <tr>
+                                <td><strong>Lat:</strong></td>
+                                <td>
+                                <input type="text"  name="latitude" id="mlat" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Long:</strong></td>
+                                <td>
+                                <input type="text"  name="longitude" id="mlong" value="0" />
+                                </td>
+                            </tr>
+                            </table>
+                        </div> --}}
+                        {{-- <br /> --}}
+                        <div style="clear:both;"></div>
+                        <br />
+                        </div>
+                        <div class="grid_8">
+                        <div id="latlongmap" wire:ignore style="width:100%; height:480px;">
+                        </div>
+                        </div>
+                    </div>
+            </div>
+            <br>
+
+            <div class="col-md-6">
+                <div class="form-group">
                 <label>Level</label>
                 <input type="text"  wire:model='level' class="form-control bg-light @error('venue') is-invalid @enderror" name="level" placeholder="Level " oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">
                 @error('level')

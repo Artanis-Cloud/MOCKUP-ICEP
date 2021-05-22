@@ -65,9 +65,52 @@ class AdminController extends Controller
 
     public function user()
     {
-        $users = User::get();
-        return view('admin.user-list',compact('users'));
+        $currentUser = Auth::user();
+        $user = User::where([['status','!=','0']])->get();
+        $user_deact = User::where([['status','!=','1']])->get();
+        return view('admin.user-list', compact('user','user_deact', 'currentUser'));
+
     }
+
+    public function userDelete($id){
+
+        // logout user
+        $userToLogout = User::find($id);
+
+        // dd($userToLogout);
+
+        if($userToLogout->status == false){
+            User::find($id)->update([
+              'status' => 1,
+              'blocked_at'=> null
+              ]);
+          $success = 'success';
+          $text = 'User has been activated';
+        }
+        elseif($userToLogout->status == true){
+            // dd('masuk');
+            User::find($id)->update([
+              'status' => 0,
+              'blocked_at'=> now()
+              ]);
+
+          $success = 'success';
+          $text = 'User has been deactivated';
+        }
+        return redirect()->back()->with($success,$text);
+    }
+
+    public function updateUserRole(Request $request,$id){
+        $users=User::find($id);
+        // dd($request->all());
+        $users->roles = $request->role;
+        $users->save();
+        $success = 'success';
+        $text = 'User role has been changed';
+
+        return redirect()->back()->with($success,$text);
+      }
+
 
     public function add_user()
     {
@@ -166,7 +209,32 @@ class AdminController extends Controller
     ]);
 
     $users = User::get();
-    return view('admin.user-list',compact('users'))->with("success", "Your profile has been updated");
+    return redirect()->back()->with("success", "User has been added successfully");
+  }
+
+  //delete function
+  public function deleteHotel(Request $request)
+  {
+    $hotel = Hotel::findOrFail($request->id);
+    $hotel->delete();
+
+    return redirect()->back();
+  }
+
+  public function deleteEventSpace(Request $request)
+  {
+    $eventspace = EventSpace::findOrFail($request->id);
+    $eventspace->delete();
+
+    return redirect()->back();
+  }
+
+  public function deleteHotelRoom(Request $request)
+  {
+    $hotelroom = HotelRoom::findOrFail($request->id);
+    $hotelroom->delete();
+
+    return redirect()->back();
   }
 
 

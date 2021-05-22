@@ -23,6 +23,10 @@
     <link rel="stylesheet" href="{{ asset('qbadminui/css/vendor/DataTable-1.10.20/datatables.min.css') }}"></link>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script src="{{ asset('qbadminui/js/vendor/DataTable-1.10.20/datatables.min.js') }}"></script>
+    <!-- Data Table script -->
+    <script src="{{ asset('qbadminui/js/plugins/dataTable_script.js') }}"></script>
+
     <meta name="theme-color" content="#fafafa">
     @livewireStyles
 </head>
@@ -112,24 +116,46 @@
 
 
             @if ($message = Session::get('success'))
-            <div id=alert>
-                <div class="alert alert-card alert-success" role="alert">
-                    <strong>Operasi Berjaya! </strong>
-                    {{$message}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+            <script type="text/javascript">
+                 $(document).ready(function() {
+                     $('#modal').modal();
+                 });
+             </script>
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content alert alert-card alert-success">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Successful!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
+                    </div>
+                    <div class="modal-body">
+                    <p>{{$message}}</p>
+                    </div>
+                </div>
                 </div>
             </div>
             @elseif ($message = Session::get('error'))
-            <div id="alert">
-              <div class="alert alert-card alert-danger" role="alert">
-                  <strong>Ralat! </strong>
-                  {{$message}}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
+            <script type="text/javascript">
+                 $(document).ready(function() {
+                     $('#error_modal').modal();
+                 });
+             </script>
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content alert alert-card warning-danger">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Failed!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    <p>{{$message}}</p>
+                    </div>
+                </div>
+                </div>
             </div>
             @endif
             <!-- The navbar -->

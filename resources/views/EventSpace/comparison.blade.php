@@ -209,8 +209,8 @@
                                                 <td><p class="mb-0 font-weight-normal">{{ $data->hotels->walking_radius ? $data->hotels->walking_radius : "-" }}</p></td>
                                                 @else
                                                 <td>-</td>
-                                                <td>-</td>
-                                                <td>-</td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $data->car_radius ? $data->car_radius : "-" }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $data->walking_radius ? $data->walking_radius : "-" }}</p></td>
 
                                                 @endif
                                                 <td><p class="mb-0 font-weight-normal">{{ $data->venue ? $data->venue : "-" }}</p></td>
@@ -244,7 +244,7 @@
     </div>
     <br><br>
 
-    <form action="{{ route('compareHotel') }}" method="POST">
+    <form action="{{ route('compareEventSpace') }}" method="POST">
         @csrf
     <div class="row">
        <div class="col">
@@ -271,9 +271,10 @@
         <label for="third_hotel"><b>Event Space</b></label>
             <select id="product-col-3" class="custom-select " name="third_hotel">
                 <option value="" selected hidden disabled>Please Choose Event Space</option>
-                @forelse($hotel as $data)
-                <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
+                @forelse($eventspace as $data)
+                <option value="{{ $data->id }}">{{ $data->venue }}</option>
                 @empty
+                <option selected disabled>No event space available</option>
                 @endforelse
             </select>
        </div>
@@ -286,7 +287,7 @@
         </div>
      </div>
     </form>
-     <div class="row">
+     {{-- <div class="row">
            <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
              <div class="card">
               <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap">
@@ -332,7 +333,7 @@
 
             </div>
            </div>
-     </div>
+     </div> --}}
    </div>
 
  </div>

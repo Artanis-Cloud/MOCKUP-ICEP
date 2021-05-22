@@ -11,10 +11,15 @@ use Livewire\WithFileUploads;
 class Event extends Component
 {
     use WithFileUploads;
-    public $hotel_id,$venue, $level,$size,$banquet,$classroom,$theater,$cocktail,$cabaret,$booth_capacity,$daily_rate,$image;
+    public $hotel_id,$venue, $level,$size,$banquet,$classroom,$theater,$cocktail,$cabaret,$booth_capacity,$daily_rate,$image,$longitude,$latitude,$car_radius,$walking_radius;
     public $show;
     public $photos = [];
-    protected $listeners = ['showFormHotel', 'showFormNotHotel'];
+    protected $listeners = [
+        'showFormHotel',
+        'showFormNotHotel',
+        'lat' => 'latStore',
+        'lng' => 'lngStore'
+    ];
 
     public function mount()
     {
@@ -57,6 +62,7 @@ class Event extends Component
             'booth_capacity' => $this->booth_capacity,
             'daily_rate' => $this->daily_rate,
 
+
         ]);
 
         $photos = $this->storePhoto($event_space);
@@ -84,7 +90,10 @@ class Event extends Component
             'booth_capacity' => $this->booth_capacity,
             'daily_rate' => $this->daily_rate,
             'thumbnail' => $image,
-
+            'car_radius' => $this->car_radius,
+            'walking_radius' => $this->walking_radius,
+            'longitude' => $this->longitude,
+            'latitude' => $this->latitude,
         ]);
 
         $photos = $this->storePhoto($event_space);
@@ -150,6 +159,16 @@ class Event extends Component
     {
         $this->show = 2;
         // dd($this->show);
+    }
+
+    public function latStore($lat)
+    {
+        $this->latitude = $lat;
+    }
+
+    public function lngStore($lng)
+    {
+        $this->longitude = $lng;
     }
 
 }
