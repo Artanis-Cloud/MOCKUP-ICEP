@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Venues;
 use App\Models\Hotel;
@@ -21,6 +21,214 @@ class VenueController extends Controller
         return view('Venue.hotel', compact('hotels','room_type','bed_type'));
 
     }
+
+    public function hotel_edit($id)
+    {
+        $hotels = Hotel::find($id);
+        return view('admin.hotel_update', compact('hotels'));
+    }
+
+    public function hotel_update(Request $request,$id)
+    {
+        // dd($request->all());
+        $this->validatorhotel($request->all())->validate();
+        $hotels = Hotel::find($id);
+        $hotels->hotel_name = $request->hotel_name;
+        $hotels->car_radius = $request->car_radius;
+        $hotels->walking_radius = $request->walking_radius;
+        $hotels->latitude = $request->latitude;
+        $hotels->longitude = $request->longitude;
+        if($files = request()->file('thumbnail') != null) {
+            // dd($request->gambar_profile);
+            $thumbnail = request()->file('thumbnail')->store('public/upload');
+            $hotels->thumbnail = $thumbnail;
+        }
+
+        $hotels->save();
+
+        $success = 'success';
+        $text = 'Hotel has been updated';
+
+        return redirect('/venue/lists')->with($success,$text);
+
+    }
+
+    protected function validatorhotel(array $data)
+    {
+      return Validator::make($data, [
+        'hotel_name'=> ['required','string'],
+        'car_radius'=> ['nullable','numeric'],
+        'walking_radius'=> ['nullable','numeric'],
+        'thumbnail' => ['max:100000'],
+      ]);
+    }
+
+    public function room_edit($id)
+    {
+        $rooms = HotelRoom::find($id);
+        return view('admin.room_update', compact('rooms'));
+    }
+
+    public function room_update(Request $request,$id)
+    {
+        // dd($request->all());
+        $this->validatorroom($request->all())->validate();
+        $rooms = HotelRoom::find($id);
+        $rooms->room_type = $request->room_type;
+        $rooms->size = $request->size;
+        $rooms->type_of_bed = $request->type_of_bed;
+        $rooms->view = $request->view;
+        $rooms->single_rate = $request->single_rate;
+        $rooms->double_rate = $request->double_rate;
+        $rooms->corporate_rate = $request->corporate_rate;
+
+        $image=Gallery::where('room_id',$id)->get();
+        // dd($image);
+        if($request->photos != null){
+            foreach ($image as $data ) {
+                $data->delete();
+            }
+            foreach($request->photos as $file)
+            {
+                $file_gambar = new Gallery();
+                $originalname = $file->getClientOriginalName();
+                $file_gambar->photos = $file->storeAs('public/uploads/', $originalname);
+                $file_gambar->room_id = $id;
+                $file_gambar->save();
+            }
+        }
+
+        $rooms->save();
+
+        $success = 'success';
+        $text = 'Hotel has been updated';
+
+        return redirect('/venue/lists')->with($success,$text);
+
+    }
+
+    protected function validatorroom(array $data)
+  {
+      return Validator::make($data, [
+        'room_type'=> ['required', 'string'],
+        'size'=> ['required', 'numeric'],
+        'type_of_bed'=> ['required', 'string'],
+        'view'=> ['required', 'string'],
+        'single_rate'=> ['required', 'numeric'],
+        'double_rate'=> ['required', 'numeric'],
+        'corporate_rate'=> ['required', 'numeric'],
+        'photos_.*' => ['nullable','max:100000'],
+      ]);
+  }
+
+    public function eventspace_edit($id)
+    {
+        $eventspace = EventSpace::find($id);
+        return view('admin.eventspace_update', compact('eventspace'));
+    }
+
+    public function eventspace_update(Request $request,$id)
+    {
+        // dd($request->all());
+        $this->validatoreventspace($request->all())->validate();
+        $eventspace = EventSpace::find($id);
+        if($request->hotel_id){
+            $eventspace->venue = $request->venue;
+            $eventspace->level = $request->level;
+            $eventspace->size = $request->size;
+            $eventspace->banquet = $request->banquet;
+            $eventspace->classroom = $request->classroom;
+            $eventspace->theater = $request->theater;
+            $eventspace->cocktail = $request->cocktail;
+            $eventspace->cabaret = $request->cabaret;
+            $eventspace->booth_capacity = $request->booth_capacity;
+            $eventspace->daily_rate = $request->daily_rate;
+
+            $image=Gallery::where('eventspace_id',$id)->get();
+            // dd($image);
+            if($request->photos != null){
+                foreach ($image as $data ) {
+                    $data->delete();
+                }
+                foreach($request->photos as $file)
+                {
+                    $file_gambar = new Gallery();
+                    $originalname = $file->getClientOriginalName();
+                    $file_gambar->photos = $file->storeAs('public/uploads/', $originalname);
+                    $file_gambar->eventspace_id = $id;
+                    $file_gambar->save();
+                }
+            }
+            $eventspace->save();
+        }
+        else{
+            $eventspace->venue = $request->venue;
+            $eventspace->car_radius = $request->car_radius;
+            $eventspace->walking_radius = $request->walking_radius;
+            $eventspace->latitude = $request->latitude;
+            $eventspace->longitude = $request->longitude;
+            $eventspace->level = $request->level;
+            $eventspace->size = $request->size;
+            $eventspace->banquet = $request->banquet;
+            $eventspace->classroom = $request->classroom;
+            $eventspace->theater = $request->theater;
+            $eventspace->cocktail = $request->cocktail;
+            $eventspace->cabaret = $request->cabaret;
+            $eventspace->booth_capacity = $request->booth_capacity;
+            $eventspace->daily_rate = $request->daily_rate;
+
+            if($files = request()->file('thumbnail') != null) {
+                // dd($request->gambar_profile);
+
+                $thumbnail = request()->file('thumbnail')->store('public/upload');
+                $eventspace->thumbnail = $thumbnail;
+            }
+
+            $image=Gallery::where('eventspace_id',$id)->get();
+            // dd($image);
+            if($request->photos != null){
+                foreach ($image as $data ) {
+                    $data->delete();
+                }
+                foreach($request->photos as $file)
+                {
+                    $file_gambar = new Gallery();
+                    $originalname = $file->getClientOriginalName();
+                    $file_gambar->photos = $file->storeAs('public/uploads/', $originalname);
+                    $file_gambar->eventspace_id = $id;
+                    $file_gambar->save();
+                }
+            }
+            $eventspace->save();
+        }
+        $success = 'success';
+        $text = 'Hotel has been updated';
+
+        return redirect('/venue/lists')->with($success,$text);
+
+    }
+    protected function validatoreventspace(array $data)
+    {
+        return Validator::make($data, [
+            'venue'=> ['required', 'string'],
+            'car_radius'=> ['nullable', 'numeric'],
+            'walking_radius'=> ['nullable', 'numeric'],
+            'latitude'=> ['nullable', 'numeric'],
+            'longitude'=> ['nullable', 'numeric'],
+            'level'=> ['nullable', 'numeric'],
+            'size'=> ['nullable', 'numeric'],
+            'banquet'=> ['nullable', 'numeric'],
+            'classroom'=> ['nullable', 'numeric'],
+            'theater'=> ['nullable', 'numeric'],
+            'cocktail'=> ['nullable', 'numeric'],
+            'cabaret'=> ['nullable', 'numeric'],
+            'booth_capacity'=> ['nullable', 'numeric'],
+            'daily_rate'=> ['nullable', 'numeric'],
+            // 'thumbnail' => ['nullable','mimes:jpg,bmp,png|max:100000'],
+            // 'photos_.*' => ['nullable','mimes:jpg,bmp,png|max:100000'],
+        ]);
+    }
+
 
     public function roomDetail(Request $request)
     {

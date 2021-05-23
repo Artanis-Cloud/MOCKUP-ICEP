@@ -330,7 +330,7 @@ input.search-submit {
                <div class="col-md-4">
                <center>
                  <div class="card" style="width: 18rem;">
-                   <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap">
+                   <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap" style="width:100%;height:200px;">
                    <div class="card-body">
                      <h5 class="card-title">{{$data->hotel_name}}</h5>
                      <button type="button" data-toggle="modal" data-target="#exampleModal{{ $data->id }}" class="btn btn-primary">Details</button>

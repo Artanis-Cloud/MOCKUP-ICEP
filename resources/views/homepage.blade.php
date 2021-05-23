@@ -148,7 +148,7 @@ input.search-submit {
   		</div>
   		<div class="col-md-4">
 
-                  <div class="container">
+                  {{-- <div class="container">
                     <form role="search" method="get" class="search-form form" action="">
                       <label>
                           <span class="screen-reader-text">Search for...</span>
@@ -156,7 +156,7 @@ input.search-submit {
                       </label>
                       <input type="submit" class="search-submit button" value="">
                   </form>
-                  </div>
+                  </div> --}}
 
   		</div>
   		<div class="col-md-4">

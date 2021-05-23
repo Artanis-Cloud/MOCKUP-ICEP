@@ -36,7 +36,7 @@
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-active" role="tabpanel" aria-labelledby="pills-active-tab">
                 <div class="table-responsive">
-                    <table class="table table-striped table-bordered" id="basicDataTable" style="width: 100%;">
+                    <table class="table table-striped table-bordered" {{-- id="basicDataTable"--}} style="width: 100%;">
                         <thead class="thead-light">
                             <tr class="text-center">
                                 <th><p class="mb-0">ID</p></th>
@@ -90,9 +90,9 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="pills-deactivate" role="tabpanel" aria-labelledby="pills-deactivate-tab">
-                <div class="tab-pane fade show active" id="pills-active" role="tabpanel" aria-labelledby="pills-active-tab">
+                <div class="tab-pane fade show" id="pills-active" role="tabpanel" aria-labelledby="pills-active-tab">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered" id="defaultOrderingDataTable" style="width: 100%;">
+                        <table class="table table-striped table-bordered" {{--  id="defaultOrderingDataTable"--}} style="width: 100%;">
                             <thead class="thead-light">
                                 <tr class="text-center">
                                     <th><p class="mb-0">ID</p></th>
