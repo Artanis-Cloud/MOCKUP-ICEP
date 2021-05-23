@@ -34,10 +34,10 @@
                 <div class="form-group">
                 <label>Venue</label>
                 <input type="text"  wire:model='venue' class="form-control bg-light @error('venue') is-invalid @enderror" name="venue" placeholder="Venue " oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">
-                @error('name')
-                <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                @error('venue')
+                <div class="alert alert-danger">
+                    <strong>{{ $message }}</strong>
+                    </div>
                 @enderror
                 </div>
             </div>
@@ -47,9 +47,9 @@
                 <label>Level</label>
                 <input type="text"  wire:model='level' class="form-control bg-light @error('venue') is-invalid @enderror" name="level" placeholder="Level " oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">
                 @error('level')
-                <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <div class="alert alert-danger">
+                    <strong>{{ $message }}</strong>
+                    </div>
                 @enderror
                 </div>
             </div>
@@ -58,10 +58,10 @@
                 <div class="form-group">
                     <label>Size (sq.ft.)</label>
                     <input type="text"  wire:model='size' class="form-control bg-light @error('size') is-invalid @enderror" name="size" placeholder="Size of Venue">
-                    @error('number_of_pax')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    @error('size')
+                    <div class="alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                        </div>
                     @enderror
                 </div>
                 </div>
@@ -76,9 +76,9 @@
                     <label>Banquet</label>
                     <input type="text"  wire:model='banquet' class="form-control bg-light @error('banquet') is-invalid @enderror" name="banquet" placeholder="Banquet">
                     @error('banquet')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    <div class="alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                        </div>
                     @enderror
                 </div>
                 </div>
@@ -87,9 +87,9 @@
                     <label>Classroom</label>
                     <input type="text"  wire:model='classroom' class="form-control bg-light @error('classroom') is-invalid @enderror" name="classroom" placeholder="Classroom">
                     @error('classroom')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    <div class="alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                        </div>
                     @enderror
                 </div>
                 </div>
@@ -101,9 +101,9 @@
                     <label>Theater</label>
                     <input type="text" wire:model='theater' class="form-control bg-light @error('theater') is-invalid @enderror" name="theater" placeholder="Theater">
                     @error('theater')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    <div class="alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                        </div>
                     @enderror
                 </div>
                 </div>
@@ -112,9 +112,9 @@
                     <label>Cocktail</label>
                     <input type="text"  wire:model='cocktail' class="form-control bg-light @error('cocktail') is-invalid @enderror" name="cocktail" placeholder="Cocktail">
                     @error('cocktail')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    <div class="alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                        </div>
                     @enderror
                 </div>
                 </div>
@@ -124,9 +124,9 @@
                         <label>Cabaret/Workshop</label>
                         <input type="text"  wire:model='cabaret' class="form-control bg-light @error('cabaret') is-invalid @enderror" name="cabaret" placeholder="Cabaret/Workshop">
                         @error('cabaret')
-                        <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                        <div class="alert alert-danger">
+                            <strong>{{ $message }}</strong>
+                            </div>
                         @enderror
                     </div>
                     </div>
@@ -136,9 +136,9 @@
                             <label>Booth Capacity</label>
                             <input type="text"  wire:model='booth_capacity'class="form-control bg-light @error('booth_capacity') is-invalid @enderror" name="booth_capacity" placeholder="Booth Capacity">
                             @error('booth_capacity')
-                            <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            <div class="alert alert-danger">
+                                <strong>{{ $message }}</strong>
+                                </div>
                             @enderror
                         </div>
                         </div>
@@ -148,9 +148,9 @@
                                 <label>Daily Rate</label>
                                 <input type="text"  wire:model='daily_rate' class="form-control bg-light @error('daily_rate') is-invalid @enderror" name="Daily Rate" placeholder="Daily Rates">
                                 @error('daily_rate')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <div class="alert alert-danger">
+                                    <strong>{{ $message }}</strong>
+                                    </div>
                                 @enderror
                             </div>
                             </div>
@@ -191,14 +191,14 @@
                     <div class="form-group">
                         <label  class="required">Upload Event Space Images</label>
                         <div class="custom-file">
-                            <input wire:model="photos.0" type="file" class="custom-file-input" id="photos" name="photos" multiple>
+                            <input wire:model="photos.0" type="file" class="custom-file-input" id="photos" onchange="return translateUpload1('photos');" name="photos" multiple>
                             <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
                         </div>
                         <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB</small>
                         @error('photos')
                         <div class="alert alert-danger">
-                        <strong>{{ $message }}</strong>
-                        </div>
+                            <strong>{{ $message }}</strong>
+                            </div>
                         @enderror
                     </div>
                 </div>
@@ -248,10 +248,10 @@
                 <div class="form-group">
                 <label>Venue</label>
                 <input type="text"  wire:model='venue' class="form-control bg-light @error('venue') is-invalid @enderror" name="venue" placeholder="Venue " oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">
-                @error('name')
-                <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                @error('venue')
+                <div class="alert alert-danger">
+                    <strong>{{ $message }}</strong>
+                    </div>
                 @enderror
                 </div>
             </div>
@@ -261,9 +261,9 @@
                 <label>Radius from KLCC (by Car)</label>
                 <input type="text" wire:model='car_radius' class="form-control bg-light @error('car_radius') is-invalid @enderror" name="car_radius" placeholder="Radius from KLCC (by Car)">
                 @error('car_radius')
-                <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <div class="alert alert-danger">
+                    <strong>{{ $message }}</strong>
+                    </div>
                 @enderror
                 </div>
             </div>
@@ -272,9 +272,9 @@
                 <label>Radius from KLCC (Walking Distance)</label>
                 <input type="text" wire:model='walking_radius' class="form-control bg-light @error('walking_radius') is-invalid @enderror" name="walking_radius" placeholder="Radius from KLCC (Walking Distance)">
                 @error('walking_radius')
-                <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <div class="alert alert-danger">
+                    <strong>{{ $message }}</strong>
+                    </div>
                 @enderror
                 </div>
             </div>
@@ -337,9 +337,9 @@
                 <label>Level</label>
                 <input type="text"  wire:model='level' class="form-control bg-light @error('venue') is-invalid @enderror" name="level" placeholder="Level " oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">
                 @error('level')
-                <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <div class="alert alert-danger">
+                    <strong>{{ $message }}</strong>
+                    </div>
                 @enderror
                 </div>
             </div>
@@ -348,10 +348,10 @@
                 <div class="form-group">
                     <label>Size (sq.ft.)</label>
                     <input type="text"  wire:model='size' class="form-control bg-light @error('size') is-invalid @enderror" name="size" placeholder="Size of Venue">
-                    @error('number_of_pax')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    @error('size')
+                    <div class="alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                        </div>
                     @enderror
                 </div>
                 </div>
@@ -366,9 +366,9 @@
                     <label>Banquet</label>
                     <input type="text"  wire:model='banquet' class="form-control bg-light @error('banquet') is-invalid @enderror" name="banquet" placeholder="Banquet">
                     @error('banquet')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    <div class="alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                        </div>
                     @enderror
                 </div>
                 </div>
@@ -377,9 +377,9 @@
                     <label>Classroom</label>
                     <input type="text"  wire:model='classroom' class="form-control bg-light @error('classroom') is-invalid @enderror" name="classroom" placeholder="Classroom">
                     @error('classroom')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    <div class="alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                        </div>
                     @enderror
                 </div>
                 </div>
@@ -391,9 +391,9 @@
                     <label>Theater</label>
                     <input type="text" wire:model='theater' class="form-control bg-light @error('theater') is-invalid @enderror" name="theater" placeholder="Theater">
                     @error('theater')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    <<div class="alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                        </div>
                     @enderror
                 </div>
                 </div>
@@ -402,9 +402,9 @@
                     <label>Cocktail</label>
                     <input type="text"  wire:model='cocktail' class="form-control bg-light @error('cocktail') is-invalid @enderror" name="cocktail" placeholder="Cocktail">
                     @error('cocktail')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    <div class="alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                        </div>
                     @enderror
                 </div>
                 </div>
@@ -414,9 +414,9 @@
                         <label>Cabaret/Workshop</label>
                         <input type="text"  wire:model='cabaret' class="form-control bg-light @error('cabaret') is-invalid @enderror" name="cabaret" placeholder="Cabaret/Workshop">
                         @error('cabaret')
-                        <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                        <div class="alert alert-danger">
+                            <strong>{{ $message }}</strong>
+                            </div>
                         @enderror
                     </div>
                     </div>
@@ -426,9 +426,9 @@
                             <label>Booth Capacity</label>
                             <input type="text"  wire:model='booth_capacity'class="form-control bg-light @error('booth_capacity') is-invalid @enderror" name="booth_capacity" placeholder="Booth Capacity">
                             @error('booth_capacity')
-                            <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            <div class="alert alert-danger">
+                                <strong>{{ $message }}</strong>
+                                </div>
                             @enderror
                         </div>
                         </div>
@@ -438,9 +438,9 @@
                                 <label>Daily Rate</label>
                                 <input type="text"  wire:model='daily_rate' class="form-control bg-light @error('daily_rate') is-invalid @enderror" name="Daily Rate" placeholder="Cocktail">
                                 @error('daily_rate')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <div class="alert alert-danger">
+                                    <strong>{{ $message }}</strong>
+                                    </div>
                                 @enderror
                             </div>
                             </div>
@@ -453,14 +453,14 @@
                 <div class="form-group">
                     <label  class="required">Thumbnails image</label>
                     <div class="custom-file">
-                        <input type="file" wire:model='image' class="custom-file-input" required id="image" onchange="return translateUpload('image');" name="thumbnail">
+                        <input type="file" wire:model='image' class="custom-file-input" required id="thumbnail" onchange="return translateUpload2('thumbnail');" name="thumbnail">
                         <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
                     </div>
                     <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB.</small>
-                    @error('thumbnail')
+                    @error('image')
                     <div class="alert alert-danger">
                         <strong>{{ $message }}</strong>
-                    </div>
+                        </div>
                     @enderror
                 </div>
                 </div>
@@ -480,14 +480,14 @@
                     <div class="form-group">
                         <label  class="required">Upload Event Space Images</label>
                         <div class="custom-file">
-                            <input wire:model="photos.0" type="file" class="custom-file-input" id="photos" name="photos" multiple>
+                            <input wire:model="photos.0" type="file" class="custom-file-input" onchange="return translateUpload('photos1');" id="photos1" name="photos" multiple>
                             <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
                         </div>
                         <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB</small>
                         @error('photos')
                         <div class="alert alert-danger">
-                        <strong>{{ $message }}</strong>
-                        </div>
+                            <strong>{{ $message }}</strong>
+                            </div>
                         @enderror
                     </div>
                 </div>
@@ -528,4 +528,90 @@
         </div>
     </form>
     @endif
+    <script type="text/javascript">
+
+        $('#photos1').on('change',function(){
+            //get the file name
+            var fileName = $(this).val();
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label').html(fileName);
+        })
+
+        function translateUpload(x){
+          console.log("translate upload fungsi");
+          fileValidation(x);
+          document.getElementById("photos1").setCustomValidity('');
+        }
+
+        function fileValidation(name){
+          console.log(name);
+
+          var fileInput = document.getElementById(name);
+          var filePath = fileInput.value;
+          var allowedExtensions = /(\.jpeg|\.jpg|\.png)$/i;
+          if(!allowedExtensions.exec(filePath)){
+              alert('Please upload in format .jpeg , .jpg and .png only!');
+              fileInput.value = '';
+              return false;
+          }
+        }
+      </script>
+
+      <script type="text/javascript">
+
+          $('#photos').on('change',function(){
+              //get the file name
+              var fileName = $(this).val();
+              //replace the "Choose a file" label
+              $(this).next('.custom-file-label').html(fileName);
+          })
+
+          function translateUpload1(x){
+            console.log("translate upload fungsi");
+            fileValidation(x);
+            document.getElementById("photos").setCustomValidity('');
+          }
+
+          function fileValidation(name){
+            console.log(name);
+
+            var fileInput = document.getElementById(name);
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.jpeg|\.jpg|\.png)$/i;
+            if(!allowedExtensions.exec(filePath)){
+                alert('Please upload in format .jpeg , .jpg and .png only!');
+                fileInput.value = '';
+                return false;
+            }
+          }
+        </script>
+
+      <script type="text/javascript">
+
+          $('#thumbnail').on('change',function(){
+              //get the file name
+              var fileName = $(this).val();
+              //replace the "Choose a file" label
+              $(this).next('.custom-file-label').html(fileName);
+          })
+
+          function translateUpload2(x){
+            console.log("translate upload fungsi");
+            fileValidation(x);
+            document.getElementById("thumbnail").setCustomValidity('');
+          }
+
+          function fileValidation(name){
+            console.log(name);
+
+            var fileInput = document.getElementById(name);
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.jpeg|\.jpg|\.png)$/i;
+            if(!allowedExtensions.exec(filePath)){
+                alert('Please upload in format .jpeg , .jpg and .png only!');
+                fileInput.value = '';
+                return false;
+            }
+          }
+        </script>
 </div>

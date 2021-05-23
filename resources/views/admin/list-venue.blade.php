@@ -35,8 +35,8 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div class="tab-pane active" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
-                        <div class="">
+                    <div class="tab-pane active" id="hotel" role="tabpanel" aria-labelledby="hotel-tab"><br>
+                        <div class="table-responsive">
                             <table class="table table-striped table-bordered" id="" style="width: 100%;">
                                 <thead class="thead-light">
                                     <tr class="text-center">
@@ -57,7 +57,7 @@
                                             <td>{{$data->car_radius}}</td>
                                             <td>{{$data->walking_radius}}</td>
                                             <td>
-                                                <a href="#" class="mr-1 btn btn-success"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="{{ route('hotel_edit', $data->id) }}" class="mr-1 btn btn-success"><i class="fas fa-pencil-alt"></i></a>
                                                 <form action="{{ route('hotel.delete', $data->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="mr-1 btn btn-danger"><i class="fas fa-trash"></i></button>
@@ -74,7 +74,7 @@
 
                     <div class="tab-pane" id="room" role="tabpanel" aria-labelledby="room-tab"><br>
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered" id="basicDataTable" style="width: 100%;">
+                            <table class="table table-striped table-bordered" {{-- id="basicDataTable"--}} style="width: 100%;">
                                 <thead class="thead-light">
                                     <tr class="text-center">
                                         <th><p class="mb-0">ID</p></th>
@@ -107,7 +107,7 @@
                                             <td><p class="mb-0 font-weight-normal">RM {{ $data->double_rate ? $data->double_rate : "-" }}</p></td>
                                             <td><p class="mb-0 font-weight-normal">RM {{ $data->corporate_rate ? $data->corporate_rate : "-" }}</p></td>
                                             <td>
-                                                <a href="#" class="mr-1 btn btn-success"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="{{ route('room_edit', $data->id) }}" class="mr-1 btn btn-success"><i class="fas fa-pencil-alt"></i></a>
                                                 <form action="{{ route('hotelroom.delete', $data->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="mr-1 btn btn-danger"><i class="fas fa-trash"></i></button>
@@ -126,7 +126,7 @@
                     </div>
                     <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab"><br>
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered" id="defaultOrderingDataTable" style="width: 100%;">
+                            <table class="table table-striped table-bordered" {{-- id="defaultOrderingDataTable" --}} style="width: 100%;">
                                 <thead class="thead-light">
                                     <tr class="text-center">
                                         <th><p class="mb-0">ID</p></th>
@@ -159,7 +159,7 @@
                                             <td>{{$data->cocktail}}</td>
                                             <td>{{$data->daily_rate}}</td>
                                             <td>
-                                                <a href="#" class="mr-1 btn btn-success"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="{{ route('eventspace_edit', $data->id) }}" class="mr-1 btn btn-success"><i class="fas fa-pencil-alt"></i></a>
                                                 <form action="{{ route('eventspace.delete', $data->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="mr-1 btn btn-danger"><i class="fas fa-trash"></i></button>
@@ -180,7 +180,7 @@
                                             <td>{{$data->cocktail}}</td>
                                             <td>{{$data->daily_rate}}</td>
                                             <td>
-                                                <a href="#" class="mr-1 btn btn-success"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="{{ route('eventspace_edit', $data->id) }}" class="mr-1 btn btn-success"><i class="fas fa-pencil-alt"></i></a>
                                                 <form action="{{ route('eventspace.delete', $data->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="mr-1 btn btn-danger"><i class="fas fa-trash"></i></button>

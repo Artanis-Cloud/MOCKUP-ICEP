@@ -20,7 +20,9 @@ class Hotels extends Component
 
     protected $rules = [
         'hotel_name' => 'required|string',
-        'image' => 'max:2048', // 2MB Max                   //validate
+        'car_radius' => 'nullable|numeric',
+        'walking_radius' => 'nullable|numeric',
+        'image' => 'required|max:2048', // 2MB Max                   //validate
     ];
 
     public function render()
@@ -43,7 +45,6 @@ class Hotels extends Component
         // dd($this->latitude);
         $hotel = Hotel::create([
             'hotel_name'=> $this->hotel_name,
-            'room_type' => $this->room_type,
             'car_radius' => $this->car_radius,
             'walking_radius' => $this->walking_radius,
             'thumbnail' => $image,
@@ -88,5 +89,6 @@ class Hotels extends Component
     {
         $this->longitude = $lng;
     }
+
 
 }

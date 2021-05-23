@@ -67,6 +67,18 @@ Route::middleware([CheckRole::class])->group(function(){
 
     Route::get('/eventspace/add', [App\Http\Controllers\AdminController::class, 'add_eventspace'])->name('eventspace.add');
 
+    Route::get('/hotel_edit/{id}', [App\Http\Controllers\VenueController::class, 'hotel_edit'])->name('hotel_edit');
+
+    Route::post('/hotel_update/{id}', [App\Http\Controllers\VenueController::class, 'hotel_update'])->name('hotel_update');
+
+    Route::get('/room_edit/{id}', [App\Http\Controllers\VenueController::class, 'room_edit'])->name('room_edit');
+
+    Route::post('/room_update/{id}', [App\Http\Controllers\VenueController::class, 'room_update'])->name('room_update');
+
+    Route::get('/eventspace_edit/{id}', [App\Http\Controllers\VenueController::class, 'eventspace_edit'])->name('eventspace_edit');
+
+    Route::post('/eventspace_update/{id}', [App\Http\Controllers\VenueController::class, 'eventspace_update'])->name('eventspace_update');
+
     Route::get('/forms', [App\Http\Controllers\AdminController::class, 'forms'])->name('forms');
 
     Route::get('/venue/lists', [App\Http\Controllers\AdminController::class, 'list_venue'])->name('venue');

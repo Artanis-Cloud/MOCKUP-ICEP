@@ -98,6 +98,7 @@
   height: 500px;
   border: 1px solid #000;
 }
+
 </style>
 
 <div class="p-4 page-body text-dark">
@@ -123,6 +124,7 @@
     </div>
   <!-- Small card component -->
 </div>
+
 
 <script type="text/javascript">
 

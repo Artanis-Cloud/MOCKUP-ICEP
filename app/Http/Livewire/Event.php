@@ -36,10 +36,29 @@ class Event extends Component
         return view('livewire.event',compact('hotel_name'));
     }
 
-    // public function updated()                   //function called everytime user input
-    // {
-    //     $this->validate();
-    // }
+
+
+    protected $rules = [
+        'venue' => 'required|string',
+        'level' => 'nullable|numeric',
+        'size' => 'required|numeric',
+        'banquet' => 'nullable|numeric',
+        'classroom' => 'nullable|numeric',
+        'theater' => 'nullable|numeric',
+        'cabaret' => 'nullable|numeric',
+        'cocktail' => 'nullable|numeric',
+        'booth_capacity' => 'nullable|numeric',
+        'daily_rate' => 'nullable|numeric',
+        'car_radius' => 'nullable|numeric',
+        'walking_radius' => 'nullable|numeric',
+        'image' => 'required|max:2048',
+        'photos' => 'required|max:2048',
+    ];
+
+    public function updated()                   //function called everytime user input
+    {
+        $this->validate();
+    }
 
     public function addEvent()
 
@@ -48,7 +67,7 @@ class Event extends Component
         // $this->validate();
         // $image = $this->storeImage();
 
-
+        $this->validate();
         $event_space =EventSpace::create([
             'venue'=> $this->venue,
             'level' => $this->level,
@@ -63,6 +82,7 @@ class Event extends Component
             'daily_rate' => $this->daily_rate,
 
 
+
         ]);
 
         $photos = $this->storePhoto($event_space);
@@ -75,7 +95,7 @@ class Event extends Component
 
     {
         // dd($this->photos);
-        // $this->validate();
+        $this->validate();
         $image = $this->storeImage();
 
         $event_space =EventSpace::create([

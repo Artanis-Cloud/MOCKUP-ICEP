@@ -282,6 +282,8 @@ section {
               <div class="square" style="--i:4;"></div>
               <div class="square" style="--i:5;"></div>
 
+
+
              <div class="container">
               <div class="form">
                   <div style="text-align:center;">
@@ -290,6 +292,11 @@ section {
                   <br>
 
                 <h2 style="font-size: 30px">ADMIN LOGIN</h2>
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        <font style="color:red;">{{ session('error') }}</font>
+                    </div>
+                @endif
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                   <div class="inputBx">

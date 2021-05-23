@@ -42,6 +42,7 @@ class Room extends Component
 
     }
 
+
     private function resetInputFields(){
         $this->room_type = '';
         $this->size = '';
@@ -57,8 +58,58 @@ class Room extends Component
     public function store(Hotel $hotel)
     {
 
-        // dd($this);
+    //     $this->validate([
+    //         'room_type.0' => 'required|string',
+    //         'size.0' => 'required|numeric',
+    //         'type_of_bed.0' => 'required|string',
+    //         'view.0' => 'nullable|string',
+    //         'single_rate.0' => 'nullable|numeric',
+    //         'double_rate.0' => 'nullable|numeric',
+    //         'corporate_rate.0' => 'nullable|numeric',
+    //         'photos.0' => 'required|max:2048',
+
+    //         'room_type.*' => 'required|string',
+    //         'size.*' => 'required|numeric',
+    //         'type_of_bed.*' => 'required|string',
+    //         'view.*' => 'nullable|string',
+    //         'single_rate.*' => 'nullable|numeric',
+    //         'double_rate.*' => 'nullable|numeric',
+    //         'corporate_rate.*' => 'nullable|numeric',
+    //         'photos.*' => 'required|max:2048',
+    //     ],
+    //     [
+    //         'room_type.0.required' => 'This field is required',
+    //         'size.0.required' => 'This field is required',
+    //         'type_of_bed.0.required' => 'This field is required',
+    //         'photos.0.required' => 'This field is required',
+
+    //         'size.0.numeric' => 'Please insert numeric value',
+
+
+
+    //         'single_rate.0.numeric' => 'Please insert numeric value',
+    //         'double_rate.0.numeric' => 'Please insert numeric value',
+    //         'corporate_rate.0.numeric' => 'Please insert numeric value',
+
+    //         'room_type.*.required' => 'This field is required',
+    //         'size.*.required' => 'This field is required',
+    //         'type_of_bed.*.required' => 'This field is required',
+    //         'photos.*.required' => 'This field is required',
+
+
+    //         'size.*.numeric' => 'Please insert numeric value',
+
+
+
+    //         'single_rate.*.numeric' => 'Please insert numeric value',
+    //         'double_rate.*.numeric' => 'Please insert numeric value',
+    //         'corporate_rate.*.numeric' => 'Please insert numeric value',
+    //     ]
+
+    // );
+
         foreach ($this->room_type as $key => $value) {
+
             $hotel_room = HotelRoom::create ([
                 'room_type' => $this->room_type[$key],
                 'size' => $this->size[$key],
