@@ -59,7 +59,7 @@ a:active {
                           <!-- Text -->
                           <div class="text-center small-card-text w-100">
                               <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #003473 !important;">Total Event Spaces</p>
-                              <h4 class="m-0 font-weight-normal text-primary" style="color: #003473 !important;">1221</h4>
+                              <h4 class="m-0 font-weight-normal text-primary" style="color: #003473 !important;">{{ $eventspace }}</h4>
                           </div>
 
                       </div>
@@ -93,8 +93,8 @@ a:active {
                             </div>
                             <!-- Text -->
                             <div class="text-center small-card-text w-100">
-                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #D25F00 !important;">Total Hotels</p>
-                                <h4 class="m-0 font-weight-normal text-primary" style="color: #D25F00 !important;">342323324</h4>
+                                <p class="m-0 font-weight-normal text-primary" style="font-size: 120%; color: #D25F00 !important;">Total Hotel Rooms</p>
+                                <h4 class="m-0 font-weight-normal text-primary" style="color: #D25F00 !important;">{{ $rooms }}</h4>
                             </div>
                         </div>
 

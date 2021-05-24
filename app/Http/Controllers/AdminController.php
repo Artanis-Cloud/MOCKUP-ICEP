@@ -34,7 +34,9 @@ class AdminController extends Controller
     public function index()
     {
         $announcement =Announcement::get();
-        return view('admin.main-menu',compact('announcement'));
+        $eventspace =EventSpace::count();
+        $rooms =HotelRoom::count();
+        return view('admin.main-menu',compact('announcement','eventspace','rooms'));
     }
 
 
