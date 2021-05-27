@@ -132,36 +132,36 @@ class VenueController extends Controller
         // dd($request->all());
         $this->validatoreventspace($request->all())->validate();
         $eventspace = EventSpace::find($id);
-        if($request->hotel_id){
-            $eventspace->venue = $request->venue;
-            $eventspace->level = $request->level;
-            $eventspace->size = $request->size;
-            $eventspace->banquet = $request->banquet;
-            $eventspace->classroom = $request->classroom;
-            $eventspace->theater = $request->theater;
-            $eventspace->cocktail = $request->cocktail;
-            $eventspace->cabaret = $request->cabaret;
-            $eventspace->booth_capacity = $request->booth_capacity;
-            $eventspace->daily_rate = $request->daily_rate;
+        // if($request->hotel_id){
+        //     $eventspace->venue = $request->venue;
+        //     $eventspace->level = $request->level;
+        //     $eventspace->size = $request->size;
+        //     $eventspace->banquet = $request->banquet;
+        //     $eventspace->classroom = $request->classroom;
+        //     $eventspace->theater = $request->theater;
+        //     $eventspace->cocktail = $request->cocktail;
+        //     $eventspace->cabaret = $request->cabaret;
+        //     $eventspace->booth_capacity = $request->booth_capacity;
+        //     $eventspace->daily_rate = $request->daily_rate;
 
-            $image=Gallery::where('eventspace_id',$id)->get();
-            // dd($image);
-            if($request->photos != null){
-                foreach ($image as $data ) {
-                    $data->delete();
-                }
-                foreach($request->photos as $file)
-                {
-                    $file_gambar = new Gallery();
-                    $originalname = $file->getClientOriginalName();
-                    $file_gambar->photos = $file->storeAs('public/uploads/', $originalname);
-                    $file_gambar->eventspace_id = $id;
-                    $file_gambar->save();
-                }
-            }
-            $eventspace->save();
-        }
-        else{
+        //     $image=Gallery::where('eventspace_id',$id)->get();
+        //     // dd($image);
+        //     if($request->photos != null){
+        //         foreach ($image as $data ) {
+        //             $data->delete();
+        //         }
+        //         foreach($request->photos as $file)
+        //         {
+        //             $file_gambar = new Gallery();
+        //             $originalname = $file->getClientOriginalName();
+        //             $file_gambar->photos = $file->storeAs('public/uploads/', $originalname);
+        //             $file_gambar->eventspace_id = $id;
+        //             $file_gambar->save();
+        //         }
+        //     }
+        //     $eventspace->save();
+        // }
+        // else{
             $eventspace->venue = $request->venue;
             $eventspace->car_radius = $request->car_radius;
             $eventspace->walking_radius = $request->walking_radius;
@@ -200,7 +200,7 @@ class VenueController extends Controller
                 }
             }
             $eventspace->save();
-        }
+        // }
         $success = 'success';
         $text = 'Hotel has been updated';
 
@@ -242,18 +242,6 @@ class VenueController extends Controller
         return view('Venue.room_details', compact('rooms','photos','hotel','map'));
     }
 
-    public function eventspaceDetail(Request $request)
-    {
-        // dd($request->all());
-        $hotel = EventSpace::where('hotel_id',$request->hotel_id)->get();
-        $eventspace=EventSpace::where('id', $request->eventspace_id)->get();
-        $photos=Gallery::where('eventspace_id', $request->eventspace_id)->get();
-        $map = Hotel::where('id',$request->hotel_id)->get();
-        // dd($eventspace);
-
-       return view('Venue.eventspace_details', compact('eventspace','photos','hotel','map'));
-    }
-
     public function roomFilter(Request $request)
     {
         // dd($request->all());
@@ -285,15 +273,15 @@ class VenueController extends Controller
         return view('Venue.eventspace_filter', compact('eventspace'));
     }
 
-    public function eventspaceDetails($id)
+    public function eventspaceDetails(Request $request, $id)
     {
+        // dd($request->all());
+        $hotels=EventSpace::where('hotel_id', $request->hotel_id)->get();
         $eventspace_id = EventSpace::find($id);
-        // dd($eventspace_id);
         $eventspace = EventSpace::where('id', $eventspace_id->id)->get();
-        // dd($eventspace);
         $photos = Gallery::where('eventspace_id', $eventspace_id->id)->get();
 
-       return view('venue.eventspace_details', compact('eventspace','photos'));
+       return view('venue.eventspace_details', compact('eventspace','photos','hotels'));
     }
     public function eventspace()
     {

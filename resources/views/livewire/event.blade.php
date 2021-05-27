@@ -1,11 +1,11 @@
 <div class="">
-    <div class="row">
+    {{-- <div class="row">
         <button class="m-auto btn btn-primary btn-outline-primary badge-pill btn-block w-25" wire:click="$emit('showFormHotel')">Have Hotel</button>
         <button class="m-auto btn btn-primary btn-outline-primary badge-pill btn-block w-25" wire:click="$emit('showFormNotHotel')">No Hotel</button>
-    </div>
+    </div> --}}
 
 
-    @if($show == 1)
+    {{-- @if($show == 1)
     <form wire:submit.prevent="addEvent" >
         @csrf
         <div>
@@ -159,7 +159,7 @@
             </div>
 
 
-            {{-- <div class="row">
+            <div class="row">
                 <div class="col-md-12">
                 <div class="form-group">
                     <label  class="required">Thumbnails image</label>
@@ -184,7 +184,7 @@
                         <img src="{{ $image->temporaryUrl() }}" style="width:100%;height:30vh;">
                     @endif
                 </div>
-            </div> --}}
+            </div>
 
             <div class="row">
                 <div class="col-md-12">
@@ -238,7 +238,7 @@
             @endif
         </div>
     </form>
-    @else
+    @else --}}
     <form wire:submit.prevent="addEventOnly" >
         @csrf
         <div>
@@ -357,6 +357,28 @@
                 </div>
             </div>
 
+            <hr class="">
+            <div class="col-md-12">
+                <div class="form-group">
+
+                <label>Hotel Name</label><br><label style="color:red;">If venue has hotel, Please insert hotel name.</label>
+                <select name="hotel_id" id="" wire:model='hotel_id' class="form-control bg-light @error('hotel_id') is-invalid @enderror"">
+                    <option disabled="disabled" hidden value="0">Choose Hotel</option>
+                    @forelse ($hotel_name as $data)
+                        <option value="{{ $data->id }}" >{{ $data->hotel_name }}</option>
+                    @empty
+                        <option selected="true" disabled="disabled" value="0">Please Insert Hotel Information in Hotel Add</option>
+                    @endforelse
+
+
+                </select>
+                @error('hotel_name')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                </div>
+            </div>
             <hr class="">
             <label>Layout</label>
 
@@ -527,7 +549,7 @@
             @endif
         </div>
     </form>
-    @endif
+    {{-- @endif --}}
     <script type="text/javascript">
 
         $('#photos1').on('change',function(){

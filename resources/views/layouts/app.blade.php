@@ -72,7 +72,7 @@
                             <a class="nav-link" href="{{ url('/homepage') }}">HOME</a>
                         </li> --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('hotel') }}">HOTEL</a>
+                            <a class="nav-link" href="{{ route('hotel') }}">ACCOMMODATION</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('eventspace') }}">EVENTS SPACE</a>
@@ -92,9 +92,9 @@
                         </li>
 
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('contact') }}">CONTACT US</a>
-                        </li>
+                        </li> --}}
                     </ul>
 
 
