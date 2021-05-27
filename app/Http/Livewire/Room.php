@@ -19,12 +19,40 @@ class Room extends Component
 
     protected $listeners = ['room-process' => 'store'];
 
+    protected $rules = [
+
+            'room_type.0' => 'required|string',
+            'size.0' => 'required|numeric',
+            'type_of_bed.0' => 'required|string',
+            'view.0' => 'nullable|string',
+            'single_rate.0' => 'nullable|numeric',
+            'double_rate.0' => 'nullable|numeric',
+            'corporate_rate.0' => 'nullable|numeric',
+            'photos.0' => 'required|max:2048',
+
+            'room_type.*' => 'required|string',
+            'size.*' => 'required|numeric',
+            'type_of_bed.*' => 'required|string',
+            'view.*' => 'nullable|string',
+            'single_rate.*' => 'nullable|numeric',
+            'double_rate.*' => 'nullable|numeric',
+            'corporate_rate.*' => 'nullable|numeric',
+            'photos.*' => 'required|max:2048',
+
+
+                    //validate
+    ];
     // public $employees, $name, $email, $employee_id;
     public $room_type, $size, $type_of_bed, $view, $single_rate, $double_rate, $corporate_rate;
     public $updateMode = false;
     public $inputs = [];
     public $i = 0;
     public $photos = [];
+
+    public function updated()                   //function called everytime user input
+    {
+        $this->validate();
+    }
 
     public function add($i)
     {
@@ -109,7 +137,7 @@ class Room extends Component
     // );
 
         foreach ($this->room_type as $key => $value) {
-
+            $this->validate();
             $hotel_room = HotelRoom::create ([
                 'room_type' => $this->room_type[$key],
                 'size' => $this->size[$key],
