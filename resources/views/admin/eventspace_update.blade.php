@@ -54,7 +54,7 @@
                     </div>
 
                     <div class="">
-                        @if($eventspace->hotel_id)
+                        {{-- @if($eventspace->hotel_id)
                         <form action="{{ route('eventspace_update',$eventspace->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div>
@@ -229,7 +229,7 @@
                                 @endif
                             </div>
                         </form>
-                        @else
+                        @else --}}
                         <form action="{{ route('eventspace_update',$eventspace->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div>
@@ -488,7 +488,7 @@
                                 @endif
                             </div>
                         </form>
-                        @endif
+                        {{-- @endif --}}
                     </div>
 
                 </div>

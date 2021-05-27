@@ -60,36 +60,36 @@ class Event extends Component
         $this->validate();
     }
 
-    public function addEvent()
+    // public function addEvent()
 
-    {
-        // dd($this->hotel_id);
-        // $this->validate();
-        // $image = $this->storeImage();
+    // {
+    //     // dd($this->hotel_id);
+    //     // $this->validate();
+    //     // $image = $this->storeImage();
 
-        $this->validate();
-        $event_space =EventSpace::create([
-            'venue'=> $this->venue,
-            'level' => $this->level,
-            'size' => $this->size,
-            'banquet' => $this->banquet,
-            'classroom' => $this->classroom,
-            'theater' => $this->theater,
-            'cocktail' => $this->cocktail,
-            'cabaret' => $this->cabaret,
-            'hotel_id'=> $this->hotel_id,
-            'booth_capacity' => $this->booth_capacity,
-            'daily_rate' => $this->daily_rate,
+    //     $this->validate();
+    //     $event_space =EventSpace::create([
+    //         'venue'=> $this->venue,
+    //         'level' => $this->level,
+    //         'size' => $this->size,
+    //         'banquet' => $this->banquet,
+    //         'classroom' => $this->classroom,
+    //         'theater' => $this->theater,
+    //         'cocktail' => $this->cocktail,
+    //         'cabaret' => $this->cabaret,
+    //         'hotel_id'=> $this->hotel_id,
+    //         'booth_capacity' => $this->booth_capacity,
+    //         'daily_rate' => $this->daily_rate,
 
 
 
-        ]);
+    //     ]);
 
-        $photos = $this->storePhoto($event_space);
-        $this->resetInputFields();
+    //     $photos = $this->storePhoto($event_space);
+    //     $this->resetInputFields();
 
-        session()->flash('message', 'Venue Has Been Added Successfully.');
-    }
+    //     session()->flash('message', 'Venue Has Been Added Successfully.');
+    // }
 
     public function addEventOnly()
 
@@ -98,23 +98,46 @@ class Event extends Component
         $this->validate();
         $image = $this->storeImage();
 
-        $event_space =EventSpace::create([
-            'venue'=> $this->venue,
-            'level' => $this->level,
-            'size' => $this->size,
-            'banquet' => $this->banquet,
-            'classroom' => $this->classroom,
-            'theater' => $this->theater,
-            'cocktail' => $this->cocktail,
-            'cabaret' => $this->cabaret,
-            'booth_capacity' => $this->booth_capacity,
-            'daily_rate' => $this->daily_rate,
-            'thumbnail' => $image,
-            'car_radius' => $this->car_radius,
-            'walking_radius' => $this->walking_radius,
-            'longitude' => $this->longitude,
-            'latitude' => $this->latitude,
-        ]);
+        if($this->hotel_id){
+            $event_space =EventSpace::create([
+                'venue'=> $this->venue,
+                'level' => $this->level,
+                'size' => $this->size,
+                'banquet' => $this->banquet,
+                'classroom' => $this->classroom,
+                'theater' => $this->theater,
+                'cocktail' => $this->cocktail,
+                'cabaret' => $this->cabaret,
+                'booth_capacity' => $this->booth_capacity,
+                'daily_rate' => $this->daily_rate,
+                'thumbnail' => $image,
+                'hotel_id'=> $this->hotel_id,
+                'car_radius' => $this->car_radius,
+                'walking_radius' => $this->walking_radius,
+                'longitude' => $this->longitude,
+                'latitude' => $this->latitude,
+            ]);
+        }
+        else{
+            $event_space =EventSpace::create([
+                'venue'=> $this->venue,
+                'level' => $this->level,
+                'size' => $this->size,
+                'banquet' => $this->banquet,
+                'classroom' => $this->classroom,
+                'theater' => $this->theater,
+                'cocktail' => $this->cocktail,
+                'cabaret' => $this->cabaret,
+                'booth_capacity' => $this->booth_capacity,
+                'daily_rate' => $this->daily_rate,
+                'thumbnail' => $image,
+                'car_radius' => $this->car_radius,
+                'walking_radius' => $this->walking_radius,
+                'longitude' => $this->longitude,
+                'latitude' => $this->latitude,
+            ]);
+        }
+
 
         $photos = $this->storePhoto($event_space);
 
@@ -155,7 +178,7 @@ class Event extends Component
 
     private function resetInputFields(){
         $this->venue = '';
-        $this->hotel_id = 0;
+        $this->hotel_id = '';
         $this->level = '';
         $this->size = '';
         $this->banquet = '';
@@ -167,6 +190,8 @@ class Event extends Component
         $this->daily_rate = '';
         $this->image = '';
         $this->photos = '';
+        $this->latitude = '';
+        $this->longitude = '';
     }
 
     public function showFormHotel()

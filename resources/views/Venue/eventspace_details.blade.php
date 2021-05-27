@@ -328,288 +328,232 @@ input.search-submit {
      <div class="row">
       <div class="col-md-12" style="padding-left: 5%; padding-right: 5%; padding-top: 5%;">
       <div class="rounded-lg card border-1">
-                                    <!-- Card body -->
-                                    <div class="p-0 card-body">
-                                        <!-- Card title -->
-                                        <div class="flex-row p-3 m-0 card-title d-flex align-items-center justify-content-between">
-                                            <h1>Event Space Details</h1>
-                                        </div>
-                                        <!-- Activity details -->
-                                        @forelse($eventspace as $data)
-                                        <div class="flex-row p-3 d-flex justify-content-between border-bottom">
-                                        @if($data->hotel_id)
-                                            <div class="flex-grow-1">
-                                            <h3 class="m-0 font-weight-normal">{{ $data->hotels->hotel_name }}</h3>
-                                            <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->hotels->thumbnail))}}" style="width: 250px; height: 200px;" alt="Card image cap">
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h4 class="text-muted">Radius from KLCC (car)</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->hotels->car_radius }}</h5>
-                                                <br>
-                                                <h4 class="text-muted">Radius from KLCC (walk)</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->hotels->walking_radius }}</h5>
-                                            </div>
-                                        @else
-                                        <div class="flex-grow-1">
-                                            <h3 class="m-0 font-weight-normal">{{ $data->venue }}</h3>
-                                            <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" style="width: 250px; height: 200px;" alt="Card image cap">
-                                            </div>
-                                        @endif
-                                            <div class="flex-grow-1">
-                                                <h4 class="text-muted">Event Space</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->venue }}</h5>
-                                                <br>
-                                                <h4 class="text-muted">Level</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->level }}</h5>
-                                            </div>
+            <!-- Card body -->
+            <div class="p-0 card-body">
+                <!-- Card title -->
+                <div class="flex-row p-3 m-0 card-title d-flex align-items-center justify-content-between">
+                    <h1>Event Space Details</h1>
+                </div>
+                <!-- Activity details -->
+                @forelse($eventspace as $data)
+                <div class="flex-row p-3 d-flex justify-content-between border-bottom">
+                @if($data->hotel_id)
+                    <div class="flex-grow-1">
+                    <h3 class="m-0 font-weight-normal">{{ $data->hotels->hotel_name }}</h3>
+                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" style="width: 250px; height: 200px;" alt="Card image cap">
+                    </div>
 
-                                            <div class="flex-grow-1">
-                                                <h4 class="text-muted">Size</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->size }} sq.ft</h5>
-                                                <br>
-                                                <h4 class="text-muted">Banquet</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->banquet }}</h5>
-                                            </div>
+                @else
+                <div class="flex-grow-1">
+                    <h3 class="m-0 font-weight-normal">{{ $data->venue }}</h3>
+                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" style="width: 250px; height: 200px;" alt="Card image cap">
+                </div>
+                @endif
+                <div class="flex-grow-1">
+                    <h4 class="text-muted">Radius from KLCC (car)</h4>
+                    <h5 class="m-0 font-weight-normal">{{ $data->car_radius ? $data->car_radius : "-" }}</h5>
+                    <br>
+                    <h4 class="text-muted">Radius from KLCC (walk)</h4>
+                    <h5 class="m-0 font-weight-normal">{{ $data->walking_radius ? $data->walking_radius : "-"}}</h5>
+                </div>
+                    <div class="flex-grow-1">
+                        <h4 class="text-muted">Event Space</h4>
+                        <h5 class="m-0 font-weight-normal">{{ $data->venue ? $data->venue : "-" }}</h5>
+                        <br>
+                        <h4 class="text-muted">Level</h4>
+                        <h5 class="m-0 font-weight-normal">{{ $data->level ? $data->level : "-" }}</h5>
+                    </div>
 
-                                            <div class="flex-grow-1">
-                                                <h4 class="text-muted">Classroom</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->classroom }}</h5>
-                                                <br>
-                                                <h4 class="text-muted">Theater</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->theater }}</h5>
-                                            </div>
+                    <div class="flex-grow-1">
+                        <h4 class="text-muted">Size</h4>
+                        <h5 class="m-0 font-weight-normal">{{ $data->size ? $data->size : "-"}} sq.ft</h5>
+                        <br>
+                        <h4 class="text-muted">Banquet</h4>
+                        <h5 class="m-0 font-weight-normal">{{ $data->banquet ? $data->banquet : "-" }}</h5>
+                    </div>
 
-                                            <div class="flex-grow-1">
-                                                <h4 class="text-muted">Cocktail</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->cocktail }}</h5>
-                                                <br>
-                                                <h4 class="text-muted">Cabaret</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->cabaret }}</h5>
-                                            </div>
+                    <div class="flex-grow-1">
+                        <h4 class="text-muted">Classroom</h4>
+                        <h5 class="m-0 font-weight-normal">{{ $data->classroom ? $data->classroom : "-" }}</h5>
+                        <br>
+                        <h4 class="text-muted">Theater</h4>
+                        <h5 class="m-0 font-weight-normal">{{ $data->theater ? $data->theater : "-" }}</h5>
+                    </div>
 
-                                            <div class="flex-grow-1">
-                                                <h4 class="text-muted">Booth Capacity</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->booth_capacity }}</h5>
-                                                <br>
-                                                <h4 class="text-muted">Daily Rates</h4>
-                                                <h5 class="m-0 font-weight-normal">RM {{ $data->daily_rate }}</h5>
-                                            </div>
+                    <div class="flex-grow-1">
+                        <h4 class="text-muted">Cocktail</h4>
+                        <h5 class="m-0 font-weight-normal">{{ $data->cocktail ? $data->cocktail : "-" }}</h5>
+                        <br>
+                        <h4 class="text-muted">Cabaret</h4>
+                        <h5 class="m-0 font-weight-normal">{{ $data->cabaret ? $data->cabaret : "-" }}</h5>
+                    </div>
 
-                                        </div>
+                    <div class="flex-grow-1">
+                        <h4 class="text-muted">Booth Capacity</h4>
+                        <h5 class="m-0 font-weight-normal">{{ $data->booth_capacity ? $data->booth_capacity : "-" }}</h5>
+                        <br>
+                        <h4 class="text-muted">Daily Rates</h4>
+                        <h5 class="m-0 font-weight-normal">RM {{ $data->daily_rate ? $data->daily_rate : "-" }}</h5>
+                    </div>
 
-
-                                        <div class="border-0 rounded-lg card" style="padding: 5%">
-                                         <!-- Tab nav -->
-                                         <ul class="mb-3 nav nav-pills" id="pills-tab" role="tablist" style="background-color: #2F4858; justify-content: space-evenly;">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><font color="white">Photo Gallery</font></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><font color="white">Event Space Available</font></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><font color="white">Nearby</font></a>
-                                            </li>
-                                        </ul>
-                                        <!-- Tab content -->
-
-                                        <div class="tab-content" id="pills-tabContent">
-                                            <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                                <div id="gallery">
-                                                    @forelse($photos as $photo)
-                                                    <div class="item">
-                                                    <a href="{{ asset($image_path=str_replace('public','storage',$photo->photos))}}" data-fancybox="gallery" data-caption="My caption">
-                                                        <figure>
-                                                            <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$photo->photos))}}" style="width:100%;" alt="Card image cap">
-                                                        {{-- <figcaption>This is a caption with a long text to test</figcaption> --}}
-                                                        </figure>
-                                                    </a>
-                                                    </div>
-                                                    @empty
-                                                    No photos available
-                                                    @endforelse
-                                                </div>
-                                            </div>
-
-                                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-
-                                            <div class="table-responsive">
-                                    <table class="table text-dark table-borderless">
-                                        <thead>
-                                            <tr class="text-center">
-                                                <th><p class="mb-0">Event Space</p></th>
-                                                <th><p class="mb-0">Level</p></th>
-                                                <th><p class="mb-0">Size</p></th>
-                                                <th><p class="mb-0">Banquet</p></th>
-                                                <th><p class="mb-0">Classroom</p></th>
-                                                <th><p class="mb-0">Theater</p></th>
-                                                <th><p class="mb-0">Cocktail</p></th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Table data -->
-                                            @if($data->hotel_id)
-                                                @forelse ( $hotel as $data)
-                                                <tr class="text-center">
-                                                    <td><p class="mb-0 font-weight-bold">{{ $data->venue }}</p></td>
-                                                    <td><p class="mb-0 font-weight-normal">{{ $data->level }}</p></td>
-                                                    <td><p class="mb-0 font-weight-normal">{{ $data->size }}</p></td>
-                                                    <td><p class="mb-0 font-weight-normal">{{ $data->banquet }}</p></td>
-                                                    <td><p class="mb-0 font-weight-normal">{{ $data->classroom }}</p></td>
-                                                    <td><p class="mb-0 font-weight-normal">{{ $data->theater }}</p></td>
-                                                    <td><p class="mb-0 font-weight-normal">{{ $data->cocktail }}</p></td>
-                                                </tr>
-                                                @empty
-
-                                            @endforelse
-                                            @else
-                                            @forelse ( $eventspace as $data)
-                                                <tr class="text-center">
-                                                    <td><p class="mb-0 font-weight-bold">{{ $data->venue }}</p></td>
-                                                    <td><p class="mb-0 font-weight-normal">{{ $data->level }}</p></td>
-                                                    <td><p class="mb-0 font-weight-normal">{{ $data->size }}</p></td>
-                                                    <td><p class="mb-0 font-weight-normal">{{ $data->banquet }}</p></td>
-                                                    <td><p class="mb-0 font-weight-normal">{{ $data->classroom }}</p></td>
-                                                    <td><p class="mb-0 font-weight-normal">{{ $data->theater }}</p></td>
-                                                    <td><p class="mb-0 font-weight-normal">{{ $data->cocktail }}</p></td>
-                                                </tr>
-                                                @empty
-                                                @endforelse
-                                            @endif
+                </div>
 
 
+                <div class="border-0 rounded-lg card" style="padding: 5%">
+                    <!-- Tab nav -->
+                    <ul class="mb-3 nav nav-pills" id="pills-tab" role="tablist" style="background-color: #2F4858; justify-content: space-evenly;">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><font color="white">Photo Gallery</font></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><font color="white">Event Space Available</font></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><font color="white">Nearby</font></a>
+                    </li>
+                </ul>
+                <!-- Tab content -->
 
-                                        </tbody>
-                                    </table>
-                                </div>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div id="gallery">
+                            @forelse($photos as $photo)
+                            <div class="item">
+                            <a href="{{ asset($image_path=str_replace('public','storage',$photo->photos))}}" data-fancybox="gallery" data-caption="My caption">
+                                <figure>
+                                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$photo->photos))}}" style="width:100%;" alt="Card image cap">
+                                {{-- <figcaption>This is a caption with a long text to test</figcaption> --}}
+                                </figure>
+                            </a>
+                            </div>
+                            @empty
+                            No photos available
+                            @endforelse
+                        </div>
+                    </div>
 
-                                            </div>
-                                            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-                                                <div id="map"></div>
-                                                <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+                    <div class="table-responsive">
+            <table class="table text-dark table-borderless">
+                <thead>
+                    <tr class="text-center">
+                        <th><p class="mb-0">Event Space</p></th>
+                        <th><p class="mb-0">Level</p></th>
+                        <th><p class="mb-0">Size</p></th>
+                        <th><p class="mb-0">Banquet</p></th>
+                        <th><p class="mb-0">Classroom</p></th>
+                        <th><p class="mb-0">Theater</p></th>
+                        <th><p class="mb-0">Cocktail</p></th>
 
-                                                @if($data->hotel_id)
-                                                @forelse ($map as $item)
-                                                <script>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table data -->
+                    @if($data->hotel_id)
+                        @forelse ( $hotels as $data)
+                        <tr class="text-center">
+                            <td><p class="mb-0 font-weight-bold">{{ $data->venue }}</p></td>
+                            <td><p class="mb-0 font-weight-normal">{{ $data->level }}</p></td>
+                            <td><p class="mb-0 font-weight-normal">{{ $data->size }}</p></td>
+                            <td><p class="mb-0 font-weight-normal">{{ $data->banquet }}</p></td>
+                            <td><p class="mb-0 font-weight-normal">{{ $data->classroom }}</p></td>
+                            <td><p class="mb-0 font-weight-normal">{{ $data->theater }}</p></td>
+                            <td><p class="mb-0 font-weight-normal">{{ $data->cocktail }}</p></td>
+                        </tr>
+                        @empty
 
-                                                    var icons = { parking: { icon: 'https://tarantelleromane.files.wordpress.com/2016/10/map-marker.png?w=50' } };
-
-
-                                                    // REPLACE WITH DATA FROM API
-                                                    //TITLE | POSITION - LAT , LNG | ICON | TITLE | CONTENT
-                                                    var airports = [
-                                                        {
-                                                            title: "{{ $item->hotel_name }}",
-                                                            position: {
-                                                                lat: {{ $item->latitude }},
-                                                                lng: {{ $item->longitude }} },
-                                                            icon: 'parking',
-                                                            content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">{{ $item->hotel_name }}</h1><div id="bodyContent"><p><b>{{ $item->hotel_name }}</b></div></div>'
-                                                        }
-                                                        ];
-
-                                                    function initMap() {
-
-                                                        var uk = {
-                                                            lat: 3.1580,
-                                                            lng: 101.7118
-                                                        };
-
-                                                        var map = new google.maps.Map( document.getElementById('map'), {
-                                                          zoom: 15,
-                                                          center: uk,
-                                                          disableDefaultUI: true,
-                                                          styles: [{"elementType":"labels","stylers":[{"visibility":"off"},{"color":"#f49f53"}]},{"featureType":"landscape","stylers":[{"color":"#f9ddc5"},{"lightness":-7}]},{"featureType":"road","stylers":[{"color":"#813033"},{"lightness":43}]},{"featureType":"poi.business","stylers":[{"color":"#645c20"},{"lightness":38}]},{"featureType":"water","stylers":[{"color":"#1994bf"},{"saturation":-69},{"gamma":0.99},{"lightness":43}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#f19f53"},{"weight":1.3},{"visibility":"on"},{"lightness":16}]},{"featureType":"poi.business"},{"featureType":"poi.park","stylers":[{"color":"#645c20"},{"lightness":39}]},{"featureType":"poi.school","stylers":[{"color":"#a95521"},{"lightness":35}]},{},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"color":"#813033"},{"lightness":38},{"visibility":"off"}]},{},{},{},{},{},{},{},{},{},{},{},{"elementType":"labels"},{"featureType":"poi.sports_complex","stylers":[{"color":"#9e5916"},{"lightness":32}]},{},{"featureType":"poi.government","stylers":[{"color":"#9e5916"},{"lightness":46}]},{"featureType":"transit.station","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","stylers":[{"color":"#813033"},{"lightness":22}]},{"featureType":"transit","stylers":[{"lightness":38}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#f19f53"},{"lightness":-10}]},{},{},{}]
-                                                        });
-
-                                                        var InfoWindows = new google.maps.InfoWindow({});
-
-                                                        airports.forEach(function(airport) {
-                                                            var marker = new google.maps.Marker({
-                                                              position: { lat: airport.position.lat, lng: airport.position.lng },
-                                                              map: map,
-                                                              icon: icons[airport.icon].icon,
-                                                              title: airport.title
-                                                            });
-                                                            marker.addListener('mouseover', function() {
-                                                              InfoWindows.open(map, this);
-                                                              InfoWindows.setContent(airport.content);
-                                                            });
-                                                        });
-                                                    }
-
-
-                                                    </script>
-                                                    @empty
-
-                                                    @endforelse
-                                                    @else
-                                                    <script>
-
-                                                        var icons = { parking: { icon: 'https://tarantelleromane.files.wordpress.com/2016/10/map-marker.png?w=50' } };
-
-
-                                                        // REPLACE WITH DATA FROM API
-                                                        //TITLE | POSITION - LAT , LNG | ICON | TITLE | CONTENT
-                                                        var airports = [
-                                                            {
-                                                                title: "{{ $data->venue }}",
-                                                                position: {
-                                                                    lat: {{ $data->latitude }},
-                                                                    lng: {{ $data->longitude }} },
-                                                                icon: 'parking',
-                                                                content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">{{ $data->venue }}</h1><div id="bodyContent"><p><b>{{ $data->venue }}</b></div></div>'
-                                                            }
-                                                            ];
-
-                                                        function initMap() {
-
-                                                            var uk = {
-                                                                lat: 3.1580,
-                                                                lng: 101.7118
-                                                            };
-
-                                                            var map = new google.maps.Map( document.getElementById('map'), {
-                                                              zoom: 15,
-                                                              center: uk,
-                                                              disableDefaultUI: true,
-                                                              styles: [{"elementType":"labels","stylers":[{"visibility":"off"},{"color":"#f49f53"}]},{"featureType":"landscape","stylers":[{"color":"#f9ddc5"},{"lightness":-7}]},{"featureType":"road","stylers":[{"color":"#813033"},{"lightness":43}]},{"featureType":"poi.business","stylers":[{"color":"#645c20"},{"lightness":38}]},{"featureType":"water","stylers":[{"color":"#1994bf"},{"saturation":-69},{"gamma":0.99},{"lightness":43}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#f19f53"},{"weight":1.3},{"visibility":"on"},{"lightness":16}]},{"featureType":"poi.business"},{"featureType":"poi.park","stylers":[{"color":"#645c20"},{"lightness":39}]},{"featureType":"poi.school","stylers":[{"color":"#a95521"},{"lightness":35}]},{},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"color":"#813033"},{"lightness":38},{"visibility":"off"}]},{},{},{},{},{},{},{},{},{},{},{},{"elementType":"labels"},{"featureType":"poi.sports_complex","stylers":[{"color":"#9e5916"},{"lightness":32}]},{},{"featureType":"poi.government","stylers":[{"color":"#9e5916"},{"lightness":46}]},{"featureType":"transit.station","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","stylers":[{"color":"#813033"},{"lightness":22}]},{"featureType":"transit","stylers":[{"lightness":38}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#f19f53"},{"lightness":-10}]},{},{},{}]
-                                                            });
-
-                                                            var InfoWindows = new google.maps.InfoWindow({});
-
-                                                            airports.forEach(function(airport) {
-                                                                var marker = new google.maps.Marker({
-                                                                  position: { lat: airport.position.lat, lng: airport.position.lng },
-                                                                  map: map,
-                                                                  icon: icons[airport.icon].icon,
-                                                                  title: airport.title
-                                                                });
-                                                                marker.addListener('mouseover', function() {
-                                                                  InfoWindows.open(map, this);
-                                                                  InfoWindows.setContent(airport.content);
-                                                                });
-                                                            });
-                                                        }
+                    @endforelse
+                    @else
+                    @forelse ( $eventspace as $data)
+                        <tr class="text-center">
+                            <td><p class="mb-0 font-weight-bold">{{ $data->venue }}</p></td>
+                            <td><p class="mb-0 font-weight-normal">{{ $data->level }}</p></td>
+                            <td><p class="mb-0 font-weight-normal">{{ $data->size }}</p></td>
+                            <td><p class="mb-0 font-weight-normal">{{ $data->banquet }}</p></td>
+                            <td><p class="mb-0 font-weight-normal">{{ $data->classroom }}</p></td>
+                            <td><p class="mb-0 font-weight-normal">{{ $data->theater }}</p></td>
+                            <td><p class="mb-0 font-weight-normal">{{ $data->cocktail }}</p></td>
+                        </tr>
+                        @empty
+                        @endforelse
+                    @endif
 
 
-                                                        </script>
-                                                    @endif
-                                            </div>
-                                        </div>
-                                        </div>
-                                        @empty
 
-                                    @endforelse
-                                    </div>
+                </tbody>
+            </table>
+        </div>
 
-                                </div>
-      </div>
-     </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
 
-   </div>
+                        <div id="map"></div>
+                        <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+
+                            <script>
+
+                                var icons = { parking: { icon: 'https://tarantelleromane.files.wordpress.com/2016/10/map-marker.png?w=50' } };
+
+
+                                // REPLACE WITH DATA FROM API
+                                //TITLE | POSITION - LAT , LNG | ICON | TITLE | CONTENT
+                                var airports = [
+                                    {
+                                        title: "{{ $data->venue }}",
+                                        position: {
+                                            lat: {{ $data->latitude }},
+                                            lng: {{ $data->longitude }} },
+                                        icon: 'parking',
+                                        content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">{{ $data->venue }}</h1><div id="bodyContent"><p><b>{{ $data->venue }}</b></div></div>'
+                                    }
+                                    ];
+
+                                function initMap() {
+
+                                    var uk = {
+                                        lat: 3.1580,
+                                        lng: 101.7118
+                                    };
+
+                                    var map = new google.maps.Map( document.getElementById('map'), {
+                                        zoom: 15,
+                                        center: uk,
+                                        disableDefaultUI: true,
+                                        styles: [{"elementType":"labels","stylers":[{"visibility":"off"},{"color":"#f49f53"}]},{"featureType":"landscape","stylers":[{"color":"#f9ddc5"},{"lightness":-7}]},{"featureType":"road","stylers":[{"color":"#813033"},{"lightness":43}]},{"featureType":"poi.business","stylers":[{"color":"#645c20"},{"lightness":38}]},{"featureType":"water","stylers":[{"color":"#1994bf"},{"saturation":-69},{"gamma":0.99},{"lightness":43}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#f19f53"},{"weight":1.3},{"visibility":"on"},{"lightness":16}]},{"featureType":"poi.business"},{"featureType":"poi.park","stylers":[{"color":"#645c20"},{"lightness":39}]},{"featureType":"poi.school","stylers":[{"color":"#a95521"},{"lightness":35}]},{},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"color":"#813033"},{"lightness":38},{"visibility":"off"}]},{},{},{},{},{},{},{},{},{},{},{},{"elementType":"labels"},{"featureType":"poi.sports_complex","stylers":[{"color":"#9e5916"},{"lightness":32}]},{},{"featureType":"poi.government","stylers":[{"color":"#9e5916"},{"lightness":46}]},{"featureType":"transit.station","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","stylers":[{"color":"#813033"},{"lightness":22}]},{"featureType":"transit","stylers":[{"lightness":38}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#f19f53"},{"lightness":-10}]},{},{},{}]
+                                    });
+
+                                    var InfoWindows = new google.maps.InfoWindow({});
+
+                                    airports.forEach(function(airport) {
+                                        var marker = new google.maps.Marker({
+                                            position: { lat: airport.position.lat, lng: airport.position.lng },
+                                            map: map,
+                                            icon: icons[airport.icon].icon,
+                                            title: airport.title
+                                        });
+                                        marker.addListener('mouseover', function() {
+                                            InfoWindows.open(map, this);
+                                            InfoWindows.setContent(airport.content);
+                                        });
+                                    });
+                                }
+
+
+                                </script>
+                    </div>
+                </div>
+                </div>
+                @empty
+
+            @endforelse
+            </div>
+
+        </div>
+</div>
+</div>
+
+</div>
 
 
 <script>
