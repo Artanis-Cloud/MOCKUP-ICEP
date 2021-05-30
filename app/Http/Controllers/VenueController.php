@@ -114,10 +114,10 @@ class VenueController extends Controller
         'size'=> ['required', 'numeric'],
         'type_of_bed'=> ['required', 'string'],
         'view'=> ['required', 'string'],
-        'single_rate'=> ['required', 'numeric'],
-        'double_rate'=> ['required', 'numeric'],
-        'corporate_rate'=> ['required', 'numeric'],
-        'photos_.*' => ['nullable','max:100000'],
+        'single_rate'=> ['nullable', 'numeric'],
+        'double_rate'=> ['nullable', 'numeric'],
+        'corporate_rate'=> ['nullable', 'numeric'],
+        // 'photos_.*' => ['nullable','max:100000'],
       ]);
   }
 
