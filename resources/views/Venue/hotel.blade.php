@@ -266,8 +266,8 @@ input.search-submit {
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Single Rate</label>
-                                                <input type="range" name="single" min="1" max="10000" value="500" class="slider" id="single">
-                                                <p>Value: <span id="demosingle"></span></p>
+                                                <input type="text" name="single" value="0" class="form-control bg-light" id="single">
+                                                {{-- <p>Value: <span id="demosingle"></span></p> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -277,8 +277,8 @@ input.search-submit {
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Double Rate</label>
-                                                <input type="range" name="double" min="1" max="10000" value="500" class="slider" id="double">
-                                                <p>Value: <span id="demodouble"></span></p>
+                                                <input type="text" name="double" value="0" class="form-control bg-light" id="double">
+                                                {{-- <p>Value: <span id="demodouble"></span></p> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -288,8 +288,8 @@ input.search-submit {
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Corporate Rate</label>
-                                                <input type="range" name="corporate" min="1" max="10000" value="500" class="slider" id="corporate">
-                                                <p>Value: <span id="democorporate"></span></p>
+                                                <input type="text" name="corporate" value="0" class="form-control bg-light" id="corporate">
+                                                {{-- <p>Value: <span id="democorporate"></span></p> --}}
                                             </div>
                                         </div>
                                     </div>

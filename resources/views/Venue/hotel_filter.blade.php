@@ -326,8 +326,8 @@ input.search-submit {
           <div class="col-md-8" style="padding: 5%">
 
             <div class="row">
-            @forelse($hotels as $data)
-            @forelse ($rooms as $room)
+            @forelse($hotels->unique('id') as $data)
+            @forelse ($rooms->unique('hotel_id') as $room)
 
             @if($data->id == $room->hotel_id)
                <div class="col-md-4">
