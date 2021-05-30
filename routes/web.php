@@ -45,7 +45,7 @@ Route::post('/compare-event-space', [App\Http\Controllers\VenueController::class
 
 Route::post('/room-details', [App\Http\Controllers\VenueController::class, 'roomDetail'])->name('room_detail');
 
-Route::post('/eventspace-detail/{id}', [App\Http\Controllers\VenueController::class, 'eventspaceDetails'])->name('eventspace_details');
+Route::get('/eventspace-detail/{id}', [App\Http\Controllers\VenueController::class, 'eventspaceDetails'])->name('eventspace_details');
 
 Route::get('/hotelroom-filtered', [App\Http\Controllers\VenueController::class, 'roomFilter'])->name('room_filter');
 

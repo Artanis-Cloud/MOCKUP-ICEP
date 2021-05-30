@@ -169,7 +169,7 @@
                 <div class="card-title"> Hotel Comparison Table</div>
                 <!-- Table -->
                 <div class="table-responsive">
-                    <table class="table table-striped table-bordered" id="dataTable2" style="width: 100%;">
+                    <table class="table table-striped table-bordered" id="responsiveDataTable" style="width: 100%;">
                         <thead>
                             <tr class="text-center">
                                 <th><p class="mb-0">Hotel Name</p></th>
@@ -276,7 +276,7 @@
                     <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_1->walking_radius ? $hotel_1->walking_radius : "-" }} km</li>
                     <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_1->car_radius ? $hotel_1->car_radius : "-" }} km</li>
 
-                    <li class="list-group-item">Room Available<br>
+                    <li class="list-group-item"><b>Room Available</b><br>
                         @if($room_1)
                             @forelse($room_1 as $data)
                             {{ $data->room_type ? $data->room_type : "-" }} <br>
@@ -305,7 +305,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_2->walking_radius ? $hotel_2->walking_radius : "-" }} km</li>
                     <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_2->car_radius ? $hotel_2->car_radius : "-" }} km</li>
-                    <li class="list-group-item">Room Available<br>
+                    <li class="list-group-item"><b>Room Available</b><br>
                         @if($room_2)
                             @forelse($room_2 as $data)
                             {{ $data->room_type ? $data->room_type : "-" }} <br>
@@ -334,7 +334,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_3->walking_radius ? $hotel_3->walking_radius : "-" }} km</li>
                     <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_3->car_radius ? $hotel_3->car_radius : "-" }} km</li>
-                    <li class="list-group-item">Room Available<br>
+                    <li class="list-group-item"><b>Room Available</b><br>
                         @if($room_3)
                             @forelse($room_3 as $data)
                             {{ $data->room_type ? $data->room_type : "-" }} <br>

@@ -202,14 +202,14 @@ input.search-submit {
                                     <!-- Create 2 row -->
                                     <form action="{{ route('room_filter') }}" class="POST">
                                         @csrf
-                                    <div class="row">
+                                    {{-- <div class="row">
                                         <!-- 1st row -->
                                         <div class="col-md-12">
                                             <div class="form-group">
                                               <label for="f-name-1">Radius from KLCC (car)</label>
                                               <div class="slidecontainer">
-                                              <input type="range" name="car" min="1" max="30" value="50" class="slider" id="car">
-                                              <p>Km: <span id="democar"></span></p>
+                                              <input type="range" name="car" min="0" max="5000" value="" class="slider" id="car">
+                                              <p>metre: <span id="democar"></span></p>
                                               </div>
                                             </div>
                                         </div>
@@ -222,20 +222,21 @@ input.search-submit {
                                             <div class="form-group">
                                               <label for="f-name-1">Radius from KLCC (walk)</label>
                                               <div class="slidecontainer">
-                                              <input type="range" name="walk" min="1" max="30" value="100" class="slider" id="walk">
-                                              <p>Km: <span id="demowalk"></span></p>
+                                              <input type="range" name="walk" min="0" max="5000" value="" class="slider" id="walk">
+                                              <p>metre: <span id="demowalk"></span></p>
                                               </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="row">
                                         <!-- 1st row -->
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Size (s.q ft)</label>
-                                                <input type="range" name="size" min="1" max="10000" value="500" class="slider" id="size">
-                                                <p>Value: <span id="demosize"></span></p>
+                                                <input type="text" name="size" value="" class="form-control bg-light" id="single">
+                                                {{-- <input type="range" name="size" min="0" max="5000" value="" class="slider" id="size">
+                                                <p>Value: <span id="demosize"></span></p> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -248,6 +249,7 @@ input.search-submit {
                                               <label for="f-name-1">Types of bed</label>
                                               <div class="slidecontainer">
                                                 <select name="type_of_bed" id="" class="form-control bg-light">
+                                                    {{-- <option selected disabled hidden value="">Choose Type of Bed</option> --}}
                                                     @forelse($bed_type as $data)
                                                     <option value="{{ $data->type_of_bed }}" class="">{{ $data->type_of_bed }}</option>
                                                     @empty
@@ -266,7 +268,7 @@ input.search-submit {
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Single Rate</label>
-                                                <input type="text" name="single" value="0" class="form-control bg-light" id="single">
+                                                <input type="text" name="single" value="" class="form-control bg-light" id="single">
                                                 {{-- <p>Value: <span id="demosingle"></span></p> --}}
                                             </div>
                                         </div>
@@ -277,7 +279,7 @@ input.search-submit {
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Double Rate</label>
-                                                <input type="text" name="double" value="0" class="form-control bg-light" id="double">
+                                                <input type="text" name="double" value="" class="form-control bg-light" id="double">
                                                 {{-- <p>Value: <span id="demodouble"></span></p> --}}
                                             </div>
                                         </div>
@@ -288,32 +290,8 @@ input.search-submit {
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Corporate Rate</label>
-                                                <input type="text" name="corporate" value="0" class="form-control bg-light" id="corporate">
+                                                <input type="text" name="corporate" value="" class="form-control bg-light" id="corporate">
                                                 {{-- <p>Value: <span id="democorporate"></span></p> --}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Create 6 row -->
-                                    <div class="row">
-                                        <!-- 1st row -->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="f-name-1">Map Radius</label>
-                                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15935.17731018773!2d101.69481858588372!3d3.148893338671856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPETRONAS%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1618928630135!5m2!1sen!2smy" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                                            </div>
-                                            <!-- Trigger/Open The Modal -->
-                                            <span>Click Here to Open Maps</span>
-                                            <button id="myBtn" class="btn btn-primary">Open Maps</button>
-
-                                            <!-- The Modal -->
-                                            <div id="myModal" class="modal">
-
-                                            <!-- Modal content -->
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15935.17731018773!2d101.69481858588372!3d3.148893338671856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPETRONAS%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1618928630135!5m2!1sen!2smy" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                                            </div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -322,6 +300,32 @@ input.search-submit {
                                 </form>
                                 </div>
                             </div>
+                            <br>
+                    <div class="rounded-lg card">
+                        <div class="row">
+                            <!-- 1st row -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                <label for="f-name-1">Map Radius</label>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15935.17731018773!2d101.69481858588372!3d3.148893338671856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPETRONAS%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1618928630135!5m2!1sen!2smy" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+                                <!-- Trigger/Open The Modal -->
+                                <span>Click Here to Open Maps</span>
+                                <button id="myBtn" class="btn btn-primary">Open Maps</button>
+
+                                <!-- The Modal -->
+                                <div id="myModal" class="modal">
+
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15935.17731018773!2d101.69481858588372!3d3.148893338671856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPETRONAS%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1618928630135!5m2!1sen!2smy" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
           </div>
           <div class="col-md-8" style="padding: 5%">
 
@@ -387,7 +391,7 @@ input.search-submit {
            no data
            @endforelse
             </div>
-
+            {{ $hotels->links() }}
           </div>
         </div>
 

@@ -37,7 +37,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="hotel" role="tabpanel" aria-labelledby="hotel-tab"><br>
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered" id="" style="width: 100%;">
+                            <table class="table table-striped table-bordered" id="basicDataTable" style="width: 100%;">
                                 <thead class="thead-light">
                                     <tr class="text-center">
                                         <th><p class="mb-0">ID</p></th>
@@ -74,7 +74,7 @@
 
                     <div class="tab-pane" id="room" role="tabpanel" aria-labelledby="room-tab"><br>
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered" {{-- id="basicDataTable"--}} style="width: 100%;">
+                            <table class="table table-striped table-bordered" id="defaultOrderingDataTable" style="width: 100%;">
                                 <thead class="thead-light">
                                     <tr class="text-center">
                                         <th><p class="mb-0">ID</p></th>
@@ -126,7 +126,7 @@
                     </div>
                     <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab"><br>
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered" {{-- id="defaultOrderingDataTable" --}} style="width: 100%;">
+                            <table class="table table-striped table-bordered" id="responsiveDataTable" style="width: 100%;">
                                 <thead class="thead-light">
                                     <tr class="text-center">
                                         <th><p class="mb-0">ID</p></th>

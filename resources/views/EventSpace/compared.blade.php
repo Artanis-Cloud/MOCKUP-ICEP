@@ -163,15 +163,15 @@
     </style>
  <div class="container-fluid">
     <div class="row" style="justify-content: center;">
-      <div class="col-md-8" style="padding: 5%;">
+      <div class="col-md-12" style="padding: 5%;">
       <div class="rounded-lg card">
             <div class="card-body">
                 <div class="card-title"> Event Space Comparison Table</div>
                 <!-- Table -->
                 <div class="table-responsive">
-                    <table class="table table-striped table-bordered" id="dataTable2" style="width: 100%;">
+                    <table class="table table-striped table-bordered" id="responsiveDataTable" style="width: 100%;">
                         <thead>
-                            <tr class="text-center">
+                            {{-- <tr class="text-center">
                                 <th style="border: 0px none #ffffff;"><p class="mb-0"></p></th>
                                 <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-car" style="font-size: 25px;"></i></p></th>
                                 <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-walking" style="font-size: 25px;"></i></p></th>
@@ -182,7 +182,7 @@
                                 <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-dollar-sign" style="font-size: 25px;"></i></p></th>
                                 <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-dollar-sign" style="font-size: 25px;"></i></p></th>
                                 <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-dollar-sign" style="font-size: 25px;"></i></p></th>
-                            </tr>
+                            </tr> --}}
                             <tr class="text-center">
                                 <th><p class="mb-0">Hotel Name</p></th>
                                 <th><p class="mb-0">Radius from KLCC (car)</p></th>
@@ -214,8 +214,8 @@
 
                                 @endif
                                 <td><p class="mb-0 font-weight-normal">{{ $data->venue ? $data->venue : "-" }}</p></td>
-                                <td><p class="mb-0 font-weight-normal">{{ $data->level ? $data->level : "-" }} sq.ft</p></td>
-                                <td><p class="mb-0 font-weight-normal">{{ $data->size ? $data->size : "-" }}</p></td>
+                                <td><p class="mb-0 font-weight-normal">{{ $data->level ? $data->level : "-" }}</p></td>
+                                <td><p class="mb-0 font-weight-normal">{{ $data->size ? $data->size : "-" }} sq.ft</p></td>
                                 <td><p class="mb-0 font-weight-normal">{{ $data->banquet ? $data->banquet : "-" }}</p></td>
                                 <td><p class="mb-0 font-weight-normal">RM {{ $data->classroom ? $data->classroom : "-" }}</p></td>
                                 <td><p class="mb-0 font-weight-normal">RM {{ $data->theater ? $data->theater : "-" }}</p></td>
@@ -246,39 +246,41 @@
 
     <form action="{{ route('compareEventSpace') }}" method="POST">
         @csrf
-    <div class="row">
-       <div class="col">
-           <label for="first_hotel"><b>First Hotel</b></label>
-            <select id="product-col-1" class="custom-select " name="first_hotel">
-                <option value="" selected hidden disabled>Please Choose Hotel</option>
-                @forelse($hotel as $data)
-                <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
-                @empty
-                @endforelse
-   			</select>
-       </div>
-       <div class="col">
-        <label for="second_hotel"><b>Second Hotel</b></label>
-            <select id="product-col-2" class="custom-select " name="second_hotel">
-                <option value="" selected hidden disabled>Please Choose Hotel</option>
-                @forelse($hotel as $data)
-                <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
-                @empty
-                @endforelse
-            </select>
-       </div>
-       <div class="col">
-        <label for="third_hotel"><b>Event Space</b></label>
-        <select id="product-col-3" class="custom-select " name="third_hotel">
-            <option value="" selected hidden disabled>Please Choose Event Space</option>
-            @forelse($eventspace as $data)
-            <option value="{{ $data->id }}">{{ $data->venue }}</option>
-            @empty
-            <option selected disabled>No event space available</option>
-            @endforelse
-        </select>
-       </div>
-     </div>
+        <div class="row">
+            <div class="col">
+                <label for="third_hotel"><b>Event Space</b></label>
+                    <select id="product-col-1" class="custom-select " name="first_hotel">
+                        <option value="" selected hidden disabled>Please Choose Event Space</option>
+                        @forelse($eventspace as $data)
+                        <option value="{{ $data->id }}">{{ $data->venue }}</option>
+                        @empty
+                        <option selected disabled>No event space available</option>
+                        @endforelse
+                    </select>
+            </div>
+           <div class="col">
+            <label for="third_hotel"><b>Event Space</b></label>
+                <select id="product-col-2" class="custom-select " name="second_hotel">
+                    <option value="" selected hidden disabled>Please Choose Event Space</option>
+                    @forelse($eventspace as $data)
+                    <option value="{{ $data->id }}">{{ $data->venue }}</option>
+                    @empty
+                    <option selected disabled>No event space available</option>
+                    @endforelse
+                </select>
+           </div>
+           <div class="col">
+            <label for="third_hotel"><b>Event Space</b></label>
+                <select id="product-col-3" class="custom-select " name="third_hotel">
+                    <option value="" selected hidden disabled>Please Choose Event Space</option>
+                    @forelse($eventspace as $data)
+                    <option value="{{ $data->id }}">{{ $data->venue }}</option>
+                    @empty
+                    <option selected disabled>No event space available</option>
+                    @endforelse
+                </select>
+           </div>
+         </div>
      <br>
      <div class="row">
         <div class="text-center col">
@@ -288,63 +290,52 @@
     </form>
      <div class="row">
         @if($hotel_1)
-            <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
-                <div class="card">
-                    {{-- <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap"> --}}
-                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_1->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap">
+        <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
+            <div class="card">
+                {{-- <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap"> --}}
+                <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_1->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap">
 
-                    <div class="card-body">
-                    <h5 class="card-title">{{ $hotel_1->hotel_name ? $hotel_1->hotel_name : "-" }}</h5>
-                    {{-- <p class="card-text">Address</p> --}}
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_1->walking_radius ? $hotel_1->walking_radius : "-" }} km</li>
-                    <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_1->car_radius ? $hotel_1->car_radius : "-" }} km</li>
-
-                    <li class="list-group-item">Event Space Available<br>
-                        @if($room_1)
-                            @forelse($room_1 as $data)
-                            {{ $data->venue ? $data->venue : "-" }} <br>
-                            @empty
-                            No Event Space Available
-                            @endforelse
-                        @endif
-                    </li>
-
-
-                </ul>
-
+                <div class="card-body">
+                <h5 class="card-title">{{ $hotel_1->venue ? $hotel_1->venue : "-" }}</h5>
+                {{-- <p class="card-text">Address</p> --}}
             </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_1->walking_radius ? $hotel_1->walking_radius : "-" }} km</li>
+                <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_1->car_radius ? $hotel_1->car_radius : "-" }} km</li>
+                <li class="list-group-item">Event Space Available<br>
+                    @if($room_3)
+                        @forelse($room_3 as $data)
+                        {{ $data->venue ? $data->venue : "-" }} <br>
+                        @empty
+                        No Event Space Available
+                        @endforelse
+                    @endif
             </div>
+        </div>
         @endif
         @if($hotel_2)
-            <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
-                <div class="card">
-                    {{-- <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap"> --}}
-                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_2->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap">
+        <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
+            <div class="card">
+                {{-- <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap"> --}}
+                <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_2->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap">
 
-                    <div class="card-body">
-                    <h5 class="card-title">{{ $hotel_2->hotel_name ? $hotel_2->hotel_name : "-" }}</h5>
-                    {{-- <p class="card-text">Address</p> --}}
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_2->walking_radius ? $hotel_2->walking_radius : "-" }} km</li>
-                    <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_2->car_radius ? $hotel_2->car_radius : "-" }} km</li>
-                    <li class="list-group-item">Event Space Available<br>
-                        @if($room_2)
-                            @forelse($room_2 as $data)
-                            {{ $data->venue ? $data->venue : "-" }} <br>
-                            @empty
-                            No Event Space Available
-                            @endforelse
-                        @endif
-                    </li>
-
-                </ul>
-                </ul>
-
+                <div class="card-body">
+                <h5 class="card-title">{{ $hotel_2->venue ? $hotel_2->venue : "-" }}</h5>
+                {{-- <p class="card-text">Address</p> --}}
             </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_2->walking_radius ? $hotel_2->walking_radius : "-" }} km</li>
+                <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_2->car_radius ? $hotel_2->car_radius : "-" }} km</li>
+                <li class="list-group-item">Event Space Available<br>
+                    @if($room_3)
+                        @forelse($room_3 as $data)
+                        {{ $data->venue ? $data->venue : "-" }} <br>
+                        @empty
+                        No Event Space Available
+                        @endforelse
+                    @endif
             </div>
+        </div>
         @endif
         @if($hotel_3)
             <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
