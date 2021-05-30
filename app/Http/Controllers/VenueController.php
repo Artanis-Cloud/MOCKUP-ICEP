@@ -132,36 +132,7 @@ class VenueController extends Controller
         // dd($request->all());
         $this->validatoreventspace($request->all())->validate();
         $eventspace = EventSpace::find($id);
-        // if($request->hotel_id){
-        //     $eventspace->venue = $request->venue;
-        //     $eventspace->level = $request->level;
-        //     $eventspace->size = $request->size;
-        //     $eventspace->banquet = $request->banquet;
-        //     $eventspace->classroom = $request->classroom;
-        //     $eventspace->theater = $request->theater;
-        //     $eventspace->cocktail = $request->cocktail;
-        //     $eventspace->cabaret = $request->cabaret;
-        //     $eventspace->booth_capacity = $request->booth_capacity;
-        //     $eventspace->daily_rate = $request->daily_rate;
 
-        //     $image=Gallery::where('eventspace_id',$id)->get();
-        //     // dd($image);
-        //     if($request->photos != null){
-        //         foreach ($image as $data ) {
-        //             $data->delete();
-        //         }
-        //         foreach($request->photos as $file)
-        //         {
-        //             $file_gambar = new Gallery();
-        //             $originalname = $file->getClientOriginalName();
-        //             $file_gambar->photos = $file->storeAs('public/uploads/', $originalname);
-        //             $file_gambar->eventspace_id = $id;
-        //             $file_gambar->save();
-        //         }
-        //     }
-        //     $eventspace->save();
-        // }
-        // else{
             $eventspace->venue = $request->venue;
             $eventspace->car_radius = $request->car_radius;
             $eventspace->walking_radius = $request->walking_radius;
@@ -215,7 +186,7 @@ class VenueController extends Controller
             'walking_radius'=> ['nullable', 'numeric'],
             'latitude'=> ['nullable', 'numeric'],
             'longitude'=> ['nullable', 'numeric'],
-            'level'=> ['nullable', 'numeric'],
+            'level'=> ['nullable', 'string'],
             'size'=> ['nullable', 'numeric'],
             'banquet'=> ['nullable', 'numeric'],
             'classroom'=> ['nullable', 'numeric'],

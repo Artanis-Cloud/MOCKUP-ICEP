@@ -308,7 +308,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                     <label>Level</label>
-                                    <input type="text" class="form-control bg-light @error('venue') is-invalid @enderror" name="level" value="{{ $eventspace->level }}" placeholder="Level " oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">
+                                    <input type="text" class="form-control bg-light @error('level') is-invalid @enderror" name="level" value="{{ $eventspace->level }}" placeholder="Level " oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">
                                     @error('level')
                                     <div class="alert alert-danger">
                                         <strong>{{ $message }}</strong>
