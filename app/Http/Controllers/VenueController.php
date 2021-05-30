@@ -251,6 +251,11 @@ class VenueController extends Controller
                         ->where('double_rate','<=',$request->double)
                         ->where('corporate_rate','<=',$request->corporate)->get();
         // dd($rooms);
+        // foreach($rooms as $data){
+        //     $hotels=Hotel::where('id',$data->id)->distinct('id')->get();
+        // dd($hotels);
+
+        // }
         $hotels=Hotel::distinct('id')->get();
         // dd($hotels);
         $bed_type = HotelRoom::distinct('type_of_bed')->get('type_of_bed');
@@ -281,7 +286,7 @@ class VenueController extends Controller
         $eventspace = EventSpace::where('id', $eventspace_id->id)->get();
         $photos = Gallery::where('eventspace_id', $eventspace_id->id)->get();
 
-       return view('venue.eventspace_details', compact('eventspace','photos','hotels'));
+       return view('Venue.eventspace_details', compact('eventspace','photos','hotels'));
     }
     public function eventspace()
     {
