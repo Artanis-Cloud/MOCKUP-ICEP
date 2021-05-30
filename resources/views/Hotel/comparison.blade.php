@@ -170,7 +170,7 @@
                                 <div class="card-title">Hotel Comparison Table</div>
                                 <!-- Table -->
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered" id="dataTable2" style="width: 100%;">
+                                    <table class="table table-striped table-bordered" id="responsiveDataTable" style="width: 100%;">
                                         <thead>
                                             <tr class="text-center">
                                                 <th><p class="mb-0">Hotel Name</p></th>

@@ -203,7 +203,7 @@ input.search-submit {
                             <form action="{{ route('eventspace_filter') }}" class="POST">
                                 @csrf
 
-                                <div class="row">
+                                {{-- <div class="row">
                                     <!-- 1st row -->
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -228,20 +228,19 @@ input.search-submit {
                                           </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                <!-- Create 2 row -->
                                <div class="row">
-                                   <!-- 1st row -->
-                                   <div class="col-md-12">
-                                       <div class="form-group">
-                                           <label for="f-name-1">Size (s.q ft)</label>
-                                           <div class="slidecontainer">
-                                            <input type="range" min="1" name="size" max="30000" value="1000" class="slider" id="size">
-                                            <p>Value: <span id="demosize"></span></p>
-                                            </div>
-                                       </div>
-                                   </div>
-                               </div>
+                                <!-- 1st row -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="f-name-1">Size (s.q ft)</label>
+                                        <input type="text" name="size" value="" class="form-control bg-light">
+                                        {{-- <input type="range" name="size" min="0" max="5000" value="" class="slider" id="size">
+                                        <p>Value: <span id="demosize"></span></p> --}}
+                                    </div>
+                                </div>
+                            </div>
                                <!-- Create 2 row -->
                                <p>Setup Style</p>
                                <div class="row">
@@ -250,33 +249,39 @@ input.search-submit {
                                    <div class="col-md-11">
                                        <div class="form-group">
                                            <label for="email-1">Banquet</label>
-                                            <input type="range" min="1" name="banquet" max="30000" value="1000" class="slider" id="banquet">
-                                            <p>Value: <span id="demobanquet"></span></p>
+                                            <input type="text" name="banquet" value="" class="form-control bg-light">
+                                            {{-- <input type="range" min="1" name="banquet" max="30000" value="1000" class="slider" id="banquet">
+                                            <p>Value: <span id="demobanquet"></span></p> --}}
                                         </div>
                                         <div class="form-group">
                                             <label for="email-1">Classroom</label>
-                                             <input type="range" min="1" name="classroom" max="30000" value="1000" class="slider" id="classroom">
-                                             <p>Value: <span id="democlassroom"></span></p>
+                                            <input type="text" name="classroom" value="" class="form-control bg-light">
+                                             {{-- <input type="range" min="1" name="classroom" max="30000" value="1000" class="slider" id="classroom">
+                                             <p>Value: <span id="democlassroom"></span></p> --}}
                                          </div>
                                          <div class="form-group">
                                             <label for="email-1">Theater</label>
-                                             <input type="range" min="1" name="theater" max="30000" value="1000" class="slider" id="theater">
-                                             <p>Value: <span id="demotheater"></span></p>
+                                            <input type="text" name="theater" value="" class="form-control bg-light">
+                                             {{-- <input type="range" min="1" name="theater" max="30000" value="1000" class="slider" id="theater">
+                                             <p>Value: <span id="demotheater"></span></p> --}}
                                          </div>
                                          <div class="form-group">
                                             <label for="email-1">Cocktail</label>
-                                             <input type="range" min="1" name="cocktail" max="30000" value="1000" class="slider" id="cocktail">
-                                             <p>Value: <span id="demococktail"></span></p>
+                                            <input type="text" name="cocktail" value="" class="form-control bg-light">
+                                             {{-- <input type="range" min="1" name="cocktail" max="30000" value="1000" class="slider" id="cocktail">
+                                             <p>Value: <span id="demococktail"></span></p> --}}
                                          </div>
                                          <div class="form-group">
                                             <label for="email-1">Cabaret/Workshop</label>
-                                             <input type="range" min="1" name="cabaret" max="30000" value="1000" class="slider" id="cabaret">
-                                             <p>Value: <span id="democabaret"></span></p>
+                                            <input type="text" name="cabaret" value="" class="form-control bg-light">
+                                             {{-- <input type="range" min="1" name="cabaret" max="30000" value="1000" class="slider" id="cabaret">
+                                             <p>Value: <span id="democabaret"></span></p> --}}
                                          </div>
                                          <div class="form-group">
                                             <label for="email-1">Booth Capacity</label>
-                                             <input type="range" min="1" name="booth" max="30000" value="1000" class="slider" id="booth">
-                                             <p>Value: <span id="demobooth"></span></p>
+                                            <input type="text" name="booth_capacity" value="" class="form-control bg-light">
+                                             {{-- <input type="range" min="1" name="booth" max="30000" value="1000" class="slider" id="booth">
+                                             <p>Value: <span id="demobooth"></span></p> --}}
                                          </div>
 
                                              {{-- <div class="custom-control custom-checkbox">
@@ -286,33 +291,36 @@ input.search-submit {
                                        </div>
                                    </div>
 
-                               <!-- Create 6 row -->
-                               <div class="row">
-                                   <!-- 1st row -->
-                                   <div class="col-md-12">
-                                       <div class="form-group">
-                                         <label for="f-name-1">Map Radius</label>
-                                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15935.17731018773!2d101.69481858588372!3d3.148893338671856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPETRONAS%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1618928630135!5m2!1sen!2smy" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                                       </div>
-                                          <!-- Trigger/Open The Modal -->
-                                          <span>Click Here to Open Maps</span>
-                                          <button id="myBtn" class="btn btn-primary">Open Maps</button>
 
-                                          <!-- The Modal -->
-                                          <div id="myModal" class="modal">
-
-                                          <!-- Modal content -->
-                                          <div class="modal-content">
-                                              <span class="close">&times;</span>
-                                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15935.17731018773!2d101.69481858588372!3d3.148893338671856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPETRONAS%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1618928630135!5m2!1sen!2smy" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                                          </div>
-
-                                          </div>
-                                   </div>
-                               </div>
                                <!-- Submit button -->
                                <button type="submit" class="btn btn-primary">Filter</button>
                             </form>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="rounded-lg card">
+                        <div class="row">
+                            <!-- 1st row -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                <label for="f-name-1">Map Radius</label>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15935.17731018773!2d101.69481858588372!3d3.148893338671856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPETRONAS%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1618928630135!5m2!1sen!2smy" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+                                <!-- Trigger/Open The Modal -->
+                                <span>Click Here to Open Maps</span>
+                                <button id="myBtn" class="btn btn-primary">Open Maps</button>
+
+                                <!-- The Modal -->
+                                <div id="myModal" class="modal">
+
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15935.17731018773!2d101.69481858588372!3d3.148893338671856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPETRONAS%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1618928630135!5m2!1sen!2smy" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -321,59 +329,6 @@ input.search-submit {
 
        <div class="row">
        @forelse($eventspace as $data)
-        {{-- @if($data->hotel_id)
-            <div class="col-md-4">
-            <center>
-                <div class="card" style="width: 18rem;">
-
-                <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->hotels->thumbnail))}}" alt="Card image cap" style="width:100%;height:200px;">
-                <div class="card-body">
-                    <h5 class="card-title">{{$data->hotels->hotel_name}}</h5>
-                <button type="button" data-toggle="modal" data-target="#exampleModal{{ $data->id }}" class="btn btn-primary">Details</button>
-                </div>
-                </div>
-            </center>
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ $data->hotels->hotel_name }}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->hotels->thumbnail))}}" alt="Card image cap">
-                    <h5 class="">Details</h5>
-                    <p>Radius from KLCC (by car): {{ $data->hotels->car_radius }}</p>
-                    <p>Radius from KLCC (walking distance): {{ $data->hotels->walking_radius }}</p>
-                    <p>Event Space Type</p>
-                    <form action="{{ route('eventspace_detail') }}" class="" method="POST">
-                        @csrf
-                        <select name="eventspace_id" id="" class="form-control bg-light @error('eventspace_id') is-invalid @enderror"">
-                            <option disabled="disabled" hidden value="0">Choose Event Space</option>
-                            @forelse ($hotels as $dataRoom)
-                                @if($data->hotel_id == $dataRoom->id)
-                                    <option value="{{ $data->id }}" >{{ $data->venue }}</option>
-                                @endif
-                            @empty
-                                <option selected="true" disabled="disabled" value="0">No Event Space Available</option>
-                            @endforelse
-                        </select>
-                        <input type="hidden" name="hotel_id" value="{{ $data->hotel_id }}">
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Event Space Detail</button>
-                    </div>
-                    </form>
-                </div>
-                </div>
-            </div> --}}
-
             {{-- @else --}}
             <div class="col-md-4">
                 <center>
@@ -406,7 +361,7 @@ input.search-submit {
         no data
         @endforelse
        </div>
-
+       {{ $eventspace->links() }}
      </div>
    </div>
  </div>

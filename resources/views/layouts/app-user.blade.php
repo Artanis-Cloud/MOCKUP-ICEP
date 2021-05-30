@@ -23,10 +23,6 @@
     <link rel="stylesheet" href="{{ asset('qbadminui/css/vendor/DataTable-1.10.20/datatables.min.css') }}"></link>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <script src="{{ asset('qbadminui/js/vendor/DataTable-1.10.20/datatables.min.js') }}"></script>
-    <!-- Data Table script -->
-    <script src="{{ asset('qbadminui/js/plugins/dataTable_script.js') }}"></script>
-
     <meta name="theme-color" content="#fafafa">
     @livewireStyles
 </head>

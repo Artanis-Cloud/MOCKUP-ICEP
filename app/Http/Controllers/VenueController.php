@@ -14,7 +14,7 @@ class VenueController extends Controller
     public function hotel()
     {
         // dd('rr');
-        $hotels = Hotel::get();
+        $hotels = Hotel::paginate(9);
         $room_type = HotelRoom::get();
         $bed_type = HotelRoom::distinct('type_of_bed')->get('type_of_bed');
         // dd($bed_type);
@@ -216,35 +216,38 @@ class VenueController extends Controller
     public function roomFilter(Request $request)
     {
         // dd($request->all());
-        $rooms=HotelRoom::where('size','<=', $request->size)
+        $rooms=HotelRoom::where('size','<=', $request->size ?? INF)
                         ->where('type_of_bed',$request->type_of_bed)
-                        ->where('single_rate','<=',$request->single)
-                        ->where('double_rate','<=',$request->double)
-                        ->where('corporate_rate','<=',$request->corporate)->get();
+                        ->where('single_rate','<=',$request->single ?? INF)
+                        ->where('double_rate','<=',$request->double ?? INF)
+                        ->where('corporate_rate','<=',$request->corporate ?? INF)
+                        ->get();
         // dd($rooms);
-        // foreach($rooms as $data){
-        //     $hotels=Hotel::where('id',$data->id)->distinct('id')->get();
+
+        // $hotels=Hotel::where('car_radius','<=', $request->car ?? INF )
+        //              ->where('walking_radius','<=',$request->walk ?? INF)
+        //              ->distinct('id')
+        //              ->get();
+        $hotels=Hotel::get();
         // dd($hotels);
 
-        // }
-        $hotels=Hotel::distinct('id')->get();
-        // dd($hotels);
         $bed_type = HotelRoom::distinct('type_of_bed')->get('type_of_bed');
-
-
         return view('Venue.hotel_filter', compact('hotels','bed_type','rooms'));
     }
 
     public function eventspaceFilter(Request $request)
     {
         // dd($request->all());
-        $eventspace=EventSpace::where('size','<=', $request->size)
-                        ->where('banquet','<=',$request->banquet)
-                        ->where('classroom','<=',$request->classroom)
-                        ->where('cocktail','<=',$request->cocktail)
-                        ->where('theater','<=',$request->theater)
-                        ->where('cabaret','<=',$request->cabaret)
-                        ->where('booth_capacity','<=',$request->booth)->get();
+        $eventspace=EventSpace::where('size','<=', $request->size ?? INF)
+                                ->where('banquet','<=',$request->banquet ?? INF)
+                                ->where('classroom','<=',$request->classroom ?? INF)
+                                ->where('cocktail','<=',$request->cocktail ?? INF)
+                                ->where('theater','<=',$request->theater ?? INF)
+                                ->where('cabaret','<=',$request->cabaret ?? INF)
+                                ->where('booth_capacity','<=',$request->booth_capacity ?? INF)
+                                // ->paginate(9);
+                                ->get();
+        // dd($eventspace);
 
         return view('Venue.eventspace_filter', compact('eventspace'));
     }
@@ -261,9 +264,9 @@ class VenueController extends Controller
     }
     public function eventspace()
     {
-        $eventspace = EventSpace::get();
-        $hotels = Hotel::get();
-        return view('Venue.eventspace',compact('eventspace','hotels'));
+        $eventspace = EventSpace::paginate(9);
+        // $hotels = Hotel::get();
+        return view('Venue.eventspace',compact('eventspace'));
     }
 
 
@@ -310,8 +313,8 @@ class VenueController extends Controller
         $room_2 = EventSpace::where('hotel_id',$request->second_hotel)->get();
         $room_3 = EventSpace::where('id',$request->third_hotel)->get();
         //  dd($room_3);
-        $hotel_1 = Hotel::where('id',$request->first_hotel)->first();
-        $hotel_2 = Hotel::where('id',$request->second_hotel)->first();
+        $hotel_1 = EventSpace::where('id',$request->first_hotel)->first();
+        $hotel_2 = EventSpace::where('id',$request->second_hotel)->first();
         $hotel_3 = EventSpace::where('id',$request->third_hotel)->first();
         // dd($hotel_1);
         return view('EventSpace.compared',compact('eventspace','hotel','hotel_1','hotel_2','hotel_3','room_1','room_2','room_3'));
