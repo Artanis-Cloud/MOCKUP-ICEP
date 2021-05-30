@@ -329,15 +329,17 @@ input.search-submit {
             @forelse($hotels as $data)
                <div class="col-md-4">
                <center>
-                 <div class="card" style="width: 18rem;">
-                   <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap" style="width:100%;height:200px;">
+                 <div class="card" style="width: 18rem; height:360px;">
+                   <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap" style="width:100%;height:200px;padding-top:5%;">
                    <div class="card-body">
                      <h5 class="card-title">{{$data->hotel_name}}</h5>
                      <button type="button" data-toggle="modal" data-target="#exampleModal{{ $data->id }}" class="btn btn-primary">Details</button>
                    </div>
                  </div>
+                 <br>
                  </center>
                 </div>
+
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -358,13 +360,13 @@ input.search-submit {
                         <form action="{{ route('room_detail') }}" class="" method="POST">
                             @csrf
                             <select name="room_id" id="" class="form-control bg-light @error('room_id') is-invalid @enderror"">
-                                <option disabled="disabled" hidden value="0">Choose Room Type</option>
+                                <option selected="true" disabled="disabled" hidden value="0">Choose Room Type</option>
                                 @forelse ($room_type as $dataRoom)
                                     @if($data->id == $dataRoom->hotel_id)
                                         <option value="{{ $dataRoom->id }}" >{{ $dataRoom->room_type }}</option>
                                     @endif
                                 @empty
-                                    <option selected="true" disabled="disabled" value="0">No Room Available</option>
+                                    <option selected="true" disabled="disabled" value="">No Room Available</option>
                                 @endforelse
                             </select>
                         </div>
