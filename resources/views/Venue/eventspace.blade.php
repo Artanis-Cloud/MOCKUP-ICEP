@@ -379,7 +379,7 @@ input.search-submit {
                 <center>
                 <div class="card" style="width: 18rem;">
 
-                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap" style="width:100%;height:200px;">
+                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap" style="width:100%;height:200px;padding-top:5%;">
                     <div class="card-body">
                     <h5 class="card-title">{{$data->venue}}</h5>
                     <form action="{{ route('eventspace_details', $data->id) }}" method="post">
@@ -395,6 +395,7 @@ input.search-submit {
                     </form>
                     </div>
                 </div>
+                <br>
                 </center>
             </div>
 
