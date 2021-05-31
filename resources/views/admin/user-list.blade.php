@@ -53,6 +53,7 @@
                                     <td>{{$data->name}}</td>
                                     <td>{{$data->email}}</td>
                                     <td>
+                                        @if(Auth::user()->roles == 1)
                                         <form action="{{route('user.update', $data->id)}}" method="POST">
                                             @csrf
                                             <div class="row">
@@ -68,6 +69,16 @@
                                             </div>
                                             </div>
                                           </form>
+                                          @else
+                                            @if($data->roles ==1)
+                                                SuperAdmin
+                                            @elseif($data->roles ==2)
+                                                Admin
+                                            @elseif($data->roles ==3)
+                                                User
+                                            @endif
+
+                                          @endif
                                     </td>
 
                                     <td class="p-3">
