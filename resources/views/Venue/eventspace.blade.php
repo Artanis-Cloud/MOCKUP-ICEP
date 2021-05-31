@@ -337,7 +337,7 @@ input.search-submit {
                     <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap" style="width:100%;height:200px;padding-top:5%;">
                     <div class="card-body">
                     <h5 class="card-title">{{$data->venue}}</h5>
-                    <form action="{{ route('eventspace_details', $data->id) }}" method="post">
+                    <form action="{{ route('eventspace_details', $data->id) }}" method="get">
                         @csrf
                         @if($data->hotel_id)
                             <input type="hidden" name="hotel_id" value="{{ $data->hotel_id }}">
