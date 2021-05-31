@@ -309,7 +309,7 @@ section {
                   </div>
                   <br>
 
-                <h2 style="font-size: 30px">ADMIN LOGIN</h2>
+                <h2 style="font-size: 30px">LOGIN</h2>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                   <div class="inputBx">
