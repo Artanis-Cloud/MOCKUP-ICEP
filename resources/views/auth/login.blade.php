@@ -291,7 +291,7 @@ section {
                   </div>
                   <br>
 
-                <h2 style="font-size: 30px">ADMIN LOGIN</h2>
+                <h2 style="font-size: 30px">LOGIN</h2>
                 @if (session('error'))
                     <div class="alert alert-danger">
                         <font style="color:red;">{{ session('error') }}</font>
