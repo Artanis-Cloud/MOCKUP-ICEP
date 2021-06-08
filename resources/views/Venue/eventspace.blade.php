@@ -194,61 +194,42 @@ input.search-submit {
 
 <body>
 
- <div class="container-fluid">
-   <div class="row">
-     <div class="col-md-4" style="padding: 5%">
-       <div class="rounded-lg card">
-                           <div class="card-body">
-                            <div class="card-title">Filtering</div>
-                            <form action="{{ route('eventspace_filter') }}" class="POST">
-                                @csrf
-
-                                {{-- <div class="row">
-                                    <!-- 1st row -->
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                          <label for="f-name-1">Radius from KLCC (car)</label>
-                                          <div class="slidecontainer">
-                                          <input type="range" min="1" name="car" max="30" value="50" class="slider" id="km">
-                                          <p>Km: <span id="demokm"></span></p>
-                                          </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Create 5 row -->
-                                <div class="row">
-                                    <!-- 1st row -->
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                          <label for="f-name-1">Radius from KLCC (walk)</label>
-                                          <div class="slidecontainer">
-                                          <input type="range" min="1" name="walk" max="30" value="100" class="slider" id="walk">
-                                          <p>Km: <span id="demowalk"></span></p>
-                                          </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                               <!-- Create 2 row -->
-                               <div class="row">
-                                <!-- 1st row -->
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="f-name-1">Size (s.q ft)</label>
-                                        <input type="text" name="size" value="" class="form-control bg-light">
-                                        {{-- <input type="range" name="size" min="0" max="5000" value="" class="slider" id="size">
-                                        <p>Value: <span id="demosize"></span></p> --}}
+<div class="container-fluid">
+    <div class="row">
+        {{-- <div class="col-md-1"></div>
+        <div class="col-md-10" style="padding: 1%">
+            <div class="rounded-lg card">
+                <div class="card-body">
+                    <center><h3>List of Event Space</h3></center>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div> --}}
+            <div class="col-md-4" style="padding: 5%">
+            <div class="rounded-lg card">
+                <div class="card-body">
+                    <div class="card-title">Filtering</div>
+                        <form action="{{ route('eventspace_filter') }}" class="POST">
+                        @csrf
+                            <div class="row">
+                            <!-- 1st row -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="f-name-1">Size (s.q ft)</label>
+                                    <input type="text" name="size" value="" class="form-control bg-light">
+                                    {{-- <input type="range" name="size" min="0" max="5000" value="" class="slider" id="size">
+                                    <p>Value: <span id="demosize"></span></p> --}}
                                     </div>
                                 </div>
                             </div>
-                               <!-- Create 2 row -->
-                               <p>Setup Style</p>
-                               <div class="row">
-                                   <!-- 1st row -->
-                                   <div class="col-md-1"></div>
-                                   <div class="col-md-11">
-                                       <div class="form-group">
-                                           <label for="email-1">Banquet</label>
+                            <!-- Create 2 row -->
+                            <p>Setup Style</p>
+                            <div class="row">
+                                <!-- 1st row -->
+                                <div class="col-md-1"></div>
+                                <div class="col-md-11">
+                                    <div class="form-group">
+                                        <label for="email-1">Banquet</label>
                                             <input type="text" name="banquet" value="" class="form-control bg-light">
                                             {{-- <input type="range" min="1" name="banquet" max="30000" value="1000" class="slider" id="banquet">
                                             <p>Value: <span id="demobanquet"></span></p> --}}
@@ -256,44 +237,44 @@ input.search-submit {
                                         <div class="form-group">
                                             <label for="email-1">Classroom</label>
                                             <input type="text" name="classroom" value="" class="form-control bg-light">
-                                             {{-- <input type="range" min="1" name="classroom" max="30000" value="1000" class="slider" id="classroom">
-                                             <p>Value: <span id="democlassroom"></span></p> --}}
-                                         </div>
-                                         <div class="form-group">
+                                            {{-- <input type="range" min="1" name="classroom" max="30000" value="1000" class="slider" id="classroom">
+                                            <p>Value: <span id="democlassroom"></span></p> --}}
+                                        </div>
+                                        <div class="form-group">
                                             <label for="email-1">Theater</label>
                                             <input type="text" name="theater" value="" class="form-control bg-light">
-                                             {{-- <input type="range" min="1" name="theater" max="30000" value="1000" class="slider" id="theater">
-                                             <p>Value: <span id="demotheater"></span></p> --}}
-                                         </div>
-                                         <div class="form-group">
+                                            {{-- <input type="range" min="1" name="theater" max="30000" value="1000" class="slider" id="theater">
+                                            <p>Value: <span id="demotheater"></span></p> --}}
+                                        </div>
+                                        <div class="form-group">
                                             <label for="email-1">Cocktail</label>
                                             <input type="text" name="cocktail" value="" class="form-control bg-light">
-                                             {{-- <input type="range" min="1" name="cocktail" max="30000" value="1000" class="slider" id="cocktail">
-                                             <p>Value: <span id="demococktail"></span></p> --}}
-                                         </div>
-                                         <div class="form-group">
+                                            {{-- <input type="range" min="1" name="cocktail" max="30000" value="1000" class="slider" id="cocktail">
+                                            <p>Value: <span id="demococktail"></span></p> --}}
+                                        </div>
+                                        <div class="form-group">
                                             <label for="email-1">Cabaret/Workshop</label>
                                             <input type="text" name="cabaret" value="" class="form-control bg-light">
-                                             {{-- <input type="range" min="1" name="cabaret" max="30000" value="1000" class="slider" id="cabaret">
-                                             <p>Value: <span id="democabaret"></span></p> --}}
-                                         </div>
-                                         <div class="form-group">
+                                            {{-- <input type="range" min="1" name="cabaret" max="30000" value="1000" class="slider" id="cabaret">
+                                            <p>Value: <span id="democabaret"></span></p> --}}
+                                        </div>
+                                        <div class="form-group">
                                             <label for="email-1">Booth Capacity</label>
                                             <input type="text" name="booth_capacity" value="" class="form-control bg-light">
-                                             {{-- <input type="range" min="1" name="booth" max="30000" value="1000" class="slider" id="booth">
-                                             <p>Value: <span id="demobooth"></span></p> --}}
-                                         </div>
+                                            {{-- <input type="range" min="1" name="booth" max="30000" value="1000" class="slider" id="booth">
+                                            <p>Value: <span id="demobooth"></span></p> --}}
+                                        </div>
 
-                                             {{-- <div class="custom-control custom-checkbox">
-                                                 <input type="checkbox" name="cocktail" class="custom-control-input" id="customCheck4">
-                                                 <label class="custom-control-label" for="customCheck4">Cocktail</label>
-                                             </div> --}}
-                                       </div>
-                                   </div>
+                                            {{-- <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" name="cocktail" class="custom-control-input" id="customCheck4">
+                                                <label class="custom-control-label" for="customCheck4">Cocktail</label>
+                                            </div> --}}
+                                    </div>
+                                </div>
 
 
-                               <!-- Submit button -->
-                               <button type="submit" class="btn btn-primary">Filter</button>
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary">Filter</button>
                             </form>
                         </div>
                     </div>
@@ -324,22 +305,22 @@ input.search-submit {
                         </div>
                     </div>
 
-     </div>
-     <div class="col-md-8" style="padding: 5%">
+    </div>
+    <div class="col-md-8" style="padding: 5%">
 
         <div class="row">
             @forelse($hotels as $data)
-               <div class="col-md-4">
-               <center>
-                 <div class="card" style="width: 18rem; height:360px;">
-                   <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap" style="width:100%;height:200px;padding-top:5%;">
-                   <div class="card-body">
-                     <h5 class="card-title">{{$data->hotel_name}}</h5>
-                     <button type="button" data-toggle="modal" data-target="#exampleModal{{ $data->id }}" class="btn btn-primary">Details</button>
-                   </div>
-                 </div>
-                 <br>
-                 </center>
+            <div class="col-md-4">
+            <center>
+                <div class="card" style="width: 18rem; height:360px;">
+                <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap" style="width:100%;height:200px;padding-top:5%;">
+                <div class="card-body">
+                    <h5 class="card-title">{{$data->hotel_name}}</h5>
+                    <button type="button" data-toggle="modal" data-target="#exampleModal{{ $data->id }}" class="btn btn-primary">Details</button>
+                </div>
+                </div>
+                <br>
+                </center>
                 </div>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -379,14 +360,14 @@ input.search-submit {
                     </div>
                     </div>
                 </div>
-               @empty
-           no data
-           @endforelse
+            @empty
+        no data
+        @endforelse
         </div>
-       {{ $hotels->links() }}
-     </div>
-   </div>
- </div>
+    {{ $hotels->links() }}
+    </div>
+</div>
+</div>
 
 
     <script>

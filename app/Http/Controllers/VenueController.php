@@ -267,7 +267,7 @@ class VenueController extends Controller
 
         $hotels=EventSpace::where('hotel_id', $request->hotel_id)->get();
         $eventspace = EventSpace::where('id', $request->eventspace_id)->get();
-        $photos = Gallery::where('eventspace_id', $request->id)->get();
+        $photos = Gallery::where('eventspace_id', $request->eventspace_id)->get();
         $map = Hotel::where('id',$request->hotel_id)->get();
 
        return view('Venue.eventspace_details', compact('eventspace','photos','hotels','map'));
