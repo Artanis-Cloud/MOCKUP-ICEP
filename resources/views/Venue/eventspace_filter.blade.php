@@ -332,15 +332,19 @@ input.search-submit {
      <div class="col-md-8" style="padding: 5%">
 
        <div class="row">
-       @forelse($eventspace as $data)
-        {{-- @if($data->hotel_id)
+        @forelse($hotels->unique('id') as $data)
+        @forelse($eventspace->unique('hotel_id') as $room)
+
+
+        @if($data->id == $room->hotel_id)
+         {{-- @if($data->hotel_id) --}}
             <div class="col-md-4">
             <center>
                 <div class="card" style="width: 18rem;">
 
-                <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->hotels->thumbnail))}}" alt="Card image cap">
+                <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap" style="width:100%;height:200px;padding-top:5%;">
                 <div class="card-body">
-                    <h5 class="card-title">{{$data->hotels->hotel_name}}</h5>
+                    <h5 class="card-title">{{$data->hotel_name}}</h5>
                 <button type="button" data-toggle="modal" data-target="#exampleModal{{ $data->id }}" class="btn btn-primary">Details</button>
                 </div>
                 </div>
@@ -353,29 +357,30 @@ input.search-submit {
                 <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ $data->hotels->hotel_name }}</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">{{ $data->hotel_name }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
                     <div class="modal-body">
-                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->hotels->thumbnail))}}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap">
                     <h5 class="">Details</h5>
-                    <p>Radius from KLCC (by car): {{ $data->hotels->car_radius }}</p>
-                    <p>Radius from KLCC (walking distance): {{ $data->hotels->walking_radius }}</p>
+                    <p>Radius from KLCC (by car): {{ $data->car_radius }}</p>
+                    <p>Radius from KLCC (walking distance): {{ $data->walking_radius }}</p>
                     <p>Event Space Type</p>
-                    <form action="{{ route('eventspace_details') }}" class="" method="POST">
+                    <form action="{{ route('eventspace_details') }}" class="" method="get">
                         @csrf
                         <select name="eventspace_id" id="" class="form-control bg-light @error('eventspace_id') is-invalid @enderror"">
                             <option disabled="disabled" hidden value="0">Choose Event Space</option>
-                            @forelse ($eventspace as $dataRoom)
-                                @if($data->hotel_id == $dataRoom->hotel_id)
-                                    <option value="{{ $data->hotel_id }}" >{{ $data->venue }}</option>
+                            @forelse ($eventspace as $dataEventSpace)
+                                @if($data->id == $dataEventSpace->hotel_id)
+                                    <option value="{{ $dataEventSpace->id }}" >{{ $dataEventSpace->venue }}</option>
                                 @endif
                             @empty
                                 <option selected="true" disabled="disabled" value="0">No Event Space Available</option>
                             @endforelse
                         </select>
+                        <input type="hidden" name="hotel_id" value="{{ $data->id }}">
                     </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -385,8 +390,9 @@ input.search-submit {
                 </div>
                 </div>
             </div>
-            @else --}}
-            <div class="col-md-4">
+            @endif
+            {{--@else
+             <div class="col-md-4">
                 <center>
                 <div class="card" style="width: 18rem;">
 
@@ -398,9 +404,11 @@ input.search-submit {
                 </div>
                 <br>
                 </center>
-            </div>
+            </div> --}}
             {{-- @endif --}}
-
+            @empty
+            no data
+            @endforelse
         @empty
         no data
         @endforelse

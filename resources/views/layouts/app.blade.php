@@ -72,24 +72,32 @@
                             <a class="nav-link" href="{{ url('/homepage') }}">HOME</a>
                         </li> --}}
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('eventspace') }}">EVENTS SPACE</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('hotel') }}">ACCOMMODATION</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('eventspace') }}">EVENTS SPACE</a>
+                            <a class="nav-link" href="{{ route('comparison-eventspace') }}">EVENT SPACE COMPARABILITY</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('comparison-hotel') }}">ACCOMMODATION COMPARABILITY</a>
+                        </li>
+
+
 
                         {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('comparison') }}">COMPARABILITY</a> --}}
 
 
 
-                        <li class="dropdown nav-item">
+                        {{-- <li class="dropdown nav-item">
                             <span>COMPARABILITY</span>
                             <ul class="dropdown-content">
                                     <a href="{{ route('comparison-hotel') }}" class="nav-link">HOTEL</a>
                                     <a href="{{ route('comparison-eventspace') }}" class="nav-link">EVENT SPACE</a>
                             </ul>
-                        </li>
+                        </li> --}}
 
 
                         {{-- <li class="nav-item">

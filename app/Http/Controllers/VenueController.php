@@ -235,6 +235,13 @@ class VenueController extends Controller
         return view('Venue.hotel_filter', compact('hotels','bed_type','rooms'));
     }
 
+    public function eventspace()
+    {
+        $eventspace = EventSpace::get();
+        $hotels = Hotel::paginate(9);
+        return view('Venue.eventspace',compact('eventspace','hotels'));
+    }
+
     public function eventspaceFilter(Request $request)
     {
         // dd($request->all());
@@ -248,26 +255,24 @@ class VenueController extends Controller
                                 // ->paginate(9);
                                 ->get();
         // dd($eventspace);
+        $hotels=Hotel::get();
 
-        return view('Venue.eventspace_filter', compact('eventspace'));
+
+        return view('Venue.eventspace_filter', compact('eventspace','hotels'));
     }
 
-    public function eventspaceDetails(Request $request, $id)
+    public function eventspaceDetails(Request $request)
     {
         // dd($request->all());
-        $hotels=EventSpace::where('hotel_id', $request->hotel_id)->get();
-        $eventspace_id = EventSpace::find($id);
-        $eventspace = EventSpace::where('id', $eventspace_id->id)->get();
-        $photos = Gallery::where('eventspace_id', $eventspace_id->id)->get();
 
-       return view('Venue.eventspace_details', compact('eventspace','photos','hotels'));
+        $hotels=EventSpace::where('hotel_id', $request->hotel_id)->get();
+        $eventspace = EventSpace::where('id', $request->eventspace_id)->get();
+        $photos = Gallery::where('eventspace_id', $request->id)->get();
+        $map = Hotel::where('id',$request->hotel_id)->get();
+
+       return view('Venue.eventspace_details', compact('eventspace','photos','hotels','map'));
     }
-    public function eventspace()
-    {
-        $eventspace = EventSpace::paginate(9);
-        // $hotels = Hotel::get();
-        return view('Venue.eventspace',compact('eventspace'));
-    }
+
 
 
     public function comparisonHotel()
