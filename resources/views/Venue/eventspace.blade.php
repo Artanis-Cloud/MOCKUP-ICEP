@@ -327,41 +327,63 @@ input.search-submit {
      </div>
      <div class="col-md-8" style="padding: 5%">
 
-       <div class="row">
-       @forelse($eventspace as $data)
-            {{-- @else --}}
-            <div class="col-md-4">
-                <center>
-                <div class="card" style="width: 18rem;">
-
-                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap" style="width:100%;height:200px;padding-top:5%;">
-                    <div class="card-body">
-                    <h5 class="card-title">{{$data->venue}}</h5>
-                    <form action="{{ route('eventspace_details', $data->id) }}" method="get">
-                        @csrf
-                        @if($data->hotel_id)
-                            <input type="hidden" name="hotel_id" value="{{ $data->hotel_id }}">
-                            <button type="submit" class="btn btn-primary">Details</a>
-
-                        @else
-                            <button type="submit" class="btn btn-primary">Details</a>
-                        @endif
-
-                    </form>
+        <div class="row">
+            @forelse($hotels as $data)
+               <div class="col-md-4">
+               <center>
+                 <div class="card" style="width: 18rem; height:360px;">
+                   <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap" style="width:100%;height:200px;padding-top:5%;">
+                   <div class="card-body">
+                     <h5 class="card-title">{{$data->hotel_name}}</h5>
+                     <button type="button" data-toggle="modal" data-target="#exampleModal{{ $data->id }}" class="btn btn-primary">Details</button>
+                   </div>
+                 </div>
+                 <br>
+                 </center>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{ $data->hotel_name }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap">
+                        <h5 class="">Details</h5>
+                        <p>Radius from KLCC (by car): {{ $data->car_radius }}</p>
+                        <p>Radius from KLCC (walking distance): {{ $data->walking_radius }}</p>
+                        <p>Room Type</p>
+                        <form action="{{ route('eventspace_details')}}" class="" method="get">
+                            @csrf
+                            <select name="eventspace_id" id="" class="form-control bg-light @error('eventspace_id') is-invalid @enderror"">
+                                <option selected="true" disabled="disabled" hidden value="0">Choose Event Space</option>
+                                @forelse ($eventspace as $dataEventSpace)
+                                    @if($data->id == $dataEventSpace->hotel_id)
+                                        <option value="{{ $dataEventSpace->id }}" >{{ $dataEventSpace->venue }}</option>
+                                    @endif
+                                @empty
+                                    <option selected="true" disabled="disabled" value="">No EventSpace Available</option>
+                                @endforelse
+                            </select>
+                        </div>
+                        <input type="hidden" name="hotel_id" value="{{ $data->id }}">
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Event Space Detail</button>
+                        </div>
+                        </form>
+                    </div>
                     </div>
                 </div>
-                <br>
-                </center>
-            </div>
-
-
-            {{-- @endif --}}
-
-        @empty
-        no data
-        @endforelse
-       </div>
-       {{ $eventspace->links() }}
+               @empty
+           no data
+           @endforelse
+        </div>
+       {{ $hotels->links() }}
      </div>
    </div>
  </div>

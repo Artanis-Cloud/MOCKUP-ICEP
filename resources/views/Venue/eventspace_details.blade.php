@@ -435,55 +435,57 @@ input.search-submit {
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
                     <div class="table-responsive">
-            <table class="table text-dark table-borderless">
-                <thead>
-                    <tr class="text-center">
-                        <th><p class="mb-0">Event Space</p></th>
-                        <th><p class="mb-0">Level</p></th>
-                        <th><p class="mb-0">Size</p></th>
-                        <th><p class="mb-0">Banquet</p></th>
-                        <th><p class="mb-0">Classroom</p></th>
-                        <th><p class="mb-0">Theater</p></th>
-                        <th><p class="mb-0">Cocktail</p></th>
+                        <table class="table text-dark table-borderless" id="defaultOrderingDataTable">
+                            {{-- <table class="table table-striped table-bordered" id="responsiveDataTable" style="width: 100%;"> --}}
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Table data -->
-                    @if($data->hotel_id)
-                        @forelse ( $hotels as $data)
-                        <tr class="text-center">
-                            <td><p class="mb-0 font-weight-bold">{{ $data->venue }}</p></td>
-                            <td><p class="mb-0 font-weight-normal">{{ $data->level }}</p></td>
-                            <td><p class="mb-0 font-weight-normal">{{ $data->size }}</p></td>
-                            <td><p class="mb-0 font-weight-normal">{{ $data->banquet }}</p></td>
-                            <td><p class="mb-0 font-weight-normal">{{ $data->classroom }}</p></td>
-                            <td><p class="mb-0 font-weight-normal">{{ $data->theater }}</p></td>
-                            <td><p class="mb-0 font-weight-normal">{{ $data->cocktail }}</p></td>
-                        </tr>
-                        @empty
+                            <thead>
+                                <tr class="text-center">
+                                    <th><p class="mb-0">Event Space</p></th>
+                                    <th><p class="mb-0">Level</p></th>
+                                    <th><p class="mb-0">Size</p></th>
+                                    <th><p class="mb-0">Banquet</p></th>
+                                    <th><p class="mb-0">Classroom</p></th>
+                                    <th><p class="mb-0">Theater</p></th>
+                                    <th><p class="mb-0">Cocktail</p></th>
 
-                    @endforelse
-                    @else
-                    @forelse ( $eventspace as $data)
-                        <tr class="text-center">
-                            <td><p class="mb-0 font-weight-bold">{{ $data->venue }}</p></td>
-                            <td><p class="mb-0 font-weight-normal">{{ $data->level }}</p></td>
-                            <td><p class="mb-0 font-weight-normal">{{ $data->size }}</p></td>
-                            <td><p class="mb-0 font-weight-normal">{{ $data->banquet }}</p></td>
-                            <td><p class="mb-0 font-weight-normal">{{ $data->classroom }}</p></td>
-                            <td><p class="mb-0 font-weight-normal">{{ $data->theater }}</p></td>
-                            <td><p class="mb-0 font-weight-normal">{{ $data->cocktail }}</p></td>
-                        </tr>
-                        @empty
-                        @endforelse
-                    @endif
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Table data -->
+                                {{-- @if($data->hotel_id) --}}
+                                    @forelse ( $hotels as $data)
+                                    <tr class="text-center">
+                                        <td><p class="mb-0 font-weight-bold">{{ $data->venue }}</p></td>
+                                        <td><p class="mb-0 font-weight-normal">{{ $data->level }}</p></td>
+                                        <td><p class="mb-0 font-weight-normal">{{ $data->size }}</p></td>
+                                        <td><p class="mb-0 font-weight-normal">{{ $data->banquet }}</p></td>
+                                        <td><p class="mb-0 font-weight-normal">{{ $data->classroom }}</p></td>
+                                        <td><p class="mb-0 font-weight-normal">{{ $data->theater }}</p></td>
+                                        <td><p class="mb-0 font-weight-normal">{{ $data->cocktail }}</p></td>
+                                    </tr>
+                                    @empty
+
+                                @endforelse
+                                {{-- @else
+                                @forelse ( $eventspace as $data)
+                                    <tr class="text-center">
+                                        <td><p class="mb-0 font-weight-bold">{{ $data->venue }}</p></td>
+                                        <td><p class="mb-0 font-weight-normal">{{ $data->level }}</p></td>
+                                        <td><p class="mb-0 font-weight-normal">{{ $data->size }}</p></td>
+                                        <td><p class="mb-0 font-weight-normal">{{ $data->banquet }}</p></td>
+                                        <td><p class="mb-0 font-weight-normal">{{ $data->classroom }}</p></td>
+                                        <td><p class="mb-0 font-weight-normal">{{ $data->theater }}</p></td>
+                                        <td><p class="mb-0 font-weight-normal">{{ $data->cocktail }}</p></td>
+                                    </tr>
+                                    @empty
+                                    @endforelse
+                                @endif --}}
 
 
 
-                </tbody>
-            </table>
-        </div>
+                            </tbody>
+                        </table>
+                    </div>
 
                     </div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
@@ -491,56 +493,62 @@ input.search-submit {
                         <div id="map"></div>
                         <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 
-                            <script>
-
-                                var icons = { parking: { icon: 'https://tarantelleromane.files.wordpress.com/2016/10/map-marker.png?w=50' } };
+                        @forelse ($map as $item)
 
 
-                                // REPLACE WITH DATA FROM API
-                                //TITLE | POSITION - LAT , LNG | ICON | TITLE | CONTENT
-                                var airports = [
-                                    {
-                                        title: "{{ $data->venue }}",
-                                        position: {
-                                            lat: {{ $data->latitude }},
-                                            lng: {{ $data->longitude }} },
-                                        icon: 'parking',
-                                        content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">{{ $data->venue }}</h1><div id="bodyContent"><p><b>{{ $data->venue }}</b></div></div>'
-                                    }
-                                    ];
+                        <script>
 
-                                function initMap() {
+                            var icons = { parking: { icon: 'https://tarantelleromane.files.wordpress.com/2016/10/map-marker.png?w=50' } };
 
-                                    var uk = {
-                                        lat: 3.1580,
-                                        lng: 101.7118
-                                    };
 
-                                    var map = new google.maps.Map( document.getElementById('map'), {
-                                        zoom: 15,
-                                        center: uk,
-                                        disableDefaultUI: true,
-                                        styles: [{"elementType":"labels","stylers":[{"visibility":"off"},{"color":"#f49f53"}]},{"featureType":"landscape","stylers":[{"color":"#f9ddc5"},{"lightness":-7}]},{"featureType":"road","stylers":[{"color":"#813033"},{"lightness":43}]},{"featureType":"poi.business","stylers":[{"color":"#645c20"},{"lightness":38}]},{"featureType":"water","stylers":[{"color":"#1994bf"},{"saturation":-69},{"gamma":0.99},{"lightness":43}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#f19f53"},{"weight":1.3},{"visibility":"on"},{"lightness":16}]},{"featureType":"poi.business"},{"featureType":"poi.park","stylers":[{"color":"#645c20"},{"lightness":39}]},{"featureType":"poi.school","stylers":[{"color":"#a95521"},{"lightness":35}]},{},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"color":"#813033"},{"lightness":38},{"visibility":"off"}]},{},{},{},{},{},{},{},{},{},{},{},{"elementType":"labels"},{"featureType":"poi.sports_complex","stylers":[{"color":"#9e5916"},{"lightness":32}]},{},{"featureType":"poi.government","stylers":[{"color":"#9e5916"},{"lightness":46}]},{"featureType":"transit.station","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","stylers":[{"color":"#813033"},{"lightness":22}]},{"featureType":"transit","stylers":[{"lightness":38}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#f19f53"},{"lightness":-10}]},{},{},{}]
-                                    });
-
-                                    var InfoWindows = new google.maps.InfoWindow({});
-
-                                    airports.forEach(function(airport) {
-                                        var marker = new google.maps.Marker({
-                                            position: { lat: airport.position.lat, lng: airport.position.lng },
-                                            map: map,
-                                            icon: icons[airport.icon].icon,
-                                            title: airport.title
-                                        });
-                                        marker.addListener('mouseover', function() {
-                                            InfoWindows.open(map, this);
-                                            InfoWindows.setContent(airport.content);
-                                        });
-                                    });
+                            // REPLACE WITH DATA FROM API
+                            //TITLE | POSITION - LAT , LNG | ICON | TITLE | CONTENT
+                            var airports = [
+                                {
+                                    title: "{{ $item->hotel_name }}",
+                                    position: {
+                                        lat: {{ $item->latitude }},
+                                        lng: {{ $item->longitude }} },
+                                    icon: 'parking',
+                                    content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">{{ $item->hotel_name }}</h1><div id="bodyContent"><p><b>{{ $item->hotel_name }}</b></div></div>'
                                 }
+                                ];
+
+                            function initMap() {
+
+                                var uk = {
+                                    lat: 3.1580,
+                                    lng: 101.7118
+                                };
+
+                                var map = new google.maps.Map( document.getElementById('map'), {
+                                  zoom: 15,
+                                  center: uk,
+                                  disableDefaultUI: true,
+                                  styles: [{"elementType":"labels","stylers":[{"visibility":"off"},{"color":"#f49f53"}]},{"featureType":"landscape","stylers":[{"color":"#f9ddc5"},{"lightness":-7}]},{"featureType":"road","stylers":[{"color":"#813033"},{"lightness":43}]},{"featureType":"poi.business","stylers":[{"color":"#645c20"},{"lightness":38}]},{"featureType":"water","stylers":[{"color":"#1994bf"},{"saturation":-69},{"gamma":0.99},{"lightness":43}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#f19f53"},{"weight":1.3},{"visibility":"on"},{"lightness":16}]},{"featureType":"poi.business"},{"featureType":"poi.park","stylers":[{"color":"#645c20"},{"lightness":39}]},{"featureType":"poi.school","stylers":[{"color":"#a95521"},{"lightness":35}]},{},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"color":"#813033"},{"lightness":38},{"visibility":"off"}]},{},{},{},{},{},{},{},{},{},{},{},{"elementType":"labels"},{"featureType":"poi.sports_complex","stylers":[{"color":"#9e5916"},{"lightness":32}]},{},{"featureType":"poi.government","stylers":[{"color":"#9e5916"},{"lightness":46}]},{"featureType":"transit.station","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","stylers":[{"color":"#813033"},{"lightness":22}]},{"featureType":"transit","stylers":[{"lightness":38}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#f19f53"},{"lightness":-10}]},{},{},{}]
+                                });
+
+                                var InfoWindows = new google.maps.InfoWindow({});
+
+                                airports.forEach(function(airport) {
+                                    var marker = new google.maps.Marker({
+                                      position: { lat: airport.position.lat, lng: airport.position.lng },
+                                      map: map,
+                                      icon: icons[airport.icon].icon,
+                                      title: airport.title
+                                    });
+                                    marker.addListener('mouseover', function() {
+                                      InfoWindows.open(map, this);
+                                      InfoWindows.setContent(airport.content);
+                                    });
+                                });
+                            }
 
 
-                                </script>
+                            </script>
+                            @empty
+
+                            @endforelse
                     </div>
                 </div>
                 </div>

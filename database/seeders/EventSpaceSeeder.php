@@ -2069,7 +2069,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 1020,                            //venue 1
                 'booth_capacity' => 148,
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2087,7 +2087,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 930,                            //venue 2
                 'booth_capacity' => 142,
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2105,7 +2105,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 1920,                            //venue 3
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2123,7 +2123,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 804,                            //venue 4
                 'booth_capacity' => 126,
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2141,7 +2141,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 906,                            //venue 5
                 'booth_capacity' => 132,
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2159,7 +2159,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 1680,                            //venue 6
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2177,7 +2177,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => '',                            //venue 7
                 'booth_capacity' => 564,
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2195,7 +2195,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 224,                            //venue 8
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2213,7 +2213,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 224,                            //venue 9
                 'booth_capacity' => 182,
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2231,7 +2231,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 400,                            //venue 10
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2249,7 +2249,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 1008,                            //venue 11
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2267,7 +2267,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 1008,                            //venue 12
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2285,7 +2285,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 470,                            //venue 13
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2303,7 +2303,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 1500,                            //venue 14
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2321,7 +2321,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 1500,                            //venue 15
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2339,7 +2339,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 3000,                            //venue 16
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2357,7 +2357,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 950,                            //venue 17
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2375,7 +2375,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 650,                            //venue 18
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2393,7 +2393,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 384,                            //venue 19
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2411,7 +2411,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 252,                            //venue 20
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2429,7 +2429,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 2280,                            //venue 21
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );
@@ -2447,7 +2447,7 @@ class EventSpaceSeeder extends Seeder
                 'cabaret' => 470,                            //venue 22
                 'booth_capacity' => '',
                 'daily_rate' => '',
-                'hotel_id' => '',
+                'hotel_id' => 11,
 
             ]
         );

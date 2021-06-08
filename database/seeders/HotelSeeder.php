@@ -114,15 +114,15 @@ class HotelSeeder extends Seeder
             ]
         );
 
-        // DB::table('hotels')-> insert(
-        //     [
+        DB::table('hotels')-> insert(
+            [
 
-        //     'hotel_name' => 'Kuala Lumpur Convention Center',               //hotel 11
-        //     'car_radius' => '',
-        //     'walking_radius' => '',
+            'hotel_name' => 'Kuala Lumpur Convention Center',               //hotel 11
+            'car_radius' => '',
+            'walking_radius' => '',
 
-        //     ]
-        // );
+            ]
+        );
 
     }
 }
