@@ -28,7 +28,7 @@
 
     .container-fluid{
         width: 100%;
-        height: auto;
+        height: 85vh;
 
     }
 
@@ -162,16 +162,16 @@
     }
     </style>
  <div class="container-fluid">
-    <div class="row" style="justify-content: center;">
+    {{-- <div class="row" style="justify-content: center;">
       <div class="col-md-12" style="padding: 5%;">
       <div class="rounded-lg card">
                             <div class="card-body">
                                 <div class="card-title">Event Space Comparison Table</div>
-                                <!-- Table -->
+
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered" id="responsiveDataTable" style="width: 100%;">
                                         <thead>
-                                            {{-- <tr class="text-center">
+                                            <tr class="text-center">
                                                 <th style="border: 0px none #ffffff;"><p class="mb-0"></p></th>
                                                 <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-car" style="font-size: 25px;"></i></p></th>
                                                 <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-walking" style="font-size: 25px;"></i></p></th>
@@ -182,7 +182,7 @@
                                                 <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-dollar-sign" style="font-size: 25px;"></i></p></th>
                                                 <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-dollar-sign" style="font-size: 25px;"></i></p></th>
                                                 <th style="border: 0px none #ffffff;"><p class="mb-0"><i class="fas fa-dollar-sign" style="font-size: 25px;"></i></p></th>
-                                            </tr> --}}
+                                            </tr>
                                             <tr class="text-center">
                                                 <th><p class="mb-0">Hotel Name</p></th>
                                                 <th><p class="mb-0">Radius from KLCC (car)</p></th>
@@ -200,7 +200,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- Table data -->
+
                                             @forelse ($eventspace as $data)
                                             <tr class="text-center">
                                                 @if($data->hotel_id)
@@ -234,7 +234,7 @@
                             </div>
                         </div>
       </div>
-    </div>
+    </div> --}}
    <div class="container p-4">
 
      <div class="row">

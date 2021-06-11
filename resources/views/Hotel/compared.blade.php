@@ -162,12 +162,12 @@
     }
     </style>
  <div class="container-fluid">
-    <div class="row" style="justify-content: center;">
+    {{-- <div class="row" style="justify-content: center;">
       <div class="col-md-8" style="padding: 3%;">
       <div class="rounded-lg card">
             <div class="card-body">
                 <div class="card-title"> Hotel Comparison Table</div>
-                <!-- Table -->
+
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered" id="responsiveDataTable" style="width: 100%;">
                         <thead>
@@ -186,7 +186,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Table data -->
+
                             @forelse ($room as $data)
                             <tr class="text-center">
                                 <td><p class="mb-0 font-weight-normal">{{ $data->hotels->hotel_name ? $data->hotels->hotel_name : "-" }}</p></td>
@@ -210,7 +210,7 @@
             </div>
         </div>
       </div>
-    </div>
+    </div> --}}
    <div class="container p-4">
 
      <div class="row">
