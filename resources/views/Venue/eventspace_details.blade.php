@@ -350,50 +350,50 @@ input.search-submit {
                 </div>
                 @endif
                 <div class="flex-grow-1">
-                    <h4 class="text-muted">Radius from KLCC (car)</h4>
+                    <h5 class="text-muted">Radius from KLCC (car)</h5>
                     <h5 class="m-0 font-weight-normal">{{ $data->car_radius ? $data->car_radius : "-" }}</h5>
                     <br>
-                    <h4 class="text-muted">Radius from KLCC (walk)</h4>
+                    <h5 class="text-muted">Radius from KLCC (walk)</h5>
                     <h5 class="m-0 font-weight-normal">{{ $data->walking_radius ? $data->walking_radius : "-"}}</h5>
                 </div>
                     <div class="flex-grow-1">
-                        <h4 class="text-muted">Event Space</h4>
+                        <h5 class="text-muted">Event Space</h5>
                         <h5 class="m-0 font-weight-normal">{{ $data->venue ? $data->venue : "-" }}</h5>
                         <br>
-                        <h4 class="text-muted">Level</h4>
+                        <h5 class="text-muted">Level</h5>
                         <h5 class="m-0 font-weight-normal">{{ $data->level ? $data->level : "-" }}</h5>
                     </div>
 
                     <div class="flex-grow-1">
-                        <h4 class="text-muted">Size</h4>
+                        <h5 class="text-muted">Size</h5>
                         <h5 class="m-0 font-weight-normal">{{ $data->size ? $data->size : "-"}} sq.ft</h5>
                         <br>
-                        <h4 class="text-muted">Banquet</h4>
+                        <h5 class="text-muted">Banquet</h5>
                         <h5 class="m-0 font-weight-normal">{{ $data->banquet ? $data->banquet : "-" }}</h5>
                     </div>
 
                     <div class="flex-grow-1">
-                        <h4 class="text-muted">Classroom</h4>
+                        <h5 class="text-muted">Classroom</h5>
                         <h5 class="m-0 font-weight-normal">{{ $data->classroom ? $data->classroom : "-" }}</h5>
                         <br>
-                        <h4 class="text-muted">Theater</h4>
+                        <h5 class="text-muted">Theater</h5>
                         <h5 class="m-0 font-weight-normal">{{ $data->theater ? $data->theater : "-" }}</h5>
                     </div>
 
                     <div class="flex-grow-1">
-                        <h4 class="text-muted">Cocktail</h4>
+                        <h5 class="text-muted">Cocktail</h5>
                         <h5 class="m-0 font-weight-normal">{{ $data->cocktail ? $data->cocktail : "-" }}</h5>
                         <br>
-                        <h4 class="text-muted">Cabaret</h4>
+                        <h5 class="text-muted">Cabaret</h5>
                         <h5 class="m-0 font-weight-normal">{{ $data->cabaret ? $data->cabaret : "-" }}</h5>
                     </div>
 
                     <div class="flex-grow-1">
-                        <h4 class="text-muted">Booth Capacity</h4>
+                        <h5 class="text-muted">Booth Capacity</h5>
                         <h5 class="m-0 font-weight-normal">{{ $data->booth_capacity ? $data->booth_capacity : "-" }}</h5>
                         <br>
-                        <h4 class="text-muted">Daily Rates</h4>
-                        <h5 class="m-0 font-weight-normal">RM {{ $data->daily_rate ? $data->daily_rate : "-" }}</h5>
+                        {{-- <h5 class="text-muted">Daily Rates</h5>
+                        <h5 class="m-0 font-weight-normal">RM {{ $data->daily_rate ? $data->daily_rate : "-" }}</h5> --}}
                     </div>
 
                 </div>

@@ -344,28 +344,28 @@
                                             {{-- <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap" style="width: 250px; height: 200px;"> --}}
                                             </div>
                                             <div class="flex-grow-1">
-                                                <h4 class="text-muted">Radius from KLCC (car)</h4>
+                                                <h5 class="text-muted">Radius from KLCC (car)</h5>
                                                 <h5 class="m-0 font-weight-normal">{{ $data->hotels->car_radius }}</h5>
                                                 <br>
-                                                <h4 class="text-muted">Radius from KLCC (walk)</h4>
+                                                <h5 class="text-muted">Radius from KLCC (walk)</h5>
                                                 <h5 class="m-0 font-weight-normal">{{ $data->hotels->walking_radius }}</h5>
                                             </div>
 
                                             <div class="flex-grow-1">
-                                                <h4 class="text-muted">Room Type</h4>
+                                                <h5 class="text-muted">Room Type</h5>
                                                 <h5 class="m-0 font-weight-normal">{{ $data->room_type }}</h5>
                                                 <br>
-                                                <h4 class="text-muted">Single Rates ( 1 Breakfast)</h4>
-                                                <h5 class="m-0 font-weight-normal">{{ $data->single_rate }}</h5>
+                                                {{-- <h5 class="text-muted">Single Rates ( 1 Breakfast)</h5>
+                                                <h5 class="m-0 font-weight-normal">{{ $data->single_rate }}</h5> --}}
                                             </div>
 
-                                            <div class="flex-grow-1">
-                                                <h4 class="text-muted">Double Rates ( 2 Breakfast)</h4>
+                                            {{-- <div class="flex-grow-1">
+                                                <h5 class="text-muted">Double Rates ( 2 Breakfast)</h5>
                                                 <h5 class="m-0 font-weight-normal">{{ $data->double_rate }}</h5>
                                                 <br>
-                                                <h4 class="text-muted">Corporate Rates</h4>
+                                                <h5 class="text-muted">Corporate Rates</h5>
                                                 <h5 class="m-0 font-weight-normal">{{ $data->corporate_rate }}</h5>
-                                            </div>
+                                            </div> --}}
 
                                         </div>
                                         @empty
@@ -415,9 +415,9 @@
                                                 <th><p class="mb-0">Size</p></th>
                                                 <th><p class="mb-0">Type of Bed</p></th>
                                                 <th><p class="mb-0">View</p></th>
-                                                <th><p class="mb-0">Single Rate</p></th>
+                                                {{-- <th><p class="mb-0">Single Rate</p></th>
                                                 <th><p class="mb-0">Double Rate</p></th>
-                                                <th><p class="mb-0">Corporate Rate</p></th>
+                                                <th><p class="mb-0">Corporate Rate</p></th> --}}
 
                                             </tr>
                                         </thead>
@@ -429,9 +429,9 @@
                                                 <td><p class="mb-0 font-weight-normal">{{ $datahotel->size }} s.q ft</p></td>
                                                 <td><p class="mb-0 font-weight-normal">{{ $datahotel->type_of_bed }}</p></td>
                                                 <td><p class="mb-0 font-weight-normal">{{ $datahotel->view }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">{{ $datahotel->single_rate }}</p></td>
+                                                {{-- <td><p class="mb-0 font-weight-normal">{{ $datahotel->single_rate }}</p></td>
                                                 <td><p class="mb-0 font-weight-normal">{{ $datahotel->double_rate }}</p></td>
-                                                <td><p class="mb-0 font-weight-normal">{{ $datahotel->corporate_rate }}</p></td>
+                                                <td><p class="mb-0 font-weight-normal">{{ $datahotel->corporate_rate }}</p></td> --}}
                                             </tr>
                                             @empty
 
