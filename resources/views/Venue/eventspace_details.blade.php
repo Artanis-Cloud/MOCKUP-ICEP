@@ -351,10 +351,10 @@ input.search-submit {
                 @endif --}}
                 <div class="flex-grow-1">
                     <h5 class="text-muted">Radius from KLCC (car)</h5>
-                    <h5 class="m-0 font-weight-normal">{{ $data->car_radius ? $data->car_radius : "-" }}</h5>
+                    <h5 class="m-0 font-weight-normal">{{ $data->car_radius ? $data->hotels->car_radius : "-" }}</h5>
                     <br>
                     <h5 class="text-muted">Radius from KLCC (walk)</h5>
-                    <h5 class="m-0 font-weight-normal">{{ $data->walking_radius ? $data->walking_radius : "-"}}</h5>
+                    <h5 class="m-0 font-weight-normal">{{ $data->walking_radius ? $data->hotels->walking_radius : "-"}}</h5>
                 </div>
                     <div class="flex-grow-1">
                         <h5 class="text-muted">Event Space</h5>
