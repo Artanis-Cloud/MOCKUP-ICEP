@@ -248,33 +248,33 @@
         @csrf
         <div class="row">
             <div class="col">
-                <label for="third_hotel"><b>Event Space</b></label>
+                <label for="third_hotel"><b>First Venue</b></label>
                     <select id="product-col-1" class="custom-select " name="first_hotel">
-                        <option value="" selected hidden disabled>Please Choose Event Space</option>
-                        @forelse($eventspace as $data)
-                        <option value="{{ $data->id }}">{{ $data->venue }}</option>
+                        <option value="" selected hidden disabled>Please Choose Venue</option>
+                        @forelse($hotel as $data)
+                        <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                         @empty
                         <option selected disabled>No event space available</option>
                         @endforelse
                     </select>
             </div>
            <div class="col">
-            <label for="third_hotel"><b>Event Space</b></label>
+            <label for="third_hotel"><b>Second Venue</b></label>
                 <select id="product-col-2" class="custom-select " name="second_hotel">
-                    <option value="" selected hidden disabled>Please Choose Event Space</option>
-                    @forelse($eventspace as $data)
-                    <option value="{{ $data->id }}">{{ $data->venue }}</option>
+                    <option value="" selected hidden disabled>Please Choose Venue</option>
+                    @forelse($hotel as $data)
+                    <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                     @empty
                     <option selected disabled>No event space available</option>
                     @endforelse
                 </select>
            </div>
            <div class="col">
-            <label for="third_hotel"><b>Event Space</b></label>
+            <label for="third_hotel"><b>Third Venue</b></label>
                 <select id="product-col-3" class="custom-select " name="third_hotel">
-                    <option value="" selected hidden disabled>Please Choose Event Space</option>
-                    @forelse($eventspace as $data)
-                    <option value="{{ $data->id }}">{{ $data->venue }}</option>
+                    <option value="" selected hidden disabled>Please Choose Venue</option>
+                    @forelse($hotel as $data)
+                    <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                     @empty
                     <option selected disabled>No event space available</option>
                     @endforelse
@@ -293,18 +293,19 @@
         <div id="product1" class="text-center product-col col compare-col-1" style="padding-top: 2%">
             <div class="card">
                 {{-- <img class="card-img-top" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/49/b7/75/exterior.jpg?w=900&h=-1&s=1" alt="Card image cap"> --}}
+                {{-- <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_1->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap"> --}}
                 <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_1->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap">
 
                 <div class="card-body">
-                <h5 class="card-title">{{ $hotel_1->venue ? $hotel_1->venue : "-" }}</h5>
+                <h5 class="card-title">{{ $hotel_1->hotel_name ? $hotel_1->hotel_name : "-" }}</h5>
                 {{-- <p class="card-text">Address</p> --}}
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_1->walking_radius ? $hotel_1->walking_radius : "-" }} km</li>
-                <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_1->car_radius ? $hotel_1->car_radius : "-" }} km</li>
-                <li class="list-group-item">Event Space Available<br>
-                    @if($room_3)
-                        @forelse($room_3 as $data)
+                <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_1->walking_radius ? $hotel_1->walking_radius : "-" }} </li>
+                <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_1->car_radius ? $hotel_1->car_radius : "-" }} </li>
+                <li class="list-group-item">Event Space Available<br><br>
+                    @if($room_1)
+                        @forelse($room_1 as $data)
                         {{ $data->venue ? $data->venue : "-" }} <br>
                         @empty
                         No Event Space Available
@@ -320,15 +321,15 @@
                 <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_2->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap">
 
                 <div class="card-body">
-                <h5 class="card-title">{{ $hotel_2->venue ? $hotel_2->venue : "-" }}</h5>
+                <h5 class="card-title">{{ $hotel_2->hotel_name ? $hotel_2->hotel_name : "-" }}</h5>
                 {{-- <p class="card-text">Address</p> --}}
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_2->walking_radius ? $hotel_2->walking_radius : "-" }} km</li>
-                <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_2->car_radius ? $hotel_2->car_radius : "-" }} km</li>
-                <li class="list-group-item">Event Space Available<br>
-                    @if($room_3)
-                        @forelse($room_3 as $data)
+                <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_2->walking_radius ? $hotel_2->walking_radius : "-" }}</li>
+                <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_2->car_radius ? $hotel_2->car_radius : "-" }}</li>
+                <li class="list-group-item">Event Space Available<br><br>
+                    @if($room_2)
+                        @forelse($room_2 as $data)
                         {{ $data->venue ? $data->venue : "-" }} <br>
                         @empty
                         No Event Space Available
@@ -344,13 +345,13 @@
                     <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$hotel_3->thumbnail))}}" style="width: 100%; height: 200px;" alt="Card image cap">
 
                     <div class="card-body">
-                    <h5 class="card-title">{{ $hotel_3->venue ? $hotel_3->venue : "-" }}</h5>
+                    <h5 class="card-title">{{ $hotel_3->hotel_name ? $hotel_3->hotel_name : "-" }}</h5>
                     {{-- <p class="card-text">Address</p> --}}
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_3->walking_radius ? $hotel_3->walking_radius : "-" }} km</li>
-                    <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_3->car_radius ? $hotel_3->car_radius : "-" }} km</li>
-                    <li class="list-group-item">Event Space Available<br>
+                    <li class="list-group-item">Radius from KLCC (walking)<br>{{ $hotel_3->walking_radius ? $hotel_3->walking_radius : "-" }} </li>
+                    <li class="list-group-item">Radius from KLCC (car)<br>{{ $hotel_3->car_radius ? $hotel_3->car_radius : "-" }} </li>
+                    <li class="list-group-item">Event Space Available<br><br>
                         @if($room_3)
                             @forelse($room_3 as $data)
                             {{ $data->venue ? $data->venue : "-" }} <br>

@@ -11,9 +11,13 @@ use Livewire\WithFileUploads;
 class Event extends Component
 {
     use WithFileUploads;
+    public $show = true;
+    public $add = true;
+
     public $hotel_id,$venue, $level,$size,$banquet,$classroom,$theater,$cocktail,$cabaret,$booth_capacity,$daily_rate,$image,$longitude,$latitude,$car_radius,$walking_radius;
-    public $show;
-    public $photos = [];
+    public $inputs = [];
+    public $i = 0;
+    public $photos, $caption;
     protected $listeners = [
         'showFormHotel',
         'showFormNotHotel',
@@ -24,7 +28,22 @@ class Event extends Component
     public function mount()
     {
         $this->hotel_id = 0;
-        $this->show = 0;
+
+    }
+
+    public function add($i)
+    {
+        $i = $i + 1;
+        $this->i = $i;
+        array_push($this->inputs ,$i);
+        // array_push($this->photos ,$i);
+
+    }
+
+    public function remove($i)
+    {
+        unset($this->inputs[$i]);
+        // unset($this->photos[$i]);
 
     }
 
@@ -49,10 +68,11 @@ class Event extends Component
         'cocktail' => 'nullable|numeric',
         'booth_capacity' => 'nullable|numeric',
         'daily_rate' => 'nullable|numeric',
-        'car_radius' => 'nullable|numeric',
-        'walking_radius' => 'nullable|numeric',
-        'image' => 'required|max:2048',
-        'photos' => 'required|max:2048',
+        // 'car_radius' => 'nullable|numeric',
+        // 'walking_radius' => 'nullable|numeric',
+        // 'image' => 'required|max:2048',
+        'photos.0' => 'nullable|max:2048',
+        'photos.*' => 'nullable|max:2048',
     ];
 
     public function updated()                   //function called everytime user input
@@ -60,45 +80,14 @@ class Event extends Component
         $this->validate();
     }
 
-    // public function addEvent()
-
-    // {
-    //     // dd($this->hotel_id);
-    //     // $this->validate();
-    //     // $image = $this->storeImage();
-
-    //     $this->validate();
-    //     $event_space =EventSpace::create([
-    //         'venue'=> $this->venue,
-    //         'level' => $this->level,
-    //         'size' => $this->size,
-    //         'banquet' => $this->banquet,
-    //         'classroom' => $this->classroom,
-    //         'theater' => $this->theater,
-    //         'cocktail' => $this->cocktail,
-    //         'cabaret' => $this->cabaret,
-    //         'hotel_id'=> $this->hotel_id,
-    //         'booth_capacity' => $this->booth_capacity,
-    //         'daily_rate' => $this->daily_rate,
-
-
-
-    //     ]);
-
-    //     $photos = $this->storePhoto($event_space);
-    //     $this->resetInputFields();
-
-    //     session()->flash('message', 'Venue Has Been Added Successfully.');
-    // }
-
     public function addEventOnly()
 
     {
         // dd($this->photos);
         $this->validate();
-        $image = $this->storeImage();
+        // $image = $this->storeImage();
 
-        if($this->hotel_id){
+
             $event_space =EventSpace::create([
                 'venue'=> $this->venue,
                 'level' => $this->level,
@@ -110,37 +99,16 @@ class Event extends Component
                 'cabaret' => $this->cabaret,
                 'booth_capacity' => $this->booth_capacity,
                 'daily_rate' => $this->daily_rate,
-                'thumbnail' => $image,
+                // 'thumbnail' => $image,
                 'hotel_id'=> $this->hotel_id,
-                'car_radius' => $this->car_radius,
-                'walking_radius' => $this->walking_radius,
-                'longitude' => $this->longitude,
-                'latitude' => $this->latitude,
+                // 'car_radius' => $this->car_radius,
+                // 'walking_radius' => $this->walking_radius,
+                // 'longitude' => $this->longitude,
+                // 'latitude' => $this->latitude,
             ]);
-        }
-        else{
-            $event_space =EventSpace::create([
-                'venue'=> $this->venue,
-                'level' => $this->level,
-                'size' => $this->size,
-                'banquet' => $this->banquet,
-                'classroom' => $this->classroom,
-                'theater' => $this->theater,
-                'cocktail' => $this->cocktail,
-                'cabaret' => $this->cabaret,
-                'booth_capacity' => $this->booth_capacity,
-                'daily_rate' => $this->daily_rate,
-                'thumbnail' => $image,
-                'car_radius' => $this->car_radius,
-                'walking_radius' => $this->walking_radius,
-                'longitude' => $this->longitude,
-                'latitude' => $this->latitude,
-            ]);
-        }
+        $this->storePhoto($event_space);
 
-
-        $photos = $this->storePhoto($event_space);
-
+        $this->inputs = [];
         $this->resetInputFields();
         session()->flash('message', 'Venue Has Been Added Successfully.');
     }
@@ -159,20 +127,28 @@ class Event extends Component
     public function storePhoto($event_space)
     {
 
-        $photos = $this->photos ?? null;
+        // $photos = $this->photos ?? null;
         // dd($this->photos);
-        if ($photos) {
-            foreach ($photos as $photo) {
-                foreach ($photo as $data) {
-                    // dd($data);
-                    $image=$data->store('public/upload');
-                    $test = Gallery::create ([
-                        'photos' => $image,
-                        'eventspace_id' =>$event_space->id
-                    ]);
-                    // dd($test);
-                }
-            }
+        // if ($photos) {
+        //     foreach ($photos as $photo) {
+        //         foreach ($photo as $data) {
+        //             // dd($data);
+        //             $image=$data->store('public/upload');
+        //             $test = Gallery::create ([
+        //                 'photos' => $image,
+        //                 'eventspace_id' =>$event_space->id
+        //             ]);
+        //             // dd($test);
+        //         }
+        //     }
+        // }
+
+        foreach ($this->photos as $key => $value) {
+            Gallery::create ([
+                'photos' => $this->photos[$key],
+                'caption' => $this->caption[$key],
+                'eventspace_id' =>$event_space->id,
+            ]);
         }
     }
 
@@ -190,7 +166,7 @@ class Event extends Component
         $this->daily_rate = '';
         $this->image = '';
         $this->photos = '';
-        $this->latitude = '';
+        $this->caption = '';
         $this->longitude = '';
     }
 

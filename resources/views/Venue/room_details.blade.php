@@ -392,7 +392,7 @@
                                                 <div id="gallery">
                                                     @forelse($photos as $photo)
                                                     <div class="item">
-                                                    <a href="{{ asset($image_path=str_replace('public','storage',$photo->photos))}}" data-fancybox="gallery" data-caption="My caption">
+                                                    <a href="{{ asset($image_path=str_replace('public','storage',$photo->photos))}}" data-fancybox="gallery" data-caption="{{ $photo->caption }}">
                                                         <figure>
                                                             <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$photo->photos))}}" style="width:100%;" alt="Card image cap">
                                                         {{-- <figcaption>This is a caption with a long text to test</figcaption> --}}

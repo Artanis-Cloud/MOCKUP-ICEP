@@ -6,7 +6,7 @@
     </div>
 
     <form>
-    <div class=" add-input">
+    <div class="add-input">
 
     <div class="row">
         <div class="col-md-6">
@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="form-group">
                 <label>Corporate Rate</label>
                 <input type="text"  class="form-control bg-light @error('corporate_rate') is-invalid @enderror" wire:model="corporate_rate.0" name="corporate_rate" placeholder="Corporate Rate">
@@ -92,45 +92,81 @@
                 @enderror
             </div>
         </div>
-
-
-        <div class="col-md-6">
-            <div class="form-group">
-                <label  class="required">Upload Photos</label>
-                <div class="custom-file">
-                    <input wire:model="photos.0" type="file" class="custom-file-input" id="photos.0[]" name="photos" multiple>
-                    <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
-                </div>
-                <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB</small>
-                @error('photos.0')
-                <div class="alert alert-danger">
-                    <strong>{{ $message }}</strong>
-                    </div>
-                @enderror
-            </div>
-
-        </div>
-        <div class="col-md-12">
-            <div class="mt-1 text-center">
-                <div class="images-preview-div"> </div>
-            </div>
-        </div>
     </div>
-    {{-- <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            @if($photos)
-            <p>Photo Preview:</p>
-                @foreach ( $photos as $photo )
-                    @foreach($photo as $data)
-                        @if ($data)
-                        <img src="{{ $data->temporaryUrl() }}" style="width:100%;height:30vh;">
-                        @endif
-                    @endforeach
-                @endforeach
+
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label  class="">Upload Photos</label>
+                    <div class="custom-file">
+                        <input wire:model="photos.0" type="file" class="custom-file-input" id="photos.0[]" name="photos">
+                        <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
+                    </div>
+                    <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB</small>
+                    @error('photos.0')
+                    <div class="alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                        </div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label  class="">Images Caption</label>
+                    <input type="text"  wire:model='caption.0' class="form-control bg-light @error('caption') is-invalid @enderror" placeholder="Image Caption">
+                    @error('caption')
+                    <div class="alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                        </div>
+                    @enderror
+                </div>
+            </div>
+            @if($showgambar)
+            <div class="col-md-1" style="text-align: center;">
+                <label  class="">Action</label><br>
+                <button class="btn btn-primary"  wire:click="$set('showgambar', true)" wire:click.prevent="addgambar({{$j}})">Add</button>
+            </div>
             @endif
         </div>
-    </div> --}}
+        @foreach($inputphotos as $key => $value)
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label  class="">Upload Event Space Images</label>
+                        <div class="custom-file">
+                            <input wire:model="photos.{{ $value }}" type="file" class="custom-file-input" onchange="return translateUpload('photos1');" id="photos1" name="photos">
+                            <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
+                        </div>
+                        <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB</small>
+                        @error('photos.'.$value)
+                        <div class="alert alert-danger">
+                            <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label  class="">Images Caption</label>
+                        <input type="text"  wire:model='caption.{{ $value }}' class="form-control bg-light @error('caption') is-invalid @enderror" placeholder="Image Caption">
+                        @error('caption.'.$value)
+                        <div class="alert alert-danger">
+                            <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+                @if($showgambar)
+                <div class="col-md-1" style="text-align: center;">
+                    <label  class="">Action</label><br>
+                    <button  id="myDiv" class="btn btn-danger"  wire:click.prevent="removegambar({{$key}})">Delete</button>
+                </div>
+                @endif
+
+
+            </div>
+            @endforeach
 
     </div>
 
@@ -218,7 +254,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label>Corporate Rate</label>
                     <input type="text"  class="form-control bg-light @error('corporate_rate') is-invalid @enderror" wire:model="corporate_rate.{{ $value }}" name="corporate_rate" required placeholder="Corporate Rate">
@@ -229,53 +265,80 @@
                     @enderror
                 </div>
             </div>
-
+    </div>
+    <hr>
+        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label  class="required">Upload Photos</label>
+                    <label  class="">Upload Photos</label>
                     <div class="custom-file">
-                        <input wire:model="photos.{{ $value }}" type="file" class="custom-file-input" id="photos" name="photos" required multiple>
+                        <input wire:model="photos.0" type="file" class="custom-file-input" id="photos.0[]" name="photos">
                         <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
                     </div>
                     <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB</small>
-                    @error('photos.'.$value)
+                    @error('photos.0')
                     <div class="alert alert-danger">
                         <strong>{{ $message }}</strong>
                         </div>
                     @enderror
                 </div>
             </div>
-            {{-- <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    @if($photos)
-                    <p>Photo Preview:</p>
-                        @foreach ( $photos as $photo )
-                            @foreach($photo as $data)
-                                @if ($data)
-                                <img src="{{ $data->temporaryUrl() }}" style="width:100%;height:30vh;">
-                                @endif
-                            @endforeach
-                        @endforeach
-                    @endif
-                </div>
-            </div> --}}
-
-            {{-- <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="form-group">
-                    <label>Benefits</label>
-                    <input type="text"  class="form-control bg-light @error('benefits') is-invalid @enderror" wire:model="benefits.{{ $value }}" name="benefits" placeholder="Benefits">
-                    @error('double_rate')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    <label  class="">Images Caption</label>
+                    <input type="text"  wire:model='caption.0' class="form-control bg-light @error('caption') is-invalid @enderror" placeholder="Image Caption">
+                    @error('caption.0')
+                    <div class="alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                        </div>
                     @enderror
                 </div>
-            </div> --}}
+            </div>
+            @if($showgambar)
+            <div class="col-md-1" style="text-align: center;">
+                <label  class="">Action</label><br>
+                <button class="btn btn-primary"  wire:click="$set('showgambar', true)" wire:click.prevent="addgambar({{$j}})">Add</button>
+            </div>
+            @endif
+        </div>
+    @foreach($inputphotos as $key => $value)
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label  class="">Upload Event Space Images</label>
+                        <div class="custom-file">
+                            <input wire:model="photos.{{ $value }}" type="file" class="custom-file-input" onchange="return translateUpload('photos1');" id="photos1" name="photos">
+                            <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
+                        </div>
+                        <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB</small>
+                        @error('photos.'.$value)
+                        <div class="alert alert-danger">
+                            <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label  class="">Images Caption</label>
+                        <input type="text"  wire:model='caption.{{ $value }}' class="form-control bg-light @error('caption') is-invalid @enderror" placeholder="Image Caption">
+                        @error('caption.'.$value)
+                        <div class="alert alert-danger">
+                            <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+                @if($showgambar)
+                <div class="col-md-1" style="text-align: center;">
+                    <label  class="">Action</label><br>
+                    <button  id="myDiv" class="btn btn-danger"  wire:click.prevent="removegambar({{$key}})">Delete</button>
+                </div>
+                @endif
 
 
-
-    </div>
+            </div>
+            @endforeach
 
     <div class="row">
         {{-- @if($add)

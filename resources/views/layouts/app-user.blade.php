@@ -10,6 +10,7 @@
 
     {{-- <title>{{ config('app.name', 'ICEP') }}</title> --}}
 
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -283,6 +284,7 @@
     <script src="{{ asset('qbadminui/js/vendor/DataTable-1.10.20/datatables.min.js') }}"></script>
     <!-- Data Table script -->
     <script src="{{ asset('qbadminui/js/plugins/dataTable_script.js') }}"></script>
+
 </body>
 </html>
 <script type="text/javascript">

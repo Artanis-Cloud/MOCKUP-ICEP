@@ -17,6 +17,17 @@ class Room extends Component
     public $show = true;
     public $add = true;
 
+    public $showgambar = true;
+    public $addgambar = true;
+
+    public $room_type, $size, $type_of_bed, $view, $single_rate, $double_rate, $corporate_rate,$photos,$caption;
+    public $updateMode = false;
+    public $inputs = [];
+    public $i = 0;
+    public $j = 0;
+
+    public $inputphotos = [];
+
     protected $listeners = ['room-process' => 'store'];
 
     protected $rules = [
@@ -28,7 +39,7 @@ class Room extends Component
             'single_rate.0' => 'nullable|numeric',
             'double_rate.0' => 'nullable|numeric',
             'corporate_rate.0' => 'nullable|numeric',
-            'photos.0' => 'required|max:2048',
+            // 'photos.0' => 'required|max:2048',
 
             'room_type.*' => 'required|string',
             'size.*' => 'required|numeric',
@@ -37,21 +48,32 @@ class Room extends Component
             'single_rate.*' => 'nullable|numeric',
             'double_rate.*' => 'nullable|numeric',
             'corporate_rate.*' => 'nullable|numeric',
-            'photos.*' => 'required|max:2048',
+            // 'photos.*' => 'nullable|max:2048',
 
 
-                    //validate
+            //validate
     ];
     // public $employees, $name, $email, $employee_id;
-    public $room_type, $size, $type_of_bed, $view, $single_rate, $double_rate, $corporate_rate;
-    public $updateMode = false;
-    public $inputs = [];
-    public $i = 0;
-    public $photos = [];
+
+
 
     public function updated()                   //function called everytime user input
     {
         $this->validate();
+    }
+
+    public function addgambar($j)
+    {
+        $j = $j + 1;
+        $this->j = $j;
+        array_push($this->inputphotos,$j);
+
+    }
+
+    public function removegambar($j)
+    {
+        unset($this->inputphotos[$j]);
+
     }
 
     public function add($i)
@@ -59,14 +81,13 @@ class Room extends Component
         $i = $i + 1;
         $this->i = $i;
         array_push($this->inputs ,$i);
-        array_push($this->photos ,$i);
+
 
     }
 
     public function remove($i)
     {
         unset($this->inputs[$i]);
-        unset($this->photos[$i]);
 
     }
 

@@ -14,6 +14,7 @@ class Gallery extends Model implements Auditable
 
     protected $fillable = [
         'photos',
+        'caption',
         'room_id',
         'eventspace_id'
     ];
