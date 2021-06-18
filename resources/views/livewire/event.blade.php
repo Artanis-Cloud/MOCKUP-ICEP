@@ -255,7 +255,7 @@
                 @enderror
                 </div>
             </div>
-
+{{--
             <div class="col-md-6">
                 <div class="form-group">
                 <label>Radius from KLCC (by Car)</label>
@@ -277,19 +277,14 @@
                     </div>
                 @enderror
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="col-md-12">
-                {{-- maps --}}
-                {{-- <label>Your selected Location is(latitude,Longitude): </label><input id='loc' type='text'  value=''/>
-                <br/>
-                <div wire:emit id="map" style="height: 350px; width:100%;"></div> --}}
+            {{-- <div class="col-md-12">
 
                 <body onload="initialize()">
                     <div class="container_12" id="header">
                         <div class="clear"></div>
                         <div class="grid_4">
-                        {{-- <h5>Latitude and Longitude</h5> --}}
                         <div class="box">
                             <div class="row">
                                 <div class="col-md-6">
@@ -303,24 +298,6 @@
                             </div>
                         </div>
                         <br>
-                        {{-- <div class="box">
-                            <h5>Mouse Over the map below for your latitude and longitude.</h5>
-                            <table>
-                            <tr>
-                                <td><strong>Lat:</strong></td>
-                                <td>
-                                <input type="text"  name="latitude" id="mlat" value="0" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Long:</strong></td>
-                                <td>
-                                <input type="text"  name="longitude" id="mlong" value="0" />
-                                </td>
-                            </tr>
-                            </table>
-                        </div> --}}
-                        {{-- <br /> --}}
                         <div style="clear:both;"></div>
                         <br />
                         </div>
@@ -329,7 +306,7 @@
                         </div>
                         </div>
                     </div>
-            </div>
+            </div> --}}
             <br>
 
             <div class="col-md-6">
@@ -361,13 +338,14 @@
             <div class="col-md-12">
                 <div class="form-group">
 
-                <label>Hotel Name</label><br><label style="color:red;">If venue has hotel, Please insert hotel name.</label>
+                <label>Venue</label>
+                {{-- <label style="color:red;">If venue has hotel, Please insert hotel name.</label> --}}
                 <select name="hotel_id" id="" wire:model='hotel_id' class="form-control bg-light @error('hotel_id') is-invalid @enderror"">
-                    <option disabled="disabled" hidden value="0">Choose Hotel</option>
+                    <option disabled="disabled" hidden value="0">Choose Venue</option>
                     @forelse ($hotel_name as $data)
                         <option value="{{ $data->id }}" >{{ $data->hotel_name }}</option>
                     @empty
-                        <option selected="true" disabled="disabled" value="0">Please Insert Hotel Information in Hotel Add</option>
+                        <option selected="true" disabled="disabled" value="0">Please Insert Venue Information in Venue Add</option>
                     @endforelse
 
 
@@ -468,41 +446,13 @@
                             </div>
 
             </div>
-
-
+            <hr>
             <div class="row">
-                <div class="col-md-12">
-                <div class="form-group">
-                    <label  class="required">Thumbnails image</label>
-                    <div class="custom-file">
-                        <input type="file" wire:model='image' class="custom-file-input" required id="thumbnail" onchange="return translateUpload2('thumbnail');" name="thumbnail">
-                        <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
-                    </div>
-                    <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB.</small>
-                    @error('image')
-                    <div class="alert alert-danger">
-                        <strong>{{ $message }}</strong>
-                        </div>
-                    @enderror
-                </div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    @if ($image)
-                        <p>Photo Preview:</p>
-                        <img src="{{ $image->temporaryUrl() }}" style="width:100%;height:30vh;">
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label  class="required">Upload Event Space Images</label>
                         <div class="custom-file">
-                            <input wire:model="photos.0" type="file" class="custom-file-input" onchange="return translateUpload('photos1');" id="photos1" name="photos" multiple>
+                            <input wire:model="photos.0" type="file" class="custom-file-input" onchange="return translateUpload('photos1');" id="photos1" name="photos">
                             <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
                         </div>
                         <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB</small>
@@ -513,8 +463,75 @@
                         @enderror
                     </div>
                 </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label  class="">Images Caption</label>
+                        <input type="text"  wire:model='caption.0' class="form-control bg-light @error('caption') is-invalid @enderror" placeholder="Image Caption">
+                        @error('caption')
+                        <div class="alert alert-danger">
+                            <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+                @if($show)
+                <div class="col-md-1" style="text-align: center;">
+                    <label  class="">Action</label><br>
+                    <button  id="myDiv" class="btn btn-primary"  wire:click="$set('show', true)" wire:click.prevent="add({{$i}})">Add</button>
+                </div>
+                @endif
+
             </div>
-            <div class="row">
+            @foreach($inputs as $key => $value)
+            <div class="add-input">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label  class="required">Upload Event Space Images</label>
+                            <div class="custom-file">
+                                <input wire:model="photos.{{ $value }}" type="file" class="custom-file-input" onchange="return translateUpload('photos1');" id="photos1" name="photos">
+                                <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
+                            </div>
+                            <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB</small>
+                            @error('photos.'.$value)
+                            <div class="alert alert-danger">
+                                <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label  class="">Images Caption</label>
+                            <input type="text"  wire:model='caption.{{ $value }}' class="form-control bg-light @error('caption') is-invalid @enderror" placeholder="Image Caption">
+                            @error('caption.'.$value)
+                            <div class="alert alert-danger">
+                                <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    @if($show)
+                    <div class="col-md-1" style="text-align: center;">
+                        <label  class="">Action</label><br>
+                        <button  id="myDiv" class="btn btn-danger"  wire:click.prevent="remove({{$key}})">Delete</button>
+                    </div>
+                    @endif
+
+
+                </div>
+
+                {{-- @if($show)
+                    <div class="col-md-1" style="text-align: center;">
+                        <label  class="">Action</label><br>
+                        <button  id="myDiv" class="btn btn-primary"  wire:click="$set('show', true)" wire:click.prevent="add({{$i}})">Add</button>
+                    </div>
+                @endif --}}
+            </div>
+            @endforeach
+
+
+            {{-- <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     @if($photos)
@@ -528,7 +545,7 @@
                         @endforeach
                     @endif
                 </div>
-            </div>
+            </div> --}}
             <div class="row">
                 <div class="col-md-3">
 

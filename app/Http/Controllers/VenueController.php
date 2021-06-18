@@ -57,8 +57,8 @@ class VenueController extends Controller
     {
       return Validator::make($data, [
         'hotel_name'=> ['required','string'],
-        'car_radius'=> ['nullable','numeric'],
-        'walking_radius'=> ['nullable','numeric'],
+        'car_radius'=> ['nullable','string'],
+        'walking_radius'=> ['nullable','string'],
         'thumbnail' => ['max:100000'],
       ]);
     }
@@ -134,10 +134,10 @@ class VenueController extends Controller
         $eventspace = EventSpace::find($id);
 
             $eventspace->venue = $request->venue;
-            $eventspace->car_radius = $request->car_radius;
-            $eventspace->walking_radius = $request->walking_radius;
-            $eventspace->latitude = $request->latitude;
-            $eventspace->longitude = $request->longitude;
+            // $eventspace->car_radius = $request->car_radius;
+            // $eventspace->walking_radius = $request->walking_radius;
+            // $eventspace->latitude = $request->latitude;
+            // $eventspace->longitude = $request->longitude;
             $eventspace->level = $request->level;
             $eventspace->size = $request->size;
             $eventspace->banquet = $request->banquet;
@@ -148,12 +148,12 @@ class VenueController extends Controller
             $eventspace->booth_capacity = $request->booth_capacity;
             $eventspace->daily_rate = $request->daily_rate;
 
-            if($files = request()->file('thumbnail') != null) {
-                // dd($request->gambar_profile);
+            // if($files = request()->file('thumbnail') != null) {
+            //     // dd($request->gambar_profile);
 
-                $thumbnail = request()->file('thumbnail')->store('public/upload');
-                $eventspace->thumbnail = $thumbnail;
-            }
+            //     $thumbnail = request()->file('thumbnail')->store('public/upload');
+            //     $eventspace->thumbnail = $thumbnail;
+            // }
 
             $image=Gallery::where('eventspace_id',$id)->get();
             // dd($image);
@@ -173,7 +173,7 @@ class VenueController extends Controller
             $eventspace->save();
         // }
         $success = 'success';
-        $text = 'Hotel has been updated';
+        $text = 'Event Space has been updated';
 
         return redirect('/venue/lists')->with($success,$text);
 
@@ -182,10 +182,10 @@ class VenueController extends Controller
     {
         return Validator::make($data, [
             'venue'=> ['required', 'string'],
-            'car_radius'=> ['nullable', 'numeric'],
-            'walking_radius'=> ['nullable', 'numeric'],
-            'latitude'=> ['nullable', 'numeric'],
-            'longitude'=> ['nullable', 'numeric'],
+            // 'car_radius'=> ['nullable', 'numeric'],
+            // 'walking_radius'=> ['nullable', 'numeric'],
+            // 'latitude'=> ['nullable', 'numeric'],
+            // 'longitude'=> ['nullable', 'numeric'],
             'level'=> ['nullable', 'string'],
             'size'=> ['nullable', 'numeric'],
             'banquet'=> ['nullable', 'numeric'],
@@ -316,11 +316,11 @@ class VenueController extends Controller
 
         $room_1 = EventSpace::where('hotel_id',$request->first_hotel)->get();
         $room_2 = EventSpace::where('hotel_id',$request->second_hotel)->get();
-        $room_3 = EventSpace::where('id',$request->third_hotel)->get();
+        $room_3 = EventSpace::where('hotel_id',$request->third_hotel)->get();
         //  dd($room_3);
-        $hotel_1 = EventSpace::where('id',$request->first_hotel)->first();
-        $hotel_2 = EventSpace::where('id',$request->second_hotel)->first();
-        $hotel_3 = EventSpace::where('id',$request->third_hotel)->first();
+        $hotel_1 = Hotel::where('id',$request->first_hotel)->first();
+        $hotel_2 = Hotel::where('id',$request->second_hotel)->first();
+        $hotel_3 = Hotel::where('id',$request->third_hotel)->first();
         // dd($hotel_1);
         return view('EventSpace.compared',compact('eventspace','hotel','hotel_1','hotel_2','hotel_3','room_1','room_2','room_3'));
     }

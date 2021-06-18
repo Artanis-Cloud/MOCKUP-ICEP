@@ -20,8 +20,8 @@ class Hotels extends Component
 
     protected $rules = [
         'hotel_name' => 'required|string',
-        'car_radius' => 'nullable|numeric',
-        'walking_radius' => 'nullable|numeric',
+        'car_radius' => 'nullable|string',
+        'walking_radius' => 'nullable|string',
         'image' => 'required|max:2048', // 2MB Max                   //validate
     ];
 

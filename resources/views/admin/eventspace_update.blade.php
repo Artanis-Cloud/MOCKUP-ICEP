@@ -246,63 +246,6 @@
                                     @enderror
                                     </div>
                                 </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                    <label>Radius from KLCC (by Car)</label>
-                                    <input type="text" class="form-control bg-light @error('car_radius') is-invalid @enderror" name="car_radius" value="{{ $eventspace->car_radius }}" placeholder="Radius from KLCC (by Car)">
-                                    @error('car_radius')
-                                    <div class="alert alert-danger">
-                                        <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                    <label>Radius from KLCC (Walking Distance)</label>
-                                    <input type="text" class="form-control bg-light @error('walking_radius') is-invalid @enderror" name="walking_radius" value="{{ $eventspace->walking_radius }}" placeholder="Radius from KLCC (Walking Distance)">
-                                    @error('walking_radius')
-                                    <div class="alert alert-danger">
-                                        <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    {{-- maps --}}
-                                    {{-- <label>Your selected Location is(latitude,Longitude): </label><input id='loc' type='text'  value=''/>
-                                    <br/>
-                                    <div wire:emit id="map" style="height: 350px; width:100%;"></div> --}}
-
-                                    <body onload="initialize()">
-                                        <div class="container_12" id="header">
-                                            <div class="clear"></div>
-                                            <div class="grid_4">
-                                            {{-- <h5>Latitude and Longitude</h5> --}}
-                                            <div class="box">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                    <label>Latitude:</label>
-                                                    <input type="text" class="form-control bg-light" name="latitude" value="{{ $eventspace->latitude }}" id="lat" readonly />
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                    <label>Longitude:</label>
-                                                    <input type="text" class="form-control bg-light" name="longitude" value="{{ $eventspace->longitude }}" id="lng" readonly />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <br>
-                                            <div style="clear:both;"></div>
-                                            <br />
-                                            </div>
-                                            <div class="grid_8">
-                                            <div id="latlongmap" wire:ignore style="width:100%; height:480px;">
-                                            </div>
-                                            </div>
-                                        </div>
-                                </div>
                                 <br>
 
                                 <div class="col-md-6">
@@ -419,38 +362,13 @@
                                                 </div>
 
                                 </div>
-
-
+                                <hr>
                                 <div class="row">
-                                    <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label  class="required">Thumbnails image</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="thumbnail" onchange="return translateUpload2('thumbnail');" name="thumbnail">
-                                            <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
-                                        </div>
-                                        <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB.</small>
-                                        @error('thumbnail')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="mt-1 text-center">
-                                            <div class="images-preview-div2"> </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-5">
                                         <div class="form-group">
-                                            <label  class="required">Upload Event Space Images</label>
+                                            <label  class="">Upload Event Space Images</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="photos1" onchange="return translateUpload('photos1');" name="photos[]" multiple>
+                                                <input type="file" class="custom-file-input" id="photos1" onchange="return translateUpload('photos1');" name="photos[]">
                                                 <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
                                             </div>
                                             <small id="saiz_data" class="form-text text-secondary">Upload cannot exceeed 10MB</small>
@@ -461,10 +379,20 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="mt-1 text-center">
-                                            <div class="images-preview-div1"> </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label  class="">Images Caption</label>
+                                            <input type="text" class="form-control bg-light @error('caption') is-invalid @enderror" name="caption" value="" placeholder="Image Caption">
+                                            @error('caption')
+                                            <div class="alert alert-danger">
+                                                <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror
                                         </div>
+                                    </div>
+                                    <div class="col-md-2" style="text-align: center;">
+                                        <label  class="">Action</label><br>
+                                        <button type="button" class="btn btn-primary">Add</button>
                                     </div>
                                 </div>
 

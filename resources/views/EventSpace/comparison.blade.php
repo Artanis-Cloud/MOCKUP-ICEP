@@ -248,33 +248,33 @@
         @csrf
     <div class="row">
         <div class="col">
-            <label for="third_hotel"><b>Event Space</b></label>
+            <label for="third_hotel"><b>First Venue</b></label>
                 <select id="product-col-1" class="custom-select " name="first_hotel">
-                    <option value="" selected hidden disabled>Please Choose Event Space</option>
-                    @forelse($eventspace as $data)
-                    <option value="{{ $data->id }}">{{ $data->venue }}</option>
+                    <option value="" selected hidden disabled>Please Choose Venue</option>
+                    @forelse($hotel as $data)
+                    <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                     @empty
                     <option selected disabled>No event space available</option>
                     @endforelse
                 </select>
         </div>
        <div class="col">
-        <label for="third_hotel"><b>Event Space</b></label>
+        <label for="third_hotel"><b>Second Venue</b></label>
             <select id="product-col-2" class="custom-select " name="second_hotel">
-                <option value="" selected hidden disabled>Please Choose Event Space</option>
-                @forelse($eventspace as $data)
-                <option value="{{ $data->id }}">{{ $data->venue }}</option>
+                <option value="" selected hidden disabled>Please Choose Venue</option>
+                @forelse($hotel as $data)
+                <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                 @empty
                 <option selected disabled>No event space available</option>
                 @endforelse
             </select>
        </div>
        <div class="col">
-        <label for="third_hotel"><b>Event Space</b></label>
+        <label for="third_hotel"><b>Third Venue</b></label>
             <select id="product-col-3" class="custom-select " name="third_hotel">
-                <option value="" selected hidden disabled>Please Choose Event Space</option>
-                @forelse($eventspace as $data)
-                <option value="{{ $data->id }}">{{ $data->venue }}</option>
+                <option value="" selected hidden disabled>Please Choose Venue</option>
+                @forelse($hotel as $data)
+                <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                 @empty
                 <option selected disabled>No event space available</option>
                 @endforelse
