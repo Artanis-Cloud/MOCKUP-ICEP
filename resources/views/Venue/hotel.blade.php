@@ -331,7 +331,7 @@ input.search-submit {
 
             <div class="row">
             @forelse($hotels as $data)
-               <div class="col-md-4">
+               <div class="col-md">
                <center>
                  <div class="card" style="width: 18rem; height:360px;">
                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->thumbnail))}}" alt="Card image cap" style="width:100%;height:200px;padding-top:5%;">
@@ -342,10 +342,6 @@ input.search-submit {
                  </div>
                  <br>
                  </center>
-                </div>
-
-                <div class="col-md-8">
-
                 </div>
 
                 <!-- Modal -->
