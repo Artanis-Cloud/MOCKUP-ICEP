@@ -40,7 +40,7 @@ a:active {
 }
 
 /* search */
-input[type=search] {
+/* input[type=search] {
   -webkit-appearance: none !important;
   background-clip: padding-box;
   background-color: white;
@@ -64,9 +64,9 @@ input[type=search]:focus {
 form.search-form {
   display: flex;
   justify-content: center;
-}
+} */
 
-label {
+/* label {
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: auto;
@@ -95,9 +95,9 @@ input.search-submit {
   border-bottom-right-radius: 0.25rem;
   font-family: "Font Awesome 5 Free";
   font-size: 1rem;
-}
+} */
 
-.screen-reader-text {
+/* .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
   height: 1px;
@@ -105,7 +105,7 @@ input.search-submit {
   overflow: hidden;
 }
 
-/* .button {
+.button {
   display: inline-block;
   font-weight: 600;
   font-size: 0.8rem;
