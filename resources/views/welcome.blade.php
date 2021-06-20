@@ -305,7 +305,7 @@ section {
              <div class="container">
               <div class="form">
                   <div style="text-align:center;">
-                    <a href="{{ route('welcome') }}"><img src="{{ asset('/image/user/logo.png') }}" style="height: 100%; width:30%;" alt="Kerajaan Selangor"></a>
+                    <a href="{{ route('welcome') }}"><img src="{{ asset('/image/user/logo.png') }}" style="height: 50px; width:80px;" alt=""></a>
                   </div>
                   <br>
 
