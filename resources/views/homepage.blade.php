@@ -105,7 +105,7 @@ input.search-submit {
   overflow: hidden;
 }
 
-.button {
+/* .button {
   display: inline-block;
   font-weight: 600;
   font-size: 0.8rem;
@@ -127,7 +127,7 @@ input.search-submit {
   background: #E89A3D;
   color: #292826;
   outline: 0;
-}
+} */
 </style>
 
 <body>
