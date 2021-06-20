@@ -344,6 +344,9 @@ input.search-submit {
                  </center>
                 </div>
 
+                <div class="col-md-8">
+
+                </div>
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
