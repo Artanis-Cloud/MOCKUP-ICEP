@@ -78,10 +78,10 @@
                             <a class="nav-link" href="{{ route('hotel') }}">ACCOMMODATION</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('comparison-eventspace') }}">EVENT SPACE COMPARABILITY</a>
+                            <a class="nav-link" href="{{ route('comparison-eventspace') }}">EVENT SPACE COMPARISON</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('comparison-hotel') }}">ACCOMMODATION COMPARABILITY</a>
+                            <a class="nav-link" href="{{ route('comparison-hotel') }}">ACCOMMODATION COMPARISON</a>
                         </li>
 
 
