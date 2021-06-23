@@ -395,65 +395,7 @@ input.search-submit {
         </div>
 
 
-<script>
-    var slider = document.getElementById("size");
-    var output = document.getElementById("demosize");
-    output.innerHTML = slider.value;
 
-    slider.oninput = function() {
-    output.innerHTML = this.value;
-    }
-    </script>
-
-    <script>
-    var slider1 = document.getElementById("car");
-    var output1 = document.getElementById("democar");
-    output1.innerHTML = slider1.value;
-
-    slider1.oninput = function() {
-    output1.innerHTML = this.value;
-    }
-    </script>
-
-    <script>
-    var slider2 = document.getElementById("walk");
-    var output2 = document.getElementById("demowalk");
-    output2.innerHTML = slider2.value;
-
-    slider2.oninput = function() {
-    output2.innerHTML = this.value;
-    }
-    </script>
-
-    <script>
-    var slider3 = document.getElementById("single");
-    var output3 = document.getElementById("demosingle");
-    output3.innerHTML = slider3.value;
-
-    slider3.oninput = function() {
-    output3.innerHTML = this.value;
-    }
-    </script>
-
-    <script>
-    var slider4 = document.getElementById("double");
-    var output4 = document.getElementById("demodouble");
-    output4.innerHTML = slider4.value;
-
-    slider4.oninput = function() {
-    output4.innerHTML = this.value;
-    }
-    </script>
-
-    <script>
-    var slider5 = document.getElementById("corporate");
-    var output5 = document.getElementById("democorporate");
-    output5.innerHTML = slider5.value;
-
-    slider5.oninput = function() {
-    output5.innerHTML = this.value;
-    }
-    </script>
 
 <script>
     // Get the modal
