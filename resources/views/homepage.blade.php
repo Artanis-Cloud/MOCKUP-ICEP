@@ -43,17 +43,7 @@ a:active {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url({{ asset('/qbadminui/img/home/background.jpg') }});
-}.container-fluid:before {
-  content: "";
-  position: absolute;
-  top: 75px;
-  right: 0;
-  bottom: -80px;
-  left: 0;
-  background-image: linear-gradient(to bottom right, #103d58, #040202);
-  opacity: 0.6;
 }
-
 /* search */
 input[type=search] {
   -webkit-appearance: none !important;
@@ -157,7 +147,7 @@ input.search-submit {
   		<div class="col-md-4">
   		</div>
   		<div class="col-md-4" style="text-align: center;color: rgb(255, 255, 255); padding-top: 15%;">
-              <h1 style="font-weight: bold">Welcome to <br>iCEP's Venue Management System (VMS)</h1>
+              <h1 style="font-weight: bold; background-image: linear-gradient(to bottom right, #103d588c, #04020282);">Welcome to <br>iCEP's Venue Management System (VMS)</h1>
   		</div>
   		<div class="col-md-4">
   		</div>
