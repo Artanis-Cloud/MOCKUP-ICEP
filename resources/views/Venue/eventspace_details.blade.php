@@ -336,59 +336,111 @@ input.search-submit {
                 </div>
                 <!-- Activity details -->
                 @forelse($eventspace as $data)
-                <div class="row" style="text-align: center">
-                                  <div class="col-md-4">
-                                  <h3 class="m-0 font-weight-normal">{{ $data->hotels->hotel_name }}</h3>
-                                  <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->hotels->thumbnail))}}" style="width: 250px; height: 200px;" alt="Card image cap">
-                                  </div>
-                              <div class="col-md-2">
-                                  <h5 class="text-muted">Radius from KLCC (car)</h5>
-                                  <h5 class="m-0 font-weight-normal">{{ $data->hotels->car_radius ? $data->hotels->car_radius : "-" }}</h5>
-                                  <br>
-                                  <h5 class="text-muted">Radius from KLCC (walk)</h5>
-                                  <h5 class="m-0 font-weight-normal">{{ $data->hotels->walking_radius ? $data->hotels->walking_radius : "-"}}</h5>
-                              </div>
-                                  <div class="col-md-2">
-                                      <h5 class="text-muted">Event Space</h5>
-                                      <h5 class="m-0 font-weight-normal">{{ $data->venue ? $data->venue : "-" }}</h5>
-                                      <br>
-                                      <h5 class="text-muted">Level</h5>
-                                      <h5 class="m-0 font-weight-normal">{{ $data->level ? $data->level : "-" }}</h5>
-                                  </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row" style="text-align: center">
+                                    <div class="col-md-12">
+                                    <h3 class="m-0 font-weight-normal">{{ $data->hotels->hotel_name }}</h3>
+                                    <img class="card-img-top" src="{{ asset($image_path=str_replace('public','storage',$data->hotels->thumbnail))}}" style="width: 250px; height: 200px;" alt="Card image cap">
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row" style="text-align: center">
+                                    @if($data->hotels->car_radius)
+                                    <div class="col-md-4">
+                                        <h5 class="text-muted">Radius from KLCC (car)</h5>
+                                        <h5 class="m-0 font-weight-normal">{{ $data->hotels->car_radius ? $data->hotels->car_radius : "-" }}</h5>
+                                    </div>
+                                    @endif
+                                    @if($data->venue)
+                                    <div class="col-md-4">
+                                        <h5 class="text-muted">Event Space</h5>
+                                        <h5 class="m-0 font-weight-normal">{{ $data->venue ? $data->venue : "-" }}</h5>
+                                        <br>
+                                    </div>
+                                    @endif
+                                    @if($data->size)
+                                    <div class="col-md-4">
+                                        <h5 class="text-muted">Size</h5>
+                                        <h5 class="m-0 font-weight-normal">{{ $data->size ? $data->size : "-"}} sq.ft</h5>
+                                    </div>
+                                    @endif
+                                </div>
+                                <div class="row" style="text-align: center">
+                                    @if($data->hotels->walking_radius)
+                                    <div class="col-md-4">
+                                        <h5 class="text-muted">Radius from KLCC (walk)</h5>
+                                        <h5 class="m-0 font-weight-normal">{{ $data->hotels->walking_radius ? $data->hotels->walking_radius : "-"}}</h5>
+                                    </div>
+                                    @endif
 
-                                  <div class="col-md-2">
-                                      <h5 class="text-muted">Size</h5>
-                                      <h5 class="m-0 font-weight-normal">{{ $data->size ? $data->size : "-"}} sq.ft</h5>
-                                      <br>
-                                      <h5 class="text-muted">Banquet</h5>
-                                      <h5 class="m-0 font-weight-normal">{{ $data->banquet ? $data->banquet : "-" }}</h5>
-                                  </div>
-                              </div>
-                              <div class="row" style="text-align: center">
-                                  <div class="col-md-4"></div>
-                                  <div class="col-md-2">
-                                      <h5 class="text-muted">Classroom</h5>
-                                      <h5 class="m-0 font-weight-normal">{{ $data->classroom ? $data->classroom : "-" }}</h5>
-                                      <br>
-                                      <h5 class="text-muted">Theater</h5>
-                                      <h5 class="m-0 font-weight-normal">{{ $data->theater ? $data->theater : "-" }}</h5>
-                                  </div>
+                                    @if($data->level)
+                                    <div class="col-md-4">
+                                        <h5 class="text-muted">Level</h5>
+                                        <h5 class="m-0 font-weight-normal">{{ $data->level ? $data->level : "-" }}</h5>
+                                    </div>
+                                    @endif
+                                    @if($data->banquet)
+                                    <div class="col-md-4">
+                                        <h5 class="text-muted">Banquet</h5>
+                                        <h5 class="m-0 font-weight-normal">{{ $data->banquet ? $data->banquet : "-" }}</h5>
+                                    </div>
+                                    @endif
 
-                                  <div class="col-md-2">
-                                      <h5 class="text-muted">Cocktail</h5>
-                                      <h5 class="m-0 font-weight-normal">{{ $data->cocktail ? $data->cocktail : "-" }}</h5>
-                                      <br>
-                                      <h5 class="text-muted">Cabaret</h5>
-                                      <h5 class="m-0 font-weight-normal">{{ $data->cabaret ? $data->cabaret : "-" }}</h5>
-                                  </div>
+                                </div>
+                                <div class="row" style="text-align: center">
+                                    @if($data->classroom)
+                                    <div class="col-md-4">
+                                        <h5 class="text-muted">Classroom</h5>
+                                        <h5 class="m-0 font-weight-normal">{{ $data->classroom ? $data->classroom : "-" }}</h5>
+                                        <br>
 
-                                  <div class="col-md-2">
-                                      <h5 class="text-muted">Booth Capacity</h5>
-                                      <h5 class="m-0 font-weight-normal">{{ $data->booth_capacity ? $data->booth_capacity : "-" }}</h5>
-                                      <br>
-                                  </div>
+                                    </div>
+                                    @endif
+                                    @if($data->cocktail)
+                                    <div class="col-md-4">
+                                        <h5 class="text-muted">Cocktail</h5>
+                                        <h5 class="m-0 font-weight-normal">{{ $data->cocktail ? $data->cocktail : "-" }}</h5>
+                                        <br>
 
-                              </div>
+                                    </div>
+                                    @endif
+                                    @if($data->theater)
+                                        <div class="col-md-4">
+                                            <h5 class="text-muted">Theater</h5>
+                                            <h5 class="m-0 font-weight-normal">{{ $data->theater ? $data->theater : "-" }}</h5>
+                                        </div>
+                                    @endif
+
+
+                                </div>
+                                <div class="row" style="text-align: center">
+
+                                    @if($data->cabaret)
+                                        <div class="col-md-4">
+                                            <h5 class="text-muted">Cabaret</h5>
+                                            <h5 class="m-0 font-weight-normal">{{ $data->cabaret ? $data->cabaret : "-" }}</h5>
+                                        </div>
+                                    @endif
+
+                                    @if($data->booth_capacity)
+                                    <div class="col-md-4">
+                                        <h5 class="text-muted">Booth Capacity</h5>
+                                        <h5 class="m-0 font-weight-normal">{{ $data->booth_capacity ? $data->booth_capacity : "-" }}</h5>
+                                        <br>
+                                    </div>
+                                    @endif
+                                    {{-- @if($data->banquet)
+                                    <div class="col-md-2">
+                                        <h5 class="text-muted">Banquet</h5>
+                                        <h5 class="m-0 font-weight-normal">{{ $data->banquet ? $data->banquet : "-" }}</h5>
+                                    </div>
+                                    @endif --}}
+
+                                    </div>
+                                </div>
+                            </div>
 
 
                 <div class="border-0 rounded-lg card" style="padding: 5%">

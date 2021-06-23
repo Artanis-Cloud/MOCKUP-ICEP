@@ -31,6 +31,23 @@ class EditRoom extends Component
 
     }
 
+    public function updated()                   //function called everytime user input
+    {
+        $this->validate();
+    }
+
+    protected $rules = [
+        'room_type'=> 'required|string',
+        'size'=> 'required|string',
+        'type_of_bed'=> 'required|string',
+        'view'=> 'required|string',
+        'single_rate'=> 'nullable|numeric',
+        'double_rate'=> 'nullable|numeric',
+        'corporate_rate'=> 'nullable|numeric',
+        'photos.0' =>  'nullable|image|max:10000',
+        'photos.*' =>  'nullable|image|max:10000',                   //validate
+    ];
+
     public function remove($i)
     {
         unset($this->inputs[$i]);
@@ -59,6 +76,7 @@ class EditRoom extends Component
 
     public function update()
     {
+        $this->validate();
             $room = HotelRoom::find($this->id_room);
             $room->update([
                 'room_type' => $this->room_type,

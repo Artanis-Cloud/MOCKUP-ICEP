@@ -419,7 +419,7 @@ input.search-submit {
  </div>
 
 
-    <script>
+    {{-- <script>
 var slider = document.getElementById("size");
 var output = document.getElementById("demosize");
 output.innerHTML = slider.value;
@@ -507,7 +507,7 @@ output8.innerHTML = slider8.value;
 slider8.oninput = function() {
 output8.innerHTML = this.value;
 }
-</script>
+</script> --}}
 
 <script>
     // Get the modal

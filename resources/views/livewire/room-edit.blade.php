@@ -144,7 +144,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label  class="required">Upload Event Space Images</label>
+                                                <label  class="required">Upload Photos</label>
                                                 <div class="custom-file">
                                                     <input wire:model="photos.{{ $value }}" type="file" class="custom-file-input" onchange="return translateUpload('photos1');" id="photos1" name="photos">
                                                     <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>

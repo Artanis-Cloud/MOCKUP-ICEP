@@ -151,7 +151,7 @@
             <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label  class="required">Upload Image</label>
+                            <label  class="required">Upload Photos</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="image" wire:model='photos.0'>
                                 <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
@@ -188,7 +188,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label  class="required">Upload Image</label>
+                            <label  class="required">Upload Photos</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="image" wire:model='photos.{{ $value }}'>
                                 <label class="custom-file-label bg-light" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Image</label>
