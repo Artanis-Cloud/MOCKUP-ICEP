@@ -216,13 +216,16 @@ class VenueController extends Controller
     public function roomFilter(Request $request)
     {
         // dd($request->all());
+
+        // $rooms=HotelRoom::where('type_of_bed',$request->type_of_bed)->orwhere('size', $request->size ?? INF)->get();
+        // dd($rooms);
         $rooms=HotelRoom::where('size','<=', $request->size ?? INF)
-                        ->where('type_of_bed',$request->type_of_bed)
-                        ->where('single_rate','<=',$request->single ?? INF)
-                        ->where('double_rate','<=',$request->double ?? INF)
-                        ->where('corporate_rate','<=',$request->corporate ?? INF)
+                        ->orwhere('type_of_bed',$request->type_of_bed)
+                        ->orwhere('single_rate','<=',$request->single ?? INF)
+                        ->orwhere('double_rate','<=',$request->double ?? INF)
+                        ->orwhere('corporate_rate','<=',$request->corporate ?? INF)
                         ->get();
-        dd($rooms);
+        // dd($rooms);
 
         // $hotels=Hotel::where('car_radius','<=', $request->car ?? INF )
         //              ->where('walking_radius','<=',$request->walk ?? INF)
@@ -246,12 +249,12 @@ class VenueController extends Controller
     {
         // dd($request->all());
         $eventspace=EventSpace::where('size','<=', $request->size ?? INF)
-                                ->where('banquet','<=',$request->banquet ?? INF)
-                                ->where('classroom','<=',$request->classroom ?? INF)
-                                ->where('cocktail','<=',$request->cocktail ?? INF)
-                                ->where('theater','<=',$request->theater ?? INF)
-                                ->where('cabaret','<=',$request->cabaret ?? INF)
-                                ->where('booth_capacity','<=',$request->booth_capacity ?? INF)
+                                ->orwhere('banquet','<=',$request->banquet ?? INF)
+                                ->orwhere('classroom','<=',$request->classroom ?? INF)
+                                ->orwhere('cocktail','<=',$request->cocktail ?? INF)
+                                ->orwhere('theater','<=',$request->theater ?? INF)
+                                ->orwhere('cabaret','<=',$request->cabaret ?? INF)
+                                ->orwhere('booth_capacity','<=',$request->booth_capacity ?? INF)
                                 // ->paginate(9);
                                 ->get();
         // dd($eventspace);
