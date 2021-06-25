@@ -234,7 +234,7 @@ input.search-submit {
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Size (s.q ft)</label>
-                                                <input type="text" name="size" value="" class="form-control bg-light" id="single">
+                                                <input type="text" name="size" value="0" class="form-control bg-light" id="single">
                                                 {{-- <input type="range" name="size" min="0" max="5000" value="" class="slider" id="size">
                                                 <p>Value: <span id="demosize"></span></p> --}}
                                             </div>
@@ -268,7 +268,7 @@ input.search-submit {
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Single Rate</label>
-                                                <input type="text" name="single"  value="" class="form-control bg-light" id="single">
+                                                <input type="text" name="single"  value="0" class="form-control bg-light" id="single">
                                                 {{-- <p>Value: <span id="demosingle"></span></p> --}}
                                             </div>
                                         </div>
@@ -279,7 +279,7 @@ input.search-submit {
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Double Rate</label>
-                                                <input type="text" name="double"  value="" class="form-control bg-light" id="double">
+                                                <input type="text" name="double"  value="0" class="form-control bg-light" id="double">
                                                 {{-- <p>Value: <span id="demodouble"></span></p> --}}
                                             </div>
                                         </div>
@@ -290,7 +290,7 @@ input.search-submit {
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Corporate Rate</label>
-                                                <input type="text" name="corporate" value="" class="form-control bg-light" id="corporate">
+                                                <input type="text" name="corporate" value="0" class="form-control bg-light" id="corporate">
                                                 {{-- <p>Value: <span id="democorporate"></span></p> --}}
                                             </div>
                                         </div>
