@@ -222,7 +222,7 @@ class VenueController extends Controller
                         ->where('double_rate','<=',$request->double ?? INF)
                         ->where('corporate_rate','<=',$request->corporate ?? INF)
                         ->get();
-        // dd($rooms);
+        dd($rooms);
 
         // $hotels=Hotel::where('car_radius','<=', $request->car ?? INF )
         //              ->where('walking_radius','<=',$request->walk ?? INF)
