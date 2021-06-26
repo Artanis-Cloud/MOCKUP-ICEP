@@ -7,6 +7,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js%22%3E"></script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/tailwindcss@0.7.4/dist/tailwind.min.css">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -134,20 +135,47 @@ input.search-submit {
   outline: 0;
 }
 
-/* background overlay */
-/* .overlay {
-  background: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0,0.5));
-} */
+/* announcement */
+.content{
+  max-width: 400px;
+}
+.news span.txt{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 </style>
 
 <body>
 
   <div class="container-fluid">
-  	<div class="row">
+  	<div class="row" style="padding-bottom: 2%">
   		<div class="col-md-4">
   		</div>
-  		<div class="col-md-4" style="text-align: center;color: rgb(255, 255, 255); padding-top: 15%;">
-              <h1 style="font-weight: bold; background-image: linear-gradient(to bottom right, #103d588c, #04020282);">Welcome to <br>iCEP's Venue Management System (VMS)</h1>
+  		<div class="col-md-4" style="text-align: center;color: rgb(255, 255, 255); padding-top: 10%;">
+              <h1 style="font-weight: bold;">Welcome to <br>iCEP's Venue Management System (VMS)</h1>
+              <!-- <h1 style="font-weight: bold; background-image: linear-gradient(to bottom right, #103d588c, #04020282);">Welcome to <br>iCEP's Venue Management System (VMS)</h1> -->
+
   		</div>
   		<div class="col-md-4">
   		</div>
@@ -155,17 +183,22 @@ input.search-submit {
   	<div class="row">
   		<div class="col-md-4">
   		</div>
-  		<div class="col-md-4">
+  		<div class="col-md-4" style="background-color: #2f485869;">
 
-                  {{-- <div class="container">
-                    <form role="search" method="get" class="search-form form" action="">
-                      <label>
-                          <span class="screen-reader-text">Search for...</span>
-                          <input type="search" class="search-field" placeholder="Type something..." value="" name="s" title="">
-                      </label>
-                      <input type="submit" class="search-submit button" value="">
-                  </form>
-                  </div> --}}
+        <h3 class="text-indigo-lightest text-center mt-0 mb-8">Announcement</h3>
+
+        <div class="content mx-auto" style="overflow-y: auto; height: 200px;">
+          @if($announcement)
+              @forelse ( $announcement as $data)
+        <div class="news mx-auto rounded-full bg-indigo-darker w-full flex items-center">
+          <span class="bg-green-dark text-white tracking-wide text-xs w-auto m-2 inline-block rounded-full py-1 px-2">NEW</span>
+          <span class="txt w-2/3 sm:w-full text-white text-sm text-indigo-lightest">{{ $data->user_message }}</span>
+        </div>
+        <br>
+        @empty
+        </div>
+        @endforelse
+        @endif
 
   		</div>
   		<div class="col-md-4">

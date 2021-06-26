@@ -51,7 +51,7 @@
                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
                     >
-                        <i class="fas fa-sign-out-alt" data-toggle="tooltip" data-placement="top" title="Log Keluar"></i>
+                        <i class="fas fa-sign-out-alt" data-toggle="tooltip" data-placement="top" title="Log Out"></i>
                     </a>
                 </div>
 
@@ -76,11 +76,11 @@
                         {{-- <li class="px-3 side-menu-item"><a href="#" class="py-3 pl-4 w-100 sub-menu-parent" data-toggle="collapse" data-target="#table-sub-menu3" aria-expanded="false" aria-controls="table-sub-menu">Senarai Permohonan </a></li>
                         <div id="table-sub-menu3" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                             <ul class="p-0 side-sub-menu">
-                                <li class="px-3 side-sub-menu-item"><a href="#" class="pl-4 w-100">Permohonan Sedang Diproses </a></li>
-                                <li class="px-3 side-sub-menu-item"><a href="#" class="pl-4 w-100">Permohonan Lulus </a></li>
-                                <li class="px-3 side-sub-menu-item"><a href="#" class="pl-4 w-100">Permohonan Gagal </a></li>
-                                <li class="px-3 side-sub-menu-item"><a href="#" class="pl-4 w-100">Permohonan Tidak Berkaitan </a></li>
-                                <li class="px-3 side-sub-menu-item"><a href="#" class="pl-4 w-100">Permohonan Batal </a></li>
+                                <li class="px-3 side-sub-menu-item"><a href="#" class="pl-4 w-100">Application Processing </a></li>
+                                <li class="px-3 side-sub-menu-item"><a href="#" class="pl-4 w-100">Application Passed </a></li>
+                                <li class="px-3 side-sub-menu-item"><a href="#" class="pl-4 w-100">Application Failed </a></li>
+                                <li class="px-3 side-sub-menu-item"><a href="#" class="pl-4 w-100">Application Not Applicable </a></li>
+                                <li class="px-3 side-sub-menu-item"><a href="#" class="pl-4 w-100">Request Cancel </a></li>
                             </ul>
                         </div> --}}
 
@@ -230,9 +230,9 @@
 
                           @if(Auth::user()->profile_picture == null)
 
-                          <img src="{{ asset('https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg') }}" alt="profile" class="profile-avatar" style="height:40px; width:40px;" data-toggle="tooltip" data-placement="left" title="Profil">
+                          <img src="{{ asset('https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg') }}" alt="profile" class="profile-avatar" style="height:40px; width:40px;" data-toggle="tooltip" data-placement="left" title="Profile">
                           @else
-                          <img src="{{ asset( $image_path = str_replace('public', 'storage',  Auth::user()->profile_picture)) }}"  class="profile-avatar" style="height:40px; width:40px; " data-toggle="tooltip" data-placement="left" title="Profil">
+                          <img src="{{ asset( $image_path = str_replace('public', 'storage',  Auth::user()->profile_picture)) }}"  class="profile-avatar" style="height:40px; width:40px; " data-toggle="tooltip" data-placement="left" title="Profile">
                           @endif
                         </a>
                         <!-- Dropdown Menu -->
@@ -241,14 +241,14 @@
 
                             <a href="#" class="dropdown-item disabled small"><i class="mr-1 far fa-user"></i>{{explode(' ',trim(ucwords(strtolower((Auth::user()->name)))))[0]}} </a>
                             <a href="{{ route('admin.update-profile') }}" class="dropdown-item text-secondary-light">Update Profile</a>
-                            {{-- <a href="#" class="dropdown-item text-secondary-light">Tukar Kata Laluan</a> --}}
+                            {{-- <a href="#" class="dropdown-item text-secondary-light">Change Password</a> --}}
 
                             <!-- <a href="#" class="dropdown-item text-secondary-light">Billing history</a> -->
                             <a  class="dropdown-item text-secondary-light"
                                 href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
-                            >Log Keluar</a>
+                            >Log out</a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
@@ -262,8 +262,8 @@
 
     <!-- Footer section -->
     <footer class="flex-row p-4 footer-full-body d-flex justify-content-between text-secondary" style="background: #fff !important;">
-        <p>&copy; Hakcipta Terpelihara 2021. <a href="https://www.forestry.gov.my/my/" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
-        <p>Versi 1.0</p>
+        <p>&copy; Copyright Reserved 2021. <a href="#" target="_Blank"><font color="black">iCEP - International Conference and Exhibition Professionals</font></a></p>
+        <p>Version 1.0</p>
     </footer>
   </div>
 
