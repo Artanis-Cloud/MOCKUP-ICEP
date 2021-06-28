@@ -20,11 +20,17 @@ class Room extends Component
     public $showgambar = true;
     public $addgambar = true;
 
-    public $room_type, $size, $type_of_bed, $view, $single_rate, $double_rate, $corporate_rate,$photos,$caption;
+    public $hotel_id, $room_type, $size, $type_of_bed, $view, $single_rate, $double_rate, $corporate_rate,$photos,$caption;
     public $updateMode = false;
     public $inputs = [];
     public $i = 0;
     public $j = 0;
+
+    public function mount()
+    {
+        $this->hotel_id = 0;
+
+    }
 
     public $inputphotos = [];
 
@@ -93,81 +99,32 @@ class Room extends Component
 
 
     private function resetInputFields(){
-        $this->room_type = '';
-        $this->size = '';
-        $this->type_of_bed = '';
-        $this->view = '';
-        $this->single_rate = '';
-        $this->double_rate = '';
-        $this->corporate_rate = '';
-        $this->photos = '';
+        $this->room_type = null;
+        $this->size = null;
+        $this->type_of_bed = null;
+        $this->view = null;
+        $this->single_rate = null;
+        $this->double_rate = null;
+        $this->corporate_rate = null;
+        $this->photos = null;
 
     }
 
-    public function store(Hotel $hotel)
+    public function store()
     {
-
-    //     $this->validate([
-    //         'room_type.0' => 'required|string',
-    //         'size.0' => 'required|numeric',
-    //         'type_of_bed.0' => 'required|string',
-    //         'view.0' => 'nullable|string',
-    //         'single_rate.0' => 'nullable|numeric',
-    //         'double_rate.0' => 'nullable|numeric',
-    //         'corporate_rate.0' => 'nullable|numeric',
-    //         'photos.0' => 'required|max:2048',
-
-    //         'room_type.*' => 'required|string',
-    //         'size.*' => 'required|numeric',
-    //         'type_of_bed.*' => 'required|string',
-    //         'view.*' => 'nullable|string',
-    //         'single_rate.*' => 'nullable|numeric',
-    //         'double_rate.*' => 'nullable|numeric',
-    //         'corporate_rate.*' => 'nullable|numeric',
-    //         'photos.*' => 'required|max:2048',
-    //     ],
-    //     [
-    //         'room_type.0.required' => 'This field is required',
-    //         'size.0.required' => 'This field is required',
-    //         'type_of_bed.0.required' => 'This field is required',
-    //         'photos.0.required' => 'This field is required',
-
-    //         'size.0.numeric' => 'Please insert numeric value',
-
-
-
-    //         'single_rate.0.numeric' => 'Please insert numeric value',
-    //         'double_rate.0.numeric' => 'Please insert numeric value',
-    //         'corporate_rate.0.numeric' => 'Please insert numeric value',
-
-    //         'room_type.*.required' => 'This field is required',
-    //         'size.*.required' => 'This field is required',
-    //         'type_of_bed.*.required' => 'This field is required',
-    //         'photos.*.required' => 'This field is required',
-
-
-    //         'size.*.numeric' => 'Please insert numeric value',
-
-
-
-    //         'single_rate.*.numeric' => 'Please insert numeric value',
-    //         'double_rate.*.numeric' => 'Please insert numeric value',
-    //         'corporate_rate.*.numeric' => 'Please insert numeric value',
-    //     ]
-
-    // );
-
+            // dd('masuk');
+    //
         foreach ($this->room_type as $key => $value) {
             $this->validate();
             $hotel_room = HotelRoom::create ([
-                'room_type' => $this->room_type[$key],
-                'size' => $this->size[$key],
-                'type_of_bed' => $this->type_of_bed[$key],
-                'view' => $this->view[$key],
-                'single_rate' => $this->single_rate[$key],
-                'double_rate' => $this->double_rate[$key],
-                'corporate_rate' => $this->corporate_rate[$key],
-                'hotel_id' =>$hotel->id,
+                'room_type' => $this->room_type[$key] ?? null,
+                'size' => $this->size[$key] ?? null,
+                'type_of_bed' => $this->type_of_bed[$key] ?? null,
+                'view' => $this->view[$key] ?? null,
+                'single_rate' => $this->single_rate[$key] ?? null,
+                'double_rate' => $this->double_rate[$key] ?? null,
+                'corporate_rate' => $this->corporate_rate[$key] ?? null,
+                'hotel_id' =>$this->hotel_id,
             ]);
 
             $image = $this->storeImage($hotel_room);
@@ -184,8 +141,12 @@ class Room extends Component
 
     public function render()
     {
-        return view('livewire.room');
+        // dd($this->showgambar);
+        $hotel_name = Hotel::distinct('hotel_name')->orderBy('hotel_name', 'ASC')->get();
+        // $hotel_id = Hotel::distinct('id')->orderBy('hotel_name', 'ASC')->get();
+        return view('livewire.room',compact ('hotel_name'));
     }
+
 
     public function storeImage($hotel_room)
     {

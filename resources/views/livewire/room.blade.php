@@ -1,11 +1,34 @@
 <div>
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-md-12" style="text-align:center;">
             <label><b>Room Rates (per room per night)</b></label>
         </div>
-    </div>
+    </div> --}}
 
     <form>
+
+        <div class="col-md-12">
+            <div class="form-group">
+
+            <label>Venue</label>
+            {{-- <label style="color:red;">If venue has hotel, Please insert hotel name.</label> --}}
+            <select name="hotel_id" id="" wire:model='hotel_id' class="form-control bg-light @error('hotel_id') is-invalid @enderror"">
+                <option disabled="disabled" hidden value="0">Choose Venue</option>
+                @forelse ($hotel_name as $data)
+                    <option value="{{ $data->id }}" >{{ $data->hotel_name }}</option>
+                @empty
+                    <option selected="true" disabled="disabled" value="0">Please Insert Venue Information in Add New Venue</option>
+                @endforelse
+
+
+            </select>
+            @error('hotel_name')
+            <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            </div>
+        </div>
     <div class="add-input">
 
     <div class="row">
@@ -174,11 +197,11 @@
     <div class="add-input">
 
         <hr>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-12" style="text-align:center;">
                 <label><b>Room Rates (per room per night)</b></label>
             </div>
-        </div>
+        </div> --}}
 
         <div class="row">
 
@@ -366,6 +389,13 @@
         <button type="button" wire:click.prevent="store()" class="m-auto btn btn-primary btn-outline-primary badge-pill btn-block w-50" style="background: #e89a3d !important;">Save</button>
         </div>
     </div> --}}
+
+
+    <div class="col-md-12" style="padding-top: 1%">
+
+        <button type="submit" wire:click.prevent='store' class="m-auto btn btn-primary btn-outline-primary badge-pill btn-block w-75" style="background: #e89a3d !important;">Submit</button>
+
+    </div>
 
     </form>
 

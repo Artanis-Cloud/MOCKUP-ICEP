@@ -10,7 +10,7 @@
         </div>
         <br>
         <div class="row" style="text-align:center;padding-bottom: 30%;">
-            <div class="mt-3 col-sm-6 col-md-2 col-lg-2 mt-lg-0"></div>
+            {{-- <div class="mt-3 col-sm-6 col-md-2 col-lg-2 mt-lg-0"></div> --}}
             <a href="{{ route('hotel.add') }}" class="mt-3 col-sm-6 col-md-4 col-lg-4 mt-lg-0">
                 <div class="rounded-lg-6 border-1 card">
                 <!-- Card body -->
@@ -23,7 +23,28 @@
                             </div>
                             <!-- Text -->
                             <div class="text-center small-card-text w-100">
-                                <p class="m-0 font-weight-normal text-muted">Add New Hotel</p>
+                                <p class="m-0 font-weight-normal text-muted">Add New Venue</p>
+                                {{-- <h4 class="m-0 font-weight-normal text-primary">205</h4> --}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+
+            <a href="{{ route('room.add') }}" class="mt-3 col-sm-6 col-md-4 col-lg-4 mt-lg-0">
+                <div class="rounded-lg-6 border-1 card">
+                <!-- Card body -->
+                    <div class="card-body">
+
+                        <div class="flex-row d-flex justify-content-center align-items-center">
+                            <!-- Icon -->
+                            <div class="small-card-icon">
+                                <i class="fas fa-hotel card-icon-bg-primary fa-4x"></i>
+                            </div>
+                            <!-- Text -->
+                            <div class="text-center small-card-text w-100">
+                                <p class="m-0 font-weight-normal text-muted">Add New Accommodation</p>
                                 {{-- <h4 class="m-0 font-weight-normal text-primary">205</h4> --}}
                             </div>
                         </div>
