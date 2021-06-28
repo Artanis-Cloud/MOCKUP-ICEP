@@ -63,6 +63,8 @@ Route::middleware([CheckRole::class])->group(function(){
 
     Route::get('/hotel/add', [App\Http\Controllers\AdminController::class, 'add_hotel'])->name('hotel.add');
 
+    Route::get('/room/add', [App\Http\Controllers\AdminController::class, 'add_room'])->name('room.add');
+
     Route::get('/eventspace/add', [App\Http\Controllers\AdminController::class, 'add_eventspace'])->name('eventspace.add');
 
     Route::get('/hotel_edit/{id}', [App\Http\Controllers\VenueController::class, 'hotel_edit'])->name('hotel_edit');

@@ -45,6 +45,11 @@ class AdminController extends Controller
         return view('admin.add-new-hotel');
     }
 
+    public function add_room()
+    {
+        return view('admin.add-new-room');
+    }
+
     public function add_eventspace()
     {
         $hotel_name = Hotel::distinct('hotel_name')->get();

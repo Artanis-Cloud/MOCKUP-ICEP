@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-            <label >Hotel Name</label>
+            <label >Venue Name</label>
             <input type="text"  wire:model='hotel_name' class="form-control bg-light @error('hotel_name') is-invalid @enderror" name="hotel_name" placeholder="Hotel Name" oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">
             @error('hotel_name')
             <div class="alert alert-danger">
@@ -130,7 +130,7 @@
         <div class="row" style="padding: 1%">
             <div class="col-md-12">
 
-                @livewire('room')
+                {{-- @livewire('room') --}}
 
             </div>
         </div>
