@@ -246,8 +246,8 @@
 
             <div class="col-md-12">
                 <div class="form-group">
-                <label>Venue</label>
-                <input type="text"  wire:model='venue' class="form-control bg-light @error('venue') is-invalid @enderror" name="venue" placeholder="Venue " oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">
+                <label>Event Space Name</label>
+                <input type="text"  wire:model='venue' class="form-control bg-light @error('venue') is-invalid @enderror" name="venue" placeholder="Event Space Name " oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">
                 @error('venue')
                 <div class="alert alert-danger">
                     <strong>{{ $message }}</strong>
