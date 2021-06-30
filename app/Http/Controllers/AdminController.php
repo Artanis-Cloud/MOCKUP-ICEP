@@ -161,26 +161,26 @@ class AdminController extends Controller
             $users->email = $request->email;
 
 
-            if(!(Hash::check($request->get('password'), Auth::user()->password))){
-                return redirect()->back()->with("error","Kata laluan semasa tidak betul");
-              }
+            // if(!(Hash::check($request->get('password'), Auth::user()->password))){
+            //     return redirect()->back()->with("error","Kata laluan semasa tidak betul");
+            //   }
 
-            if(strcmp($request->get('password'),$request->get('new_password'))== 0){
-                return redirect()->back()->with("error","Kata laluan semasa tidak boleh sama dengan kata laluan baru");
-              }
+            // if(strcmp($request->get('password'),$request->get('new_password'))== 0){
+            //     return redirect()->back()->with("error","Kata laluan semasa tidak boleh sama dengan kata laluan baru");
+            //   }
 
-            if(strcmp($request->get('new_password'),$request->get('password_confirmation'))== 1){
-                return redirect()->back()->with("error","Kata laluan baru tidak sama dengan kata laluan pengesahan");
-              }
+            // if(strcmp($request->get('new_password'),$request->get('password_confirmation'))== 1){
+            //     return redirect()->back()->with("error","Kata laluan baru tidak sama dengan kata laluan pengesahan");
+            //   }
 
-              $validatedData = $request->validate([
-                      'password' => 'required',
-                      'new_password' => 'required|string|min:6',
-                ]);
+            //   $validatedData = $request->validate([
+            //           'password' => 'required',
+            //           'new_password' => 'required|string|min:6',
+            //     ]);
 
-                $hashed_random_password = Hash::make($request->get('new_password'));
+            //     $hashed_random_password = Hash::make($request->get('new_password'));
 
-                $users->password = $hashed_random_password;
+            //     $users->password = $hashed_random_password;
 
                 // $gambar_profile = "";
 

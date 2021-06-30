@@ -245,7 +245,7 @@ input.search-submit {
 
      <div class="row">
        <div class="text-center col">
-            <h2> Hotel Comparison</h2>
+            <h2> Accommodation Comparison</h2>
        </div>
     </div>
     <br><br>
@@ -254,9 +254,9 @@ input.search-submit {
         @csrf
     <div class="row">
        <div class="col">
-           <label for="first_hotel"><b>First Hotel</b></label>
+           <label for="first_hotel"><b>First Venue</b></label>
             <select id="product-col-1" class="custom-select " name="first_hotel">
-                <option value="" selected hidden disabled>Please Choose Hotel</option>
+                <option value="" selected hidden disabled>Please Choose Venue</option>
                 @forelse($hotel as $data)
                 <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                 @empty
@@ -264,9 +264,9 @@ input.search-submit {
    			</select>
        </div>
        <div class="col">
-        <label for="second_hotel"><b>Second Hotel</b></label>
+        <label for="second_hotel"><b>Second Venue</b></label>
             <select id="product-col-2" class="custom-select " name="second_hotel">
-                <option value="" selected hidden disabled>Please Choose Hotel</option>
+                <option value="" selected hidden disabled>Please Choose Venue</option>
                 @forelse($hotel as $data)
                 <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                 @empty
@@ -274,9 +274,9 @@ input.search-submit {
             </select>
        </div>
        <div class="col">
-        <label for="third_hotel"><b>Third Hotel</b></label>
+        <label for="third_hotel"><b>Third Venue</b></label>
             <select id="product-col-3" class="custom-select " name="third_hotel">
-                <option value="" selected hidden disabled>Please Choose Hotel</option>
+                <option value="" selected hidden disabled>Please Choose Venue</option>
                 @forelse($hotel as $data)
                 <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
                 @empty
@@ -285,6 +285,92 @@ input.search-submit {
        </div>
      </div>
      <br>
+
+     <div class="rounded-lg card">
+        <div class="card-body">
+            <div class="card-title">Filtering</div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="f-name-1">Size (s.q ft)</label>
+                        <select name="size" id="" class="form-control bg-light">
+                            <option value="" selected disable hidden>Please choose size</option>
+                            <option value="500" class="">0-500</option>
+                            <option value="1000" class="">501-1000</option>
+                            <option value="1500" class="">1001-1500</option>
+                            <option value="2000" class="">1501-2000</option>
+                            <option value="INF" class="">2001 and above</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- Create 3 row -->
+            <div class="row">
+                <!-- 1st row -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="f-name-1">Types of bed</label>
+                        <div class="slidecontainer">
+                            <select name="type_of_bed" id="" class="form-control bg-light">
+                                {{-- <option selected disabled hidden value="">Choose Type of Bed</option> --}}
+                                @forelse($bed_type as $data)
+                                    <option value="{{ $data->type_of_bed }}" class="">
+                                        {{ $data->type_of_bed }}</option>
+                                @empty
+                                    No Data
+                                @endforelse
+
+                            </select>
+                            {{-- <input type="text" name="type_of_bed" value="" class="form-control bg-light"> --}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="f-name-1">Single Rate</label>
+                        <select name="single" id="" class="form-control bg-light">
+                            <option value="" selected disable hidden>Please choose single rate</option>
+                            <option value="500" class="">0-500</option>
+                            <option value="1000" class="">501-1000</option>
+                            <option value="1500" class="">1001-1500</option>
+                            <option value="2000" class="">1501-2000</option>
+                            <option value="INF" class="">2001 and above</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="f-name-1">Double Rate</label>
+                        <select name="double" id="" class="form-control bg-light">
+                            <option value="" selected disable hidden>Please choose double rate</option>
+                            <option value="500" class="">0-500</option>
+                            <option value="1000" class="">501-1000</option>
+                            <option value="1500" class="">1001-1500</option>
+                            <option value="2000" class="">1501-2000</option>
+                            <option value="INF" class="">2001 and above</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="f-name-1">Corporate Rate</label>
+                        <select name="corporate" id="" class="form-control bg-light">
+                            <option value="" selected disable hidden>Please choose corporate rate</option>
+                            <option value="500" class="">0-500</option>
+                            <option value="1000" class="">501-1000</option>
+                            <option value="1500" class="">1001-1500</option>
+                            <option value="2000" class="">1501-2000</option>
+                            <option value="INF" class="">2001 and above</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
      <div class="row">
         <div class="text-center col">
             <button class="btn btn-primary" type="submit" style="width:100%;">Compare</button>

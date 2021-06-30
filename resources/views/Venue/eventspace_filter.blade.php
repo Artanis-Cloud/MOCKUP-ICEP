@@ -196,112 +196,128 @@ input.search-submit {
 
  <div class="container-fluid">
    <div class="row">
-     <div class="col-md-4" style="padding: 5%">
-       <div class="rounded-lg card">
-                           <div class="card-body">
-                            <div class="card-title">Filtering</div>
-                            <form action="{{ route('eventspace_filter') }}" class="POST">
-                                @csrf
-
-                                {{-- <div class="row">
-                                    <!-- 1st row -->
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                          <label for="f-name-1">Radius from KLCC (car)</label>
-                                          <div class="slidecontainer">
-                                          <input type="range" min="1" name="car" max="30" value="50" class="slider" id="km">
-                                          <p>Km: <span id="demokm"></span></p>
-                                          </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Create 5 row -->
-                                <div class="row">
-                                    <!-- 1st row -->
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                          <label for="f-name-1">Radius from KLCC (walk)</label>
-                                          <div class="slidecontainer">
-                                          <input type="range" min="1" name="walk" max="30" value="100" class="slider" id="walk">
-                                          <p>Km: <span id="demowalk"></span></p>
-                                          </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                               <!-- Create 2 row -->
-                               <div class="row">
-                                   <!-- 1st row -->
-                                   <div class="col-md-12">
-                                       <div class="form-group">
-                                           <label for="f-name-1">Size (s.q ft)</label>
-                                           <div class="slidecontainer">
-                                            <input type="text" name="size" value="" class="form-control bg-light">
-                                            {{-- <input type="range" min="1" name="size" max="30000" value="1000" class="slider" id="size">
-                                            <p>Value: <span id="demosize"></span></p> --}}
-                                            </div>
-                                       </div>
-                                   </div>
-                               </div>
-                               <!-- Create 2 row -->
-                               <p>Setup Style</p>
-                               <div class="row">
-                                   <!-- 1st row -->
-                                   <div class="col-md-1"></div>
-                                   <div class="col-md-11">
-                                       <div class="form-group">
-                                           <label for="email-1">Banquet</label>
-                                           <input type="text" name="banquet" value="" class="form-control bg-light">
-
-                                            {{-- <input type="range" min="1" name="banquet" max="30000" value="1000" class="slider" id="banquet">
-                                            <p>Value: <span id="demobanquet"></span></p> --}}
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email-1">Classroom</label>
-                                            <input type="text" name="classroom" value="" class="form-control bg-light">
-                                             {{-- <input type="range" min="1" name="classroom" max="30000" value="1000" class="slider" id="classroom">
-                                             <p>Value: <span id="democlassroom"></span></p> --}}
-                                         </div>
-                                         <div class="form-group">
-                                            <label for="email-1">Theater</label>
-                                            <input type="text" name="theater" value="" class="form-control bg-light">
-                                             {{-- <input type="range" min="1" name="theater" max="30000" value="1000" class="slider" id="theater">
-                                             <p>Value: <span id="demotheater"></span></p> --}}
-                                         </div>
-                                         <div class="form-group">
-                                            <label for="email-1">Cocktail</label>
-                                            <input type="text" name="cocktail" value="" class="form-control bg-light">
-                                             {{-- <input type="range" min="1" name="cocktail" max="30000" value="1000" class="slider" id="cocktail">
-                                             <p>Value: <span id="demococktail"></span></p> --}}
-                                         </div>
-                                         <div class="form-group">
-                                            <label for="email-1">Cabaret/Workshop</label>
-                                            <input type="text" name="cabaret" value="" class="form-control bg-light">
-                                             {{-- <input type="range" min="1" name="cabaret" max="30000" value="1000" class="slider" id="cabaret">
-                                             <p>Value: <span id="democabaret"></span></p> --}}
-                                         </div>
-                                         <div class="form-group">
-                                            <label for="email-1">Booth Capacity</label>
-                                            <input type="text" name="booth_capacity" value="" class="form-control bg-light">
-                                             {{-- <input type="range" min="1" name="booth" max="30000" value="1000" class="slider" id="booth">
-                                             <p>Value: <span id="demobooth"></span></p> --}}
-                                         </div>
-
-                                             {{-- <div class="custom-control custom-checkbox">
-                                                 <input type="checkbox" name="cocktail" class="custom-control-input" id="customCheck4">
-                                                 <label class="custom-control-label" for="customCheck4">Cocktail</label>
-                                             </div> --}}
-                                       </div>
-                                   </div>
-
-                               <!-- Create 6 row -->
-
-                               <!-- Submit button -->
-                               <button type="submit" class="btn btn-primary">Filter</button>
-                            </form>
+    <div class="col-md-4" style="padding: 5%">
+        <div class="rounded-lg card">
+            <div class="card-body">
+                <div class="card-title">Filtering</div>
+                    <form action="{{ route('eventspace_filter') }}" class="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="f-name-1">Size (s.q ft)</label>
+                                <select name="size" id="" class="form-control bg-light">
+                                    <option value="" selected disable hidden>Please choose size</option>
+                                    <option value="1000" class="">0-1000</option>
+                                    <option value="5000" class="">1001-5000</option>
+                                    <option value="10000" class="">5001-10000</option>
+                                    <option value="15000" class="">10001-15000</option>
+                                    <option value="20000" class="">15001-20000</option>
+                                    <option value="INF" class="">20000 and above</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <br>
+
+                        <!-- Create 2 row -->
+                        <p>Setup Style</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="f-name-1">Banquet</label>
+                                    <select name="banquet" id="" class="form-control bg-light">
+                                        <option value="" selected disable hidden>Please choose banquet</option>
+                                        <option value="500" class="">0-500</option>
+                                        <option value="1000" class="">501-1000</option>
+                                        <option value="1500" class="">1001-1500</option>
+                                        <option value="2000" class="">1501-2000</option>
+                                        <option value="INF" class="">2001 and above</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="f-name-1">Classroom</label>
+                                    <select name="classroom" id="" class="form-control bg-light">
+                                        <option value="" selected disable hidden>Please choose classroom</option>
+                                        <option value="500" class="">0-500</option>
+                                        <option value="1000" class="">501-1000</option>
+                                        <option value="1500" class="">1001-1500</option>
+                                        <option value="2000" class="">1501-2000</option>
+                                        <option value="INF" class="">2001 and above</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="f-name-1">Theater</label>
+                                    <select name="theater" id="" class="form-control bg-light">
+                                        <option value="" selected disable hidden>Please choose classroom</option>
+                                        <option value="500" class="">0-500</option>
+                                        <option value="1000" class="">501-1000</option>
+                                        <option value="1500" class="">1001-1500</option>
+                                        <option value="2000" class="">1501-2000</option>
+                                        <option value="INF" class="">2001 and above</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="f-name-1">Cocktail</label>
+                                    <select name="cocktail" id="" class="form-control bg-light">
+                                        <option value="" selected disable hidden>Please choose classroom</option>
+                                        <option value="500" class="">0-500</option>
+                                        <option value="1000" class="">501-1000</option>
+                                        <option value="1500" class="">1001-1500</option>
+                                        <option value="2000" class="">1501-2000</option>
+                                        <option value="INF" class="">2001 and above</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="f-name-1">Cabaret/Workshop</label>
+                                    <select name="cabaret" id="" class="form-control bg-light">
+                                        <option value="" selected disable hidden>Please choose classroom</option>
+                                        <option value="500" class="">0-500</option>
+                                        <option value="1000" class="">501-1000</option>
+                                        <option value="1500" class="">1001-1500</option>
+                                        <option value="2000" class="">1501-2000</option>
+                                        <option value="INF" class="">2001 and above</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="f-name-1">Booth Capacity</label>
+                                    <select name="booth_capacity" id="" class="form-control bg-light">
+                                        <option value="" selected disable hidden>Please choose classroom</option>
+                                        <option value="500" class="">0-500</option>
+                                        <option value="1000" class="">501-1000</option>
+                                        <option value="1500" class="">1001-1500</option>
+                                        <option value="2000" class="">1501-2000</option>
+                                        <option value="INF" class="">2001 and above</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary">Filter</button>
+                        </form>
+                    </div>
+                </div>
+                <br>
                     <div class="rounded-lg card">
                         <div class="row">
                             <!-- 1st row -->
@@ -408,6 +424,7 @@ input.search-submit {
             {{-- @endif --}}
             @empty
             no data
+            @break
             @endforelse
         @empty
         no data

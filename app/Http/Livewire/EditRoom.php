@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\HotelRoom;
+use App\Models\Hotel;
 use Livewire\WithFileUploads;
 use App\Models\Gallery;
 
@@ -13,7 +14,7 @@ class EditRoom extends Component
     use WithFileUploads;
 
     public $id_room;
-    public $room_type, $size, $type_of_bed, $view, $single_rate, $double_rate, $corporate_rate,$photos,$caption;
+    public $room_type, $size, $type_of_bed, $view, $single_rate, $double_rate, $corporate_rate,$photos,$caption,$hotel_id;
     public $show = true;
     public $add = true;
     public $inputs = [];
@@ -58,7 +59,14 @@ class EditRoom extends Component
     public function render()
     {
         $rooms = HotelRoom::get();
-        return view('livewire.edit-room',compact('rooms'));
+        $hotel_name = Hotel::distinct('hotel_name')->orderBy('hotel_name', 'ASC')->get();
+
+        return view('livewire.edit-room',compact('rooms','hotel_name'));
+    }
+
+    public function loadData(){
+        $room = HotelRoom::findOrFail($this->id_room);
+        $this -> hotel_id = $room -> hotel_id;
     }
 
     public function edit($id){
@@ -86,6 +94,7 @@ class EditRoom extends Component
                 'single_rate' => $this->single_rate,
                 'double_rate' => $this->double_rate,
                 'corporate_rate' => $this->corporate_rate,
+                //tambah hotel_id
             ]);
 
             // dd($this->id_room);
