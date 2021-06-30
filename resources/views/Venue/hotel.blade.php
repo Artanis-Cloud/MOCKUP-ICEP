@@ -202,41 +202,18 @@ input.search-submit {
                                     <!-- Create 2 row -->
                                     <form action="{{ route('room_filter') }}" class="POST">
                                         @csrf
-                                    {{-- <div class="row">
-                                        <!-- 1st row -->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="f-name-1">Radius from KLCC (car)</label>
-                                              <div class="slidecontainer">
-                                              <input type="range" name="car" min="0" max="5000" value="" class="slider" id="car">
-                                              <p>metre: <span id="democar"></span></p>
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Create 5 row -->
                                     <div class="row">
-                                        <!-- 1st row -->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="f-name-1">Radius from KLCC (walk)</label>
-                                              <div class="slidecontainer">
-                                              <input type="range" name="walk" min="0" max="5000" value="" class="slider" id="walk">
-                                              <p>metre: <span id="demowalk"></span></p>
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </div> --}}
-
-                                    <div class="row">
-                                        <!-- 1st row -->
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Size (s.q ft)</label>
-                                                <input type="text" name="size" value="0" class="form-control bg-light" id="single">
-                                                {{-- <input type="range" name="size" min="0" max="5000" value="" class="slider" id="size">
-                                                <p>Value: <span id="demosize"></span></p> --}}
+                                                <select name="size" id="" class="form-control bg-light">
+                                                    <option value="" selected disable hidden>Please choose size</option>
+                                                    <option value="500" class="">0-500</option>
+                                                    <option value="1000" class="">501-1000</option>
+                                                    <option value="1500" class="">1001-1500</option>
+                                                    <option value="2000" class="">1501-2000</option>
+                                                    <option value="INF" class="">2001 and above</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -263,35 +240,80 @@ input.search-submit {
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    {{-- <div class="row">
                                         <!-- 1st row -->
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Single Rate</label>
                                                 <input type="text" name="single" value="0" class="form-control bg-light" id="single">
-                                                {{-- <p>Value: <span id="demosingle"></span></p> --}}
+
+                                            </div>
+                                        </div>
+                                    </div> --}}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="f-name-1">Single Rate</label>
+                                                <select name="single" id="" class="form-control bg-light">
+                                                    <option value="" selected disable hidden>Please choose single rate</option>
+                                                    <option value="500" class="">0-500</option>
+                                                    <option value="1000" class="">501-1000</option>
+                                                    <option value="1500" class="">1001-1500</option>
+                                                    <option value="2000" class="">1501-2000</option>
+                                                    <option value="INF" class="">2001 and above</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    {{-- <div class="row">
                                         <!-- 1st row -->
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Double Rate</label>
                                                 <input type="text" name="double" value="0" class="form-control bg-light" id="double">
-                                                {{-- <p>Value: <span id="demodouble"></span></p> --}}
+
+                                            </div>
+                                        </div>
+                                    </div> --}}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="f-name-1">Double Rate</label>
+                                                <select name="double" id="" class="form-control bg-light">
+                                                    <option value="" selected disable hidden>Please choose double rate</option>
+                                                    <option value="500" class="">0-500</option>
+                                                    <option value="1000" class="">501-1000</option>
+                                                    <option value="1500" class="">1001-1500</option>
+                                                    <option value="2000" class="">1501-2000</option>
+                                                    <option value="INF" class="">2001 and above</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    {{-- <div class="row">
                                         <!-- 1st row -->
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="f-name-1">Corporate Rate</label>
                                                 <input type="text" name="corporate" value="0" class="form-control bg-light" id="corporate">
-                                                {{-- <p>Value: <span id="democorporate"></span></p> --}}
+
+                                            </div>
+                                        </div>
+                                    </div> --}}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="f-name-1">Corporate Rate</label>
+                                                <select name="corporate" id="" class="form-control bg-light">
+                                                    <option value="" selected disable hidden>Please choose corporate rate</option>
+                                                    <option value="500" class="">0-500</option>
+                                                    <option value="1000" class="">501-1000</option>
+                                                    <option value="1500" class="">1001-1500</option>
+                                                    <option value="2000" class="">1501-2000</option>
+                                                    <option value="INF" class="">2001 and above</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

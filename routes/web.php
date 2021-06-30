@@ -125,6 +125,19 @@ Route::middleware([CheckRole::class])->group(function(){
 
     Route::post('/admin/announcement/delete/', [App\Http\Controllers\AnnouncementController::class, 'deleteAnnouncement'])->name('admin.announcement.delete');
 
+    //excel route
+    Route::get('importExportView', [App\Http\Controllers\ExcelController::class, 'importExportView'])->name('importExportView');
+    // Route for export/download tabledata to .csv, .xls or .xlsx
+    Route::get('exportExcel/{type}', [App\Http\Controllers\ExcelController::class, 'HotelRoomexportExcel'])->name('HotelRoomexportExcel');
+    // Route for import excel data to database.
+    Route::post('importExcel', [App\Http\Controllers\ExcelController::class, 'HotelRoomimportExcel'])->name('HotelRoomimportExcel');
+
+    Route::get('hotelexportExcel/{type}', [App\Http\Controllers\ExcelController::class, 'HotelexportExcel'])->name('HotelexportExcel');
+    Route::post('hotelimportExcel', [App\Http\Controllers\ExcelController::class, 'HotelimportExcel'])->name('HotelimportExcel');
+
+    Route::get('eventspaceexportExcel/{type}', [App\Http\Controllers\ExcelController::class, 'EventSpaceexportExcel'])->name('EventSpaceexportExcel');
+    Route::post('eventspaceimportExcel', [App\Http\Controllers\ExcelController::class, 'EventSpaceimportExcel'])->name('EventSpaceimportExcel');
+
 
     //add room testing
     Route::get('/room', function () {

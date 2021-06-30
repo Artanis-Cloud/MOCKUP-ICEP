@@ -68,6 +68,7 @@
 
                         <li class="px-3 side-menu-item"><a href="{{ route('admin.announcement.list') }}" class="py-3 pl-4 w-100">Announcement</a></li>
 
+                        <li class="px-3 side-menu-item"><a href="{{ route('importExportView') }}" class="py-3 pl-4 w-100">File Upload</a></li>
 
                         <li class="px-3 side-menu-item"><a href="{{ route('admin.audit-trail.audit-trail-log') }}" class="py-3 pl-4 w-100">Audit Trails</a></li>
 
@@ -230,7 +231,7 @@
 
                           @if(Auth::user()->profile_picture == null)
 
-                          <img src="{{ asset('https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg') }}" alt="profile" class="profile-avatar" style="height:40px; width:40px;" data-toggle="tooltip" data-placement="left" title="Profile">
+                          <img src="{{ asset('image/profile.png') }}" alt="profile" style="height:40px; width:40px;" data-toggle="tooltip" data-placement="left" title="Profile">
                           @else
                           <img src="{{ asset( $image_path = str_replace('public', 'storage',  Auth::user()->profile_picture)) }}"  class="profile-avatar" style="height:40px; width:40px; " data-toggle="tooltip" data-placement="left" title="Profile">
                           @endif

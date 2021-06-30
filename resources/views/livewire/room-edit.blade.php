@@ -1,5 +1,5 @@
 
-<div>
+<div wire:init='loadData'>
 
         <div class="p-4 page-body text-dark">
             {{-- <div  style="font-size: 180%;color: rgb(0, 0, 0);" >
@@ -16,6 +16,30 @@
 
                             <form wire:submit.prevent="update()">
                                 @csrf
+
+                                {{-- <div class="col-md-12">
+                                    <div class="form-group">
+
+                                    <label>Venue</label>
+
+                                    <select name="hotel_id" id="" wire:model='hotel_id' class="form-control bg-light @error('hotel_id') is-invalid @enderror"">
+                                        <option disabled="disabled" hidden value="0">Choose Venue</option>
+                                        @forelse ($hotel_name as $data)
+                                            <option value="{{ $data->id }}" >{{ $data->hotel_name }}</option>
+                                        @empty
+                                            <option selected="true" disabled="disabled" value="0">Please Insert Venue Information in Add New Venue</option>
+                                        @endforelse
+
+
+                                    </select>
+                                    @error('hotel_name')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    </div>
+                                </div> --}}
+
                                 <div class=" add-input">
                                     <input type="hidden"  class="form-control bg-light" wire:model='id_room'>
 

@@ -23,10 +23,10 @@
                     {{-- <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Hotels</a> --}}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel" aria-selected="true">Hotels</a>
+                        <a class="nav-link active" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel" aria-selected="true">Venues</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="rooms-tab" data-toggle="tab" href="#room" role="tab" aria-controls="room" aria-selected="true">Hotel Rooms</a>
+                        <a class="nav-link" id="rooms-tab" data-toggle="tab" href="#room" role="tab" aria-controls="room" aria-selected="true">Accommodation</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Event Spaces</a>
@@ -41,7 +41,7 @@
                                 <thead class="thead-light">
                                     <tr class="text-center">
                                         <th><p class="mb-0">ID</p></th>
-                                        <th><p class="mb-0">Hotel Name</p></th>
+                                        <th><p class="mb-0">Venue Name</p></th>
                                         <th><p class="mb-0">Radius from KLCC (by car)</p></th>
                                         <th><p class="mb-0">Radius from KLCC (walking distance)</p></th>
                                         <th><p class="mb-0">Action</p></th>

@@ -679,7 +679,7 @@ class RoomSeeder extends Seeder
             'view' => '',
             'single_rate' => 450.00,
             'double_rate' => 500.00,
-            'corporate_rate' =>'',
+            'corporate_rate' =>0,
             'hotel_id' => '8',
 
             ]
@@ -692,7 +692,7 @@ class RoomSeeder extends Seeder
             'view' => '',
             'single_rate' => 500.00,
             'double_rate' => 550.00,
-            'corporate_rate' =>'',
+            'corporate_rate' =>0,
             'hotel_id' => '8',
 
             ]
@@ -705,7 +705,7 @@ class RoomSeeder extends Seeder
             'view' => '',
             'single_rate' => 600.00,
             'double_rate' => 650.00,
-            'corporate_rate' =>'',
+            'corporate_rate' =>0,
             'hotel_id' => '8',
 
             ]
@@ -718,7 +718,7 @@ class RoomSeeder extends Seeder
             'view' => '',
             'single_rate' => 680.00,
             'double_rate' => 680.00,
-            'corporate_rate' =>'',
+            'corporate_rate' =>0,
             'hotel_id' => '8',
 
             ]
@@ -733,7 +733,7 @@ class RoomSeeder extends Seeder
             'view' => 'Downtown Kuala Lumpur',
             'single_rate' => 460.00,
             'double_rate' => 500.00,
-            'corporate_rate' =>'',
+            'corporate_rate' =>0,
             'hotel_id' => '9',
 
             ]
@@ -746,7 +746,7 @@ class RoomSeeder extends Seeder
             'view' => 'Kuala Lumpur skyline',
             'single_rate' => 510.00,
             'double_rate' => 550.00,
-            'corporate_rate' =>'',
+            'corporate_rate' =>0,
             'hotel_id' => '9',
 
             ]
@@ -759,7 +759,7 @@ class RoomSeeder extends Seeder
             'view' => 'Panoramic views',
             'single_rate' => 540.00,
             'double_rate' => 580.00,
-            'corporate_rate' =>'',
+            'corporate_rate' =>0,
             'hotel_id' => '9',
 
             ]
@@ -772,7 +772,7 @@ class RoomSeeder extends Seeder
             'view' => 'Kuala Lumpur skyline',
             'single_rate' => 700.00,
             'double_rate' => 700.00,
-            'corporate_rate' =>'',
+            'corporate_rate' =>0,
             'hotel_id' => '9',
 
             ]
@@ -785,7 +785,7 @@ class RoomSeeder extends Seeder
             'view' => 'Kuala Lumpur skyline',
             'single_rate' => 1200.00,
             'double_rate' => 1200.00,
-            'corporate_rate' =>'',
+            'corporate_rate' =>0,
             'hotel_id' => '9',
 
             ]

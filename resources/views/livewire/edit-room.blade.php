@@ -10,7 +10,7 @@
             <thead class="thead-light">
                 <tr class="text-center">
                     <th><p class="mb-0">ID</p></th>
-                    <th><p class="mb-0">Hotel Name</p></th>
+                    <th><p class="mb-0">Accommodation Name</p></th>
                     <th><p class="mb-0">Radius from KLCC (by car)</p></th>
                     <th><p class="mb-0">Radius from KLCC (walking distance)</p></th>
                     <th><p class="mb-0">Room Type</p></th>
@@ -28,9 +28,15 @@
                 @forelse($rooms as $data )
                     <tr>
                         <td><p class="mb-0 font-weight-normal">{{ $data->id ? $data->id  : "-" }}</p></td>
+                        @if($data->hotel_id)
                         <td><p class="mb-0 font-weight-normal">{{ $data->hotels->hotel_name ? $data->hotels->hotel_name : "-" }}</p></td>
                         <td><p class="mb-0 font-weight-normal">{{ $data->hotels->car_radius ? $data->hotels->car_radius : "-" }}</p></td>
                         <td><p class="mb-0 font-weight-normal">{{ $data->hotels->walking_radius ? $data->hotels->walking_radius : "-" }}</p></td>
+                        @else
+                        <td><p class="mb-0 font-weight-normal">-</p></td>
+                        <td><p class="mb-0 font-weight-normal">-</p></td>
+                        <td><p class="mb-0 font-weight-normal">-</p></td>
+                        @endif
                         <td><p class="mb-0 font-weight-normal">{{ $data->room_type ? $data->room_type : "-" }}</p></td>
                         <td><p class="mb-0 font-weight-normal">{{ $data->size ? $data->size : "-" }} sq.ft</p></td>
                         <td><p class="mb-0 font-weight-normal">{{ $data->type_of_bed ? $data->type_of_bed : "-" }}</p></td>

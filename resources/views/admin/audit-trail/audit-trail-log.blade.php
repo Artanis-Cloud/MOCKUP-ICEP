@@ -38,7 +38,7 @@
                       <div class="p-0 card-body">
                           <br>
                         <div class="table-responsive">
-                          <table class="table table-striped table-bordered" id="responsiveDataTable" style="width: 100%;">
+                          <table class="table table-striped table-bordered" id="defaultOrderingDataTable" style="width: 100%;">
                             <!-- Table head -->
                             <thead>
                                 <tr>
