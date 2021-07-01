@@ -98,6 +98,7 @@ class EditRoom extends Component
             ]);
 
             // dd($this->id_room);
+            if($this->photos){
             $data = Gallery::where('room_id', $this->id_room)->get();
 
             if($data){
@@ -115,6 +116,9 @@ class EditRoom extends Component
                     ]);
                 }
             }
+
+
+        }
 
             $this->inputs = [];
             $this->resetInputFields();
