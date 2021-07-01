@@ -1,3 +1,6 @@
+<title>{{ config('app.name', 'ICEP') }}</title>
+<link rel="icon" href="https://icep.com.my/clients/asset_172EE6EE-CA98-4240-A1D9-F5479A8B786F/contentMS/img/favicon.ico">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');

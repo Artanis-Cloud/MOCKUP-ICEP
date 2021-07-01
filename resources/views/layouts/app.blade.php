@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- <title>{{ config('app.name', 'ICEP') }}</title> --}}
+    <title>{{ config('app.name', 'ICEP') }}</title>
+    <link rel="icon" href="https://icep.com.my/clients/asset_172EE6EE-CA98-4240-A1D9-F5479A8B786F/contentMS/img/favicon.ico">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
