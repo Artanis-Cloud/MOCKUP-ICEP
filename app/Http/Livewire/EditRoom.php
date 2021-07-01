@@ -39,9 +39,9 @@ class EditRoom extends Component
 
     protected $rules = [
         'room_type'=> 'required|string',
-        'size'=> 'required|string',
-        'type_of_bed'=> 'required|string',
-        'view'=> 'required|string',
+        'size'=> 'nullable|string',
+        'type_of_bed'=> 'nullable|string',
+        'view'=> 'nullable|string',
         'single_rate'=> 'nullable|numeric',
         'double_rate'=> 'nullable|numeric',
         'corporate_rate'=> 'nullable|numeric',
