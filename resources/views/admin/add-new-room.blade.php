@@ -109,8 +109,8 @@
     <hr style="background-color: black !important;">
     <div style="padding:5px;"></div>
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
             <div class="rounded-lg card" style="border-color: #003473 !important;">
                 <div class="card-header" style="text-align:center; border-color: #003473 !important; font-size: 130%; font-weight: bold;">Add New Accommodation</div>
                 <div class="card-body">
@@ -120,7 +120,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-1"></div>
     </div>
   <!-- Small card component -->
 </div>

@@ -29,11 +29,6 @@
         color: white !important;
     }
 
-    /* mouse over link */
-    a:hover {
-        color: #E89A3D !important;
-    }
-
     /* selected link */
     a:active {
         color: white !important;

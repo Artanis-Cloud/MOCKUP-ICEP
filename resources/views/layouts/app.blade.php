@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="{{ asset('qbadminui/css/vendor/DataTable-1.10.20/datatables.min.css') }}"></link>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
     <!-- <script src="{{ asset('qbadminui/js/vendor/DataTable-1.10.20/datatables.min.js') }}"></script> -->
     <!-- Data Table script -->
     <!-- <script src="{{ asset('qbadminui/js/plugins/dataTable_script.js') }}"></script> -->
@@ -53,6 +56,73 @@
         .dropdown:hover .dropdown-content {
         display: block;
         }
+       /* announcement */
+        .marquee {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        }
+        .marquee:hover .marquee__item {
+        -webkit-animation-play-state: paused;
+                animation-play-state: paused;
+        }
+        .marquee__seperator {
+        margin: 0 2rem;
+        }
+        .marquee__item {
+        display: inline-block;
+        will-change: transform;
+        -webkit-animation: marquee 50s linear infinite;
+                animation: marquee 50s linear infinite;
+        }
+
+        @-webkit-keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+        }
+
+        @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+        }
+        .marquee {
+        background-color: #01586f;
+        padding: 1rem 0;
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        }
+
+
+            nav ul li{
+            list-style:none;
+            float:left;
+            padding-right:20px;
+            }
+            nav ul li a{
+            text-decoration:none;
+            color:rgb(255, 255, 255);
+            /* background-color:#ccc; */
+            padding:4px 5px;
+            }
+            a:hover{
+                color: #000 !important;
+            }
+            .active{
+            background-color: #e89a3d;
+            color:#fff;
+
+            }
+
+
     </style>
 </head>
 <body>
@@ -67,13 +137,24 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="mr-auto navbar-nav" style="text-align: center;">
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/homepage') }}">HOME</a>
-                        </li> --}}
+
+
+                    <nav class="navecation">
+                        <ul id="navi">
+                     <li><a class="menu {{ (request()->is('eventspace')) ? 'active' : '' }}" href="{{ route('eventspace') }}">EVENT SPACE</a></li>
+                     <li><a class="menu {{ (request()->is('hotel')) ? 'active' : '' }}" href="{{ route('hotel') }}">ACCOMMODATION</a></li>
+                     <li><a class="menu {{ (request()->is('eventspace-comparison')) ? 'active' : '' }}" href="{{ route('comparison-eventspace') }}">EVENT SPACE COMPARISON</a></li>
+                     <li><a class="menu {{ (request()->is('hotel-comparison')) ? 'active' : '' }}" href="{{ route('comparison-hotel') }}">ACCOMMODATION COMPARISON</a></li>
+                   </ul>
+                     </nav>
+
+                    {{-- <ul class="mr-auto navbar-nav" style="text-align: center;">
+
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('eventspace') }}">EVENTS SPACE</a>
+                            <a class="nav-link" href=""></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('eventspace') }}">EVENT SPACE</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('hotel') }}">ACCOMMODATION</a>
@@ -85,26 +166,7 @@
                             <a class="nav-link" href="{{ route('comparison-hotel') }}">ACCOMMODATION COMPARISON</a>
                         </li>
 
-
-
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ route('comparison') }}">COMPARABILITY</a> --}}
-
-
-
-                        {{-- <li class="dropdown nav-item">
-                            <span>COMPARABILITY</span>
-                            <ul class="dropdown-content">
-                                    <a href="{{ route('comparison-hotel') }}" class="nav-link">HOTEL</a>
-                                    <a href="{{ route('comparison-eventspace') }}" class="nav-link">EVENT SPACE</a>
-                            </ul>
-                        </li> --}}
-
-
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contact') }}">CONTACT US</a>
-                        </li> --}}
-                    </ul>
+                    </ul> --}}
 
 
 
@@ -145,8 +207,23 @@
             @yield('content')
             </div>
 
-            <div class="footer" style="background-color:#2F4858; padding: 1%; color: #fff; text-align: center;">
-                             Copyright © 2021 iCEP - International Conference and Exhibition Professionals. All rights reserved.
+            <div class="marquee">
+                <div class="marquee__item">
+                    @if($announcement)
+                        @forelse ( $announcement as $data)
+                        <i class="fa fa-building"></i>&nbsp {{ $data->user_message }} <span class=""> &nbsp &nbsp</span>
+                        @empty
+
+                        @endforelse
+                    @endif
+
+                </div>
+            </div>
+            <div class="footer" style="background-color:#2f4858; padding: 1%; color: #fff; text-align: center;">
+
+
+                    Copyright © 2021 iCEP - International Conference and Exhibition Professionals. All rights reserved.
+
             </div>
     </div>
 
@@ -161,4 +238,13 @@
       }, 5000 ); // 5 secs
 
     });
+    </script>
+
+<script>
+$(document).ready(function(){
+  $('ul li a').click(function(){
+    $('li a').removeClass("active");
+    $(this).addClass("active");
+});
+});
     </script>
