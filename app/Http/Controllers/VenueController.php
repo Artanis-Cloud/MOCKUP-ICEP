@@ -214,25 +214,38 @@ class VenueController extends Controller
 
         // $rooms=HotelRoom::where('type_of_bed',$request->type_of_bed)->orwhere('size', $request->size ?? INF)->get();
         // dd($rooms);
-        if (!is_infinite($request->size ?? INF)) { //if not infinite
+
+        if($request->size == "2001"){
+            $size = INF;
+        }
+        else if (!is_infinite($request->size ?? INF)) { //if not infinite
             $size = (int)$request->size;
         } else {
             $size = INF;
         }
 
-        if (!is_infinite($request->single ?? INF)) { //if not infinite
+        if($request->single == "2001"){
+            $single = INF;
+        }
+        else if (!is_infinite($request->single ?? INF)) { //if not infinite
             $single = (int)$request->single;
         } else {
             $single = INF;
         }
 
-        if (!is_infinite($request->double ?? INF)) { //if not infinite
+        if($request->double == "2001"){
+            $double = INF;
+        }
+        else if (!is_infinite($request->double ?? INF)) { //if not infinite
             $double = (int)$request->double;
         } else {
             $double = INF;
         }
 
-        if (!is_infinite($request->corporate ?? INF)) { //if not infinite
+        if($request->corporate == "2001"){
+            $corporate = INF;
+        }
+        else if (!is_infinite($request->corporate ?? INF)) { //if not infinite
             $corporate = (int)$request->corporate;
         } else {
             $corporate = INF;
@@ -266,44 +279,64 @@ class VenueController extends Controller
     public function eventspaceFilter(Request $request)
     {
         // dd( $request->all());
-
-        if (!is_infinite($request->size ?? INF)) { //if not infinite
+        if($request->size == "20001"){
+            $size = INF;
+        }
+        else if (!is_infinite($request->size ?? INF)) { //if not infinite
             $size = (int)$request->size;
         } else {
             $size = INF;
         }
 
-        if (!is_infinite($request->banquet ?? INF)) { //if not infinite
+        if($request->banquet == "20001"){
+            $banquet = INF;
+        }
+        else if (!is_infinite($request->banquet ?? INF)) { //if not infinite
             $banquet = (int)$request->banquet;
         } else {
             $banquet = INF;
         }
 
-        if (!is_infinite($request->classroom ?? INF)) { //if not infinite
+        if($request->classroom == "20001"){
+            $classroom = INF;
+        }
+        else if (!is_infinite($request->classroom ?? INF)) { //if not infinite
             $classroom = (int)$request->classroom;
         } else {
             $classroom = INF;
         }
 
-        if (!is_infinite($request->cocktail ?? INF)) { //if not infinite
+        if($request->cocktail == "20001"){
+            $cocktail = INF;
+        }
+        else if (!is_infinite($request->cocktail ?? INF)) { //if not infinite
             $cocktail = (int)$request->cocktail;
         } else {
             $cocktail = INF;
         }
 
-        if (!is_infinite($request->theater ?? INF)) { //if not infinite
+        if($request->theater == "20001"){
+            $theater = INF;
+        }
+        else if (!is_infinite($request->theater ?? INF)) { //if not infinite
             $theater = (int)$request->theater;
         } else {
             $theater = INF;
         }
 
-        if (!is_infinite($request->cabaret ?? INF)) { //if not infinite
+        if($request->cabaret == "20001"){
+            $cabaret = INF;
+        }
+        else if (!is_infinite($request->cabaret ?? INF)) { //if not infinite
             $cabaret = (int)$request->cabaret;
         } else {
             $cabaret = INF;
         }
 
-        if (!is_infinite($request->booth_capacity ?? INF)) { //if not infinite
+        if($request->booth_capacity == "20001"){
+            $booth_capacity = INF;
+        }
+        else if (!is_infinite($request->booth_capacity ?? INF)) { //if not infinite
             $booth_capacity = (int)$request->booth_capacity;
         } else {
             $booth_capacity = INF;
@@ -370,25 +403,37 @@ class VenueController extends Controller
         $hotel = Hotel::get();
 
 
-        if (!is_infinite($request->size ?? INF)) { //if not infinite
+        if($request->size == "2001"){
+            $size = INF;
+        }
+        else if (!is_infinite($request->size ?? INF)) { //if not infinite
             $size = (int)$request->size;
         } else {
             $size = INF;
         }
 
-        if (!is_infinite($request->single ?? INF)) { //if not infinite
+        if($request->single == "2001"){
+            $single = INF;
+        }
+        else if (!is_infinite($request->single ?? INF)) { //if not infinite
             $single = (int)$request->single;
         } else {
             $single = INF;
         }
 
-        if (!is_infinite($request->double ?? INF)) { //if not infinite
+        if($request->double == "2001"){
+            $double = INF;
+        }
+        else if (!is_infinite($request->double ?? INF)) { //if not infinite
             $double = (int)$request->double;
         } else {
             $double = INF;
         }
 
-        if (!is_infinite($request->corporate ?? INF)) { //if not infinite
+        if($request->corporate == "2001"){
+            $corporate = INF;
+        }
+        else if (!is_infinite($request->corporate ?? INF)) { //if not infinite
             $corporate = (int)$request->corporate;
         } else {
             $corporate = INF;
@@ -430,43 +475,64 @@ class VenueController extends Controller
         $eventspace = EventSpace::get();
         $hotel = Hotel::get();
 
-        if (!is_infinite($request->size ?? INF)) { //if not infinite
+        if($request->size == "20001"){
+            $size = INF;
+        }
+        else if (!is_infinite($request->size ?? INF)) { //if not infinite
             $size = (int)$request->size;
         } else {
             $size = INF;
         }
 
-        if (!is_infinite($request->banquet ?? INF)) { //if not infinite
+        if($request->banquet == "20001"){
+            $banquet = INF;
+        }
+        else if (!is_infinite($request->banquet ?? INF)) { //if not infinite
             $banquet = (int)$request->banquet;
         } else {
             $banquet = INF;
         }
 
-        if (!is_infinite($request->classroom ?? INF)) { //if not infinite
+        if($request->classroom == "20001"){
+            $classroom = INF;
+        }
+        else if (!is_infinite($request->classroom ?? INF)) { //if not infinite
             $classroom = (int)$request->classroom;
         } else {
             $classroom = INF;
         }
 
-        if (!is_infinite($request->cocktail ?? INF)) { //if not infinite
+        if($request->cocktail == "20001"){
+            $cocktail = INF;
+        }
+        else if (!is_infinite($request->cocktail ?? INF)) { //if not infinite
             $cocktail = (int)$request->cocktail;
         } else {
             $cocktail = INF;
         }
 
-        if (!is_infinite($request->theater ?? INF)) { //if not infinite
+        if($request->theater == "20001"){
+            $theater = INF;
+        }
+        else if (!is_infinite($request->theater ?? INF)) { //if not infinite
             $theater = (int)$request->theater;
         } else {
             $theater = INF;
         }
 
-        if (!is_infinite($request->cabaret ?? INF)) { //if not infinite
+        if($request->cabaret == "20001"){
+            $cabaret = INF;
+        }
+        else if (!is_infinite($request->cabaret ?? INF)) { //if not infinite
             $cabaret = (int)$request->cabaret;
         } else {
             $cabaret = INF;
         }
 
-        if (!is_infinite($request->booth_capacity ?? INF)) { //if not infinite
+        if($request->booth_capacity == "20001"){
+            $booth_capacity = INF;
+        }
+        else if (!is_infinite($request->booth_capacity ?? INF)) { //if not infinite
             $booth_capacity = (int)$request->booth_capacity;
         } else {
             $booth_capacity = INF;
