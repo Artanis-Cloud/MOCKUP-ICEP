@@ -485,8 +485,8 @@ class VenueController extends Controller
             ->where('cocktail', '<=', $maxCocktail)
             ->where('cabaret', '>=', $minCabaret)
             ->where('cabaret', '<=', $maxCabaret)
-            ->where('booth_capacity', '>=', $minBooth_capacity)
-            ->where('booth_capacity', '<=', $maxBooth_capacity)
+            // ->where('booth_capacity', '>=', $minBooth_capacity)
+            // ->where('booth_capacity', '<=', $maxBooth_capacity)
             ->orderby('venue', 'ASC')->get();
 
 
