@@ -210,58 +210,103 @@ class VenueController extends Controller
 
     public function roomFilter(Request $request)
     {
-        // dd($request->all());
-
-        // $rooms=HotelRoom::where('type_of_bed',$request->type_of_bed)->orwhere('size', $request->size ?? INF)->get();
-        // dd($rooms);
-
-        if($request->size == "2001"){
-            $size = INF;
-        }
-        else if (!is_infinite($request->size ?? INF)) { //if not infinite
-            $size = (int)$request->size;
+        //size
+        if ($request->size == "500") {
+            $minSize = 0;
+            $maxSize = 500;
+        } elseif ($request->size == "1000") {
+            $minSize = 501;
+            $maxSize = 1000;
+        } elseif ($request->size == "1500") {
+            $minSize = 2001;
+            $maxSize = 1500;
+        } elseif ($request->size == "2000") {
+            $minSize = 1501;
+            $maxSize = 2000;
+        } elseif ($request->size == "2001") {
+            $minSize = 2001;
+            $maxSize = INF;
         } else {
-            $size = INF;
+            $minSize = 0;
+            $maxSize = INF;
         }
 
-        if($request->single == "2001"){
-            $single = INF;
-        }
-        else if (!is_infinite($request->single ?? INF)) { //if not infinite
-            $single = (int)$request->single;
+        //single rate
+        if ($request->single == "500") {
+            $minSingle = 0;
+            $maxSingle = 500;
+        } elseif ($request->single == "1000") {
+            $minSingle = 501;
+            $maxSingle = 1000;
+        } elseif ($request->single == "1500") {
+            $minSingle = 2001;
+            $maxSingle = 1500;
+        } elseif ($request->single == "2000") {
+            $minSingle = 1501;
+            $maxSingle = 2000;
+        } elseif ($request->single == "2001") {
+            $minSingle = 2001;
+            $maxSingle = INF;
         } else {
-            $single = INF;
+            $minSingle = 0;
+            $maxSingle = INF;
         }
 
-        if($request->double == "2001"){
-            $double = INF;
-        }
-        else if (!is_infinite($request->double ?? INF)) { //if not infinite
-            $double = (int)$request->double;
+        //double rate
+        if ($request->double == "500") {
+            $minDouble = 0;
+            $maxDouble = 500;
+        } elseif ($request->double == "1000") {
+            $minDouble = 501;
+            $maxDouble = 1000;
+        } elseif ($request->double == "1500") {
+            $minDouble = 2001;
+            $maxDouble = 1500;
+        } elseif ($request->double == "2000") {
+            $minDouble = 1501;
+            $maxDouble = 2000;
+        } elseif ($request->double == "2001") {
+            $minDouble = 2001;
+            $maxDouble = INF;
         } else {
-            $double = INF;
+            $minDouble = 0;
+            $maxDouble = INF;
         }
 
-        if($request->corporate == "2001"){
-            $corporate = INF;
-        }
-        else if (!is_infinite($request->corporate ?? INF)) { //if not infinite
-            $corporate = (int)$request->corporate;
+        //corporate rate
+        if ($request->corporate == "500") {
+            $minCorporate = 0;
+            $maxCorporate = 500;
+        } elseif ($request->corporate == "1000") {
+            $minCorporate = 501;
+            $maxCorporate = 1000;
+        } elseif ($request->corporate == "1500") {
+            $minCorporate = 2001;
+            $maxCorporate = 1500;
+        } elseif ($request->corporate == "2000") {
+            $minCorporate = 1501;
+            $maxCorporate = 2000;
+        } elseif ($request->corporate == "2001") {
+            $minCorporate = 2001;
+            $maxCorporate = INF;
         } else {
-            $corporate = INF;
+            $minCorporate = 0;
+            $maxCorporate = INF;
         }
-        $rooms = HotelRoom::where('size', '<=', $size)
+
+        $rooms = HotelRoom::where('size', '>=', $minSize)
+            ->where('size', '<=', $maxSize)
             ->where('type_of_bed', $request->type_of_bed)
-            ->where('single_rate', '<=', $single)
-            ->where('double_rate', '<=', $double)
-            ->where('corporate_rate', '<=', $corporate)
+            ->where('single_rate', '>=', $minSingle)
+            ->where('single_rate', '<=', $maxSingle)
+            ->where('double_rate', '>=', $minDouble)
+            ->where('double_rate', '<=', $maxDouble)
+            ->where('corporate_rate', '>=', $minCorporate)
+            ->where('corporate_rate', '<=', $maxCorporate)
             ->orderby('room_type', 'ASC')->get();
 
+        // dd($rooms);
 
-        // $hotels=Hotel::where('car_radius','<=', $request->car ?? INF )
-        //              ->where('walking_radius','<=',$request->walk ?? INF)
-        //              ->distinct('id')
-        //              ->get();
         $hotels = Hotel::get();
         // dd($rooms);
 
@@ -278,85 +323,172 @@ class VenueController extends Controller
 
     public function eventspaceFilter(Request $request)
     {
-        // dd( $request->all());
-        if($request->size == "20001"){
-            $size = INF;
-        }
-        else if (!is_infinite($request->size ?? INF)) { //if not infinite
-            $size = (int)$request->size;
+        //size
+        if ($request->size == "1000") {
+            $minSize = 0;
+            $maxSize = 1000;
+        } elseif ($request->size == "5000") {
+            $minSize = 1001;
+            $maxSize = 5000;
+        } elseif ($request->size == "10000") {
+            $minSize = 5001;
+            $maxSize = 10000;
+        } elseif ($request->size == "15000") {
+            $minSize = 10001;
+            $maxSize = 15000;
+        } elseif ($request->size == "20000") {
+            $minSize = 15001;
+            $maxSize = 20000;
+        } elseif ($request->size == "20001") {
+            $minSize = 20001;
+            $maxSize = INF;
         } else {
-            $size = INF;
+            $minSize = 0;
+            $maxSize = INF;
         }
 
-        if($request->banquet == "20001"){
-            $banquet = INF;
-        }
-        else if (!is_infinite($request->banquet ?? INF)) { //if not infinite
-            $banquet = (int)$request->banquet;
+        //Banquet
+        if ($request->banquet == "500") {
+            $minBanquet = 0;
+            $maxBanquet = 500;
+        } elseif ($request->banquet == "1000") {
+            $minBanquet = 501;
+            $maxBanquet = 1000;
+        } elseif ($request->banquet == "1500") {
+            $minBanquet = 2001;
+            $maxBanquet = 1500;
+        } elseif ($request->banquet == "2000") {
+            $minBanquet = 1501;
+            $maxBanquet = 2000;
+        } elseif ($request->banquet == "2001") {
+            $minBanquet = 2001;
+            $maxBanquet = INF;
         } else {
-            $banquet = INF;
+            $minBanquet = 0;
+            $maxBanquet = INF;
         }
 
-        if($request->classroom == "20001"){
-            $classroom = INF;
-        }
-        else if (!is_infinite($request->classroom ?? INF)) { //if not infinite
-            $classroom = (int)$request->classroom;
+        //Classroom
+        if ($request->classroom == "500") {
+            $minClassroom = 0;
+            $maxClassroom = 500;
+        } elseif ($request->classroom == "1000") {
+            $minClassroom = 501;
+            $maxClassroom = 1000;
+        } elseif ($request->classroom == "1500") {
+            $minClassroom = 2001;
+            $maxClassroom = 1500;
+        } elseif ($request->classroom == "2000") {
+            $minClassroom = 1501;
+            $maxClassroom = 2000;
+        } elseif ($request->classroom == "2001") {
+            $minClassroom = 2001;
+            $maxClassroom = INF;
         } else {
-            $classroom = INF;
+            $minClassroom = 0;
+            $maxClassroom = INF;
         }
 
-        if($request->cocktail == "20001"){
-            $cocktail = INF;
-        }
-        else if (!is_infinite($request->cocktail ?? INF)) { //if not infinite
-            $cocktail = (int)$request->cocktail;
+        //Theater
+        if ($request->theater == "500") {
+            $minTheater = 0;
+            $maxTheater = 500;
+        } elseif ($request->theater == "1000") {
+            $minTheater = 501;
+            $maxTheater = 1000;
+        } elseif ($request->theater == "1500") {
+            $minTheater = 2001;
+            $maxTheater = 1500;
+        } elseif ($request->theater == "2000") {
+            $minTheater = 1501;
+            $maxTheater = 2000;
+        } elseif ($request->theater == "2001") {
+            $minTheater = 2001;
+            $maxTheater = INF;
         } else {
-            $cocktail = INF;
+            $minTheater = 0;
+            $maxTheater = INF;
         }
 
-        if($request->theater == "20001"){
-            $theater = INF;
-        }
-        else if (!is_infinite($request->theater ?? INF)) { //if not infinite
-            $theater = (int)$request->theater;
+        //Cocktail
+        if ($request->cocktail == "500") {
+            $minCocktail = 0;
+            $maxCocktail = 500;
+        } elseif ($request->cocktail == "1000") {
+            $minCocktail = 501;
+            $maxCocktail = 1000;
+        } elseif ($request->cocktail == "1500") {
+            $minCocktail = 2001;
+            $maxCocktail = 1500;
+        } elseif ($request->cocktail == "2000") {
+            $minCocktail = 1501;
+            $maxCocktail = 2000;
+        } elseif ($request->cocktail == "2001") {
+            $minCocktail = 2001;
+            $maxCocktail = INF;
         } else {
-            $theater = INF;
+            $minCocktail = 0;
+            $maxCocktail = INF;
         }
 
-        if($request->cabaret == "20001"){
-            $cabaret = INF;
-        }
-        else if (!is_infinite($request->cabaret ?? INF)) { //if not infinite
-            $cabaret = (int)$request->cabaret;
+        //Cabaret/Workshop
+        if ($request->cabaret == "500") {
+            $minCabaret = 0;
+            $maxCabaret = 500;
+        } elseif ($request->cabaret == "1000") {
+            $minCabaret = 501;
+            $maxCabaret = 1000;
+        } elseif ($request->cabaret == "1500") {
+            $minCabaret = 2001;
+            $maxCabaret = 1500;
+        } elseif ($request->cabaret == "2000") {
+            $minCabaret = 1501;
+            $maxCabaret = 2000;
+        } elseif ($request->cabaret == "2001") {
+            $minCabaret = 2001;
+            $maxCabaret = INF;
         } else {
-            $cabaret = INF;
+            $minCabaret = 0;
+            $maxCabaret = INF;
         }
 
-        if($request->booth_capacity == "20001"){
-            $booth_capacity = INF;
-        }
-        else if (!is_infinite($request->booth_capacity ?? INF)) { //if not infinite
-            $booth_capacity = (int)$request->booth_capacity;
+        //Booth capacity
+        if ($request->booth_capacity == "500") {
+            $minBooth_capacity = 0;
+            $maxBooth_capacity = 500;
+        } elseif ($request->booth_capacity == "1000") {
+            $minBooth_capacity = 501;
+            $maxBooth_capacity = 1000;
+        } elseif ($request->booth_capacity == "1500") {
+            $minBooth_capacity = 2001;
+            $maxBooth_capacity = 1500;
+        } elseif ($request->booth_capacity == "2000") {
+            $minBooth_capacity = 1501;
+            $maxBooth_capacity = 2000;
+        } elseif ($request->booth_capacity == "2001") {
+            $minBooth_capacity = 2001;
+            $maxBooth_capacity = INF;
         } else {
-            $booth_capacity = INF;
+            $minBooth_capacity = 0;
+            $maxBooth_capacity = INF;
         }
 
-        if (
-            $request->size == null && $request->banquet == null && $request->classroom == null && $request->cocktail == null
-            && $request->theater == null && $request->cabaret == null && $request->booth_capacity == null
-        ) {
-            $eventspace = EventSpace::all();
-        } else {
-            $eventspace = EventSpace::where('size', '<=', $size)
-                ->where('banquet', '<=', $banquet)
-                ->where('classroom', '<=', $classroom)
-                ->where('cocktail', '<=', $cocktail)
-                ->where('theater', '<=', $theater)
-                ->where('cabaret', '<=', $cabaret)
-                ->where('booth_capacity', '<=', $booth_capacity)
-                ->orderby('venue', 'ASC')->get();
-        }
+        $eventspace = EventSpace::where('size', '>=', $minSize)
+            ->where('size', '<=', $maxSize)
+            ->where('banquet', '>=', $minBanquet)
+            ->where('banquet', '<=', $maxBanquet)
+            ->where('classroom', '>=', $minClassroom)
+            ->where('classroom', '<=', $maxClassroom)
+            ->where('theater', '>=', $minTheater)
+            ->where('theater', '<=', $maxTheater)
+            ->where('cocktail', '>=', $minCocktail)
+            ->where('cocktail', '<=', $maxCocktail)
+            ->where('cabaret', '>=', $minCabaret)
+            ->where('cabaret', '<=', $maxCabaret)
+            ->where('booth_capacity', '>=', $minBooth_capacity)
+            ->where('booth_capacity', '<=', $maxBooth_capacity)
+            ->orderby('venue', 'ASC')->get();
+
 
         // dd($eventspace);
         $hotels = Hotel::get();
@@ -385,7 +517,7 @@ class VenueController extends Controller
         $hotels = Hotel::get();
         $bed_type = HotelRoom::distinct('type_of_bed')->get('type_of_bed');
 
-        return view('Hotel.comparison', compact('rooms', 'hotels','bed_type'));
+        return view('Hotel.comparison', compact('rooms', 'hotels', 'bed_type'));
     }
 
     public function comparisonEventSpace()
@@ -403,70 +535,132 @@ class VenueController extends Controller
         $hotel = Hotel::get();
 
 
-        if($request->size == "2001"){
-            $size = INF;
-        }
-        else if (!is_infinite($request->size ?? INF)) { //if not infinite
-            $size = (int)$request->size;
+        //size
+        if ($request->size == "500") {
+            $minSize = 0;
+            $maxSize = 500;
+        } elseif ($request->size == "1000") {
+            $minSize = 501;
+            $maxSize = 1000;
+        } elseif ($request->size == "1500") {
+            $minSize = 2001;
+            $maxSize = 1500;
+        } elseif ($request->size == "2000") {
+            $minSize = 1501;
+            $maxSize = 2000;
+        } elseif ($request->size == "2001") {
+            $minSize = 2001;
+            $maxSize = INF;
         } else {
-            $size = INF;
+            $minSize = 0;
+            $maxSize = INF;
         }
 
-        if($request->single == "2001"){
-            $single = INF;
-        }
-        else if (!is_infinite($request->single ?? INF)) { //if not infinite
-            $single = (int)$request->single;
+        //single rate
+        if ($request->single == "500") {
+            $minSingle = 0;
+            $maxSingle = 500;
+        } elseif ($request->single == "1000") {
+            $minSingle = 501;
+            $maxSingle = 1000;
+        } elseif ($request->single == "1500") {
+            $minSingle = 2001;
+            $maxSingle = 1500;
+        } elseif ($request->single == "2000") {
+            $minSingle = 1501;
+            $maxSingle = 2000;
+        } elseif ($request->single == "2001") {
+            $minSingle = 2001;
+            $maxSingle = INF;
         } else {
-            $single = INF;
+            $minSingle = 0;
+            $maxSingle = INF;
         }
 
-        if($request->double == "2001"){
-            $double = INF;
-        }
-        else if (!is_infinite($request->double ?? INF)) { //if not infinite
-            $double = (int)$request->double;
+        //double rate
+        if ($request->double == "500") {
+            $minDouble = 0;
+            $maxDouble = 500;
+        } elseif ($request->double == "1000") {
+            $minDouble = 501;
+            $maxDouble = 1000;
+        } elseif ($request->double == "1500") {
+            $minDouble = 2001;
+            $maxDouble = 1500;
+        } elseif ($request->double == "2000") {
+            $minDouble = 1501;
+            $maxDouble = 2000;
+        } elseif ($request->double == "2001") {
+            $minDouble = 2001;
+            $maxDouble = INF;
         } else {
-            $double = INF;
+            $minDouble = 0;
+            $maxDouble = INF;
         }
 
-        if($request->corporate == "2001"){
-            $corporate = INF;
-        }
-        else if (!is_infinite($request->corporate ?? INF)) { //if not infinite
-            $corporate = (int)$request->corporate;
+        //corporate rate
+        if ($request->corporate == "500") {
+            $minCorporate = 0;
+            $maxCorporate = 500;
+        } elseif ($request->corporate == "1000") {
+            $minCorporate = 501;
+            $maxCorporate = 1000;
+        } elseif ($request->corporate == "1500") {
+            $minCorporate = 2001;
+            $maxCorporate = 1500;
+        } elseif ($request->corporate == "2000") {
+            $minCorporate = 1501;
+            $maxCorporate = 2000;
+        } elseif ($request->corporate == "2001") {
+            $minCorporate = 2001;
+            $maxCorporate = INF;
         } else {
-            $corporate = INF;
+            $minCorporate = 0;
+            $maxCorporate = INF;
         }
 
         $room_1 = HotelRoom::where('hotel_id', $request->first_hotel)
-            ->where('size', '<=', $size)
+            ->where('size', '>=', $minSize)
+            ->where('size', '<=', $maxSize)
             ->where('type_of_bed', $request->type_of_bed)
-            ->where('single_rate', '<=', $single)
-            ->where('double_rate', '<=', $double)
-            ->where('corporate_rate', '<=', $corporate)
+            ->where('single_rate', '>=', $minSingle)
+            ->where('single_rate', '<=', $maxSingle)
+            ->where('double_rate', '>=', $minDouble)
+            ->where('double_rate', '<=', $maxDouble)
+            ->where('corporate_rate', '>=', $minCorporate)
+            ->where('corporate_rate', '<=', $maxCorporate)
             ->orderby('room_type', 'ASC')->get();
+
         $room_2 = HotelRoom::where('hotel_id', $request->second_hotel)
-            ->where('size', '<=', $size)
+            ->where('size', '>=', $minSize)
+            ->where('size', '<=', $maxSize)
             ->where('type_of_bed', $request->type_of_bed)
-            ->where('single_rate', '<=', $single)
-            ->where('double_rate', '<=', $double)
-            ->where('corporate_rate', '<=', $corporate)
+            ->where('single_rate', '>=', $minSingle)
+            ->where('single_rate', '<=', $maxSingle)
+            ->where('double_rate', '>=', $minDouble)
+            ->where('double_rate', '<=', $maxDouble)
+            ->where('corporate_rate', '>=', $minCorporate)
+            ->where('corporate_rate', '<=', $maxCorporate)
             ->orderby('room_type', 'ASC')->get();
+
         $room_3 = HotelRoom::where('hotel_id', $request->third_hotel)
-            ->where('size', '<=', $size)
+            ->where('size', '>=', $minSize)
+            ->where('size', '<=', $maxSize)
             ->where('type_of_bed', $request->type_of_bed)
-            ->where('single_rate', '<=', $single)
-            ->where('double_rate', '<=', $double)
-            ->where('corporate_rate', '<=', $corporate)
+            ->where('single_rate', '>=', $minSingle)
+            ->where('single_rate', '<=', $maxSingle)
+            ->where('double_rate', '>=', $minDouble)
+            ->where('double_rate', '<=', $maxDouble)
+            ->where('corporate_rate', '>=', $minCorporate)
+            ->where('corporate_rate', '<=', $maxCorporate)
             ->orderby('room_type', 'ASC')->get();
-        //  dd($room_3);
+
         $hotel_1 = Hotel::where('id', $request->first_hotel)->first();
         $hotel_2 = Hotel::where('id', $request->second_hotel)->first();
         $hotel_3 = Hotel::where('id', $request->third_hotel)->first();
         // dd($hotel_1);
         $bed_type = HotelRoom::distinct('type_of_bed')->get('type_of_bed');
-        return view('Hotel.compared', compact('room', 'hotel', 'hotel_1', 'hotel_2', 'hotel_3', 'room_1', 'room_2', 'room_3','bed_type'));
+        return view('Hotel.compared', compact('room', 'hotel', 'hotel_1', 'hotel_2', 'hotel_3', 'room_1', 'room_2', 'room_3', 'bed_type'));
     }
 
     public function compareEventSpace(Request $request)
@@ -475,95 +669,203 @@ class VenueController extends Controller
         $eventspace = EventSpace::get();
         $hotel = Hotel::get();
 
-        if($request->size == "20001"){
-            $size = INF;
-        }
-        else if (!is_infinite($request->size ?? INF)) { //if not infinite
-            $size = (int)$request->size;
+        //size
+        if ($request->size == "1000") {
+            $minSize = 0;
+            $maxSize = 1000;
+        } elseif ($request->size == "5000") {
+            $minSize = 1001;
+            $maxSize = 5000;
+        } elseif ($request->size == "10000") {
+            $minSize = 5001;
+            $maxSize = 10000;
+        } elseif ($request->size == "15000") {
+            $minSize = 10001;
+            $maxSize = 15000;
+        } elseif ($request->size == "20000") {
+            $minSize = 15001;
+            $maxSize = 20000;
+        } elseif ($request->size == "20001") {
+            $minSize = 20001;
+            $maxSize = INF;
         } else {
-            $size = INF;
+            $minSize = 0;
+            $maxSize = INF;
         }
 
-        if($request->banquet == "20001"){
-            $banquet = INF;
-        }
-        else if (!is_infinite($request->banquet ?? INF)) { //if not infinite
-            $banquet = (int)$request->banquet;
+        //Banquet
+        if ($request->banquet == "500") {
+            $minBanquet = 0;
+            $maxBanquet = 500;
+        } elseif ($request->banquet == "1000") {
+            $minBanquet = 501;
+            $maxBanquet = 1000;
+        } elseif ($request->banquet == "1500") {
+            $minBanquet = 2001;
+            $maxBanquet = 1500;
+        } elseif ($request->banquet == "2000") {
+            $minBanquet = 1501;
+            $maxBanquet = 2000;
+        } elseif ($request->banquet == "2001") {
+            $minBanquet = 2001;
+            $maxBanquet = INF;
         } else {
-            $banquet = INF;
+            $minBanquet = 0;
+            $maxBanquet = INF;
         }
 
-        if($request->classroom == "20001"){
-            $classroom = INF;
-        }
-        else if (!is_infinite($request->classroom ?? INF)) { //if not infinite
-            $classroom = (int)$request->classroom;
+        //Classroom
+        if ($request->classroom == "500") {
+            $minClassroom = 0;
+            $maxClassroom = 500;
+        } elseif ($request->classroom == "1000") {
+            $minClassroom = 501;
+            $maxClassroom = 1000;
+        } elseif ($request->classroom == "1500") {
+            $minClassroom = 2001;
+            $maxClassroom = 1500;
+        } elseif ($request->classroom == "2000") {
+            $minClassroom = 1501;
+            $maxClassroom = 2000;
+        } elseif ($request->classroom == "2001") {
+            $minClassroom = 2001;
+            $maxClassroom = INF;
         } else {
-            $classroom = INF;
+            $minClassroom = 0;
+            $maxClassroom = INF;
         }
 
-        if($request->cocktail == "20001"){
-            $cocktail = INF;
-        }
-        else if (!is_infinite($request->cocktail ?? INF)) { //if not infinite
-            $cocktail = (int)$request->cocktail;
+        //Theater
+        if ($request->theater == "500") {
+            $minTheater = 0;
+            $maxTheater = 500;
+        } elseif ($request->theater == "1000") {
+            $minTheater = 501;
+            $maxTheater = 1000;
+        } elseif ($request->theater == "1500") {
+            $minTheater = 2001;
+            $maxTheater = 1500;
+        } elseif ($request->theater == "2000") {
+            $minTheater = 1501;
+            $maxTheater = 2000;
+        } elseif ($request->theater == "2001") {
+            $minTheater = 2001;
+            $maxTheater = INF;
         } else {
-            $cocktail = INF;
+            $minTheater = 0;
+            $maxTheater = INF;
         }
 
-        if($request->theater == "20001"){
-            $theater = INF;
-        }
-        else if (!is_infinite($request->theater ?? INF)) { //if not infinite
-            $theater = (int)$request->theater;
+        //Cocktail
+        if ($request->cocktail == "500") {
+            $minCocktail = 0;
+            $maxCocktail = 500;
+        } elseif ($request->cocktail == "1000") {
+            $minCocktail = 501;
+            $maxCocktail = 1000;
+        } elseif ($request->cocktail == "1500") {
+            $minCocktail = 2001;
+            $maxCocktail = 1500;
+        } elseif ($request->cocktail == "2000") {
+            $minCocktail = 1501;
+            $maxCocktail = 2000;
+        } elseif ($request->cocktail == "2001") {
+            $minCocktail = 2001;
+            $maxCocktail = INF;
         } else {
-            $theater = INF;
+            $minCocktail = 0;
+            $maxCocktail = INF;
         }
 
-        if($request->cabaret == "20001"){
-            $cabaret = INF;
-        }
-        else if (!is_infinite($request->cabaret ?? INF)) { //if not infinite
-            $cabaret = (int)$request->cabaret;
+        //Cabaret/Workshop
+        if ($request->cabaret == "500") {
+            $minCabaret = 0;
+            $maxCabaret = 500;
+        } elseif ($request->cabaret == "1000") {
+            $minCabaret = 501;
+            $maxCabaret = 1000;
+        } elseif ($request->cabaret == "1500") {
+            $minCabaret = 2001;
+            $maxCabaret = 1500;
+        } elseif ($request->cabaret == "2000") {
+            $minCabaret = 1501;
+            $maxCabaret = 2000;
+        } elseif ($request->cabaret == "2001") {
+            $minCabaret = 2001;
+            $maxCabaret = INF;
         } else {
-            $cabaret = INF;
+            $minCabaret = 0;
+            $maxCabaret = INF;
         }
 
-        if($request->booth_capacity == "20001"){
-            $booth_capacity = INF;
-        }
-        else if (!is_infinite($request->booth_capacity ?? INF)) { //if not infinite
-            $booth_capacity = (int)$request->booth_capacity;
+        //Booth capacity
+        if ($request->booth_capacity == "500") {
+            $minBooth_capacity = 0;
+            $maxBooth_capacity = 500;
+        } elseif ($request->booth_capacity == "1000") {
+            $minBooth_capacity = 501;
+            $maxBooth_capacity = 1000;
+        } elseif ($request->booth_capacity == "1500") {
+            $minBooth_capacity = 2001;
+            $maxBooth_capacity = 1500;
+        } elseif ($request->booth_capacity == "2000") {
+            $minBooth_capacity = 1501;
+            $maxBooth_capacity = 2000;
+        } elseif ($request->booth_capacity == "2001") {
+            $minBooth_capacity = 2001;
+            $maxBooth_capacity = INF;
         } else {
-            $booth_capacity = INF;
+            $minBooth_capacity = 0;
+            $maxBooth_capacity = INF;
         }
 
         $room_1 = EventSpace::where('hotel_id', $request->first_hotel)
-            ->where('size', '<=', $size)
-            ->where('banquet', '<=', $banquet)
-            ->where('classroom', '<=', $classroom)
-            ->where('cocktail', '<=', $cocktail)
-            ->where('theater', '<=', $theater)
-            ->where('cabaret', '<=', $cabaret)
-            ->where('booth_capacity', '<=', $booth_capacity)
+            ->where('size', '>=', $minSize)
+            ->where('size', '<=', $maxSize)
+            ->where('banquet', '>=', $minBanquet)
+            ->where('banquet', '<=', $maxBanquet)
+            ->where('classroom', '>=', $minClassroom)
+            ->where('classroom', '<=', $maxClassroom)
+            ->where('theater', '>=', $minTheater)
+            ->where('theater', '<=', $maxTheater)
+            ->where('cocktail', '>=', $minCocktail)
+            ->where('cocktail', '<=', $maxCocktail)
+            ->where('cabaret', '>=', $minCabaret)
+            ->where('cabaret', '<=', $maxCabaret)
+            ->where('booth_capacity', '>=', $minBooth_capacity)
+            ->where('booth_capacity', '<=', $maxBooth_capacity)
             ->orderby('venue', 'ASC')->get();
         $room_2 = EventSpace::where('hotel_id', $request->second_hotel)
-            ->where('size', '<=', $size)
-            ->where('banquet', '<=', $banquet)
-            ->where('classroom', '<=', $classroom)
-            ->where('cocktail', '<=', $cocktail)
-            ->where('theater', '<=', $theater)
-            ->where('cabaret', '<=', $cabaret)
-            ->where('booth_capacity', '<=', $booth_capacity)
+            ->where('size', '>=', $minSize)
+            ->where('size', '<=', $maxSize)
+            ->where('banquet', '>=', $minBanquet)
+            ->where('banquet', '<=', $maxBanquet)
+            ->where('classroom', '>=', $minClassroom)
+            ->where('classroom', '<=', $maxClassroom)
+            ->where('theater', '>=', $minTheater)
+            ->where('theater', '<=', $maxTheater)
+            ->where('cocktail', '>=', $minCocktail)
+            ->where('cocktail', '<=', $maxCocktail)
+            ->where('cabaret', '>=', $minCabaret)
+            ->where('cabaret', '<=', $maxCabaret)
+            ->where('booth_capacity', '>=', $minBooth_capacity)
+            ->where('booth_capacity', '<=', $maxBooth_capacity)
             ->orderby('venue', 'ASC')->get();
         $room_3 = EventSpace::where('hotel_id', $request->third_hotel)
-            ->where('size', '<=', $size)
-            ->where('banquet', '<=', $banquet)
-            ->where('classroom', '<=', $classroom)
-            ->where('cocktail', '<=', $cocktail)
-            ->where('theater', '<=', $theater)
-            ->where('cabaret', '<=', $cabaret)
-            ->where('booth_capacity', '<=', $booth_capacity)
+            ->where('size', '>=', $minSize)
+            ->where('size', '<=', $maxSize)
+            ->where('banquet', '>=', $minBanquet)
+            ->where('banquet', '<=', $maxBanquet)
+            ->where('classroom', '>=', $minClassroom)
+            ->where('classroom', '<=', $maxClassroom)
+            ->where('theater', '>=', $minTheater)
+            ->where('theater', '<=', $maxTheater)
+            ->where('cocktail', '>=', $minCocktail)
+            ->where('cocktail', '<=', $maxCocktail)
+            ->where('cabaret', '>=', $minCabaret)
+            ->where('cabaret', '<=', $maxCabaret)
+            ->where('booth_capacity', '>=', $minBooth_capacity)
+            ->where('booth_capacity', '<=', $maxBooth_capacity)
             ->orderby('venue', 'ASC')->get();
         //  dd($room_3);
         $hotel_1 = Hotel::where('id', $request->first_hotel)->first();
