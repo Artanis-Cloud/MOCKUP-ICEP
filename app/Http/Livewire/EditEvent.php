@@ -11,7 +11,7 @@ class EditEvent extends Component
 {
     use WithFileUploads;
     public $id_event;
-    public $venue, $level, $size, $banquet, $classroom, $theater, $cocktail,$cabaret,$booth_capacity,$daily_rate,$photos,$caption;
+    public $venue, $level, $size, $banquet, $classroom, $theater, $cocktail, $cabaret, $booth_capacity, $daily_rate, $photos, $caption;
     public $show = true;
     public $add = true;
     public $inputs = [];
@@ -24,7 +24,7 @@ class EditEvent extends Component
     {
         $i = $i + 1;
         $this->i = $i;
-        array_push($this->inputs ,$i);
+        array_push($this->inputs, $i);
         // array_push($this->photos ,$i);
 
     }
@@ -39,10 +39,11 @@ class EditEvent extends Component
     public function render()
     {
         $eventspaces = EventSpace::get();
-        return view('livewire.edit-event',compact('eventspaces'));
+        return view('livewire.edit-event', compact('eventspaces'));
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         // dd($id);
         $room = EventSpace::findOrFail($id);
         $this->id_event = $room->id;
@@ -57,50 +58,52 @@ class EditEvent extends Component
         $this->booth_capacity = $room->booth_capacity;
         $this->daily_rate = $room->daily_rate;
         $this->updateMode = true;
-
     }
 
     public function update()
     {
-            $room = EventSpace::find($this->id_event);
-            $room->update([
-                'venue'=> $this->venue,
-                'level' => $this->level,
-                'size' => $this->size,
-                'banquet' => $this->banquet,
-                'classroom' => $this->classroom,
-                'theater' => $this->theater,
-                'cocktail' => $this->cocktail,
-                'cabaret' => $this->cabaret,
-                'booth_capacity' => $this->booth_capacity,
-                'daily_rate' => $this->daily_rate,
-            ]);
+        $room = EventSpace::find($this->id_event);
+        $room->update([
+            'venue' => $this->venue,
+            'level' => $this->level,
+            'size' => $this->size,
+            'banquet' => $this->banquet,
+            'classroom' => $this->classroom,
+            'theater' => $this->theater,
+            'cocktail' => $this->cocktail,
+            'cabaret' => $this->cabaret,
+            'booth_capacity' => $this->booth_capacity,
+            'daily_rate' => $this->daily_rate,
+        ]);
 
-            // dd($this->id_event);
+        // dd($this->id_event);
+        if ($this->photos) {
             $data = Gallery::where('eventspace_id', $this->id_event)->get();
 
-            if($data){
-                foreach($data as $photo){
+            if ($data) {
+                foreach ($data as $photo) {
                     $photo->delete();
                 }
             }
 
-            if($this->photos){
+            if ($this->photos) {
                 foreach ($this->photos as $key => $value) {
-                    Gallery::create ([
+                    Gallery::create([
                         'photos' => $this->photos[$key]->store('public/upload'),
                         'caption' => $this->caption[$key],
-                        'eventspace_id' =>$this->id_event,
+                        'eventspace_id' => $this->id_event,
                     ]);
                 }
             }
+        }
 
-            $this->inputs = [];
-            $this->resetInputFields();
-            $this->updateMode = false;
+        $this->inputs = [];
+        $this->resetInputFields();
+        $this->updateMode = false;
     }
 
-    private function resetInputFields(){
+    private function resetInputFields()
+    {
         $this->venue = null;
         $this->hotel_id = null;
         $this->level = null;
@@ -114,6 +117,5 @@ class EditEvent extends Component
         $this->daily_rate = null;
         $this->photos = null;
         $this->caption = null;
-
     }
 }
