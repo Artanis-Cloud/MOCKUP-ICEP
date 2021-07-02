@@ -19,10 +19,10 @@
                 <div class="card-body">
 
                     <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-1">
 
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-10">
                         <!-- <div class="card-title">Tukar Kata Laluan</div> -->
                     </div>
                     </div>
@@ -30,7 +30,7 @@
                    @livewire('event')
                 </div>
             </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-1"></div>
     </div>
 </div>
 </main>
