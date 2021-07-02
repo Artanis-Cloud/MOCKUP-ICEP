@@ -269,7 +269,7 @@
                                         <option value="10000" class="">5001-10000</option>
                                         <option value="15000" class="">10001-15000</option>
                                         <option value="20000" class="">15001-20000</option>
-                                        <option value="INF" class="">20000 and above</option>
+                                        <option value="20001" class="">20000 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -292,7 +292,7 @@
                                         <option value="1000" class="">501-1000</option>
                                         <option value="1500" class="">1001-1500</option>
                                         <option value="2000" class="">1501-2000</option>
-                                        <option value="INF" class="">2001 and above</option>
+                                        <option value="20001" class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -305,7 +305,7 @@
                                         <option value="1000" class="">501-1000</option>
                                         <option value="1500" class="">1001-1500</option>
                                         <option value="2000" class="">1501-2000</option>
-                                        <option value="INF" class="">2001 and above</option>
+                                        <option value="20001" class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -320,7 +320,7 @@
                                         <option value="1000" class="">501-1000</option>
                                         <option value="1500" class="">1001-1500</option>
                                         <option value="2000" class="">1501-2000</option>
-                                        <option value="INF" class="">2001 and above</option>
+                                        <option value="20001" class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -333,7 +333,7 @@
                                         <option value="1000" class="">501-1000</option>
                                         <option value="1500" class="">1001-1500</option>
                                         <option value="2000" class="">1501-2000</option>
-                                        <option value="INF" class="">2001 and above</option>
+                                        <option value="20001" class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -348,7 +348,7 @@
                                         <option value="1000" class="">501-1000</option>
                                         <option value="1500" class="">1001-1500</option>
                                         <option value="2000" class="">1501-2000</option>
-                                        <option value="INF" class="">2001 and above</option>
+                                        <option value="20001" class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -361,7 +361,7 @@
                                         <option value="1000" class="">501-1000</option>
                                         <option value="1500" class="">1001-1500</option>
                                         <option value="2000" class="">1501-2000</option>
-                                        <option value="INF" class="">2001 and above</option>
+                                        <option value="20001" class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
