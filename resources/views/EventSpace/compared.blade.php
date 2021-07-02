@@ -288,7 +288,7 @@
                                         <option value="1000" class="">501-1000</option>
                                         <option value="1500" class="">1001-1500</option>
                                         <option value="2000" class="">1501-2000</option>
-                                        <option value="20001" class="">2001 and above</option>
+                                        <option value="2001" class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -301,7 +301,7 @@
                                         <option value="1000" class="">501-1000</option>
                                         <option value="1500" class="">1001-1500</option>
                                         <option value="2000" class="">1501-2000</option>
-                                        <option value="20001" class="">2001 and above</option>
+                                        <option value="2001" class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -316,7 +316,7 @@
                                         <option value="1000" class="">501-1000</option>
                                         <option value="1500" class="">1001-1500</option>
                                         <option value="2000" class="">1501-2000</option>
-                                        <option value="20001" class="">2001 and above</option>
+                                        <option value="2001" class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -329,7 +329,7 @@
                                         <option value="1000" class="">501-1000</option>
                                         <option value="1500" class="">1001-1500</option>
                                         <option value="2000" class="">1501-2000</option>
-                                        <option value="20001" class="">2001 and above</option>
+                                        <option value="2001" class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -344,7 +344,7 @@
                                         <option value="1000" class="">501-1000</option>
                                         <option value="1500" class="">1001-1500</option>
                                         <option value="2000" class="">1501-2000</option>
-                                        <option value="20001" class="">2001 and above</option>
+                                        <option value="2001" class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -357,7 +357,7 @@
                                         <option value="1000" class="">501-1000</option>
                                         <option value="1500" class="">1001-1500</option>
                                         <option value="2000" class="">1501-2000</option>
-                                        <option value="20001" class="">2001 and above</option>
+                                        <option value="2001" class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
