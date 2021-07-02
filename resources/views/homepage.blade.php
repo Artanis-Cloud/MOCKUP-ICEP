@@ -26,11 +26,6 @@ a:visited {
   color: white !important;
 }
 
-/* mouse over link */
-a:hover {
-  color: #E89A3D !important;
-}
-
 /* selected link */
 a:active {
   color: white !important;
@@ -39,7 +34,7 @@ a:active {
 
 .container-fluid{
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -136,40 +131,38 @@ input.search-submit {
 }
 
 /* announcement */
-.content{
+/* .content{
   max-width: 400px;
 }
 .news span.txt{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
+} */
 
-/* width */
 ::-webkit-scrollbar {
   width: 2px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+
 </style>
 
 <body>
 
   <div class="container-fluid">
-  	<div class="row" style="padding-bottom: 2%">
+  	<div class="row">
   		<div class="col-md-4">
   		</div>
   		<div class="col-md-4" style="text-align: center;color: rgb(255, 255, 255); padding-top: 10%;">
@@ -180,19 +173,20 @@ input.search-submit {
   		<div class="col-md-4">
   		</div>
   	</div>
-  	<div class="row">
+
+  	{{-- <div class="row">
   		<div class="col-md-4">
   		</div>
   		<div class="col-md-4" style="background-color: #2f485869;">
 
-        <h3 class="text-indigo-lightest text-center mt-0 mb-8">Announcement</h3>
+        <h3 class="mt-0 mb-8 text-center text-indigo-lightest">Announcement</h3>
 
-        <div class="content mx-auto" style="overflow-y: auto; height: 200px;">
+        <div class="mx-auto content" style="overflow-y: auto; height: 200px;">
           @if($announcement)
               @forelse ( $announcement as $data)
-        <div class="news mx-auto rounded-full bg-indigo-darker w-full flex items-center">
-          <span class="bg-green-dark text-white tracking-wide text-xs w-auto m-2 inline-block rounded-full py-1 px-2">NEW</span>
-          <span class="txt w-2/3 sm:w-full text-white text-sm text-indigo-lightest">{{ $data->user_message }}</span>
+        <div class="flex items-center w-full mx-auto rounded-full news bg-indigo-darker">
+          <span class="inline-block w-auto px-2 py-1 m-2 text-xs tracking-wide text-white rounded-full bg-green-dark">NEW</span>
+          <span class="w-2/3 text-sm text-white txt sm:w-full text-indigo-lightest">{{ $data->user_message }}</span>
         </div>
         <br>
         @empty
@@ -203,6 +197,6 @@ input.search-submit {
   		</div>
   		<div class="col-md-4">
   		</div>
-  	</div>
+  	</div> --}}
   </div>
 @endsection
