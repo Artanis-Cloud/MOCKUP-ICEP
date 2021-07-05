@@ -213,10 +213,12 @@
                 <div class="row">
                     <div class="col">
                         <label for="first_hotel"><b>First Venue</b></label>
-                        <select id="product-col-1" class="custom-select " name="first_hotel">
+                        <select id="product-col-1" class="custom-select " name="first_hotel" >
                             <option value="" selected hidden disabled>Please Choose Venue</option>
                             @forelse($hotels as $data)
-                                <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
+                                @if ($data->hotel_name != 'Kuala Lumpur Convention Center')
+                                    <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
+                                @endif
                             @empty
                             @endforelse
                         </select>
@@ -226,7 +228,9 @@
                         <select id="product-col-2" class="custom-select " name="second_hotel">
                             <option value="" selected hidden disabled>Please Choose Venue</option>
                             @forelse($hotels as $data)
-                                <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
+                                @if ($data->hotel_name != 'Kuala Lumpur Convention Center')
+                                    <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
+                                @endif
                             @empty
                             @endforelse
                         </select>
@@ -236,7 +240,9 @@
                         <select id="product-col-3" class="custom-select " name="third_hotel">
                             <option value="" selected hidden disabled>Please Choose Venue</option>
                             @forelse($hotels as $data)
-                                <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
+                                @if ($data->hotel_name != 'Kuala Lumpur Convention Center')
+                                    <option value="{{ $data->id }}">{{ $data->hotel_name }}</option>
+                                @endif
                             @empty
                             @endforelse
                         </select>

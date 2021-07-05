@@ -363,9 +363,16 @@
                         <!-- Card body -->
                         <div class="p-0 card-body">
                             <!-- Card title -->
-                            <div class="flex-row p-3 m-0 card-title d-flex align-items-center justify-content-between">
-                                <h1>Event Space Details</h1>
-                            </div>
+
+                            @if (sizeof($eventspace))
+                                <div class="flex-row p-3 m-0 card-title d-flex align-items-center justify-content-between">
+                                    <h1>Event Space Details</h1>
+                                </div>
+                            @else
+                                <div class="flex-row p-3 m-0 card-title d-flex align-items-center justify-content-between">
+                                    <h1>{{ $hotel_name->hotel_name }}</h1>
+                                </div>
+                            @endif
                             <!-- Activity details -->
                             @forelse($eventspace as $data)
                                 <div class="row">
@@ -491,129 +498,129 @@
                                     </div>
                                 </div>
 
+                            @empty
 
-                                <div class="border-0 rounded-lg card" style="padding: 5%">
-                                    <!-- Tab nav -->
-                                    <ul class="mb-3 nav nav-pills" id="pills-tab" role="tablist"
-                                        style="background-color: #2F4858; justify-content: space-evenly;">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill"
-                                                href="#pills-home" role="tab" aria-controls="pills-home"
-                                                aria-selected="true">
-                                                <font color="white">Photo Gallery</font>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill"
-                                                href="#pills-profile" role="tab" aria-controls="pills-profile"
-                                                aria-selected="false">
-                                                <font color="white">Event Space Available</font>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill"
-                                                href="#pills-contact" role="tab" aria-controls="pills-contact"
-                                                aria-selected="false">
-                                                <font color="white">Nearby</font>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <!-- Tab content -->
+                            @endforelse
+                            <div class="border-0 rounded-lg card" style="padding: 5%">
+                                <!-- Tab nav -->
+                                <ul class="mb-3 nav nav-pills" id="pills-tab" role="tablist"
+                                    style="background-color: #2F4858; justify-content: space-evenly;">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                            role="tab" aria-controls="pills-home" aria-selected="true">
+                                            <font color="white">Photo Gallery</font>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                            role="tab" aria-controls="pills-profile" aria-selected="false">
+                                            <font color="white">Event Space Available</font>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
+                                            role="tab" aria-controls="pills-contact" aria-selected="false">
+                                            <font color="white">Nearby</font>
+                                        </a>
+                                    </li>
+                                </ul>
 
-                                    <div class="tab-content" id="pills-tabContent">
-                                        <div class="tab-pane fade active show" id="pills-home" role="tabpanel"
-                                            aria-labelledby="pills-home-tab">
-                                            <div id="gallery">
-                                                @forelse($photos as $photo)
-                                                    <div class="item">
-                                                        <a href="{{ asset($image_path = str_replace('public', 'storage', $photo->photos)) }}"
-                                                            data-fancybox="gallery" data-caption="{{ $photo->caption }}">
-                                                            <figure>
-                                                                <img class="card-img-top"
-                                                                    src="{{ asset($image_path = str_replace('public', 'storage', $photo->photos)) }}"
-                                                                    style="width:100%;" alt="Card image cap">
-                                                                {{-- <figcaption>This is a caption with a long text to test</figcaption> --}}
-                                                            </figure>
-                                                        </a>
-                                                    </div>
-                                                @empty
-                                                    No photos available
-                                                @endforelse
-                                            </div>
+
+                                <!-- Tab content -->
+
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade active show" id="pills-home" role="tabpanel"
+                                        aria-labelledby="pills-home-tab">
+                                        <div id="gallery">
+                                            @forelse($photos as $photo)
+                                                <div class="item">
+                                                    <a href="{{ asset($image_path = str_replace('public', 'storage', $photo->photos)) }}"
+                                                        data-fancybox="gallery" data-caption="{{ $photo->caption }}">
+                                                        <figure>
+                                                            <img class="card-img-top"
+                                                                src="{{ asset($image_path = str_replace('public', 'storage', $photo->photos)) }}"
+                                                                style="width:100%;" alt="Card image cap">
+                                                            {{-- <figcaption>This is a caption with a long text to test</figcaption> --}}
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            @empty
+                                                No photos available
+                                            @endforelse
                                         </div>
+                                    </div>
 
-                                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
-                                            aria-labelledby="pills-profile-tab">
+                                    <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                        aria-labelledby="pills-profile-tab">
 
-                                            <div class="table-responsive">
-                                                <table class="table text-dark table-borderless"
-                                                    id="defaultOrderingDataTable">
-                                                    {{-- <table class="table table-striped table-bordered" id="responsiveDataTable" style="width: 100%;"> --}}
+                                        <div class="table-responsive">
+                                            <table class="table text-dark table-borderless" id="defaultOrderingDataTable">
+                                                {{-- <table class="table table-striped table-bordered" id="responsiveDataTable" style="width: 100%;"> --}}
 
-                                                    <thead>
+                                                <thead>
+                                                    <tr class="text-center">
+                                                        <th>
+                                                            <p class="mb-0">Event Space</p>
+                                                        </th>
+                                                        <th>
+                                                            <p class="mb-0">Level</p>
+                                                        </th>
+                                                        <th>
+                                                            <p class="mb-0">Size</p>
+                                                        </th>
+                                                        <th>
+                                                            <p class="mb-0">Banquet</p>
+                                                        </th>
+                                                        <th>
+                                                            <p class="mb-0">Classroom</p>
+                                                        </th>
+                                                        <th>
+                                                            <p class="mb-0">Theater</p>
+                                                        </th>
+                                                        <th>
+                                                            <p class="mb-0">Cocktail</p>
+                                                        </th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Table data -->
+                                                    {{-- @if ($data->hotel_id) --}}
+                                                    @forelse ( $hotels as $data)
                                                         <tr class="text-center">
-                                                            <th>
-                                                                <p class="mb-0">Event Space</p>
-                                                            </th>
-                                                            <th>
-                                                                <p class="mb-0">Level</p>
-                                                            </th>
-                                                            <th>
-                                                                <p class="mb-0">Size</p>
-                                                            </th>
-                                                            <th>
-                                                                <p class="mb-0">Banquet</p>
-                                                            </th>
-                                                            <th>
-                                                                <p class="mb-0">Classroom</p>
-                                                            </th>
-                                                            <th>
-                                                                <p class="mb-0">Theater</p>
-                                                            </th>
-                                                            <th>
-                                                                <p class="mb-0">Cocktail</p>
-                                                            </th>
-
+                                                            <td>
+                                                                <p class="mb-0 font-weight-bold">{{ $data->venue }}
+                                                                </p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0 font-weight-normal">{{ $data->level }}
+                                                                </p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0 font-weight-normal">{{ $data->size }}
+                                                                </p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0 font-weight-normal">
+                                                                    {{ $data->banquet }}</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0 font-weight-normal">
+                                                                    {{ $data->classroom }}</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0 font-weight-normal">
+                                                                    {{ $data->theater }}</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="mb-0 font-weight-normal">
+                                                                    {{ $data->cocktail }}</p>
+                                                            </td>
                                                         </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <!-- Table data -->
-                                                        {{-- @if ($data->hotel_id) --}}
-                                                        @forelse ( $hotels as $data)
-                                                            <tr class="text-center">
-                                                                <td>
-                                                                    <p class="mb-0 font-weight-bold">{{ $data->venue }}
-                                                                    </p>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="mb-0 font-weight-normal">{{ $data->level }}
-                                                                    </p>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="mb-0 font-weight-normal">{{ $data->size }}
-                                                                    </p>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="mb-0 font-weight-normal">
-                                                                        {{ $data->banquet }}</p>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="mb-0 font-weight-normal">
-                                                                        {{ $data->classroom }}</p>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="mb-0 font-weight-normal">
-                                                                        {{ $data->theater }}</p>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="mb-0 font-weight-normal">
-                                                                        {{ $data->cocktail }}</p>
-                                                                </td>
-                                                            </tr>
-                                                        @empty
+                                                    @empty
 
-                                                        @endforelse
-                                                        {{-- @else
+                                                    @endforelse
+                                                    {{-- @else
                                 @forelse ( $eventspace as $data)
                                     <tr class="text-center">
                                         <td><p class="mb-0 font-weight-bold">{{ $data->venue }}</p></td>
@@ -630,200 +637,197 @@
 
 
 
-                                                    </tbody>
-                                                </table>
-                                            </div>
-
+                                                </tbody>
+                                            </table>
                                         </div>
-                                        <div class="tab-pane fade" id="pills-contact" role="tabpanel"
-                                            aria-labelledby="pills-contact-tab">
 
-                                            <div id="map"></div>
-                                            <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                                        aria-labelledby="pills-contact-tab">
 
-                                            @forelse ($map as $item)
+                                        <div id="map"></div>
+                                        <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+
+                                        @forelse ($map as $item)
 
 
-                                                <script>
-                                                    var icons = {
-                                                        parking: {
-                                                            icon: 'https://tarantelleromane.files.wordpress.com/2016/10/map-marker.png?w=50'
-                                                        }
+                                            <script>
+                                                var icons = {
+                                                    parking: {
+                                                        icon: 'https://tarantelleromane.files.wordpress.com/2016/10/map-marker.png?w=50'
+                                                    }
+                                                };
+
+
+                                                // REPLACE WITH DATA FROM API
+                                                //TITLE | POSITION - LAT , LNG | ICON | TITLE | CONTENT
+                                                var airports = [{
+                                                    title: "{{ $item->hotel_name }}",
+                                                    position: {
+                                                        lat: {{ $item->latitude }},
+                                                        lng: {{ $item->longitude }}
+                                                    },
+                                                    icon: 'parking',
+                                                    content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">{{ $item->hotel_name }}</h1><div id="bodyContent"><p><b>{{ $item->hotel_name }}</b></div></div>'
+                                                }];
+
+                                                function initMap() {
+
+                                                    var uk = {
+                                                        lat: 3.1580,
+                                                        lng: 101.7118
                                                     };
 
+                                                    var map = new google.maps.Map(document.getElementById('map'), {
+                                                        zoom: 15,
+                                                        center: uk,
+                                                        disableDefaultUI: true,
+                                                        styles: [{
+                                                            "elementType": "labels",
+                                                            "stylers": [{
+                                                                "visibility": "off"
+                                                            }, {
+                                                                "color": "#f49f53"
+                                                            }]
+                                                        }, {
+                                                            "featureType": "landscape",
+                                                            "stylers": [{
+                                                                "color": "#f9ddc5"
+                                                            }, {
+                                                                "lightness": -7
+                                                            }]
+                                                        }, {
+                                                            "featureType": "road",
+                                                            "stylers": [{
+                                                                "color": "#813033"
+                                                            }, {
+                                                                "lightness": 43
+                                                            }]
+                                                        }, {
+                                                            "featureType": "poi.business",
+                                                            "stylers": [{
+                                                                "color": "#645c20"
+                                                            }, {
+                                                                "lightness": 38
+                                                            }]
+                                                        }, {
+                                                            "featureType": "water",
+                                                            "stylers": [{
+                                                                "color": "#1994bf"
+                                                            }, {
+                                                                "saturation": -69
+                                                            }, {
+                                                                "gamma": 0.99
+                                                            }, {
+                                                                "lightness": 43
+                                                            }]
+                                                        }, {
+                                                            "featureType": "road.local",
+                                                            "elementType": "geometry.fill",
+                                                            "stylers": [{
+                                                                "color": "#f19f53"
+                                                            }, {
+                                                                "weight": 1.3
+                                                            }, {
+                                                                "visibility": "on"
+                                                            }, {
+                                                                "lightness": 16
+                                                            }]
+                                                        }, {
+                                                            "featureType": "poi.business"
+                                                        }, {
+                                                            "featureType": "poi.park",
+                                                            "stylers": [{
+                                                                "color": "#645c20"
+                                                            }, {
+                                                                "lightness": 39
+                                                            }]
+                                                        }, {
+                                                            "featureType": "poi.school",
+                                                            "stylers": [{
+                                                                "color": "#a95521"
+                                                            }, {
+                                                                "lightness": 35
+                                                            }]
+                                                        }, {}, {
+                                                            "featureType": "poi.medical",
+                                                            "elementType": "geometry.fill",
+                                                            "stylers": [{
+                                                                "color": "#813033"
+                                                            }, {
+                                                                "lightness": 38
+                                                            }, {
+                                                                "visibility": "off"
+                                                            }]
+                                                        }, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {
+                                                            "elementType": "labels"
+                                                        }, {
+                                                            "featureType": "poi.sports_complex",
+                                                            "stylers": [{
+                                                                "color": "#9e5916"
+                                                            }, {
+                                                                "lightness": 32
+                                                            }]
+                                                        }, {}, {
+                                                            "featureType": "poi.government",
+                                                            "stylers": [{
+                                                                "color": "#9e5916"
+                                                            }, {
+                                                                "lightness": 46
+                                                            }]
+                                                        }, {
+                                                            "featureType": "transit.station",
+                                                            "stylers": [{
+                                                                "visibility": "off"
+                                                            }]
+                                                        }, {
+                                                            "featureType": "transit.line",
+                                                            "stylers": [{
+                                                                "color": "#813033"
+                                                            }, {
+                                                                "lightness": 22
+                                                            }]
+                                                        }, {
+                                                            "featureType": "transit",
+                                                            "stylers": [{
+                                                                "lightness": 38
+                                                            }]
+                                                        }, {
+                                                            "featureType": "road.local",
+                                                            "elementType": "geometry.stroke",
+                                                            "stylers": [{
+                                                                "color": "#f19f53"
+                                                            }, {
+                                                                "lightness": -10
+                                                            }]
+                                                        }, {}, {}, {}]
+                                                    });
 
-                                                    // REPLACE WITH DATA FROM API
-                                                    //TITLE | POSITION - LAT , LNG | ICON | TITLE | CONTENT
-                                                    var airports = [{
-                                                        title: "{{ $item->hotel_name }}",
-                                                        position: {
-                                                            lat: {{ $item->latitude }},
-                                                            lng: {{ $item->longitude }}
-                                                        },
-                                                        icon: 'parking',
-                                                        content: '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">{{ $item->hotel_name }}</h1><div id="bodyContent"><p><b>{{ $item->hotel_name }}</b></div></div>'
-                                                    }];
+                                                    var InfoWindows = new google.maps.InfoWindow({});
 
-                                                    function initMap() {
-
-                                                        var uk = {
-                                                            lat: 3.1580,
-                                                            lng: 101.7118
-                                                        };
-
-                                                        var map = new google.maps.Map(document.getElementById('map'), {
-                                                            zoom: 15,
-                                                            center: uk,
-                                                            disableDefaultUI: true,
-                                                            styles: [{
-                                                                "elementType": "labels",
-                                                                "stylers": [{
-                                                                    "visibility": "off"
-                                                                }, {
-                                                                    "color": "#f49f53"
-                                                                }]
-                                                            }, {
-                                                                "featureType": "landscape",
-                                                                "stylers": [{
-                                                                    "color": "#f9ddc5"
-                                                                }, {
-                                                                    "lightness": -7
-                                                                }]
-                                                            }, {
-                                                                "featureType": "road",
-                                                                "stylers": [{
-                                                                    "color": "#813033"
-                                                                }, {
-                                                                    "lightness": 43
-                                                                }]
-                                                            }, {
-                                                                "featureType": "poi.business",
-                                                                "stylers": [{
-                                                                    "color": "#645c20"
-                                                                }, {
-                                                                    "lightness": 38
-                                                                }]
-                                                            }, {
-                                                                "featureType": "water",
-                                                                "stylers": [{
-                                                                    "color": "#1994bf"
-                                                                }, {
-                                                                    "saturation": -69
-                                                                }, {
-                                                                    "gamma": 0.99
-                                                                }, {
-                                                                    "lightness": 43
-                                                                }]
-                                                            }, {
-                                                                "featureType": "road.local",
-                                                                "elementType": "geometry.fill",
-                                                                "stylers": [{
-                                                                    "color": "#f19f53"
-                                                                }, {
-                                                                    "weight": 1.3
-                                                                }, {
-                                                                    "visibility": "on"
-                                                                }, {
-                                                                    "lightness": 16
-                                                                }]
-                                                            }, {
-                                                                "featureType": "poi.business"
-                                                            }, {
-                                                                "featureType": "poi.park",
-                                                                "stylers": [{
-                                                                    "color": "#645c20"
-                                                                }, {
-                                                                    "lightness": 39
-                                                                }]
-                                                            }, {
-                                                                "featureType": "poi.school",
-                                                                "stylers": [{
-                                                                    "color": "#a95521"
-                                                                }, {
-                                                                    "lightness": 35
-                                                                }]
-                                                            }, {}, {
-                                                                "featureType": "poi.medical",
-                                                                "elementType": "geometry.fill",
-                                                                "stylers": [{
-                                                                    "color": "#813033"
-                                                                }, {
-                                                                    "lightness": 38
-                                                                }, {
-                                                                    "visibility": "off"
-                                                                }]
-                                                            }, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {
-                                                                "elementType": "labels"
-                                                            }, {
-                                                                "featureType": "poi.sports_complex",
-                                                                "stylers": [{
-                                                                    "color": "#9e5916"
-                                                                }, {
-                                                                    "lightness": 32
-                                                                }]
-                                                            }, {}, {
-                                                                "featureType": "poi.government",
-                                                                "stylers": [{
-                                                                    "color": "#9e5916"
-                                                                }, {
-                                                                    "lightness": 46
-                                                                }]
-                                                            }, {
-                                                                "featureType": "transit.station",
-                                                                "stylers": [{
-                                                                    "visibility": "off"
-                                                                }]
-                                                            }, {
-                                                                "featureType": "transit.line",
-                                                                "stylers": [{
-                                                                    "color": "#813033"
-                                                                }, {
-                                                                    "lightness": 22
-                                                                }]
-                                                            }, {
-                                                                "featureType": "transit",
-                                                                "stylers": [{
-                                                                    "lightness": 38
-                                                                }]
-                                                            }, {
-                                                                "featureType": "road.local",
-                                                                "elementType": "geometry.stroke",
-                                                                "stylers": [{
-                                                                    "color": "#f19f53"
-                                                                }, {
-                                                                    "lightness": -10
-                                                                }]
-                                                            }, {}, {}, {}]
+                                                    airports.forEach(function(airport) {
+                                                        var marker = new google.maps.Marker({
+                                                            position: {
+                                                                lat: airport.position.lat,
+                                                                lng: airport.position.lng
+                                                            },
+                                                            map: map,
+                                                            icon: icons[airport.icon].icon,
+                                                            title: airport.title
                                                         });
-
-                                                        var InfoWindows = new google.maps.InfoWindow({});
-
-                                                        airports.forEach(function(airport) {
-                                                            var marker = new google.maps.Marker({
-                                                                position: {
-                                                                    lat: airport.position.lat,
-                                                                    lng: airport.position.lng
-                                                                },
-                                                                map: map,
-                                                                icon: icons[airport.icon].icon,
-                                                                title: airport.title
-                                                            });
-                                                            marker.addListener('mouseover', function() {
-                                                                InfoWindows.open(map, this);
-                                                                InfoWindows.setContent(airport.content);
-                                                            });
+                                                        marker.addListener('mouseover', function() {
+                                                            InfoWindows.open(map, this);
+                                                            InfoWindows.setContent(airport.content);
                                                         });
-                                                    }
-                                                </script>
-                                            @empty
+                                                    });
+                                                }
+                                            </script>
+                                        @empty
 
-                                            @endforelse
-                                        </div>
+                                        @endforelse
                                     </div>
                                 </div>
-                            @empty
-
-                            @endforelse
+                            </div>
                         </div>
 
                     </div>
