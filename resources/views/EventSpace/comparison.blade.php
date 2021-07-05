@@ -24,7 +24,7 @@
 
         /* unvisited link */
         a:link {
-            color: black !important;
+            color: white !important;
         }
 
         /* visited link */
@@ -34,7 +34,7 @@
 
         /* mouse over link */
         a:hover {
-            color: #E89A3D !important;
+            color: white !important;
         }
 
         /* selected link */
