@@ -139,12 +139,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
-                    <nav class="navecation">
-                        <ul id="navi">
-                     <li><a class="menu {{ (request()->is('eventspace')) ? 'active' : '' }}" href="{{ route('eventspace') }}">EVENT SPACE</a></li>
-                     <li><a class="menu {{ (request()->is('hotel')) ? 'active' : '' }}" href="{{ route('hotel') }}">ACCOMMODATION</a></li>
-                     <li><a class="menu {{ (request()->is('eventspace-comparison')) ? 'active' : '' }}" href="{{ route('comparison-eventspace') }}">EVENT SPACE COMPARISON</a></li>
-                     <li><a class="menu {{ (request()->is('hotel-comparison')) ? 'active' : '' }}" href="{{ route('comparison-hotel') }}">ACCOMMODATION COMPARISON</a></li>
+                    <nav >
+                        <ul id="navi" class="mr-auto navbar-nav">
+                    <li class="nav-item"><a class="nav-link menu" href=""></a></li>
+                     <li class="nav-item"><a class="nav-link menu {{ (request()->is('eventspace')) ? 'active' : '' }}" href="{{ route('eventspace') }}">EVENT SPACE</a></li>
+                     <li class="nav-item"><a class="nav-link menu {{ (request()->is('hotel')) ? 'active' : '' }}" href="{{ route('hotel') }}">ACCOMMODATION</a></li>
+                     <li class="nav-item"><a class="nav-link menu {{ (request()->is('eventspace-comparison')) ? 'active' : '' }}" href="{{ route('comparison-eventspace') }}">EVENT SPACE COMPARISON</a></li>
+                     <li class="nav-item"><a class="nav-link menu {{ (request()->is('hotel-comparison')) ? 'active' : '' }}" href="{{ route('comparison-hotel') }}">ACCOMMODATION COMPARISON</a></li>
                    </ul>
                      </nav>
 
