@@ -207,13 +207,12 @@ input.search-submit {
                             <div class="form-group">
                                 <label for="f-name-1">Size (s.q ft)</label>
                                 <select name="size" id="" class="form-control bg-light">
-                                    <option value="" selected disable hidden>Please choose size</option>
-                                    <option value="1000" class="">0-1000</option>
-                                    <option value="5000" class="">1001-5000</option>
-                                    <option value="10000" class="">5001-10000</option>
-                                    <option value="15000" class="">10001-15000</option>
-                                    <option value="20000" class="">15001-20000</option>
-                                    <option value="20001" class="">20000 and above</option>
+                                    <option value="1000" {{ $size == '1000' ? 'selected="selected"' : '' }} class="">0-1000</option>
+                                    <option value="5000" {{ $size == '5000' ? 'selected="selected"' : '' }} class="">1001-5000</option>
+                                    <option value="10000" {{ $size == '10000' ? 'selected="selected"' : '' }} class="">5001-10000</option>
+                                    <option value="15000" {{ $size == '15000' ? 'selected="selected"' : '' }} class="">10001-15000</option>
+                                    <option value="20000" {{ $size == '20000' ? 'selected="selected"' : '' }} class="">15001-20000</option>
+                                    <option value="20001" {{ $size == '20001' ? 'selected="selected"' : '' }} class="">20000 and above</option>
                                 </select>
                             </div>
                         </div>
@@ -227,11 +226,11 @@ input.search-submit {
                                     <label for="f-name-1">Banquet</label>
                                     <select name="banquet" id="" class="form-control bg-light">
                                         <option value="" selected disable hidden>Please choose banquet</option>
-                                        <option value="500" class="">0-500</option>
-                                        <option value="1000" class="">501-1000</option>
-                                        <option value="1500" class="">1001-1500</option>
-                                        <option value="2000" class="">1501-2000</option>
-                                        <option value="20001" class="">2001 and above</option>
+                                        <option value="500" {{ $banquet == '500' ? 'selected="selected"' : '' }} class="">0-500</option>
+                                        <option value="1000" {{ $banquet == '1000' ? 'selected="selected"' : '' }} class="">501-1000</option>
+                                        <option value="1500" {{ $banquet == '1500' ? 'selected="selected"' : '' }} class="">1001-1500</option>
+                                        <option value="2000" {{ $banquet == '2000' ? 'selected="selected"' : '' }} class="">1501-2000</option>
+                                        <option value="2001" {{ $banquet == '2001' ? 'selected="selected"' : '' }} class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -241,12 +240,11 @@ input.search-submit {
                                 <div class="form-group">
                                     <label for="f-name-1">Classroom</label>
                                     <select name="classroom" id="" class="form-control bg-light">
-                                        <option value="" selected disable hidden>Please choose classroom</option>
-                                        <option value="500" class="">0-500</option>
-                                        <option value="1000" class="">501-1000</option>
-                                        <option value="1500" class="">1001-1500</option>
-                                        <option value="2000" class="">1501-2000</option>
-                                        <option value="20001" class="">2001 and above</option>
+                                        <option value="500" {{ $classroom == '500' ? 'selected="selected"' : '' }} class="">0-500</option>
+                                        <option value="1000" {{ $classroom == '1000' ? 'selected="selected"' : '' }} class="">501-1000</option>
+                                        <option value="1500" {{ $classroom == '1500' ? 'selected="selected"' : '' }} class="">1001-1500</option>
+                                        <option value="2000" {{ $classroom == '2000' ? 'selected="selected"' : '' }} class="">1501-2000</option>
+                                        <option value="2001" {{ $classroom == '2001' ? 'selected="selected"' : '' }} class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -256,12 +254,11 @@ input.search-submit {
                                 <div class="form-group">
                                     <label for="f-name-1">Theater</label>
                                     <select name="theater" id="" class="form-control bg-light">
-                                        <option value="" selected disable hidden>Please choose classroom</option>
-                                        <option value="500" class="">0-500</option>
-                                        <option value="1000" class="">501-1000</option>
-                                        <option value="1500" class="">1001-1500</option>
-                                        <option value="2000" class="">1501-2000</option>
-                                        <option value="20001" class="">2001 and above</option>
+                                        <option value="500" {{ $theater == '500' ? 'selected="selected"' : '' }} class="">0-500</option>
+                                        <option value="1000" {{ $theater == '1000' ? 'selected="selected"' : '' }} class="">501-1000</option>
+                                        <option value="1500" {{ $theater == '1500' ? 'selected="selected"' : '' }} class="">1001-1500</option>
+                                        <option value="2000" {{ $theater == '2000' ? 'selected="selected"' : '' }} class="">1501-2000</option>
+                                        <option value="2001" {{ $theater == '2001' ? 'selected="selected"' : '' }} class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -272,11 +269,11 @@ input.search-submit {
                                     <label for="f-name-1">Cocktail</label>
                                     <select name="cocktail" id="" class="form-control bg-light">
                                         <option value="" selected disable hidden>Please choose classroom</option>
-                                        <option value="500" class="">0-500</option>
-                                        <option value="1000" class="">501-1000</option>
-                                        <option value="1500" class="">1001-1500</option>
-                                        <option value="2000" class="">1501-2000</option>
-                                        <option value="20001" class="">2001 and above</option>
+                                        <option value="500" {{ $cocktail == '500' ? 'selected="selected"' : '' }} class="">0-500</option>
+                                        <option value="1000" {{ $cocktail == '1000' ? 'selected="selected"' : '' }} class="">501-1000</option>
+                                        <option value="1500" {{ $cocktail == '1500' ? 'selected="selected"' : '' }} class="">1001-1500</option>
+                                        <option value="2000" {{ $cocktail == '2000' ? 'selected="selected"' : '' }} class="">1501-2000</option>
+                                        <option value="2001" {{ $cocktail == '2001' ? 'selected="selected"' : '' }} class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -287,11 +284,11 @@ input.search-submit {
                                     <label for="f-name-1">Cabaret/Workshop</label>
                                     <select name="cabaret" id="" class="form-control bg-light">
                                         <option value="" selected disable hidden>Please choose classroom</option>
-                                        <option value="500" class="">0-500</option>
-                                        <option value="1000" class="">501-1000</option>
-                                        <option value="1500" class="">1001-1500</option>
-                                        <option value="2000" class="">1501-2000</option>
-                                        <option value="20001" class="">2001 and above</option>
+                                        <option value="500" {{ $cabaret == '500' ? 'selected="selected"' : '' }} class="">0-500</option>
+                                        <option value="1000" {{ $cabaret == '1000' ? 'selected="selected"' : '' }} class="">501-1000</option>
+                                        <option value="1500" {{ $cabaret == '1500' ? 'selected="selected"' : '' }} class="">1001-1500</option>
+                                        <option value="2000" {{ $cabaret == '2000' ? 'selected="selected"' : '' }} class="">1501-2000</option>
+                                        <option value="2001" {{ $cabaret == '2001' ? 'selected="selected"' : '' }} class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>
@@ -302,11 +299,11 @@ input.search-submit {
                                     <label for="f-name-1">Booth Capacity</label>
                                     <select name="booth_capacity" id="" class="form-control bg-light">
                                         <option value="" selected disable hidden>Please choose classroom</option>
-                                        <option value="500" class="">0-500</option>
-                                        <option value="1000" class="">501-1000</option>
-                                        <option value="1500" class="">1001-1500</option>
-                                        <option value="2000" class="">1501-2000</option>
-                                        <option value="20001" class="">2001 and above</option>
+                                        <option value="500" {{ $booth_capacity == '500' ? 'selected="selected"' : '' }} class="">0-500</option>
+                                        <option value="1000" {{ $booth_capacity == '1000' ? 'selected="selected"' : '' }} class="">501-1000</option>
+                                        <option value="1500" {{ $booth_capacity == '1500' ? 'selected="selected"' : '' }} class="">1001-1500</option>
+                                        <option value="2000" {{ $booth_capacity == '2000' ? 'selected="selected"' : '' }} class="">1501-2000</option>
+                                        <option value="2001" {{ $booth_capacity == '2001' ? 'selected="selected"' : '' }} class="">2001 and above</option>
                                     </select>
                                 </div>
                             </div>

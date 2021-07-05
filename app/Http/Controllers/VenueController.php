@@ -200,12 +200,13 @@ class VenueController extends Controller
     {
         // dd($request->all());
         $hotel = HotelRoom::where('hotel_id', $request->hotel_id)->get();
+        $hotel_name =  Hotel::where('id', $request->hotel_id)->first();
         $rooms = HotelRoom::where('id', $request->room_id)->orderby('room_type', 'ASC')->get();
         $photos = Gallery::where('room_id', $request->room_id)->get();
         $map = Hotel::where('id', $request->hotel_id)->get();
-        // dd($hotel);
+        // dd($rooms);
 
-        return view('Venue.room_details', compact('rooms', 'photos', 'hotel', 'map'));
+        return view('Venue.room_details', compact('rooms','hotel_name', 'photos', 'hotel', 'map'));
     }
 
     public function roomFilter(Request $request)
@@ -309,9 +310,13 @@ class VenueController extends Controller
 
         $hotels = Hotel::get();
         // dd($rooms);
+        $sizeselected= $request->size;
+        $singlerateselected= $request->single;
+        $doubleselected= $request->double;
+        $corporateselected= $request->corporate;
 
         $bed_type = HotelRoom::distinct('type_of_bed')->get('type_of_bed');
-        return view('Venue.hotel_filter', compact('hotels', 'bed_type', 'rooms'));
+        return view('Venue.hotel_filter', compact('hotels', 'bed_type', 'rooms','sizeselected','singlerateselected','doubleselected','corporateselected'));
     }
 
     public function eventspace()
@@ -493,8 +498,15 @@ class VenueController extends Controller
         // dd($eventspace);
         $hotels = Hotel::get();
 
+        $size = $request->size;
+        $banquet = $request->banquet;
+        $classroom = $request->classroom;
+        $theater = $request->theater;
+        $cocktail = $request->cocktail;
+        $cabaret = $request->cabaret;
+        $booth_capacity = $request->booth_capacity;
 
-        return view('Venue.eventspace_filter', compact('eventspace', 'hotels'));
+        return view('Venue.eventspace_filter', compact('eventspace', 'hotels','size','banquet','classroom','theater','cocktail','cabaret','booth_capacity'));
     }
 
     public function eventspaceDetails(Request $request)
@@ -505,8 +517,8 @@ class VenueController extends Controller
         $eventspace = EventSpace::where('id', $request->eventspace_id)->orderby('venue', 'ASC')->get();
         $photos = Gallery::where('eventspace_id', $request->eventspace_id)->get();
         $map = Hotel::where('id', $request->hotel_id)->get();
-
-        return view('Venue.eventspace_details', compact('eventspace', 'photos', 'hotels', 'map'));
+        $hotel_name =  Hotel::where('id', $request->hotel_id)->first();
+        return view('Venue.eventspace_details', compact('hotel_name','eventspace', 'photos', 'hotels', 'map'));
     }
 
 
@@ -533,7 +545,6 @@ class VenueController extends Controller
         // dd($request->all());
         $room = HotelRoom::get();
         $hotel = Hotel::get();
-
 
         //size
         if ($request->size == "500") {
@@ -660,7 +671,15 @@ class VenueController extends Controller
         $hotel_3 = Hotel::where('id', $request->third_hotel)->first();
         // dd($hotel_1);
         $bed_type = HotelRoom::distinct('type_of_bed')->get('type_of_bed');
-        return view('Hotel.compared', compact('room', 'hotel', 'hotel_1', 'hotel_2', 'hotel_3', 'room_1', 'room_2', 'room_3', 'bed_type'));
+
+        // $hotel_1 = Hotel::findOrFail($request->first_hotel)->first();
+        $sizeselected= $request->size;
+        $singlerateselected= $request->single;
+        $doubleselected= $request->double;
+        $corporateselected= $request->corporate;
+        $typebed = $request->type_of_bed;
+        // dd($first_hotel);
+        return view('Hotel.compared', compact('room','typebed', 'hotel', 'hotel_1', 'hotel_2', 'hotel_3', 'room_1', 'room_2', 'room_3', 'bed_type','hotel_1','corporateselected','doubleselected','sizeselected','singlerateselected'));
     }
 
     public function compareEventSpace(Request $request)
@@ -867,12 +886,21 @@ class VenueController extends Controller
             ->where('booth_capacity', '>=', $minBooth_capacity)
             ->where('booth_capacity', '<=', $maxBooth_capacity)
             ->orderby('venue', 'ASC')->get();
+
+        $size = $request->size;
+        $banquet = $request->banquet;
+        $classroom = $request->classroom;
+        $theater = $request->theater;
+        $cocktail = $request->cocktail;
+        $cabaret = $request->cabaret;
+        $booth_capacity = $request->booth_capacity;
         //  dd($room_3);
         $hotel_1 = Hotel::where('id', $request->first_hotel)->first();
         $hotel_2 = Hotel::where('id', $request->second_hotel)->first();
         $hotel_3 = Hotel::where('id', $request->third_hotel)->first();
         // dd($hotel_1);
-        return view('EventSpace.compared', compact('eventspace', 'hotel', 'hotel_1', 'hotel_2', 'hotel_3', 'room_1', 'room_2', 'room_3'));
+        return view('EventSpace.compared', compact('eventspace', 'hotel', 'hotel_1', 'hotel_2', 'hotel_3', 'room_1', 'room_2', 'room_3','size','banquet',
+        'classroom','theater','cocktail','cabaret','booth_capacity'));
     }
 
 

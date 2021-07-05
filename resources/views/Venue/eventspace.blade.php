@@ -423,7 +423,7 @@ input.search-submit {
                         <form action="{{ route('eventspace_details')}}" class="" method="get">
                             @csrf
                             <select name="eventspace_id" id="" class="form-control bg-light @error('eventspace_id') is-invalid @enderror"">
-                                <option selected="true" disabled="disabled" hidden value="0">Choose Event Space</option>
+                                <option selected="true" disabled="disabled" hidden value="">Choose Event Space</option>
                                 @forelse ($eventspace as $dataEventSpace)
                                     @if($data->id == $dataEventSpace->hotel_id)
                                         <option value="{{ $dataEventSpace->id }}" >{{ $dataEventSpace->venue }}</option>
