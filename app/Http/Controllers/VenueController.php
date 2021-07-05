@@ -202,11 +202,12 @@ class VenueController extends Controller
         $hotel = HotelRoom::where('hotel_id', $request->hotel_id)->get();
         $hotel_name =  Hotel::where('id', $request->hotel_id)->first();
         $rooms = HotelRoom::where('id', $request->room_id)->orderby('room_type', 'ASC')->get();
-        $photos = Gallery::where('room_id', $request->room_id)->get();
+        $photos = Gallery::where('room_id', $request->room_id)->where('eventspace_id', null)->get();
+        $gallery = Gallery::where('eventspace_id', null)->get();
         $map = Hotel::where('id', $request->hotel_id)->get();
         // dd($rooms);
 
-        return view('Venue.room_details', compact('rooms','hotel_name', 'photos', 'hotel', 'map'));
+        return view('Venue.room_details', compact('rooms','gallery','hotel_name', 'photos', 'hotel', 'map'));
     }
 
     public function roomFilter(Request $request)
@@ -515,10 +516,12 @@ class VenueController extends Controller
 
         $hotels = EventSpace::where('hotel_id', $request->hotel_id)->get();
         $eventspace = EventSpace::where('id', $request->eventspace_id)->orderby('venue', 'ASC')->get();
-        $photos = Gallery::where('eventspace_id', $request->eventspace_id)->get();
+        $photos = Gallery::where('eventspace_id', $request->eventspace_id)->where('room_id', null)->get();
+        $gallery = Gallery::where('room_id', null)->get();
         $map = Hotel::where('id', $request->hotel_id)->get();
         $hotel_name =  Hotel::where('id', $request->hotel_id)->first();
-        return view('Venue.eventspace_details', compact('hotel_name','eventspace', 'photos', 'hotels', 'map'));
+        // dd($photos);
+        return view('Venue.eventspace_details', compact('hotel_name','eventspace', 'photos', 'hotels', 'map','gallery'));
     }
 
 

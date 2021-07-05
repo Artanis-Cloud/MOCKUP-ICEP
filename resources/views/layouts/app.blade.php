@@ -53,6 +53,51 @@
         .dropdown:hover .dropdown-content {
         display: block;
         }
+        /* announcement */
+        .marquee {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        }
+        .marquee:hover .marquee__item {
+        -webkit-animation-play-state: paused;
+                animation-play-state: paused;
+        }
+        .marquee__seperator {
+        margin: 0 2rem;
+        }
+        .marquee__item {
+        display: inline-block;
+        will-change: transform;
+        -webkit-animation: marquee 50s linear infinite;
+                animation: marquee 50s linear infinite;
+        }
+
+        @-webkit-keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+        }
+
+        @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+        }
+        .marquee {
+        background-color: #01586f;
+        padding: 1rem 0;
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        }
+
         nav ul li{
             list-style:none;
             float:left;
@@ -137,7 +182,18 @@
             <div>
             @yield('content')
             </div>
+            <div class="marquee">
+                <div class="marquee__item">
+                    @if($announcement)
+                        @forelse ( $announcement as $data)
+                        <i class="fa fa-building"></i>&nbsp {{ $data->user_message }} <span class=""> &nbsp &nbsp</span>
+                        @empty
 
+                        @endforelse
+                    @endif
+
+                </div>
+            </div>
             <div class="footer" style="background-color:#2F4858; padding: 1%; color: #fff; text-align: center;">
                              Copyright © 2021 iCEP - International Conference and Exhibition Professionals. All rights reserved.
             </div>
