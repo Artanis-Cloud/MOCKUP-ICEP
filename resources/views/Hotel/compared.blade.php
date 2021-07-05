@@ -16,7 +16,7 @@ a{
 }
 /* unvisited link */
 a:link {
-  color: black !important;
+  color: white !important;
 }
 
 /* visited link */

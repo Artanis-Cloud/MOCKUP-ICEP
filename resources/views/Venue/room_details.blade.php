@@ -314,6 +314,7 @@
         font-size: 15px;
         max-width: 400px;
     }
+
     </style>
 
 <body>
@@ -369,6 +370,7 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><font color="white">Nearby</font></a>
                                             </li>
+
                                         </ul>
                                         <!-- Tab content -->
 
