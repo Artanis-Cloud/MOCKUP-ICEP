@@ -545,7 +545,21 @@
                                                     </a>
                                                 </div>
                                             @empty
-                                                No photos available
+                                                {{-- @forelse($gallery as $gallery)
+                                                    <div class="item">
+                                                        <a href="{{ asset($image_path = str_replace('public', 'storage', $gallery->photos)) }}"
+                                                            data-fancybox="gallery"
+                                                            data-caption="{{ $gallery->caption }}">
+                                                            <figure>
+                                                                <img class="card-img-top"
+                                                                    src="{{ asset($image_path = str_replace('public', 'storage', $gallery->photos)) }}"
+                                                                    style="width:100%;" alt="Card image cap">
+
+                                                            </figure>
+                                                        </a>
+                                                    </div>
+                                                @empty
+                                                @endforelse --}}
                                             @endforelse
                                         </div>
                                     </div>
