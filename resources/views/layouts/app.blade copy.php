@@ -32,6 +32,32 @@
 @livewireStyles
 
     <style>
+        a {
+            font-size: 100% !important;
+        }
+
+        /* unvisited link */
+        a:link {
+            color: white !important;
+        }
+
+        /* visited link */
+        a:visited {
+            color: white !important;
+        }
+
+        /* selected link */
+        a:active {
+            color: white !important;
+
+        }
+
+        .container-fluid {
+            width: 100%;
+            height: auto;
+
+        }
+
         .dropdown {
         position: relative;
         display: inline-block;
@@ -53,7 +79,53 @@
         .dropdown:hover .dropdown-content {
         display: block;
         }
-        nav ul li{
+       /* announcement */
+        .marquee {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        }
+        .marquee:hover .marquee__item {
+        -webkit-animation-play-state: paused;
+                animation-play-state: paused;
+        }
+        .marquee__seperator {
+        margin: 0 2rem;
+        }
+        .marquee__item {
+        display: inline-block;
+        will-change: transform;
+        -webkit-animation: marquee 50s linear infinite;
+                animation: marquee 50s linear infinite;
+        }
+
+        @-webkit-keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+        }
+
+        @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+        }
+        .marquee {
+        background-color: #01586f;
+        padding: 1rem 0;
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        }
+
+
+            nav ul li{
             list-style:none;
             float:left;
             padding-right:20px;
@@ -71,6 +143,8 @@
             color:#fff;
 
             }
+
+
     </style>
 </head>
 <body>
@@ -87,17 +161,34 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
-
-                    <nav >
-                        <ul id="navi" class="mr-auto navbar-nav">
-                    <li class="nav-item"><a class="nav-link menu" href=""></a></li>
-                     <li class="nav-item"><a class="nav-link menu {{ (request()->is('eventspace')) ? 'active' : '' }}" href="{{ route('eventspace') }}">EVENT SPACE</a></li>
-                     <li class="nav-item"><a class="nav-link menu {{ (request()->is('hotel')) ? 'active' : '' }}" href="{{ route('hotel') }}">ACCOMMODATION</a></li>
-                     <li class="nav-item"><a class="nav-link menu {{ (request()->is('eventspace-comparison')) ? 'active' : '' }}" href="{{ route('comparison-eventspace') }}">EVENT SPACE COMPARISON</a></li>
-                     <li class="nav-item"><a class="nav-link menu {{ (request()->is('hotel-comparison')) ? 'active' : '' }}" href="{{ route('comparison-hotel') }}">ACCOMMODATION COMPARISON</a></li>
-
+                    <nav class="navecation">
+                        <ul id="navi">
+                     <li><a class="menu {{ (request()->is('eventspace')) ? 'active' : '' }}" href="{{ route('eventspace') }}">EVENT SPACE</a></li>
+                     <li><a class="menu {{ (request()->is('hotel')) ? 'active' : '' }}" href="{{ route('hotel') }}">ACCOMMODATION</a></li>
+                     <li><a class="menu {{ (request()->is('eventspace-comparison')) ? 'active' : '' }}" href="{{ route('comparison-eventspace') }}">EVENT SPACE COMPARISON</a></li>
+                     <li><a class="menu {{ (request()->is('hotel-comparison')) ? 'active' : '' }}" href="{{ route('comparison-hotel') }}">ACCOMMODATION COMPARISON</a></li>
                    </ul>
                      </nav>
+
+                    {{-- <ul class="mr-auto navbar-nav" style="text-align: center;">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href=""></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('eventspace') }}">EVENT SPACE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('hotel') }}">ACCOMMODATION</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('comparison-eventspace') }}">EVENT SPACE COMPARISON</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('comparison-hotel') }}">ACCOMMODATION COMPARISON</a>
+                        </li>
+
+                    </ul> --}}
 
 
 
@@ -138,8 +229,23 @@
             @yield('content')
             </div>
 
-            <div class="footer" style="background-color:#2F4858; padding: 1%; color: #fff; text-align: center;">
-                             Copyright © 2021 iCEP - International Conference and Exhibition Professionals. All rights reserved.
+            <div class="marquee">
+                <div class="marquee__item">
+                    @if($announcement)
+                        @forelse ( $announcement as $data)
+                        <i class="fa fa-building"></i>&nbsp {{ $data->user_message }} <span class=""> &nbsp &nbsp</span>
+                        @empty
+
+                        @endforelse
+                    @endif
+
+                </div>
+            </div>
+            <div class="footer" style="background-color:#2f4858; padding: 1%; color: #fff; text-align: center;">
+
+
+                    Copyright © 2021 iCEP - International Conference and Exhibition Professionals. All rights reserved.
+
             </div>
     </div>
 
@@ -154,4 +260,13 @@
       }, 5000 ); // 5 secs
 
     });
+    </script>
+
+<script>
+$(document).ready(function(){
+  $('ul li a').click(function(){
+    $('li a').removeClass("active");
+    $(this).addClass("active");
+});
+});
     </script>
