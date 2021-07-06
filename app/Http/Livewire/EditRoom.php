@@ -77,7 +77,9 @@ class EditRoom extends Component
         $this->size = $room->size;
         $this->type_of_bed = $room->type_of_bed;
         $this->view = $room->view;
-        $this->single = $room->single;
+        $this->single_rate = $room->single_rate;
+        $this->double_rate = $room->double_rate;
+        $this->corporate_rate = $room->corporate_rate;
         $this->updateMode = true;
 
     }

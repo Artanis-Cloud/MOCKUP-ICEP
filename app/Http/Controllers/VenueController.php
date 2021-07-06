@@ -212,6 +212,7 @@ class VenueController extends Controller
 
     public function roomFilter(Request $request)
     {
+        // dd($request->all());
         //size
         if ($request->size == "500") {
             $minSize = 0;
@@ -220,7 +221,7 @@ class VenueController extends Controller
             $minSize = 501;
             $maxSize = 1000;
         } elseif ($request->size == "1500") {
-            $minSize = 2001;
+            $minSize = 1001;
             $maxSize = 1500;
         } elseif ($request->size == "2000") {
             $minSize = 1501;
@@ -241,7 +242,7 @@ class VenueController extends Controller
             $minSingle = 501;
             $maxSingle = 1000;
         } elseif ($request->single == "1500") {
-            $minSingle = 2001;
+            $minSingle = 1001;
             $maxSingle = 1500;
         } elseif ($request->single == "2000") {
             $minSingle = 1501;
@@ -262,7 +263,7 @@ class VenueController extends Controller
             $minDouble = 501;
             $maxDouble = 1000;
         } elseif ($request->double == "1500") {
-            $minDouble = 2001;
+            $minDouble = 1001;
             $maxDouble = 1500;
         } elseif ($request->double == "2000") {
             $minDouble = 1501;
@@ -283,7 +284,7 @@ class VenueController extends Controller
             $minCorporate = 501;
             $maxCorporate = 1000;
         } elseif ($request->corporate == "1500") {
-            $minCorporate = 2001;
+            $minCorporate = 1001;
             $maxCorporate = 1500;
         } elseif ($request->corporate == "2000") {
             $minCorporate = 1501;
@@ -315,9 +316,10 @@ class VenueController extends Controller
         $singlerateselected= $request->single;
         $doubleselected= $request->double;
         $corporateselected= $request->corporate;
+        $bed = $request->type_of_bed;
 
         $bed_type = HotelRoom::distinct('type_of_bed')->get('type_of_bed');
-        return view('Venue.hotel_filter', compact('hotels', 'bed_type', 'rooms','sizeselected','singlerateselected','doubleselected','corporateselected'));
+        return view('Venue.hotel_filter', compact('bed','hotels', 'bed_type', 'rooms','sizeselected','singlerateselected','doubleselected','corporateselected'));
     }
 
     public function eventspace()
@@ -361,7 +363,7 @@ class VenueController extends Controller
             $minBanquet = 501;
             $maxBanquet = 1000;
         } elseif ($request->banquet == "1500") {
-            $minBanquet = 2001;
+            $minBanquet = 1001;
             $maxBanquet = 1500;
         } elseif ($request->banquet == "2000") {
             $minBanquet = 1501;
@@ -382,7 +384,7 @@ class VenueController extends Controller
             $minClassroom = 501;
             $maxClassroom = 1000;
         } elseif ($request->classroom == "1500") {
-            $minClassroom = 2001;
+            $minClassroom = 1001;
             $maxClassroom = 1500;
         } elseif ($request->classroom == "2000") {
             $minClassroom = 1501;
@@ -403,7 +405,7 @@ class VenueController extends Controller
             $minTheater = 501;
             $maxTheater = 1000;
         } elseif ($request->theater == "1500") {
-            $minTheater = 2001;
+            $minTheater = 1001;
             $maxTheater = 1500;
         } elseif ($request->theater == "2000") {
             $minTheater = 1501;
@@ -424,7 +426,7 @@ class VenueController extends Controller
             $minCocktail = 501;
             $maxCocktail = 1000;
         } elseif ($request->cocktail == "1500") {
-            $minCocktail = 2001;
+            $minCocktail = 1001;
             $maxCocktail = 1500;
         } elseif ($request->cocktail == "2000") {
             $minCocktail = 1501;
@@ -445,7 +447,7 @@ class VenueController extends Controller
             $minCabaret = 501;
             $maxCabaret = 1000;
         } elseif ($request->cabaret == "1500") {
-            $minCabaret = 2001;
+            $minCabaret = 1001;
             $maxCabaret = 1500;
         } elseif ($request->cabaret == "2000") {
             $minCabaret = 1501;
@@ -466,7 +468,7 @@ class VenueController extends Controller
             $minBooth_capacity = 501;
             $maxBooth_capacity = 1000;
         } elseif ($request->booth_capacity == "1500") {
-            $minBooth_capacity = 2001;
+            $minBooth_capacity = 1001;
             $maxBooth_capacity = 1500;
         } elseif ($request->booth_capacity == "2000") {
             $minBooth_capacity = 1501;
@@ -506,6 +508,7 @@ class VenueController extends Controller
         $cocktail = $request->cocktail;
         $cabaret = $request->cabaret;
         $booth_capacity = $request->booth_capacity;
+        // dd($size);
 
         return view('Venue.eventspace_filter', compact('eventspace', 'hotels','size','banquet','classroom','theater','cocktail','cabaret','booth_capacity'));
     }
@@ -557,7 +560,7 @@ class VenueController extends Controller
             $minSize = 501;
             $maxSize = 1000;
         } elseif ($request->size == "1500") {
-            $minSize = 2001;
+            $minSize = 1001;
             $maxSize = 1500;
         } elseif ($request->size == "2000") {
             $minSize = 1501;
@@ -578,7 +581,7 @@ class VenueController extends Controller
             $minSingle = 501;
             $maxSingle = 1000;
         } elseif ($request->single == "1500") {
-            $minSingle = 2001;
+            $minSingle = 1001;
             $maxSingle = 1500;
         } elseif ($request->single == "2000") {
             $minSingle = 1501;
@@ -599,7 +602,7 @@ class VenueController extends Controller
             $minDouble = 501;
             $maxDouble = 1000;
         } elseif ($request->double == "1500") {
-            $minDouble = 2001;
+            $minDouble = 1001;
             $maxDouble = 1500;
         } elseif ($request->double == "2000") {
             $minDouble = 1501;
@@ -620,7 +623,7 @@ class VenueController extends Controller
             $minCorporate = 501;
             $maxCorporate = 1000;
         } elseif ($request->corporate == "1500") {
-            $minCorporate = 2001;
+            $minCorporate = 1001;
             $maxCorporate = 1500;
         } elseif ($request->corporate == "2000") {
             $minCorporate = 1501;
@@ -723,7 +726,7 @@ class VenueController extends Controller
             $minBanquet = 501;
             $maxBanquet = 1000;
         } elseif ($request->banquet == "1500") {
-            $minBanquet = 2001;
+            $minBanquet = 1001;
             $maxBanquet = 1500;
         } elseif ($request->banquet == "2000") {
             $minBanquet = 1501;
@@ -744,7 +747,7 @@ class VenueController extends Controller
             $minClassroom = 501;
             $maxClassroom = 1000;
         } elseif ($request->classroom == "1500") {
-            $minClassroom = 2001;
+            $minClassroom = 1001;
             $maxClassroom = 1500;
         } elseif ($request->classroom == "2000") {
             $minClassroom = 1501;
@@ -765,7 +768,7 @@ class VenueController extends Controller
             $minTheater = 501;
             $maxTheater = 1000;
         } elseif ($request->theater == "1500") {
-            $minTheater = 2001;
+            $minTheater = 1001;
             $maxTheater = 1500;
         } elseif ($request->theater == "2000") {
             $minTheater = 1501;
@@ -786,7 +789,7 @@ class VenueController extends Controller
             $minCocktail = 501;
             $maxCocktail = 1000;
         } elseif ($request->cocktail == "1500") {
-            $minCocktail = 2001;
+            $minCocktail = 1001;
             $maxCocktail = 1500;
         } elseif ($request->cocktail == "2000") {
             $minCocktail = 1501;
@@ -807,7 +810,7 @@ class VenueController extends Controller
             $minCabaret = 501;
             $maxCabaret = 1000;
         } elseif ($request->cabaret == "1500") {
-            $minCabaret = 2001;
+            $minCabaret = 1001;
             $maxCabaret = 1500;
         } elseif ($request->cabaret == "2000") {
             $minCabaret = 1501;
@@ -828,7 +831,7 @@ class VenueController extends Controller
             $minBooth_capacity = 501;
             $maxBooth_capacity = 1000;
         } elseif ($request->booth_capacity == "1500") {
-            $minBooth_capacity = 2001;
+            $minBooth_capacity = 1001;
             $maxBooth_capacity = 1500;
         } elseif ($request->booth_capacity == "2000") {
             $minBooth_capacity = 1501;

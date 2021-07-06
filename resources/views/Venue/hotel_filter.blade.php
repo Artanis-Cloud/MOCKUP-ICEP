@@ -280,7 +280,7 @@
                                                 <select name="type_of_bed" id="" class="form-control bg-light">
                                                     {{-- <option selected disabled hidden value="">Choose Type of Bed</option> --}}
                                                     @forelse($bed_type as $data)
-                                                        <option value="{{ $data->type_of_bed }}" class="">
+                                                        <option value="{{ $data->type_of_bed }}" {{ $bed == $data->type_of_bed ? 'selected="selected"' : '' }} class="">
                                                             {{ $data->type_of_bed }}</option>
                                                     @empty
                                                         No Data
