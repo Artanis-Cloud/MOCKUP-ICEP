@@ -207,6 +207,7 @@ input.search-submit {
                             <div class="form-group">
                                 <label for="f-name-1">Size (s.q ft)</label>
                                 <select name="size" id="" class="form-control bg-light">
+                                    <option value="" selected disable hidden>Please choose size</option>
                                     <option value="1000" {{ $size == '1000' ? 'selected="selected"' : '' }} class="">0-1000</option>
                                     <option value="5000" {{ $size == '5000' ? 'selected="selected"' : '' }} class="">1001-5000</option>
                                     <option value="10000" {{ $size == '10000' ? 'selected="selected"' : '' }} class="">5001-10000</option>
@@ -240,6 +241,7 @@ input.search-submit {
                                 <div class="form-group">
                                     <label for="f-name-1">Classroom</label>
                                     <select name="classroom" id="" class="form-control bg-light">
+                                        <option value="" selected disable hidden>Please choose classroom</option>
                                         <option value="500" {{ $classroom == '500' ? 'selected="selected"' : '' }} class="">0-500</option>
                                         <option value="1000" {{ $classroom == '1000' ? 'selected="selected"' : '' }} class="">501-1000</option>
                                         <option value="1500" {{ $classroom == '1500' ? 'selected="selected"' : '' }} class="">1001-1500</option>
@@ -254,6 +256,7 @@ input.search-submit {
                                 <div class="form-group">
                                     <label for="f-name-1">Theater</label>
                                     <select name="theater" id="" class="form-control bg-light">
+                                        <option value="" selected disable hidden>Please choose theater</option>
                                         <option value="500" {{ $theater == '500' ? 'selected="selected"' : '' }} class="">0-500</option>
                                         <option value="1000" {{ $theater == '1000' ? 'selected="selected"' : '' }} class="">501-1000</option>
                                         <option value="1500" {{ $theater == '1500' ? 'selected="selected"' : '' }} class="">1001-1500</option>
