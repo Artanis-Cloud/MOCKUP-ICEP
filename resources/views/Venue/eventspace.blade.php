@@ -18,18 +18,22 @@ a{
 }
 /* unvisited link */
 a:link {
-  color: black !important;
+  color: rgb(252, 252, 252) !important;
 }
 
 /* visited link */
 a:visited {
-  color: white !important;
+  color: rgb(255, 255, 255) !important;
 }
 
 /* selected link */
 a:active {
   color: white !important;
 
+}
+
+.bg-white {
+    background-color: #e89a3d!important;
 }
 
 .container-fluid{
@@ -446,7 +450,7 @@ input.search-submit {
         no data
         @endforelse
         </div>
-    {{ $hotels->links() }}
+    <font color="white">{{ $hotels->links() }}</font>
     </div>
 </div>
 </div>
