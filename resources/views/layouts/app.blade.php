@@ -184,13 +184,7 @@
                      <li class="nav-item"><a class="nav-link menu {{ (request()->is('hotel')) ? 'active' : '' }}" href="{{ route('hotel') }}">ACCOMMODATION</a></li>
                      <li class="nav-item"><a class="nav-link menu {{ (request()->is('eventspace-comparison')) ? 'active' : '' }}" href="{{ route('comparison-eventspace') }}">EVENT SPACE COMPARISON</a></li>
                      <li class="nav-item"><a class="nav-link menu {{ (request()->is('hotel-comparison')) ? 'active' : '' }}" href="{{ route('comparison-hotel') }}">ACCOMMODATION COMPARISON</a></li>
-                     <li class="nav-item dropdown">
-                        <a class="" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('LOGOUT') }}
-                            </font></a>
+                     <li class="nav-item"><a class="nav-link menu" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('LOGOUT') }}</font></a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
@@ -199,9 +193,9 @@
                             {{ Auth::user()->name }}
                         </a> --}}
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                        </div>
+                        </div> --}}
 
                     </li>
 
