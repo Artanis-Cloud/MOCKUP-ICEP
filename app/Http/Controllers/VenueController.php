@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Venues;
 use App\Models\Hotel;
+use DB;
 use App\Models\Gallery;
 use App\Models\EventSpace;
 use App\Models\HotelRoom;
@@ -201,8 +202,17 @@ class VenueController extends Controller
         // dd($request->all());
         $hotel = HotelRoom::where('hotel_id', $request->hotel_id)->get();
         $hotel_name =  Hotel::where('id', $request->hotel_id)->first();
-        $rooms = HotelRoom::where('id', $request->room_id)->orderby('room_type', 'ASC')->get();
-        $photos = Gallery::where('room_id', $request->room_id)->where('eventspace_id', null)->get();
+        if($request->room_id){
+            $rooms = HotelRoom::where('id', $request->room_id)->orderby('room_type', 'ASC')->get();
+            $photos = Gallery::where('room_id', $request->room_id)->where('eventspace_id', null)->get();
+
+        }
+        else{
+            $rooms = HotelRoom::where('id', $request->room_id)->orderby('room_type', 'ASC')->get();
+            $photos = DB::select(DB::raw ("select * from galleries g, hotel_rooms hr, hotels h  where hr.id = g.room_id AND h.id = hr.hotel_id AND h.id = $request->hotel_id"));
+            // dd($photos);
+        }
+
         $gallery = Gallery::where('eventspace_id', null)->get();
         $map = Hotel::where('id', $request->hotel_id)->get();
         // dd($rooms);
@@ -518,8 +528,18 @@ class VenueController extends Controller
         // dd($request->all());
 
         $hotels = EventSpace::where('hotel_id', $request->hotel_id)->get();
-        $eventspace = EventSpace::where('id', $request->eventspace_id)->orderby('venue', 'ASC')->get();
-        $photos = Gallery::where('eventspace_id', $request->eventspace_id)->where('room_id', null)->get();
+        // $eventspace = EventSpace::where('id', $request->eventspace_id)->orderby('venue', 'ASC')->get();
+        if($request->eventspace_id){
+            $eventspace = EventSpace::where('id', $request->eventspace_id)->orderby('venue', 'ASC')->get();
+            $photos = Gallery::where('eventspace_id', $request->eventspace_id)->where('room_id', null)->get();
+
+        }
+        else{
+            $eventspace = EventSpace::where('id', $request->eventspace_id)->orderby('venue', 'ASC')->get();
+            $photos = DB::select(DB::raw ("select * from galleries g, event_spaces hr, hotels h  where hr.id = g.eventspace_id AND h.id = hr.hotel_id AND h.id = $request->hotel_id"));
+            // dd($photos);
+        }
+        // $photos = Gallery::where('eventspace_id', $request->eventspace_id)->where('room_id', null)->get();
         $gallery = Gallery::where('room_id', null)->get();
         $map = Hotel::where('id', $request->hotel_id)->get();
         $hotel_name =  Hotel::where('id', $request->hotel_id)->first();
