@@ -184,6 +184,26 @@
                      <li class="nav-item"><a class="nav-link menu {{ (request()->is('hotel')) ? 'active' : '' }}" href="{{ route('hotel') }}">ACCOMMODATION</a></li>
                      <li class="nav-item"><a class="nav-link menu {{ (request()->is('eventspace-comparison')) ? 'active' : '' }}" href="{{ route('comparison-eventspace') }}">EVENT SPACE COMPARISON</a></li>
                      <li class="nav-item"><a class="nav-link menu {{ (request()->is('hotel-comparison')) ? 'active' : '' }}" href="{{ route('comparison-hotel') }}">ACCOMMODATION COMPARISON</a></li>
+                     <li class="nav-item dropdown">
+                        <a class="" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('LOGOUT') }}
+                            </font></a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a> --}}
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                        </div>
+
+                    </li>
 
                    </ul>
                      </nav>
@@ -191,34 +211,15 @@
 
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="ml-auto navbar-nav" style="text-align: center;">
+                    {{-- <ul class="ml-auto navbar-nav" style="text-align: center;">
                         <!-- Authentication Links -->
 
 
 
 
-                            <li class="nav-item dropdown">
-                                <a class="" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
 
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('LOGOUT') }}
-                                    </font></a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a> --}}
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                                </div>
-
-                            </li>
-
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </nav>

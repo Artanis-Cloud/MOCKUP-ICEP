@@ -44,6 +44,9 @@
             height: 100^%;
 
         }
+        .bg-white {
+    background-color: #e89a3d!important;
+}
 
         /* search */
         input[type=search] {
@@ -437,7 +440,7 @@
                             no data
                         @endforelse
                     </div>
-                    {{ $hotels->links() }}
+                    <font color="white">{{ $hotels->links() }}</font>
                 </div>
             </div>
 
