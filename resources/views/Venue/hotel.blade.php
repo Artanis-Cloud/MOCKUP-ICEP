@@ -25,6 +25,7 @@
 
         /* unvisited link */
         a:link {
+
             color: white !important;
         }
 
@@ -440,7 +441,14 @@
                             no data
                         @endforelse
                     </div>
-                    <font color="white">{{ $hotels->links() }}</font>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <center>
+                            <font color="white">{{ $hotels->links() }}</font>
+                        </center>
+                        </div>
+                    </div>
                 </div>
             </div>
 
