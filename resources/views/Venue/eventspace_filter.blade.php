@@ -346,7 +346,12 @@ input.search-submit {
                 </div>
 
      <div class="col-md-8" style="padding: 5%">
+        <div class="row" style="padding-left:3%;">
+            <div class="col-md">
+                <a class="btn btn-primary" href="{{ url()->previous() }}">Back</a>
+            </div>
 
+        </div><br>
        <div class="row">
         @forelse($hotels->unique('id') as $data)
         @forelse($eventspace->unique('hotel_id') as $room)

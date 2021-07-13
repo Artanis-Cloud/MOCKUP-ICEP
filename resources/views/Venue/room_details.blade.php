@@ -365,6 +365,7 @@
 
             <div class="row">
                 <div class="col-md-12" style="padding-left: 5%; padding-right: 5%; padding-top: 5%;">
+                    <a class="btn btn-primary" href="{{ url()->previous() }}">Back</a><br><br>
                     <div class="rounded-lg card border-1">
                         <!-- Card body -->
                         <div class="p-0 card-body">
@@ -720,7 +721,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div><br>
 
         </div>
 

@@ -204,6 +204,7 @@
 
     <body>
         <div class="container-fluid">
+
             <div class="row">
                 <div class="col-md-4" style="padding: 5%">
                     <div class="rounded-lg card">
@@ -280,7 +281,9 @@
                                                 <select name="type_of_bed" id="" class="form-control bg-light">
                                                     {{-- <option selected disabled hidden value="">Choose Type of Bed</option> --}}
                                                     @forelse($bed_type as $data)
-                                                        <option value="{{ $data->type_of_bed }}" {{ $bed == $data->type_of_bed ? 'selected="selected"' : '' }} class="">
+                                                        <option value="{{ $data->type_of_bed }}"
+                                                            {{ $bed == $data->type_of_bed ? 'selected="selected"' : '' }}
+                                                            class="">
                                                             {{ $data->type_of_bed }}</option>
                                                     @empty
                                                         No Data
@@ -345,11 +348,21 @@
                                             <label for="f-name-1">Double Rate</label>
                                             <select name="double" id="" class="form-control bg-light">
                                                 <option value="" selected disable hidden>Please choose double rate</option>
-                                                <option value="500" {{ $doubleselected == '500' ? 'selected="selected"' : '' }} class="">0-500</option>
-                                                <option value="1000" {{ $doubleselected == '1000' ? 'selected="selected"' : '' }} class="">501-1000</option>
-                                                <option value="1500" {{ $doubleselected == '1500' ? 'selected="selected"' : '' }} class="">1001-1500</option>
-                                                <option value="2000" {{ $doubleselected == '2000' ? 'selected="selected"' : '' }} class="">1501-2000</option>
-                                                <option value="2001" {{ $doubleselected == '2001' ? 'selected="selected"' : '' }} class="">2001 and above</option>
+                                                <option value="500"
+                                                    {{ $doubleselected == '500' ? 'selected="selected"' : '' }} class="">
+                                                    0-500</option>
+                                                <option value="1000"
+                                                    {{ $doubleselected == '1000' ? 'selected="selected"' : '' }}
+                                                    class="">501-1000</option>
+                                                <option value="1500"
+                                                    {{ $doubleselected == '1500' ? 'selected="selected"' : '' }}
+                                                    class="">1001-1500</option>
+                                                <option value="2000"
+                                                    {{ $doubleselected == '2000' ? 'selected="selected"' : '' }}
+                                                    class="">1501-2000</option>
+                                                <option value="2001"
+                                                    {{ $doubleselected == '2001' ? 'selected="selected"' : '' }}
+                                                    class="">2001 and above</option>
                                             </select>
                                         </div>
                                     </div>
@@ -372,11 +385,21 @@
                                             <select name="corporate" id="" class="form-control bg-light">
                                                 <option value="" selected disable hidden>Please choose corporate rate
                                                 </option>
-                                                <option value="500" {{ $corporateselected == '500' ? 'selected="selected"' : '' }} class="">0-500</option>
-                                                <option value="1000" {{ $corporateselected == '1000' ? 'selected="selected"' : '' }} class="">501-1000</option>
-                                                <option value="1500" {{ $corporateselected == '1500' ? 'selected="selected"' : '' }} class="">1001-1500</option>
-                                                <option value="2000" {{ $corporateselected == '2000' ? 'selected="selected"' : '' }} class="">1501-2000</option>
-                                                <option value="2001" {{ $corporateselected == '2001' ? 'selected="selected"' : '' }} class="">2001 and above</option>
+                                                <option value="500"
+                                                    {{ $corporateselected == '500' ? 'selected="selected"' : '' }}
+                                                    class="">0-500</option>
+                                                <option value="1000"
+                                                    {{ $corporateselected == '1000' ? 'selected="selected"' : '' }}
+                                                    class="">501-1000</option>
+                                                <option value="1500"
+                                                    {{ $corporateselected == '1500' ? 'selected="selected"' : '' }}
+                                                    class="">1001-1500</option>
+                                                <option value="2000"
+                                                    {{ $corporateselected == '2000' ? 'selected="selected"' : '' }}
+                                                    class="">1501-2000</option>
+                                                <option value="2001"
+                                                    {{ $corporateselected == '2001' ? 'selected="selected"' : '' }}
+                                                    class="">2001 and above</option>
                                             </select>
                                         </div>
                                     </div>
@@ -419,7 +442,15 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-8" style="padding: 5%">
+                    <div class="row" style="padding-left:3%;">
+                        <div class="col-md">
+                            <a class="btn btn-primary" href="{{ url()->previous() }}">Back</a>
+                        </div>
+
+                    </div><br>
+
 
                     <div class="row">
                         @forelse($hotels->unique('id') as $data)
@@ -468,7 +499,7 @@
                                                         @csrf
                                                         <select name="room_id" id=""
                                                             class="form-control bg-light @error('room_id') is-invalid @enderror"">
-                                        <option disabled=" disabled" hidden value="0">Choose Room Type</option>
+                                            <option disabled=" disabled" hidden value="0">Choose Room Type</option>
                                                             @forelse ($rooms as $dataRoom)
                                                                 @if ($data->id == $dataRoom->hotel_id)
                                                                     <option value="{{ $dataRoom->id }}">
