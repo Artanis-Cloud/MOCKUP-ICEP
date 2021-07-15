@@ -550,8 +550,8 @@ label {
 .btn-primary,
 .btn-outline-primary {
   color: #ffffff !important;
-  background: #e89a3d  !important;
-  border-color: #e89a3d  !important;
+  background: #EB831D  !important;
+  border-color: #EB831D  !important;
 }
 
 .primary-btn-hover-focus,
@@ -1048,7 +1048,7 @@ button.close {
 .badge-primary,
 .badge-rounded-primary,
 .badge-square-primary {
-  background-color: #e89a3d !important;
+  background-color: #EB831D !important;
 }
 
 .badge-secondary,
@@ -1285,7 +1285,7 @@ button.close {
   align-items: center;
   width: 3rem;
   height: 3rem;
-  background: #e89a3d;
+  background: #EB831D;
   position: absolute;
   left: -3rem;
   top: 0;
@@ -1312,7 +1312,7 @@ button.close {
 
 .side-bar {
   /* background: linear-gradient(-154deg, #639, #33214b) !important; */
-  background: #E89A3D!important;
+  background: #EB831D!important;
   height: 100vh !important;
   width: 17rem !important;
   visibility: hidden;

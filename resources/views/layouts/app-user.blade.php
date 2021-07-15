@@ -38,7 +38,7 @@
         <div class="side-bar side-bar-lg-active" data-theme="purple">
             <!-- Brand details -->
             <div class="mt-3 side-menu-brand d-flex flex-column justify-content-center align-items-center clear">
-                <img src="{{ asset('/image/admin/logo.png') }}" alt="bran_name" class="brand-img">
+                <img src="{{ asset('/image/admin/logo.png') }}" style="width:100%" alt="bran_name" class="brand-img">
                 <a href="{{ route('home') }}" class="mt-2 ml-2 brand-name font-weight-bold" style="text-align: center; font-size: 20px !important;padding-top: 10%;">iCEP - International Conference and Exhibition Professionals</a>
             </div>
             @if(Auth::user())

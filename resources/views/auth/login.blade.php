@@ -254,7 +254,7 @@ section {
              <div class="container">
               <div class="form">
                   <div style="text-align:center;">
-                    <a href="{{ route('welcome') }}"><img src="http://ezran.my/ACES/wp-content/uploads/2021/02/logo-new.png" style="height: 100%; width:30%;" alt="Kerajaan Selangor"></a>
+                    <a href="{{ route('welcome') }}"><img src="http://ezran.my/ACES/wp-content/uploads/2021/02/logo-new.png" style="width:70%;" ></a>
                   </div>
                   <br>
 
