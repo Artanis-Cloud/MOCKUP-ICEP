@@ -308,7 +308,7 @@ section {
              <div class="container">
               <div class="form">
                   <div style="text-align:center;">
-                    <a href="{{ route('welcome') }}"><img src="{{ asset('/image/user/logo.png') }}" style="height: 50px; width:80px;" alt=""></a>
+                    <a href="{{ route('welcome') }}"><img src="{{ asset('/image/user/logo.png') }}" style="width:70%;" alt=""></a>
                   </div>
                   <br>
 

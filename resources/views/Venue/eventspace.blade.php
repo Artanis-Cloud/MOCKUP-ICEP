@@ -33,7 +33,7 @@ a:active {
 }
 
 .bg-white {
-    background-color: #e89a3d!important;
+    background-color: #EB831D!important;
 }
 
 .container-fluid{
@@ -127,7 +127,7 @@ input.search-submit {
 .button:active,
 .button:focus {
   cursor: pointer;
-  background: #E89A3D;
+  background: #EB831D;
   color: #292826;
   outline: 0;
 }

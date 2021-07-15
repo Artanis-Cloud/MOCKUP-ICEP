@@ -112,7 +112,7 @@
                 color: #000 !important;
             }
             .active{
-            background-color: #e89a3d;
+            background-color: #EB831D;
             color:#fff;
 
             }
@@ -167,7 +167,7 @@
         <nav class="shadow-sm navbar navbar-expand-md navbar-light" style="background-color: #2F4858;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <a href="{{ url('/homepage') }}"><img src="{{ asset('/image/user/logo.png') }}" style="height: 60px;" alt=""></a>
+                    <a href="{{ url('/homepage') }}"><img src="{{ asset('/image/admin/logo.png') }}" style="height: 90px;" alt=""></a>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
