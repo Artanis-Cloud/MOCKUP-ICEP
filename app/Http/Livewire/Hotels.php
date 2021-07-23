@@ -56,7 +56,7 @@ class Hotels extends Component
 
         $this->emit('room-process', $hotel->id);
         // return $hotel->id;
-        session()->flash('message', 'Room Has Been Added Successfully.');
+        session()->flash('message', 'Venue Has Been Added Successfully.');
     }
 
     public function storeImage()
