@@ -2,29 +2,9 @@
 
 @section('content')
 
-{{-- <link rel="stylesheet" href="https://maps.google.com/maps/api/js?sensor=false"> --}}
-{{-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=initialize"></script> --}}
 
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
-//     $(document).ready(function() {
-//        $("#gadres")
-//         .css("color", "#555555")
-//         .focus(function(){
-//             $(this).css("color", "black"); $(this).css("background-color", "#ffffff");$(this).select();
-//         })
-//         .blur(function(){
-//             $(this).css("color", "#555555"); $(this).css("background-color", "#fafafa");
-//         });
-//     $("#gadres").keyup(function(event){
-//         if(event.keyCode == 13){
-//             codeAddress();
-//         }
-//     });
-//      });
-//   </script>
-
-  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
-  <script type="text/javascript">
     var map;
         var geocoder;
         var marker;
@@ -91,18 +71,18 @@
     //       }
     //     });
     //   }
-  </script>
+</script>
 
 <style>
-#map {
-  height: 500px;
-  border: 1px solid #000;
-}
-
+    #map {
+        height: 500px;
+        border: 1px solid #000;
+    }
 </style>
 
+
 <div class="p-4 page-body text-dark">
-    <div  style="font-size: 180%;color: rgb(0, 0, 0);" >
+    <div style="font-size: 180%;color: rgb(0, 0, 0);">
         <i class="fa fa-hotel" aria-hidden="true" style="color: rgb(0, 0, 0);"></i>
         Add New Accommodation
     </div>
@@ -112,8 +92,55 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <div class="rounded-lg card" style="border-color: #003473 !important;">
-                <div class="card-header" style="text-align:center; border-color: #003473 !important; font-size: 130%; font-weight: bold;">Add New Accommodation</div>
+                <div class="card-header"
+                    style="text-align:center; border-color: #003473 !important; font-size: 130%; font-weight: bold;">Add
+                    New Accommodation</div>
                 <div class="card-body">
+                    @if ($message = Session::get('success'))
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                     $('#modal').modal();
+                 });
+                    </script>
+                    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content alert alert-card alert-success">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Successful!</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>{{$message}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @elseif ($message = Session::get('error'))
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                     $('#error_modal').modal();
+                 });
+                    </script>
+                    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content alert alert-card warning-danger">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Failed!</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>{{$message}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
 
                     @livewire('room')
 
@@ -122,13 +149,12 @@
         </div>
         <div class="col-md-1"></div>
     </div>
-  <!-- Small card component -->
+    <!-- Small card component -->
 </div>
 
 
 <script type="text/javascript">
-
-  $('#image').on('change',function(){
+    $('#image').on('change',function(){
       //get the file name
       var fileName = $(this).val();
       //replace the "Choose a file" label
@@ -169,6 +195,5 @@
     location.href=url;
     return false;
     }
-  </script>
+</script>
 @endsection
-
