@@ -275,7 +275,8 @@ height:200px;
     }
   </script>
 
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyBC2TRFZxVzF15u7s41qm_9a2ai_IOFD8A&sensor=false"></script>
+
 <script type="text/javascript">
   var map;
       var geocoder;

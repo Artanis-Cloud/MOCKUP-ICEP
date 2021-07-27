@@ -23,7 +23,7 @@
 //      });
 //   </script>
 
-  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDxD3V2LgIn_K_q2oAOs5gzS0GCG5qRjr0&sensor=false"></script>
   <script type="text/javascript">
     var map;
         var geocoder;
