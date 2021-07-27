@@ -4,7 +4,7 @@
 <div class="p-4 page-body text-dark">
     <div  style="font-size: 180%;color: rgb(0, 0, 0);" >
         <i class="fa fa-user" aria-hidden="true" style="color: rgb(0, 0, 0);"></i>
-        List of Users
+        List of User
       </div>
       <hr style="background-color: black !important;">
       <div style="padding:5px;"></div>
@@ -83,10 +83,24 @@
 
                                     <td class="p-3">
                                         <div class="flex-row d-flex justify-content-around align-items-center">
-                                            @if($currentUser->id != $data->id)
-                                            <a href="{{ route('users.deactivate', $data->id) }}" class="btn btn-danger"><i class="fas fa-times-circle"></i></a>
-                                            @else
-                                            <a href="#" class="btn btn-dark"><i class="fas fa-times-circle"></i></a>
+                                            @if($currentUser->roles == 1)
+                                                @if($currentUser->id != $data->id)
+
+                                                    <a href="{{ route('users.deactivate', $data->id) }}" class="btn btn-danger"><i class="fas fa-times-circle"></i></a>
+
+                                                @else
+                                                <a href="#" class="btn btn-dark"><i class="fas fa-times-circle"></i></a>
+                                                @endif
+                                            @elseif($currentUser->roles == 2)
+                                                @if($currentUser->id != $data->id)
+                                                    @if($data->roles != 1)
+                                                    <a href="{{ route('users.deactivate', $data->id) }}" class="btn btn-danger"><i class="fas fa-times-circle"></i></a>
+                                                    @else
+                                                        <a href="#" class="btn btn-dark"><i class="fas fa-times-circle"></i></a>
+                                                    @endif
+                                                @else
+                                                <a href="#" class="btn btn-dark"><i class="fas fa-times-circle"></i></a>
+                                                @endif
                                             @endif
                                         </div>
                                   </td>
@@ -136,10 +150,22 @@
 
                                         <td class="p-3">
                                             <div class="flex-row d-flex justify-content-around align-items-center">
-                                                @if($currentUser->id != $data->id)
-                                                <a href="{{ route('users.deactivate', $data->id) }}" class="btn btn-danger"><i class="fas fa-times-circle"></i></a>
-                                                @else
-                                                <a href="#" class="btn btn-dark"><i class="fas fa-times-circle"></i></a>
+                                                @if($currentUser->roles == 1)
+                                                    @if($currentUser->id != $data->id)
+                                                        <a href="{{ route('users.deactivate', $data->id) }}" class="btn btn-danger"><i class="fas fa-times-circle"></i></a>
+                                                    @else
+                                                        <a href="#" class="btn btn-dark"><i class="fas fa-times-circle"></i></a>
+                                                    @endif
+                                                @elseif($currentUser->roles == 2)
+                                                    @if($currentUser->id != $data->id)
+                                                        @if($data->roles != 1)
+                                                            <a href="{{ route('users.deactivate', $data->id) }}" class="btn btn-danger"><i class="fas fa-times-circle"></i></a>
+                                                        @else
+                                                            <a href="#" class="btn btn-dark"><i class="fas fa-times-circle"></i></a>
+                                                        @endif
+                                                    @else
+                                                        <a href="#" class="btn btn-dark"><i class="fas fa-times-circle"></i></a>
+                                                    @endif
                                                 @endif
                                             </div>
                                       </td>
