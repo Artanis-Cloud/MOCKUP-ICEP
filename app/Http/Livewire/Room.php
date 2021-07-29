@@ -102,6 +102,7 @@ class Room extends Component
         $this->double_rate = null;
         $this->corporate_rate = null;
         $this->photos = null;
+        $this->caption = null;
         $this->hotel_id = 0;
 
 
@@ -150,15 +151,18 @@ class Room extends Component
         $photos = $this->photos ?? null;
         // dd($this->photos);
         if ($photos) {
-            foreach ($photos as $photo) {
-                foreach ($photo as $data) {
-                    $images = $data->store('public/upload');
+
+            if ($this->photos) {
+                foreach ($this->photos as $key => $value) {
                     Gallery::create([
-                        'photos' => $images,
+                        'photos' => $this->photos[$key],
+                        'caption' => $this->caption[$key],
                         'room_id' => $hotel_room->id
                     ]);
                 }
             }
+
+
         }
     }
 }
