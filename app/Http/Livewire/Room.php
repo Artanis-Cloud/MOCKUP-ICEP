@@ -151,18 +151,14 @@ class Room extends Component
         $photos = $this->photos ?? null;
         // dd($this->photos);
         if ($photos) {
-
-            if ($this->photos) {
-                foreach ($this->photos as $key => $value) {
-                    Gallery::create([
-                        'photos' => $this->photos[$key],
-                        'caption' => $this->caption[$key],
-                        'room_id' => $hotel_room->id
-                    ]);
-                }
+            foreach ($this->photos as $key => $value) {
+                $image = $this->photos[$key]->store('public/upload');
+                Gallery::create([
+                    'photos' => $image,
+                    'caption' => $this->caption[$key],
+                    'room_id' => $hotel_room->id
+                ]);
             }
-
-
         }
     }
 }

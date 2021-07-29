@@ -127,8 +127,11 @@ class Event extends Component
     {
         if ($this->photos) {
             foreach ($this->photos as $key => $value) {
+                $image = $this->photos[$key]->store('public/upload');
+                // dd($image);
+
                 Gallery::create([
-                    'photos' => $this->photos[$key],
+                    'photos' => $image,
                     'caption' => $this->caption[$key],
                     'eventspace_id' => $event_space->id,
                 ]);
