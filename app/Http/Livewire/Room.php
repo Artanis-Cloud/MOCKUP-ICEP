@@ -119,9 +119,9 @@ class Room extends Component
                     'size' => $this->size[$key] ?? null,
                     'type_of_bed' => $this->type_of_bed[$key] ?? null,
                     'view' => $this->view[$key] ?? null,
-                    'single_rate' => $this->single_rate[$key] ?? null,
-                    'double_rate' => $this->double_rate[$key] ?? null,
-                    'corporate_rate' => $this->corporate_rate[$key] ?? null,
+                    'single_rate' => $this->single_rate[$key] ?? 0,
+                    'double_rate' => $this->double_rate[$key] ?? 0,
+                    'corporate_rate' => $this->corporate_rate[$key] ?? 0,
                     'hotel_id' => $this->hotel_id,
                 ]);
 
