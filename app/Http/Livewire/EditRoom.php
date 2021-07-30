@@ -125,6 +125,8 @@ class EditRoom extends Component
             $this->inputs = [];
             $this->resetInputFields();
             $this->updateMode = false;
+
+            session()->flash('message', 'Room Has Been Updated Successfully.');
     }
 
     private function resetInputFields(){

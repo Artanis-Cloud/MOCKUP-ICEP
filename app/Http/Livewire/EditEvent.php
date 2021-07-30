@@ -100,6 +100,8 @@ class EditEvent extends Component
         $this->inputs = [];
         $this->resetInputFields();
         $this->updateMode = false;
+
+        session()->flash('message', 'Event Space Has Been Updated Successfully.');
     }
 
     private function resetInputFields()

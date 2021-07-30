@@ -12,6 +12,15 @@
 
 
 <style>
+    @media print {
+        p.bodyText {font-family:georgia, times, serif;}
+        .footer {
+            display:none;
+        }
+        .btn {
+            display:none;
+        }
+        }
 a{
   font-size: 100% !important;
 }
@@ -249,6 +258,12 @@ input.search-submit {
 
             <form action="{{ route('compareHotel') }}" method="POST">
                 @csrf
+                <div class="row">
+                    <div class="col-md-11"></div>
+                    <div class="col-md-1">
+                     <button  class="btn btn-primary" onclick="window.print()">Print</button>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col">
                         <label for="first_hotel"><b>First Venue</b></label>

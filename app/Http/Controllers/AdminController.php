@@ -225,6 +225,8 @@ class AdminController extends Controller
     $hotel = Hotel::findOrFail($request->id);
     $hotel->delete();
 
+    session()->flash('message', 'Venue Has Been Deleted Successfully.');
+
     return redirect()->back();
   }
 
@@ -233,6 +235,8 @@ class AdminController extends Controller
     $eventspace = EventSpace::findOrFail($request->id);
     $eventspace->delete();
 
+    session()->flash('message', 'Event Space Has Been Deleted Successfully.');
+
     return redirect()->back();
   }
 
@@ -240,6 +244,8 @@ class AdminController extends Controller
   {
     $hotelroom = HotelRoom::findOrFail($request->id);
     $hotelroom->delete();
+
+    session()->flash('message', 'Room Has Been Deleted Successfully.');
 
     return redirect()->back();
   }

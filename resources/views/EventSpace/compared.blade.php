@@ -18,6 +18,15 @@
 
 
     <style>
+        @media print {
+        p.bodyText {font-family:georgia, times, serif;}
+        .footer {
+            display:none;
+        }
+        .btn {
+            display:none;
+        }
+        }
         a {
             font-size: 100% !important;
         }
@@ -194,7 +203,12 @@
             cursor: pointer;
         }
 
+        @media print {
+        p.bodyText {font-family:georgia, times, serif;}
+     }
+
     </style>
+
     <div class="container-fluid">
         <div class="container p-4">
 
@@ -207,6 +221,12 @@
 
             <form action="{{ route('compareEventSpace') }}" method="POST">
                 @csrf
+                <div class="row">
+                    <div class="col-md-11"></div>
+                    <div class="col-md-1">
+                     <button  class="btn btn-primary" onclick="window.print()">Print</button>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col">
                         <label for="third_hotel"><b>First Venue</b></label>
@@ -510,6 +530,7 @@
                     </div>
                 @endif
             </div>
+
         </div>
 
     </div>
