@@ -32,6 +32,16 @@
 @livewireStyles
 
     <style>
+        @media print {
+        p.bodyText {font-family:georgia, times, serif;}
+        .footer {
+            display:none;
+        }
+        .btn {
+            display:none;
+        }
+        }
+
         .dropdown {
         position: relative;
         display: inline-block;
