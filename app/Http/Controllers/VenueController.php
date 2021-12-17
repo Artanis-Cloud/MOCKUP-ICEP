@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Venues;
 use App\Models\Hotel;
+use App\Models\User;
+use Auth;
+use Illuminate\Support\Facades\Hash;
+
 use DB;
 use App\Models\Gallery;
 use App\Models\EventSpace;
@@ -556,6 +560,51 @@ class VenueController extends Controller
         $bed_type = HotelRoom::distinct('type_of_bed')->get('type_of_bed');
 
         return view('Hotel.comparison', compact('rooms', 'hotels', 'bed_type'));
+    }
+
+    public function updatepassword()
+    {
+        return view('Hotel.password');
+    }
+
+    public function update_password(Request $request)
+    {
+        // dd('asdfasdf');
+        // Validate change password form
+        $this->validator($request->all())->validate();
+
+        $user = User::findOrFail(Auth::user()->id);
+
+        if (!(Hash::check($request->get('old_password'), Auth::user()->password))) {
+            return redirect()->back()->with("error", "Kata laluan terdahulu tidak sama.");
+        }
+
+        if (strcmp($request->get('old_password'), $request->get('password')) == 0) {
+            return redirect()->back()->with("error", "Kata laluan terdahulu tidak boleh sama dengan kata laluan sekarang.");
+        }
+
+        if (strcmp($request->get('password'), $request->get('password_confirmation')) == 1) {
+            return redirect()->back()->with("error", "Kata laluan baru tidak sama.");
+        }
+
+
+        $hashed_random_password = Hash::make($request->get('password'));
+
+        $user->password = $hashed_random_password;
+
+        $user->save();
+
+
+        return redirect()->route('update-password-latest')->with("success", "Kata laluan telah ditukar.");
+    }
+
+    public function validator(array $data)
+    {
+        return Validator::make($data, [
+            'old_password' => ['required', 'string'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password_confirmation' => ['required', 'string'],
+        ]);
     }
 
     public function comparisonEventSpace()

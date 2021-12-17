@@ -243,6 +243,7 @@
 
                             <a href="#" class="dropdown-item disabled small"><i class="mr-1 far fa-user"></i>{{explode(' ',trim(ucwords(strtolower((Auth::user()->name)))))[0]}} </a>
                             <a href="{{ route('admin.update-profile') }}" class="dropdown-item text-secondary-light">Update Profile</a>
+                            <a href="{{ route('admin.password-profile') }}" class="dropdown-item text-secondary-light">Tukar Kata Laluan</a>
                             {{-- <a href="#" class="dropdown-item text-secondary-light">Change Password</a> --}}
 
                             <!-- <a href="#" class="dropdown-item text-secondary-light">Billing history</a> -->
