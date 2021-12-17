@@ -31,6 +31,11 @@ Route::get('/hotel', [App\Http\Controllers\VenueController::class, 'hotel'])->na
 
 Route::get('/hotel-comparison', [App\Http\Controllers\VenueController::class, 'comparisonHotel'])->name('comparison-hotel');
 
+Route::get('/update-password-user', [App\Http\Controllers\VenueController::class, 'updatepassword'])->name('update-password-latest');
+
+Route::post('/tukar-kata-laluan/user', [App\Http\Controllers\VenueController::class, 'update_password'])->name('tukar-kata-laluan.user');
+
+
 Route::get('/eventspace-comparison', [App\Http\Controllers\VenueController::class, 'comparisonEventSpace'])->name('comparison-eventspace');
 
 Route::get('/venue/details', [App\Http\Controllers\VenueController::class, 'details'])->name('details');
@@ -100,6 +105,9 @@ Route::middleware([CheckRole::class])->group(function(){
     Route::post('/update-profile-update', [App\Http\Controllers\AdminController::class, 'update_profile'])->name('admin.update-profile-update');
 
     Route::get('/update-profile', [App\Http\Controllers\AdminController::class, 'update_profile_admin'])->name('admin.update-profile');
+    Route::get('/update-password', [App\Http\Controllers\AdminController::class, 'update_password_admin'])->name('admin.password-profile');
+    Route::post('/tukar-kata-laluan/kemaskini', [App\Http\Controllers\AdminController::class, 'update_password'])->name('tukar-kata-laluan.kemaskini');
+
 
     Route::get('/audit-trail', [App\Http\Controllers\AdminController::class, 'viewAuditList'])->name('admin.audit-trail.audit-trail-log');
 

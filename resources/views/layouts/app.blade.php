@@ -194,6 +194,9 @@
                      <li class="nav-item"><a class="nav-link menu {{ (request()->is('hotel')) ? 'active' : '' }}" href="{{ route('hotel') }}">ACCOMMODATION</a></li>
                      <li class="nav-item"><a class="nav-link menu {{ (request()->is('eventspace-comparison')) ? 'active' : '' }}" href="{{ route('comparison-eventspace') }}">EVENT SPACE COMPARISON</a></li>
                      <li class="nav-item"><a class="nav-link menu {{ (request()->is('hotel-comparison')) ? 'active' : '' }}" href="{{ route('comparison-hotel') }}">ACCOMMODATION COMPARISON</a></li>
+                     <li class="nav-item"><a class="nav-link menu {{ (request()->is('hotel-comparison')) ? 'active' : '' }}" href="{{ route('update-password-latest') }}">CHANGE PASSWORD</a></li>
+
+                     {{-- <li class="nav-item"><a class="nav-link menu" href="{{ route('update-password') }}">ACCOMMODATION COMPARISON</a></li> --}}
                      <li class="nav-item"><a class="nav-link menu" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('LOGOUT') }}</font></a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
