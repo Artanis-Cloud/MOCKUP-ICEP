@@ -269,13 +269,11 @@ section {
                   <div class="inputBx">
                     <input type="email" required="required" name="email">
                     <span>Email</span>
-                    <img src="https://www.flaticon.com/svg/static/icons/svg/709/709699.svg" alt="user">
                   </div>
                   <div class="inputBx password">
                     <input id="password-input" type="password" name="password" required="required">
                     <span>Password</span>
                     <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
-                    <img src="https://www.flaticon.com/svg/static/icons/svg/1828/1828471.svg" alt="lock">
                   </div>
                   <label class="remember"><input type="checkbox">
                     Remember</label>
