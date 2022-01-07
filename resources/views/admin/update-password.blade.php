@@ -79,7 +79,7 @@
                     <div class="row">
                       <div class="col-md-3"></div>
                       <div class="col-md-6" style="text-align: center;">
-                        <button type="button" class="btn waves-effect waves-light btn-info btn-block" data-toggle="modal" data-target="#confirmation">Tukar Kata laluan</button>
+                        <button type="button" class="btn waves-effect waves-light btn-info btn-block" data-toggle="modal" data-target="#confirmation">Change Password</button>
                       </div>
                       <div class="col-md-3"></div>
                     </div>
