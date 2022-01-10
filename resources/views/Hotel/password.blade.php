@@ -203,7 +203,7 @@
                 {{-- <div class="col-2"></div> --}}
                 <div class="col-12">
                     <div class="card">
-                      <div class="text-center card-header" style="background-color: #EB831D;"><h4>Tukar Kata Laluan</h4></div>
+                      <div class="text-center card-header" style="background-color: #EB831D;"><h4>Change Password</h4></div>
 
                       <form method="POST" action="{{ route('tukar-kata-laluan.user') }}">
                       {{ csrf_field() }}
@@ -223,7 +223,7 @@
                             <div class="row">
                               <div class="col-md-3"></div>
                               <div class="col-md">
-                                <label>Kata Laluan Terdahulu</label>
+                                <label>Current Password</label>
                                 <div class="mb-3 input-group">
                                     <input class="form-control @error('old_password') is-invalid @else border-dark @enderror" id="old_password" name="old_password" type="password">
                                     <div class="input-group-append">
@@ -242,7 +242,7 @@
                             <div class="row">
                               <div class="col-md-3"></div>
                               <div class="col-md">
-                                <label>Kata Laluan Baru</label>
+                                <label>New Password</label>
                                 <div class="mb-3 input-group">
                                     <input class="form-control @error('password') is-invalid @else border-dark @enderror" id="password" name="password" type="password">
                                     <div class="input-group-append">
@@ -256,7 +256,7 @@
                                 </div>
                               </div>
                               <div class="col-md">
-                                <label>Sahkan Kata Laluan Baru</label>
+                                <label>Confirm Password</label>
                                 <div class="mb-3 input-group">
                                     <input class="form-control @error('password') is-invalid @else border-dark @enderror" id="password_confirmation" name="password_confirmation" type="password">
                                     <div class="input-group-append">
@@ -276,7 +276,7 @@
                             <div class="row">
                               <div class="col-md-3"></div>
                               <div class="col-md-6" style="text-align: center;">
-                                <button type="button" class="btn waves-effect waves-light btn-info btn-block" data-toggle="modal" data-target="#confirmation">Tukar Kata laluan</button>
+                                <button type="button" class="btn waves-effect waves-light btn-info btn-block" data-toggle="modal" data-target="#confirmation">Change Password</button>
                               </div>
                               <div class="col-md-3"></div>
                             </div>
@@ -291,17 +291,17 @@
                           <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                               <div class="modal-header" style="background-color:#f3ce8f  !important">
-                                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-exclamation-triangle" style="color:rgb(255, 255, 0)" aria-hidden="true"></i>&nbspPENGESAHAN</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-exclamation-triangle" style="color:rgb(255, 255, 0)" aria-hidden="true"></i>&nbspCONFIRMATION</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
                               </div>
-                              <div class="modal-body">
-                                Anda pasti mahu menukar kata laluan baru?
+                              <div class="modal-body"><b>
+                                Are you sure to change the password?
                               </div>
                               <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                                <button type="submit" class="btn btn-success">Tukar Kata Laluan</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-success">Change Password</button>
                               </div>
                             </div>
                           </div>
