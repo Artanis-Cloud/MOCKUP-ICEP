@@ -576,15 +576,15 @@ class VenueController extends Controller
         $user = User::findOrFail(Auth::user()->id);
 
         if (!(Hash::check($request->get('old_password'), Auth::user()->password))) {
-            return redirect()->back()->with("error", "Kata laluan terdahulu tidak sama.");
+            return redirect()->back()->with("error", "The previous password is not the same.");
         }
 
         if (strcmp($request->get('old_password'), $request->get('password')) == 0) {
-            return redirect()->back()->with("error", "Kata laluan terdahulu tidak boleh sama dengan kata laluan sekarang.");
+            return redirect()->back()->with("error", "The previous password cannot be the same as the current password.");
         }
 
         if (strcmp($request->get('password'), $request->get('password_confirmation')) == 1) {
-            return redirect()->back()->with("error", "Kata laluan baru tidak sama.");
+            return redirect()->back()->with("error", "New passwords are not the same.");
         }
 
 
@@ -595,7 +595,7 @@ class VenueController extends Controller
         $user->save();
 
 
-        return redirect()->route('update-password-latest')->with("success", "Kata laluan telah ditukar.");
+        return redirect()->route('update-password-latest')->with("success", "Password has been changed successfully.");
     }
 
     public function validator(array $data)

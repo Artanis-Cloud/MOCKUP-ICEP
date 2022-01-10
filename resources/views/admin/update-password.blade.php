@@ -94,12 +94,12 @@
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                       <div class="modal-header" style="background-color:#f3ce8f  !important">
-                        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-exclamation-triangle" style="color:rgb(255, 255, 0)" aria-hidden="true"></i>&nbspPENGESAHAN</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-exclamation-triangle" style="color:rgb(255, 255, 0)" aria-hidden="true"></i>&nbspCONFIRMATION</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                      <div class="modal-body">
+                      <div class="modal-body"><b>
                         Are you sure to change the password?
                       </div>
                       <div class="modal-footer">
